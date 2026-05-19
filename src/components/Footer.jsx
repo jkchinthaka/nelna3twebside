@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
+  Clock,
   Facebook,
   Instagram,
   Linkedin,
@@ -15,9 +16,11 @@ import wordmarkLogo from '../assets/Vector Smart Object.png'
 const quickLinks = [
   { to: '/', label: 'Home' },
   { to: '/products', label: 'Products' },
+  { to: '/products#bulk-order', label: 'Order Now' },
   { to: '/product-finder', label: 'Product Finder' },
   { to: '/about', label: 'About' },
   { to: '/quality-safety', label: 'Quality & Safety' },
+  { to: '/contact#distributor-partnership', label: 'Become a Distributor' },
   { to: '/sustainability', label: 'Sustainability' },
   { to: '/recipes', label: 'Recipes' },
   { to: '/news', label: 'News' },
@@ -39,6 +42,12 @@ const businessUnits = [
   'Nelna Breeders (Pvt) Ltd',
   'Nelna Impex (Pvt) Ltd',
   'Nelna Agri Development (Pvt) Ltd',
+]
+
+const businessHours = [
+  'Monday to Friday: 8:00 AM - 5:00 PM',
+  'Saturday: 8:00 AM - 12:00 PM',
+  'Sunday: Closed',
 ]
 
 const socialLinks = [
@@ -151,8 +160,7 @@ function Footer() {
               <img src={wordmarkLogo} alt="Nelna Fresh" loading="lazy" className="h-14 w-[220px] object-cover object-center md:h-16 md:w-[250px]" />
             </Link>
             <p className="max-w-md text-sm leading-relaxed text-brand-green-100">
-              Nelna Farm is a Sri Lankan corporate poultry and frozen-food group focused on food safety,
-              trusted nutrition, and reliable nationwide distribution.
+              Nelna Farm (Pvt) Ltd is a Sri Lankan poultry and food company delivering premium protein products with certified quality, food safety, and dependable nationwide distribution.
             </p>
             <div>
               <Link
@@ -252,12 +260,25 @@ function Footer() {
                 <ShieldCheck className="h-4 w-4 text-brand-yellow-300" aria-hidden="true" />
                 <span>ISO 22000, HACCP, GMP, Halal</span>
               </li>
+              <li className="flex items-start gap-2">
+                <Clock className="mt-0.5 h-4 w-4 text-brand-yellow-300" aria-hidden="true" />
+                <span>{businessHours[0]} · {businessHours[1]}</span>
+              </li>
             </ul>
+
+            <div className="mt-4 rounded-xl border border-brand-green-700 bg-brand-green-900/70 p-3">
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-yellow-200">Business Hours</p>
+              <ul className="mt-2 space-y-1 text-xs text-brand-green-100">
+                {businessHours.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
         <section className="flex flex-col gap-3 border-t border-brand-green-800 py-5 text-xs text-brand-green-100 sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright {currentYear} Nelna Farm. All rights reserved.</p>
+          <p>Copyright {currentYear} Nelna Farm (Pvt) Ltd. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
             <Link to="/privacy" className="transition hover:text-brand-yellow-300">Privacy</Link>
             <Link to="/terms" className="transition hover:text-brand-yellow-300">Terms</Link>

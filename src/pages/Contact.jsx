@@ -299,8 +299,17 @@ function Contact() {
             </article>
           </div>
 
-          <div className="surface-card p-5 md:p-7">
+          <div id="distributor-partnership" className="surface-card p-5 md:p-7">
+            <div className="rounded-2xl border border-brand-green-100 bg-brand-green-50/65 p-4">
+              <h2 className="text-base font-bold text-brand-green-900 md:text-lg">
+                Distributor and Dealer Partnership Inquiries
+              </h2>
+              <p className="mt-2 text-sm font-medium leading-relaxed text-slate-700">
+                Tell us your location, product interest, and expected monthly volume. Our sales team will review partnership opportunities, supply planning, and onboarding support.
+              </p>
+            </div>
             <SectionTitle
+              className="mt-5"
               title="Send an Inquiry"
               subtitle="We usually respond within the same business day."
             />

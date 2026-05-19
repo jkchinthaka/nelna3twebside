@@ -39,7 +39,12 @@ function ProductGallery({ product }) {
               }`}
               aria-label={`View product image ${index + 1}`}
             >
-              <img src={image} alt="" className="h-16 w-full object-cover" loading="lazy" />
+              <img
+                src={image}
+                alt={`${product?.name || 'Product'} thumbnail ${index + 1}`}
+                className="h-16 w-full object-cover"
+                loading="lazy"
+              />
             </button>
           ))}
         </div>

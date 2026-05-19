@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
    ShieldCheck,
@@ -9,6 +9,8 @@ import {
    ArrowRight,
    Star,
    ChefHat,
+   Truck,
+   Users,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import HeroSlider from '../components/HeroSlider.jsx'
@@ -106,18 +108,111 @@ function Home() {
    const processCards = [
       {
          title: 'Bio-secure Farms',
-         desc: 'Healthy poultry raised in controlled, bio-secure environments.',
+         desc: 'Healthy poultry raised under controlled farm biosecurity and veterinary oversight.',
          image: processCardImg1,
       },
       {
-         title: 'Modern Processing',
-         desc: 'State-of-the-art processing for safety, freshness, and consistency.',
+         title: 'Modern Processing and Hygiene',
+         desc: 'Certified facilities ensure food safety, consistency, and strict process control.',
          image: processCardImg2,
       },
       {
-         title: 'Cold-chain Delivery',
-         desc: 'Fast, chilled delivery to keep products fresh from farm to store.',
+         title: 'Reliable Cold-chain Distribution',
+         desc: 'Timely chilled distribution keeps products fresh from processing to retail shelves.',
          image: processCardImg3,
+      },
+   ]
+
+   const categoryCards = useMemo(() => {
+      const sourceProducts = Array.isArray(products) && products.length ? products : fallbackProducts
+
+      const categories = [
+         {
+            title: 'Chicken Products',
+            description: 'Whole birds, cuts, and frozen packs for retail, food service, and wholesale supply.',
+            to: '/products?cat=chicken',
+            matcher: (product) => {
+               const text = `${product.name || ''} ${product.category || ''}`.toLowerCase()
+               return text.includes('chicken') || text.includes('broiler')
+            },
+         },
+         {
+            title: 'Eggs',
+            description: 'Fresh, graded eggs handled under controlled quality and hygienic packing standards.',
+            to: '/products?cat=egg',
+            matcher: (product) => {
+               const text = `${product.name || ''} ${product.category || ''}`.toLowerCase()
+               return text.includes('egg')
+            },
+         },
+         {
+            title: 'Fresh Produce',
+            description: 'Selected farm produce and seasonal items distributed with quality-first handling.',
+            to: '/products?cat=fresh%20produce',
+            matcher: (product) => {
+               const text = `${product.name || ''} ${product.category || ''}`.toLowerCase()
+               return text.includes('produce') || text.includes('fresh') || text.includes('vegetable') || text.includes('fruit')
+            },
+         },
+         {
+            title: 'Processed & Value-Added',
+            description: 'Convenient ready-to-cook and value-added poultry products for modern kitchens.',
+            to: '/products?cat=value-added',
+            matcher: (product) => {
+               const text = `${product.name || ''} ${product.category || ''}`.toLowerCase()
+               return text.includes('value') || text.includes('processed') || text.includes('ready')
+            },
+         },
+         {
+            title: 'Poultry Inputs',
+            description: 'Poultry feed and day-old broiler chicks to support reliable farming operations.',
+            to: '/products?cat=feed',
+            matcher: (product) => {
+               const text = `${product.name || ''} ${product.category || ''}`.toLowerCase()
+               return text.includes('feed') || text.includes('chicks') || text.includes('broiler')
+            },
+         },
+      ]
+
+      return categories.map((item) => {
+         const sample = sourceProducts.find(item.matcher)
+         return {
+            ...item,
+            imageUrl: sample?.imageUrl || null,
+         }
+      })
+   }, [products])
+
+   const trustPillars = [
+      {
+         title: 'Farm Freshness',
+         description: 'Controlled farm environments and monitored feed programs deliver consistent freshness.',
+         icon: Leaf,
+      },
+      {
+         title: 'Hygiene and Safety',
+         description: 'Processing and handling follow ISO 22000, HACCP, GMP, and Halal-aligned practices.',
+         icon: ShieldCheck,
+      },
+      {
+         title: 'Quality Control',
+         description: 'Every batch goes through checks for taste, consistency, and food safety compliance.',
+         icon: CheckCircle2,
+      },
+      {
+         title: 'Reliable Distribution',
+         description: 'Cold-chain logistics and coordinated dispatch maintain product integrity across Sri Lanka.',
+         icon: Truck,
+      },
+      {
+         title: 'Customer Trust',
+         description: 'Hotels, retailers, and families trust Nelna for stable quality and responsive support.',
+         icon: Users,
+      },
+      {
+         title: 'Company Reputation',
+         description: 'Since 1998, Nelna has built a reputation for reliability, accountability, and long-term value.',
+         icon: Award,
       },
    ]
 
@@ -191,18 +286,18 @@ function Home() {
                      <span>Premium Quality Standard</span>
                   </div>
                   <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
-                     Taste the Difference of <span className="text-brand-600">Pure Freshness</span>
+                     Built for <span className="text-brand-600">Quality, Safety, and Trust</span>
                   </h2>
                   <p className="text-lg text-slate-700 mb-8 leading-relaxed">
-                     At Nelna, we don't cut corners. From our bio-secure farms to your kitchen table, every step is monitored to ensure you get poultry that is tender, juicy, and completely safe for your loved ones.
+                     Nelna Farm combines certified production standards, modern processing, and disciplined cold-chain logistics to deliver dependable premium poultry and food products for households, retailers, and food service operations.
                   </p>
 
                   <div className="grid sm:grid-cols-2 gap-6 mb-10">
                      {[
-                        { icon: ShieldCheck, title: 'Antibiotic Free', desc: 'Raised without growth promoters.' },
-                        { icon: Clock, title: 'Maximum Freshness', desc: 'Processed and delivered daily.' },
-                        { icon: Leaf, title: 'Ethically Raised', desc: 'Humane farming practices.' },
-                        { icon: CheckCircle2, title: 'Full Traceability', desc: 'Know where your food comes from.' },
+                        { icon: ShieldCheck, title: 'Certified Food Safety', desc: 'Operational controls aligned with international quality systems.' },
+                        { icon: Clock, title: 'Freshness Commitment', desc: 'Efficient processing and dispatch for dependable shelf quality.' },
+                        { icon: Leaf, title: 'Responsible Farming', desc: 'Structured farm management with animal welfare oversight.' },
+                        { icon: CheckCircle2, title: 'Batch Traceability', desc: 'Clear process visibility from farm inputs to final delivery.' },
                      ].map((feature, i) => (
                         <div key={i} className="flex gap-4">
                            <div className="w-10 h-10 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
@@ -217,10 +312,10 @@ function Home() {
                   </div>
 
                   <Link
-                     to="/about"
+                     to="/quality-safety"
                      className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-brand-600 text-white font-bold shadow-lg shadow-brand-200 transition-all hover:bg-brand-700 hover:shadow-xl hover:-translate-y-1"
                   >
-                     Explore Our Standard <ArrowRight className="w-4 h-4" />
+                     Read Our Standards <ArrowRight className="w-4 h-4" />
                   </Link>
                </div>
             </div>
@@ -284,6 +379,52 @@ function Home() {
             </div>
          </section>
 
+         <section className="bg-white py-24">
+            <div className="mx-auto max-w-7xl px-4">
+               <SectionHeading
+                  eyebrow="Product Portfolio"
+                  title="Professional Product Categories for Every Business Need"
+                  subtitle="Explore Nelna Farm categories built for retail shelves, food service kitchens, and distribution networks across Sri Lanka."
+                  align="left"
+                  eyebrowClassName="text-brand-green-800"
+                  titleClassName="text-slate-950"
+                  subtitleClassName="text-slate-800 md:text-[1.03rem] leading-relaxed font-medium"
+               />
+
+               <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+                  {categoryCards.map((item) => (
+                     <article key={item.title} className="surface-card surface-card-hover overflow-hidden">
+                        <div className="h-36 w-full bg-slate-100">
+                           {item.imageUrl ? (
+                              <img
+                                 src={item.imageUrl}
+                                 alt={`${item.title} by Nelna Farm`}
+                                 loading="lazy"
+                                 className="h-full w-full object-cover"
+                              />
+                           ) : (
+                              <div className="flex h-full items-center justify-center px-4 text-center text-sm font-semibold text-slate-500">
+                                 {item.title}
+                              </div>
+                           )}
+                        </div>
+                        <div className="space-y-3 p-5">
+                           <h3 className="text-lg font-display font-bold text-slate-900">{item.title}</h3>
+                           <p className="text-sm leading-relaxed text-slate-700">{item.description}</p>
+                           <Link
+                              to={item.to}
+                              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-green-700"
+                           >
+                              View Category
+                              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                           </Link>
+                        </div>
+                     </article>
+                  ))}
+               </div>
+            </div>
+         </section>
+
          {/* 4. Why Choose Nelna (Process) */}
          <section className="py-24 overflow-hidden relative">
             <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-50/70 -z-10" />
@@ -297,10 +438,10 @@ function Home() {
             <div className="relative z-10 max-w-7xl mx-auto px-4">
                <div className="mb-16 text-center max-w-3xl mx-auto">
                   <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
-                     Why Top Chefs & Families<br/> <span className="text-brand-600">Trust Nelna</span>
+                     Why Businesses and Families<br/> <span className="text-brand-600">Trust Nelna Farm</span>
                   </h2>
                   <p className="text-slate-700 text-lg">
-                     It's not just chicken. It's a commitment to <span className="font-bold text-slate-800">uncompromising quality</span> that you can taste in every bite.
+                     Beyond products, we deliver disciplined operations, quality assurance, and accountable service that protect your brand and your customers.
                   </p>
                </div>
 
@@ -331,33 +472,43 @@ function Home() {
          </section>
 
          <section className="bg-white py-24">
-            <div className="mx-auto grid max-w-7xl gap-6 px-4 md:grid-cols-3">
-               {[
-                  {
-                     title: 'Quality & Safety',
-                     body: 'International processing standards, hygienic handling, and veterinary supervision at every stage.',
-                     href: '/quality-safety',
-                  },
-                  {
-                     title: 'Traceability',
-                     body: 'Farm-to-table visibility covering breeder stock, feed, processing, packaging, and cold-chain distribution.',
-                     href: '/traceability',
-                  },
-                  {
-                     title: 'Sustainability',
-                     body: 'Responsible waste management, compost initiatives, and environmentally mindful operations since 2009.',
-                     href: '/sustainability',
-                  },
-               ].map((item) => (
-                  <article key={item.title} className="surface-card surface-card-hover p-6">
-                     <h3 className="text-xl font-display font-bold text-slate-900">{item.title}</h3>
-                     <p className="mt-3 text-sm leading-relaxed text-slate-700">{item.body}</p>
-                     <Link to={item.href} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-green-700">
-                        Explore
-                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                     </Link>
-                  </article>
-               ))}
+            <div className="mx-auto max-w-7xl px-4">
+               <SectionHeading
+                  eyebrow="Trust and Quality"
+                  title="A Production System Designed for Reliability"
+                  subtitle="Our end-to-end process supports consistent quality, safe food handling, and dependable commercial supply."
+                  align="left"
+                  eyebrowClassName="text-brand-green-800"
+                  titleClassName="text-slate-950"
+                  subtitleClassName="text-slate-800 md:text-[1.03rem] leading-relaxed font-medium"
+               />
+
+               <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                  {trustPillars.map((item) => (
+                     <article key={item.title} className="surface-card surface-card-hover p-6">
+                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-brand-green-50 text-brand-green-700">
+                           <item.icon className="h-5 w-5" aria-hidden="true" />
+                        </div>
+                        <h3 className="mt-4 text-xl font-display font-bold text-slate-900">{item.title}</h3>
+                        <p className="mt-3 text-sm leading-relaxed text-slate-700">{item.description}</p>
+                     </article>
+                  ))}
+               </div>
+
+               <div className="mt-8 flex flex-wrap gap-3">
+                  <Link to="/quality-safety" className="btn-primary px-5 py-2.5 text-sm">
+                     Quality and Safety
+                  </Link>
+                  <Link to="/traceability" className="btn-secondary px-5 py-2.5 text-sm">
+                     Traceability
+                  </Link>
+                  <Link
+                     to="/sustainability"
+                     className="inline-flex min-h-[44px] items-center justify-center rounded-pill border border-brand-green-200 bg-brand-green-50 px-5 py-2.5 text-sm font-semibold text-brand-green-700"
+                  >
+                     Sustainability
+                  </Link>
+               </div>
             </div>
          </section>
 
@@ -391,8 +542,8 @@ function Home() {
                   <ChefHat className="w-8 h-8" />
                </div>
                <SectionHeading
-                  title="Trusted by Culinary Experts"
-                  subtitle="We are the silent partner behind many of Sri Lanka's finest culinary experiences. From 5-star hotels to local favorites."
+                  title="Trusted by Culinary and Retail Professionals"
+                  subtitle="From hotel kitchens to modern supermarkets, businesses rely on Nelna Farm for consistent quality and dependable supply."
                   titleClassName="!text-slate-900"
                   subtitleClassName="!text-slate-700"
                />
@@ -417,6 +568,35 @@ function Home() {
                         },
                      ]}
                   />
+               </div>
+            </div>
+         </section>
+
+         <section id="distributor-opportunity" className="bg-gradient-to-r from-brand-green-950 via-brand-green-900 to-brand-green-800 py-20 text-white">
+            <div className="mx-auto max-w-7xl px-4">
+               <div className="grid gap-8 rounded-3xl border border-white/25 bg-white/10 p-8 backdrop-blur md:grid-cols-[1.3fr_0.7fr] md:items-center md:p-10">
+                  <div>
+                     <p className="inline-flex rounded-pill border border-brand-yellow-200/70 bg-brand-yellow-400/25 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-brand-yellow-100">
+                        Distributor and Dealer Network
+                     </p>
+                     <h2 className="mt-4 text-3xl font-display font-bold text-white md:text-4xl">
+                        Become a Nelna Farm Distributor
+                     </h2>
+                     <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-brand-green-50 md:text-base">
+                        Partner with Nelna Farm to access stable supply, category support, and a recognized brand trusted by customers across Sri Lanka. We work with distributors and dealers focused on long-term growth and service excellence.
+                     </p>
+                  </div>
+                  <div className="flex flex-col gap-3 md:items-end">
+                     <Link to="/contact#distributor-partnership" className="btn-secondary w-full justify-center px-6 py-3 text-sm md:w-auto md:min-w-[230px]">
+                        Become a Distributor
+                     </Link>
+                     <Link
+                        to="/contact"
+                        className="inline-flex min-h-[44px] w-full items-center justify-center rounded-pill border border-white/80 bg-black/20 px-6 py-3 text-sm font-bold text-white md:w-auto md:min-w-[230px]"
+                     >
+                        Contact Sales Team
+                     </Link>
+                  </div>
                </div>
             </div>
          </section>
@@ -459,10 +639,10 @@ function Home() {
 
          {/* 8. Final CTA */}
          <AnimatedCTASection
-            title="Ready to Experience Premium Quality?"
-            body="Join thousands of satisfied customers who trust Nelna for their daily protein needs."
-            primary={{ href: '/products', label: 'Explore Our Products' }}
-            secondary={{ href: '/product-finder', label: 'Find Products Near You' }}
+            title="Ready to Work with a Trusted Food and Poultry Partner?"
+            body="Talk to our team for product supply, distributor opportunities, and reliable delivery support tailored to your business needs."
+            primary={{ href: '/products#bulk-order', label: 'Order Now' }}
+            secondary={{ href: '/contact', label: 'Contact Sales' }}
          />
       </div>
    )

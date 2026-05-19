@@ -67,10 +67,11 @@ function withLanguageParam(urlString, language) {
   }
 }
 
-function SEO({ title, description, image, canonical, schema, siteName, locale, hreflangs }) {
+function SEO({ title, description, keywords, image, canonical, schema, siteName, locale, hreflangs }) {
   useEffect(() => {
     if (title) document.title = title
     upsertMeta('description', description)
+    upsertMeta('keywords', keywords)
     upsertProperty('og:title', title)
     upsertProperty('og:description', description)
     upsertProperty('og:image', image)

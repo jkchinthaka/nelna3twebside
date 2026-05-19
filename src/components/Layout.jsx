@@ -3,12 +3,15 @@ import Navbar from './Navbar.jsx'
 import Footer from './Footer.jsx'
 import SEO from './SEO.jsx'
 import ScrollToTopButton from './ScrollToTopButton.jsx'
+import FloatingWhatsAppButton from './FloatingWhatsAppButton.jsx'
 
 const routeMeta = {
   '/': {
-    title: 'Nelna Farm | Sri Lanka’s Trusted Poultry & Frozen Food Brand',
+    title: 'Nelna Farm | Premium Chicken, Eggs and Fresh Produce in Sri Lanka',
     description:
-      'Nelna Farm delivers premium poultry, frozen food, and farm-fresh protein with strict quality, safety, and sustainability standards.',
+      'Nelna Farm is a trusted Sri Lankan food and poultry company delivering premium chicken products, eggs, fresh produce, and value-added foods with certified quality and reliable distribution.',
+    keywords:
+      'Nelna Farm, Sri Lanka poultry company, premium chicken Sri Lanka, frozen chicken products, eggs supplier Sri Lanka, fresh produce Sri Lanka, food safety certified poultry, distributor poultry Sri Lanka',
     schema: {
       '@context': 'https://schema.org',
       '@type': 'Organization',
@@ -20,26 +23,32 @@ const routeMeta = {
   '/products': {
     title: 'Products | Nelna Farm',
     description: 'Explore broiler chicken, eggs, and processed poultry products.',
+    keywords: 'Nelna products, chicken products Sri Lanka, value-added poultry, frozen food catalog Sri Lanka',
   },
   '/about': {
     title: 'About Us | Nelna Farm',
     description: 'Learn about Nelna Farm history, mission, and certifications.',
+    keywords: 'about Nelna Farm, Sri Lankan poultry company history, Nelna certifications',
   },
   '/quality-safety': {
     title: 'Quality & Safety | Nelna Farm',
     description: 'Biosecurity, certifications, and safety practices at Nelna Farm.',
+    keywords: 'poultry food safety Sri Lanka, ISO 22000 poultry, HACCP poultry, Halal poultry Sri Lanka',
   },
   '/sustainability': {
     title: 'Sustainability & CSR | Nelna Farm',
     description: 'Sustainability initiatives and CSR commitments at Nelna Farm.',
+    keywords: 'sustainable poultry Sri Lanka, CSR Nelna Farm, responsible farming Sri Lanka',
   },
   '/news': {
     title: 'News & Updates | Nelna Farm',
     description: 'Latest updates and announcements from Nelna Farm.',
+    keywords: 'Nelna news, poultry industry updates Sri Lanka, Nelna announcements',
   },
   '/contact': {
     title: 'Contact | Nelna Farm',
     description: 'Reach Nelna Farm for inquiries, orders, and partnerships.',
+    keywords: 'contact Nelna Farm, poultry distributor inquiry Sri Lanka, Nelna sales contact',
   },
   '/certifications': {
     title: 'Certifications | Nelna Farm',
@@ -97,6 +106,8 @@ function Layout() {
   const meta = routeMeta[location.pathname] || {
     title: `${siteName} | Premium Poultry & Frozen Food in Sri Lanka`,
     description: 'Trusted poultry and frozen food brand with farm-to-fork quality and safety standards.',
+    keywords:
+      'Sri Lanka poultry company, premium chicken supplier, frozen food distribution, Nelna Farm',
   }
   const canonical = `${siteUrl}${location.pathname}`
   const schema = meta.schema
@@ -113,6 +124,7 @@ function Layout() {
       <SEO
         title={meta.title}
         description={meta.description}
+        keywords={meta.keywords}
         canonical={canonical}
         schema={schema}
         siteName={siteName}
@@ -127,6 +139,7 @@ function Layout() {
         <Outlet />
       </main>
       <Footer />
+      {!isPortalRoute ? <FloatingWhatsAppButton /> : null}
       <ScrollToTopButton />
     </div>
   )

@@ -31,22 +31,24 @@ const slideImages = [
 
 const fallbackSlides = [
   {
-    title: 'Delivering Sri Lanka\'s Trusted Poultry Excellence Since 1998',
+    title: 'PREMIUM POULTRY\nAND FRESH PRODUCE\nYOU CAN TRUST',
     subtitle:
-      'Nelna Farm produces high-quality frozen chicken and value-added poultry products with international processing standards, natural taste, trusted nutrition, and nationwide availability.',
-    button: 'Explore Products',
+      'Nelna Farm supplies premium chicken, eggs, and fresh produce with certified food safety, strict quality control, and dependable island-wide delivery for homes and businesses.',
   },
   {
-    title: 'Premium Frozen Food Backed by Food Safety and Quality Control',
+    title: 'CERTIFIED QUALITY\nFROM FARM\nTO EVERY KITCHEN',
     subtitle:
-      'From breeder stock and veterinary supervision to certified cold-chain distribution, every stage is monitored for consistent quality.',
-    button: 'Contact Sales',
+      'From breeder stock and veterinary supervision to processing and dispatch, every stage is managed with measurable standards and traceability.',
   },
   {
-    title: 'Supporting Distributors, Retailers, and Families Across Sri Lanka',
+    title: 'RELIABLE COLD-CHAIN\nDELIVERY FOR\nHOMES AND BUSINESS',
     subtitle:
-      'Reliable supply, trusted certifications, and responsive service for modern commerce in every province.',
-    button: 'Find Products Near You',
+      'Our integrated distribution network protects freshness and keeps supply consistent for retailers, restaurants, and institutional buyers.',
+  },
+  {
+    title: 'GROW WITH NELNA\nAS A DISTRIBUTOR\nPARTNER',
+    subtitle:
+      'Expand your business with stable product availability, operational support, and a trusted Sri Lankan brand built for long-term partnerships.',
   },
 ]
 
@@ -102,7 +104,28 @@ function HeroSlider() {
     return fallbackSlides
   }, [translatedSlides])
 
-  const contactLabel = t('cta.contactUs', { ns: 'common', defaultValue: 'Contact Us' })
+  const heroActions = [
+    {
+      label: 'View Products',
+      to: '/products',
+      kind: 'primary',
+    },
+    {
+      label: 'Contact Sales',
+      to: '/contact',
+      kind: 'secondary',
+    },
+    {
+      label: 'Become a Distributor',
+      to: '/contact#distributor-partnership',
+      kind: 'outline',
+    },
+    {
+      label: 'Order Now',
+      to: '/products#bulk-order',
+      kind: 'outline',
+    },
+  ]
 
   return (
     <section className="relative min-h-[650px] overflow-hidden bg-brand-green-950 pt-16 md:pt-20">
@@ -144,9 +167,11 @@ function HeroSlider() {
                   <source srcSet={image.webp} type="image/webp" />
                   <img
                     src={image.fallback}
-                    alt={slide.title || 'Nelna Farm premium poultry production'}
+                        alt={index === 0 ? 'Nelna Farm premium poultry and fresh produce' : 'Nelna Farm quality production and distribution operations'}
                     className={`h-full w-full object-cover object-center ${prefersReducedMotion ? '' : 'animate-ken-burns'}`}
                     loading={index === 0 ? 'eager' : 'lazy'}
+                        fetchPriority={index === 0 ? 'high' : 'auto'}
+                        decoding="async"
                   />
                 </picture>
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-green-950/96 via-brand-green-900/82 to-brand-green-900/46" />
@@ -178,22 +203,24 @@ function HeroSlider() {
                       {slide.subtitle || fallbackSlides[0].subtitle}
                     </p>
 
-                    <div className="mt-8 flex flex-wrap items-center gap-3.5">
-                      <Link to="/products" className="btn-primary px-7 py-3 text-sm shadow-float md:text-base">
-                        {slide.button || 'Explore Products'}
-                        <ChevronRight className="h-4 w-4" aria-hidden="true" />
-                      </Link>
-
-                      <Link to="/contact" className="btn-secondary px-7 py-3 text-sm md:text-base">
-                        {contactLabel}
-                      </Link>
-
-                      <Link
-                        to="/quality-safety"
-                        className="inline-flex min-h-[44px] items-center justify-center rounded-pill border border-white/85 bg-black/24 px-6 py-3 text-sm font-bold text-white backdrop-blur transition hover:border-brand-yellow-300 hover:bg-black/40 md:text-base"
-                      >
-                        Our Standards
-                      </Link>
+                    <div className="mt-8 grid w-full gap-3 sm:max-w-2xl sm:grid-cols-2">
+                      {heroActions.map((action) => (
+                        <Link
+                          key={action.label}
+                          to={action.to}
+                          className={
+                            action.kind === 'primary'
+                              ? 'btn-primary justify-center gap-2 px-6 py-3 text-sm shadow-float md:text-base'
+                              : action.kind === 'secondary'
+                                ? 'btn-secondary justify-center gap-2 px-6 py-3 text-sm md:text-base'
+                                : 'inline-flex min-h-[44px] items-center justify-center rounded-pill border border-white/85 bg-black/24 px-6 py-3 text-sm font-bold text-white backdrop-blur transition hover:border-brand-yellow-300 hover:bg-black/40 md:text-base'
+                          }
+                          aria-label={action.label}
+                        >
+                          <span>{action.label}</span>
+                          <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                        </Link>
+                      ))}
                     </div>
 
                     <div className="mt-6 flex flex-wrap gap-2.5">
@@ -220,7 +247,7 @@ function HeroSlider() {
                     className="hidden h-fit rounded-3xl border border-white/35 bg-white/10 p-5 shadow-[0_28px_55px_-32px_rgba(0,0,0,0.88)] backdrop-blur-md lg:block"
                   >
                     <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-yellow-100">
-                      Why Food Businesses Choose Nelna
+                      Why Businesses Choose Nelna Farm
                     </p>
 
                     <div className="mt-4 space-y-3.5">
@@ -240,10 +267,10 @@ function HeroSlider() {
                     </div>
 
                     <Link
-                      to="/product-finder"
+                      to="/contact#distributor-partnership"
                       className="mt-4 inline-flex w-full items-center justify-center rounded-pill border border-brand-yellow-300 bg-brand-yellow-100/90 px-5 py-2.5 text-sm font-bold text-brand-green-900 transition hover:bg-brand-yellow-100"
                     >
-                      Find Products Near You
+                      Discuss Partnership
                     </Link>
                   </motion.aside>
                 </motion.div>

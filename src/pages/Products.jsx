@@ -447,7 +447,7 @@ function Products() {
         </section>
       ) : null}
 
-      <section className="surface-card">
+      <section id="bulk-order" className="surface-card">
         <SectionHeading
           eyebrow="Bulk Orders"
           title={t('bulkOrder', { ns: 'products' })}
