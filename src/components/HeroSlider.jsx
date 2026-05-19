@@ -116,6 +116,16 @@ function HeroSlider() {
       to: '/contact',
       kind: 'secondary',
     },
+    {
+      label: 'Become a Distributor',
+      to: '/contact#distributor-partnership',
+      kind: 'outline',
+    },
+    {
+      label: 'Order Now',
+      to: '/products#bulk-order',
+      kind: 'ghost',
+    },
   ]
 
   return (
@@ -159,11 +169,11 @@ function HeroSlider() {
                   <source srcSet={image.webp} type="image/webp" />
                   <img
                     src={image.fallback}
-                        alt={index === 0 ? 'Nelna Farm premium poultry and fresh produce' : 'Nelna Farm quality production and distribution operations'}
+                    alt={index === 0 ? 'Nelna Farm premium poultry and fresh produce' : 'Nelna Farm quality production and distribution operations'}
                     className={`h-full w-full object-cover object-center ${prefersReducedMotion ? '' : 'animate-ken-burns'}`}
                     loading={index === 0 ? 'eager' : 'lazy'}
-                        fetchPriority={index === 0 ? 'high' : 'auto'}
-                        decoding="async"
+                    fetchPriority={index === 0 ? 'high' : 'auto'}
+                    decoding="async"
                   />
                 </picture>
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-green-950/96 via-brand-green-900/82 to-brand-green-900/46" />
@@ -184,7 +194,9 @@ function HeroSlider() {
 
                     <HeadingTag className="mt-5 text-4xl font-display font-extrabold leading-[1.04] text-white sm:text-5xl md:text-[3.6rem]">
                       {lines.map((line, i) => (
-                         <span key={i} className="block">{line}</span>
+                        <span key={i} className="block">
+                          {line}
+                        </span>
                       ))}
                       {accent ? (
                         <span className="block bg-gradient-to-r from-brand-yellow-300 via-brand-yellow-200 to-brand-yellow-100 bg-clip-text text-transparent">
@@ -207,7 +219,9 @@ function HeroSlider() {
                               ? 'btn-primary justify-center gap-2 px-6 py-3 text-sm shadow-float md:text-base'
                               : action.kind === 'secondary'
                                 ? 'btn-secondary justify-center gap-2 px-6 py-3 text-sm md:text-base'
-                                : 'inline-flex min-h-[44px] items-center justify-center rounded-pill border border-white/85 bg-black/24 px-6 py-3 text-sm font-bold text-white backdrop-blur transition hover:border-brand-yellow-300 hover:bg-black/40 md:text-base'
+                                : action.kind === 'outline'
+                                  ? 'inline-flex min-h-[44px] items-center justify-center rounded-pill border border-white/85 bg-white/8 px-6 py-3 text-sm font-bold text-white backdrop-blur transition hover:border-brand-yellow-300 hover:bg-white/16 md:text-base'
+                                  : 'inline-flex min-h-[44px] items-center justify-center rounded-pill border border-brand-yellow-300/80 bg-black/28 px-6 py-3 text-sm font-bold text-brand-yellow-100 backdrop-blur transition hover:bg-black/40 md:text-base'
                           }
                           aria-label={action.label}
                         >

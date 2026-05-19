@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { ArrowRight, Eye, MessageCircle, Package, Snowflake } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'framer-motion'
-import { Badge, Button } from './ui/index.js'
+import { Badge } from './ui/index.js'
 
 const whatsappNumber = '94762718923'
 
@@ -81,6 +81,7 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
 
   const message = encodeURIComponent(`Hello Nelna team, I need more information about ${product.name}.`)
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=${message}`
+  const canQuickView = typeof onQuickView === 'function'
 
   return (
     <motion.article
@@ -100,7 +101,7 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
         isList ? 'grid gap-4 md:grid-cols-[260px_1fr]' : 'flex h-full flex-col'
       }`}
     >
-        <div
+      <div
         className={`relative overflow-hidden ${isList ? 'h-full min-h-[230px]' : 'h-64'}`}
         style={enableTilt ? { transform: 'translateZ(24px)' } : undefined}
       >
@@ -156,6 +157,18 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
             View Details
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
+
+          {canQuickView ? (
+            <button
+              type="button"
+              onClick={() => onQuickView(product)}
+              className="inline-flex min-h-[44px] w-[44px] items-center justify-center rounded-full border border-brand-green-200 bg-white text-brand-green-700 transition hover:border-brand-green-300 hover:bg-brand-green-50"
+              aria-label={`Quick view ${product.name}`}
+            >
+              <Eye className="h-4.5 w-4.5" aria-hidden="true" />
+            </button>
+          ) : null}
+
           <a
             href={whatsappHref}
             target="_blank"

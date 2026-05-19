@@ -377,6 +377,12 @@ function Navbar() {
           <DesktopNav key={pathname} pathname={pathname} t={t} />
 
           <div className="ml-auto hidden items-center gap-2 lg:flex">
+            <Link
+              to="/products#bulk-order"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-brand-red-500 px-4 py-2 text-sm font-bold text-white shadow-[0_14px_30px_-18px_rgba(218,35,40,0.9)] transition hover:bg-brand-red-600"
+            >
+              Order Now
+            </Link>
             {user ? (
               <UserMenu user={user} role={role} logout={logout} />
             ) : null}
@@ -430,7 +436,7 @@ function Navbar() {
                     className="h-10 w-10 rounded-full border border-white object-cover shadow-sm ring-1 ring-brand-green-100"
                   />
                   <div>
-                    <p className="text-sm font-bold tracking-[0.03em] text-brand-green-800">NELNA FAMILY</p>
+                    <p className="text-sm font-bold tracking-[0.03em] text-brand-green-800">NELNA FARM</p>
                     <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">Navigation</p>
                   </div>
                 </div>
@@ -517,6 +523,14 @@ function Navbar() {
               </nav>
 
               <div className="space-y-2 border-t border-slate-200 p-4">
+                <Link
+                  to="/products#bulk-order"
+                  onClick={closeMobile}
+                  className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-brand-red-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-red-600"
+                >
+                  Order Now
+                </Link>
+
                 <Link
                   to={mangoRedirectPath}
                   onClick={closeMobile}

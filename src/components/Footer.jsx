@@ -111,7 +111,7 @@ function Footer() {
 
   return (
     <footer className="bg-brand-green-950 pt-16 text-brand-green-50">
-      <div className="page-shell px-6 sm:px-8">
+      <div className="page-shell">
         <section className="rounded-2xl border border-brand-green-700 bg-brand-green-900/82 p-6 md:p-8">
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
@@ -157,12 +157,17 @@ function Footer() {
         <section className="grid gap-10 py-12 lg:grid-cols-12">
           <div className="space-y-4 lg:col-span-4">
             <Link to="/" className="inline-flex items-center gap-3" aria-label="Nelna Farm home">
-              <img src={wordmarkLogo} alt="Nelna Fresh" loading="lazy" className="h-14 w-[220px] object-cover object-center md:h-16 md:w-[250px]" />
+              <img
+                src={wordmarkLogo}
+                alt="Nelna Farm"
+                loading="lazy"
+                className="h-14 w-[220px] object-cover object-center md:h-16 md:w-[250px]"
+              />
             </Link>
             <p className="max-w-md text-sm leading-relaxed text-brand-green-100">
               Nelna Farm (Pvt) Ltd is a Sri Lankan poultry and food company delivering premium protein products with certified quality, food safety, and dependable nationwide distribution.
             </p>
-            <div>
+            <div className="flex flex-wrap items-center gap-3">
               <Link
                 to="/portal"
                 className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-brand-red-500 px-5 py-2.5 text-sm font-bold tracking-[0.02em] text-white shadow-[0_14px_30px_-16px_rgba(218,35,40,0.95)] ring-1 ring-brand-yellow-300/70 transition hover:bg-brand-red-600"
@@ -201,7 +206,10 @@ function Footer() {
                 )
               })}
             </div>
-
+            {!hasAnySocialLink ? (
+              <p className="text-xs text-brand-green-200">Official social channels will be linked here soon.</p>
+            ) : null}
+          </div>
 
           <div className="lg:col-span-2">
             <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-brand-yellow-300">Quick Links</h3>
@@ -263,7 +271,15 @@ function Footer() {
               </li>
             </ul>
 
-
+            <div className="mt-4 rounded-xl border border-brand-green-700 bg-brand-green-900/70 p-3">
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-yellow-200">Business Hours</p>
+              <ul className="mt-2 space-y-1 text-xs text-brand-green-100">
+                {businessHours.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section className="flex flex-col gap-3 border-t border-brand-green-800 py-5 text-xs text-brand-green-100 sm:flex-row sm:items-center sm:justify-between">
