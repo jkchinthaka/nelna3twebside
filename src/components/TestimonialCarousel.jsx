@@ -25,7 +25,7 @@ function TestimonialCarousel({ items }) {
           transition={{ duration: 0.5 }}
           className="space-y-4"
         >
-          <div className="flex items-center gap-1 text-sun-500">
+          <div className="flex items-center gap-1 text-brand-yellow-500">
             {Array.from({ length: 5 }).map((_, index) => (
               <Star key={index} className="h-4 w-4 fill-current" />
             ))}
@@ -48,7 +48,7 @@ function TestimonialCarousel({ items }) {
               type="button"
               onClick={() => setActiveIndex(index)}
               className={`h-2 w-8 rounded-full transition ${
-                index === activeIndex ? 'bg-brand-500' : 'bg-slate-200'
+                index === activeIndex ? 'bg-brand-green-500' : 'bg-slate-200'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />

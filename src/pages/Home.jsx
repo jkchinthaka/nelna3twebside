@@ -226,7 +226,7 @@ function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1, duration: 0.3 }}
-                  className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 bg-white backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-200"
+                  className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 bg-white/95 backdrop-blur-xl p-8 md:p-10 rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/50"
                >
                   {[
                      { value: 200, suffix: '+', label: 'Contract Farmers', color: 'text-brand-700' },
@@ -235,12 +235,12 @@ function Home() {
                      { text: 'Nationwide', label: 'Distribution Coverage', color: 'text-brand-red-600' },
                   ].map((stat, i) => (
                      <div key={i} className="text-center group cursor-default">
-                        <div className={`text-2xl md:text-3xl font-display font-bold ${stat.color} mb-1 group-hover:scale-110 transition-transform`}>
-                           {stat.text || <Counter to={stat.value} suffix={stat.suffix} />}
-                        </div>
-                        <div className="text-xs font-bold text-slate-600 uppercase tracking-wider group-hover:text-slate-800 transition-colors">
-                           {stat.label}
-                        </div>
+                         <div className={`text-3xl md:text-4xl font-display font-extrabold ${stat.color} mb-2 group-hover:scale-105 transition-transform origin-bottom`}>
+                            {stat.text || <Counter to={stat.value} suffix={stat.suffix} />}
+                         </div>
+                         <div className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-[0.15em] group-hover:text-slate-800 transition-colors">
+                            {stat.label}
+                         </div>
                      </div>
                   ))}
                </motion.div>
@@ -321,7 +321,7 @@ function Home() {
             </div>
          </section>
 
-         <BrandStripeImage variant="green" />
+
 
          {/* 3. Shop Favorites Section */}
          <section className="bg-slate-50 py-24">
@@ -394,17 +394,18 @@ function Home() {
                <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
                   {categoryCards.map((item) => (
                      <article key={item.title} className="surface-card surface-card-hover overflow-hidden">
-                        <div className="h-36 w-full bg-slate-100">
+                        <div className="h-40 w-full bg-slate-50 relative overflow-hidden group">
                            {item.imageUrl ? (
                               <img
                                  src={item.imageUrl}
                                  alt={`${item.title} by Nelna Farm`}
                                  loading="lazy"
-                                 className="h-full w-full object-cover"
+                                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                               />
                            ) : (
-                              <div className="flex h-full items-center justify-center px-4 text-center text-sm font-semibold text-slate-500">
-                                 {item.title}
+                              <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-50 via-white to-brand-100 relative">
+                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(39,116,58,0.05),transparent_50%)]" />
+                                 <span className="text-brand-300 opacity-20 transform -rotate-12 scale-[3] font-display font-bold">Nelna</span>
                               </div>
                            )}
                         </div>
@@ -635,7 +636,7 @@ function Home() {
             </div>
          </section>
 
-         <BrandStripeImage variant="red" />
+
 
          {/* 8. Final CTA */}
          <AnimatedCTASection

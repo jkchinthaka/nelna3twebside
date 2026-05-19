@@ -76,7 +76,7 @@ function QualitySafety() {
             className="w-full h-full object-cover opacity-60"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900/40"></div>
         </div>
 
         <div className="relative h-full max-w-7xl mx-auto px-6 flex flex-col justify-center">
@@ -94,7 +94,7 @@ function QualitySafety() {
               Safety isn't just a protocol.<br />
               It's our <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-300">Commitment</span>.
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 max-w-2xl font-light leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-slate-100 max-w-2xl font-medium leading-relaxed mb-8 drop-shadow-md">
               We go beyond industry standards to ensure every bite is safe, nutritious, and ethically produced for your family.
             </p>
             <div className="flex gap-4">

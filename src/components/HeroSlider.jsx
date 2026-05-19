@@ -71,21 +71,22 @@ const qualityHighlights = [
 ]
 
 function splitHeroTitle(title) {
-  const lines = String(title || '')
+  const titleString = String(title || '').replace(/\\n/g, '\n')
+  const lines = titleString
     .split('\n')
     .map((line) => line.trim())
     .filter(Boolean)
 
   if (lines.length === 0) {
-    return { leading: fallbackSlides[0].title, accent: '' }
+    return { lines: [fallbackSlides[0].title], accent: '' }
   }
 
   if (lines.length === 1) {
-    return { leading: lines[0], accent: '' }
+    return { lines: [lines[0]], accent: '' }
   }
 
   return {
-    leading: lines.slice(0, -1).join(' '),
+    lines: lines.slice(0, -1),
     accent: lines[lines.length - 1],
   }
 }
@@ -115,16 +116,6 @@ function HeroSlider() {
       to: '/contact',
       kind: 'secondary',
     },
-    {
-      label: 'Become a Distributor',
-      to: '/contact#distributor-partnership',
-      kind: 'outline',
-    },
-    {
-      label: 'Order Now',
-      to: '/products#bulk-order',
-      kind: 'outline',
-    },
   ]
 
   return (
@@ -134,6 +125,7 @@ function HeroSlider() {
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
+        fadeEffect={{ crossFade: true }}
         speed={prefersReducedMotion ? 0 : 700}
         loop
         pagination={{
@@ -156,7 +148,7 @@ function HeroSlider() {
       >
         {slides.map((slide, index) => {
           const image = slideImages[index % slideImages.length]
-          const { leading, accent } = splitHeroTitle(slide.title)
+          const { lines, accent } = splitHeroTitle(slide.title)
           const HeadingTag = index === 0 ? 'h1' : 'h2'
 
           return (
@@ -191,7 +183,9 @@ function HeroSlider() {
                     </p>
 
                     <HeadingTag className="mt-5 text-4xl font-display font-extrabold leading-[1.04] text-white sm:text-5xl md:text-[3.6rem]">
-                      {leading}
+                      {lines.map((line, i) => (
+                         <span key={i} className="block">{line}</span>
+                      ))}
                       {accent ? (
                         <span className="block bg-gradient-to-r from-brand-yellow-300 via-brand-yellow-200 to-brand-yellow-100 bg-clip-text text-transparent">
                           {accent}

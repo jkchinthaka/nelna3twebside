@@ -331,10 +331,10 @@ function Navbar() {
       <TopBar />
 
       <div
-        className={`border-b backdrop-blur transition duration-300 ${
+        className={`border-b transition duration-300 ${
           isScrolled
-            ? 'border-brand-green-100/90 bg-white/97 shadow-[0_12px_36px_-22px_rgba(15,23,42,0.55)]'
-            : 'border-slate-200/80 bg-white/95'
+            ? 'border-brand-green-100 bg-white shadow-md'
+            : 'border-slate-200/80 bg-white'
         }`}
       >
         <div className="page-shell flex min-h-[74px] items-center gap-3 py-2 sm:min-h-[82px]">
