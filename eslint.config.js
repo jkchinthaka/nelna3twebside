@@ -6,7 +6,7 @@ import react from 'eslint-plugin-react'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist', 'backend/**', 'functions/**']),
+  globalIgnores(['dist', 'backend/**', 'firebase-functions/**']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
