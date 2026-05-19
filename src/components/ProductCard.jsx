@@ -100,8 +100,8 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
         isList ? 'grid gap-4 md:grid-cols-[260px_1fr]' : 'flex h-full flex-col'
       }`}
     >
-      <div
-        className={`relative overflow-hidden bg-slate-100 ${isList ? 'h-full min-h-[230px]' : 'h-64'}`}
+        <div
+        className={`relative overflow-hidden ${isList ? 'h-full min-h-[230px]' : 'h-64'}`}
         style={enableTilt ? { transform: 'translateZ(24px)' } : undefined}
       >
         {product.imageUrl ? (
@@ -115,8 +115,8 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
             }}
           />
         ) : (
-          <div className="flex h-full items-center justify-center text-slate-500">
-            <Package className="h-10 w-10" aria-hidden="true" />
+          <div className="flex h-full items-center justify-center bg-gradient-to-br from-brand-green-50 to-brand-green-100 text-brand-green-300">
+            <Package className="h-10 w-10 opacity-50" aria-hidden="true" />
           </div>
         )}
 
@@ -148,34 +148,22 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
           ))}
         </div>
 
-        <div className="mt-auto grid gap-2 sm:grid-cols-2">
+        <div className="mt-auto flex gap-2">
           <Link
             to={detailPath}
-            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-pill border border-slate-400 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+            className="flex-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-pill bg-brand-green-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-brand-green-700"
           >
             View Details
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-
-          <Button
-            type="button"
-            variant="secondary"
-            className="w-full justify-center"
-            onClick={() => onQuickView?.(product)}
-          >
-            <Eye className="h-4 w-4" aria-hidden="true" />
-            Quick View
-          </Button>
-
           <a
             href={whatsappHref}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-pill border border-brand-green-300 bg-brand-green-100/70 px-4 py-2 text-sm font-semibold text-brand-green-800 transition hover:bg-brand-green-100 sm:col-span-2"
+            className="inline-flex min-h-[44px] w-[44px] items-center justify-center rounded-full bg-[#25D366] text-white transition hover:scale-105 shadow-sm"
             aria-label={`Ask on WhatsApp about ${product.name}`}
           >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            Ask on WhatsApp
+            <MessageCircle className="h-5 w-5" aria-hidden="true" />
           </a>
         </div>
       </div>

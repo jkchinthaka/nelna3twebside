@@ -27,8 +27,26 @@ export const fallbackNews = [
     imageUrl: kirulapanaEvent01,
   },
   {
+    id: 'recipe-burger',
+    title: 'Classic Chicken Burger with Cheese',
+    summary: 'A juicy homemade chicken patty served with fresh lettuce, tomato, and cheese.',
+    body: 'Create the ultimate burger night at home with our premium ground chicken. This recipe features a perfectly seasoned patty, melted cheddar, and crisp veggies on a toasted bun.',
+    date: '2026-01-20',
+    category: 'Recipes',
+    imageUrl: recipeBurger,
+  },
+  {
+    id: 'recipe-claypot-curry',
+    title: 'Traditional Clay Pot Chicken Curry',
+    summary: 'Authentic Sri Lankan spices slow-cooked in a clay pot.',
+    body: 'Experience the deep, robust flavors of traditional village cooking. This curry enhances the natural taste of chicken with aromatic spices simmered to perfection in a clay pot.',
+    date: '2026-01-21',
+    category: 'Recipes',
+    imageUrl: recipeClaypot,
+  },
+  {
     id: 'kirulapana-branch-opening-02',
-    title: 'Kirulapana Branch Opening (2025.12.18)',
+    title: 'Kirulapana Branch Opening Gallery',
     summary: 'Special moments from our Kirulapana branch opening day.',
     body:
       'A memorable opening day with warm welcomes, team introductions, and customer visits.',
@@ -106,24 +124,7 @@ export const fallbackNews = [
     category: 'Event',
     imageUrl: kirulapanaEvent09,
   },
-  {
-    id: 'recipe-burger',
-    title: 'Classic Chicken Burger with Cheese',
-    summary: 'A juicy homemade chicken patty served with fresh lettuce, tomato, and cheese.',
-    body: 'Create the ultimate burger night at home with our premium ground chicken. This recipe features a perfectly seasoned patty, melted cheddar, and crisp veggies on a toasted bun.',
-    date: '2026-01-20',
-    category: 'Recipes',
-    imageUrl: recipeBurger,
-  },
-  {
-    id: 'recipe-claypot-curry',
-    title: 'Traditional Clay Pot Chicken Curry',
-    summary: 'Authentic Sri Lankan spices slow-cooked in a clay pot.',
-    body: 'Experience the deep, robust flavors of traditional village cooking. This curry enhances the natural taste of chicken with aromatic spices simmered to perfection in a clay pot.',
-    date: '2026-01-21',
-    category: 'Recipes',
-    imageUrl: recipeClaypot,
-  },
+
   {
     id: 'recipe-roasted-legs',
     title: 'Herb-Roasted Chicken Legs',

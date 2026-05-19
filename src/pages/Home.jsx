@@ -226,7 +226,7 @@ function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1, duration: 0.3 }}
-                  className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 bg-white/95 backdrop-blur-xl p-8 md:p-10 rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/50"
+                  className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 bg-white/95 backdrop-blur-xl p-5 md:p-10 rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/50"
                >
                   {[
                      { value: 200, suffix: '+', label: 'Contract Farmers', color: 'text-brand-700' },
@@ -235,10 +235,10 @@ function Home() {
                      { text: 'Nationwide', label: 'Distribution Coverage', color: 'text-brand-red-600' },
                   ].map((stat, i) => (
                      <div key={i} className="text-center group cursor-default">
-                         <div className={`text-3xl md:text-4xl font-display font-extrabold ${stat.color} mb-2 group-hover:scale-105 transition-transform origin-bottom`}>
+                         <div className={`text-2xl md:text-4xl font-display font-extrabold ${stat.color} mb-1 md:mb-2 group-hover:scale-105 transition-transform origin-bottom`}>
                             {stat.text || <Counter to={stat.value} suffix={stat.suffix} />}
                          </div>
-                         <div className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-[0.15em] group-hover:text-slate-800 transition-colors">
+                         <div className="text-[10px] md:text-sm font-bold text-slate-500 uppercase tracking-widest group-hover:text-slate-800 transition-colors">
                             {stat.label}
                          </div>
                      </div>
@@ -429,13 +429,7 @@ function Home() {
          {/* 4. Why Choose Nelna (Process) */}
          <section className="py-24 overflow-hidden relative">
             <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-50/70 -z-10" />
-            <img
-               src={chickenIllustration}
-               alt=""
-               aria-hidden="true"
-               loading="lazy"
-               className="pointer-events-none absolute -bottom-4 -right-16 hidden w-[220px] opacity-90 md:block lg:w-[320px] xl:w-[420px]"
-            />
+
             <div className="relative z-10 max-w-7xl mx-auto px-4">
                <div className="mb-16 text-center max-w-3xl mx-auto">
                   <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">

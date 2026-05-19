@@ -121,7 +121,7 @@ function ProductFinder() {
               <Sparkles className="h-4 w-4" aria-hidden="true" />
               AI-Assisted Product Finder
             </span>
-            <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold leading-tight md:text-5xl">
+            <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold leading-tight !text-white md:text-5xl">
               Find Nelna Products Near You
             </h1>
             <p className="mt-4 max-w-3xl text-base text-white md:text-lg">
@@ -247,7 +247,9 @@ function ProductFinder() {
                             Match {(Number(entry.score || 0) * 100).toFixed(0)}%
                           </p>
                           <h3 className="mt-2 font-semibold text-slate-900">{entry.product.name}</h3>
-                          <p className="mt-1 text-xs text-slate-600">{entry.product.productCode}</p>
+                          <p className="mt-2 text-xs">
+                            <span className="bg-brand-green-50 text-brand-green-800 px-2 py-0.5 font-mono rounded-full">{entry.product.productCode}</span>
+                          </p>
                         </article>
                       ))}
                     </div>

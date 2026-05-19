@@ -11,14 +11,14 @@ import {
 import { addInquiry } from '../services/inquiryService.js'
 import { hasNotificationBackend, notifyEmail, notifyWhatsApp } from '../services/notificationService.js'
 import { getContactSettings } from '../services/contactSettingsService.js'
-import BrandStripeImage from '../components/BrandStripeImage.jsx'
+
 
 const whatsappNumber = '94762718923'
 const notificationEmail = 'info@nelna.lk'
 
 const defaultSettings = {
   locationTitle: 'Our Location',
-  addressLines: ['No. 45, Nelna Mawatha,', 'Wansawila, Meethirigala,', 'Sri Lanka.'],
+  addressLines: ['3A, Hathduwa Estate,', 'Ranwala, Meethirigala,', 'Sri Lanka'],
   mapEmbedUrl:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12666.529853758257!2d80.1234567!3d7.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae300c30985474d%3A0x62957754388373!2sNelna%20Agri%20Development%20(Pvt)%20Ltd!5e0!3m2!1sen!2slk!4v1625637258000!5m2!1sen!2slk',
   mapLink: 'https://maps.google.com/?q=Nelna+Farm,+Meethirigala',
@@ -225,7 +225,7 @@ function Contact() {
         </div>
       </section>
 
-      <BrandStripeImage variant="green" />
+
 
       <section className="page-shell -mt-8 pb-12">
         {settingsError ? (
@@ -299,7 +299,7 @@ function Contact() {
             </article>
           </div>
 
-          <div id="distributor-partnership" className="surface-card p-5 md:p-7">
+          <div id="distributor-partnership" className="surface-card p-5 md:p-7 h-fit">
             <div className="rounded-2xl border border-brand-green-100 bg-brand-green-50/65 p-4">
               <h2 className="text-base font-bold text-brand-green-900 md:text-lg">
                 Distributor and Dealer Partnership Inquiries
@@ -372,7 +372,7 @@ function Contact() {
         </div>
       </section>
 
-      <BrandStripeImage variant="red" />
+
     </div>
   )
 }

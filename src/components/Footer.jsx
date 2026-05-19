@@ -111,7 +111,7 @@ function Footer() {
 
   return (
     <footer className="bg-brand-green-950 pt-16 text-brand-green-50">
-      <div className="page-shell">
+      <div className="page-shell px-6 sm:px-8">
         <section className="rounded-2xl border border-brand-green-700 bg-brand-green-900/82 p-6 md:p-8">
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
@@ -201,10 +201,7 @@ function Footer() {
                 )
               })}
             </div>
-            {!hasAnySocialLink ? (
-              <p className="text-xs text-brand-green-200">Official social channels will be linked here soon.</p>
-            ) : null}
-          </div>
+
 
           <div className="lg:col-span-2">
             <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-brand-yellow-300">Quick Links</h3>
@@ -266,15 +263,7 @@ function Footer() {
               </li>
             </ul>
 
-            <div className="mt-4 rounded-xl border border-brand-green-700 bg-brand-green-900/70 p-3">
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-yellow-200">Business Hours</p>
-              <ul className="mt-2 space-y-1 text-xs text-brand-green-100">
-                {businessHours.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+
         </section>
 
         <section className="flex flex-col gap-3 border-t border-brand-green-800 py-5 text-xs text-brand-green-100 sm:flex-row sm:items-center sm:justify-between">
