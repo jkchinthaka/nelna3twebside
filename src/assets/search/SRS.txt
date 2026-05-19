@@ -1,0 +1,1138 @@
+Software Requirement Specification (SRS)
+
+Project Name: AI-Powered Nelna Product Finder (Location-Based Smart Search System)
+Prepared By: Chinthaka Jayaweera
+Date: 29-Jan-2026
+
+1. Introduction
+
+1.1 Purpose
+The purpose of this system is to enable customers of Nelna, a Sri Lankan poultry and frozen food brand, to quickly and easily find the nearest stores selling their desired products using AI-powered natural language search combined with geolocation. This system aims to enhance customer experience, reduce product search time, and provide valuable business insights.
+
+1.2 Scope
+The system will:
+
+* Allow users to search for Nelna products using natural language queries.
+* Provide location-based store recommendations.
+* Rank results using AI semantic relevance and distance.
+* Integrate Google Maps for store visualization.
+* Offer product recommendations based on AI analysis.
+* Support mobile-first web experience.
+
+Out of Scope:
+
+* Real-time inventory updates from all stores (initial MVP will use preloaded stock data).
+* Advanced AI chat assistant (optional for later phases).
+
+1.3 Definitions, Acronyms, Abbreviations
+
+* AI: Artificial Intelligence
+* MVP: Minimum Viable Product
+* API: Application Programming Interface
+* DB: Database
+* GeoNear: MongoDB geospatial query
+* Embedding: AI-generated vector representation of text for semantic search
+
+2. Overall Description
+
+2.1 Product Perspective
+The system is a web-based application integrating frontend, backend, database, AI embeddings, and Google Maps services. It serves as a standalone product discovery platform for Nelna customers.
+
+System Components:
+
+* Frontend (React + TypeScript + Tailwind CSS + ShadCN UI)
+* Backend (Node.js + Express API)
+* Database (MongoDB Atlas with Vector + Geo indexes)
+* AI Service (OpenAI Embeddings API)
+* Maps Service (Google Maps API)
+
+2.2 Product Functions
+
+1. Natural language search for Nelna products.
+2. AI-based semantic search for product matching.
+3. Geolocation-based store search and ranking.
+4. Display of store details and product availability.
+5. Google Maps integration with pins and directions.
+6. Product recommendations (related items).
+7. Optional: AI chat interface for product queries.
+
+2.3 User Characteristics
+Primary Users:
+
+* Customers of Nelna looking for nearby products.
+* Users with basic web browsing skills.
+
+Secondary Users:
+
+* Nelna marketing & business analysts for store/product insights.
+
+2.4 Constraints
+
+* Must work on mobile and desktop.
+* Backend must handle concurrent queries efficiently.
+* AI search latency must be under 2 seconds.
+* Secure storage of any user input data.
+* MVP must avoid real-time stock integration.
+
+2.5 Assumptions & Dependencies
+
+* User devices have browser geolocation enabled.
+* OpenAI API and Google Maps API keys are available.
+* MongoDB Atlas is accessible and properly indexed.
+
+3. Specific Requirements
+
+3.1 Functional Requirements
+
+| ID   | Requirement             | Description                                                    |
+| ---- | ----------------------- | -------------------------------------------------------------- |
+| FR-1 | Search Query            | Users enter natural language queries for products.             |
+| FR-2 | AI Semantic Search      | Convert query to embedding and find relevant products.         |
+| FR-3 | Store Matching          | Find stores in the user's location offering selected products. |
+| FR-4 | Result Ranking          | Rank results by AI relevance score + distance score.           |
+| FR-5 | Map Integration         | Display store locations on Google Maps.                        |
+| FR-6 | Product Recommendations | Suggest related products to users.                             |
+| FR-7 | Optional Chat           | AI chat interface for product queries.                         |
+
+3.2 Non-Functional Requirements
+
+| Category        | Requirement                                                      |
+| --------------- | ---------------------------------------------------------------- |
+| Performance     | Query response < 2 seconds.                                      |
+| Reliability     | 99% uptime for backend APIs.                                     |
+| Scalability     | Must support up to 100,000 products and 10,000 stores in future. |
+| Security        | Store API keys securely, protect user data.                      |
+| Usability       | Mobile-first responsive design.                                  |
+| Maintainability | Clean code, modular architecture.                                |
+
+3.3 Database Requirements
+Products Collection:
+
+* productCode: String
+* name: String
+* category: String
+* description: String
+* embedding: Array (vector for semantic search)
+
+Stores Collection:
+
+* storeName: String
+* city: String
+* location: GeoJSON (lat/lng)
+* availableProducts: Array of productCodes
+* embedding: Array (vector for semantic search)
+* contact: String
+
+Indexes:
+
+* Vector index on embeddings
+* 2dsphere index on store location
+
+3.4 API Requirements
+Endpoint: /api/ai-search
+Method: POST
+Request:
+{
+"query": "Chicken sausages near Colombo",
+"userLocation": { "lat": 6.9271, "lng": 79.8612 }
+}
+
+Response:
+{
+"products": [
+{ "productCode": "07NE05", "name": "Nelna EASY 5Kg", "score": 0.98 }
+],
+"stores": [
+{ "storeName": "Cargills Kandy", "distance": 2.1, "availableProducts": ["07NE05"] }
+]
+}
+
+3.5 AI Search Logic
+
+1. Convert user query → embedding using OpenAI API.
+2. Retrieve top-N relevant products using vector search.
+3. Retrieve stores in the user’s city or nearby locations.
+4. Calculate final ranking score:
+   FinalScore = (AI_Relevance * 0.6) + (DistanceScore * 0.4)
+5. Return sorted results with store details and map coordinates.
+
+3.6 UI Requirements
+
+* Search bar (natural language input)
+* Use current location button
+* Result cards showing store name, product, distance, contact
+* Map view toggle (Google Maps)
+* Mobile-first responsive design
+
+3.7 Scalability & Security
+
+* Secure API keys and credentials using environment variables.
+* Use vector indexes for fast AI searches.
+* Use 2dsphere indexes for geospatial queries.
+* Backend supports horizontal scaling (stateless APIs).
+* Validate all user inputs.
+
+4. Deliverables
+
+* Fully functional web application MVP
+* Backend API endpoints
+* Database schema with indexes
+* AI embeddings and search logic
+* React frontend with search UI & Google Maps
+* Documentation (SRS + API + Architecture)
+
+
+
+
+
+STYLE
+
+```App.tsx
+import React from 'react'
+import { ProductFinderPage } from './pages/ProductFinderPage'
+export function App() {
+  return <ProductFinderPage />
+}
+
+```
+```components/filters/FilterBar.tsx
+import React from 'react'
+import { SlidersHorizontal, ChevronDown } from 'lucide-react'
+export function FilterBar() {
+  return (
+    <div className="flex items-center space-x-2 overflow-x-auto pb-2 scrollbar-hide">
+      <button className="flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-colors whitespace-nowrap">
+        <SlidersHorizontal className="h-4 w-4 mr-2" />
+        Filters
+      </button>
+
+      <div className="h-6 w-px bg-gray-300 mx-2" />
+
+      {['Category', 'Price Range', 'Distance', 'Availability'].map((filter) => (
+        <button
+          key={filter}
+          className="flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-colors whitespace-nowrap"
+        >
+          {filter}
+          <ChevronDown className="h-3 w-3 ml-1.5 text-gray-400" />
+        </button>
+      ))}
+    </div>
+  )
+}
+
+```
+```components/map/MapView.tsx
+import React from 'react'
+import { MapPin } from 'lucide-react'
+import { Store } from '../../types'
+interface MapViewProps {
+  stores: Store[]
+  center?: {
+    lat: number
+    lng: number
+  }
+}
+export function MapView({ stores, center }: MapViewProps) {
+  // This is a placeholder for the actual Google Maps integration
+  // In a real app, we would use @react-google-maps/api
+  return (
+    <div className="relative w-full h-full bg-gray-100 rounded-2xl overflow-hidden group">
+      {/* Mock Map Background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-60"
+        style={{
+          backgroundImage:
+            'url("https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1000")',
+          filter: 'grayscale(20%)',
+        }}
+      />
+
+      {/* Overlay Content */}
+      <div className="absolute inset-0 flex items-center justify-center bg-black/5">
+        <div className="bg-white/90 backdrop-blur-sm px-6 py-4 rounded-xl shadow-lg text-center max-w-xs mx-4">
+          <MapPin className="h-8 w-8 text-[#C41E3A] mx-auto mb-2" />
+          <h3 className="font-semibold text-gray-900">Interactive Map View</h3>
+          <p className="text-sm text-gray-600 mt-1">
+            Showing {stores.length} stores near you.
+            <br />
+            (Google Maps API Integration Ready)
+          </p>
+        </div>
+      </div>
+
+      {/* Mock Pins */}
+      {stores.map((store, index) => (
+        <div
+          key={store.id}
+          className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:scale-110 transition-transform"
+          style={{
+            top: `${30 + index * 20}%`,
+            left: `${20 + index * 25}%`,
+          }}
+        >
+          <div className="relative">
+            <MapPin
+              className="h-8 w-8 text-[#C41E3A] drop-shadow-md"
+              fill="#C41E3A"
+            />
+            <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+              {store.name}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+```
+```components/recommendations/RecommendationCarousel.tsx
+import React from 'react'
+import { Product } from '../../types'
+import { ProductCard } from '../results/ProductCard'
+interface RecommendationCarouselProps {
+  products: Product[]
+}
+export function RecommendationCarousel({
+  products,
+}: RecommendationCarouselProps) {
+  if (products.length === 0) return null
+  return (
+    <div className="py-8 border-t border-gray-100">
+      <h2 className="text-xl font-bold text-gray-900 mb-6">
+        You Might Also Like
+      </h2>
+      <div className="flex overflow-x-auto pb-6 -mx-4 px-4 space-x-6 scrollbar-hide">
+        {products.map((product) => (
+          <div key={product.id} className="min-w-[280px] max-w-[280px]">
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+```
+```components/results/ProductCard.tsx
+import React from 'react'
+import { ShoppingBag, Star } from 'lucide-react'
+import { Product } from '../../types'
+import { Card } from '../ui/Card'
+import { Badge } from '../ui/Badge'
+import { Button } from '../ui/Button'
+interface ProductCardProps {
+  product: Product
+}
+export function ProductCard({ product }: ProductCardProps) {
+  return (
+    <Card hover className="flex flex-col h-full">
+      <div className="relative h-48 w-full overflow-hidden bg-gray-100">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+        {product.relevanceScore && product.relevanceScore > 0.9 && (
+          <div className="absolute top-3 right-3">
+            <Badge
+              variant="success"
+              className="shadow-sm backdrop-blur-md bg-green-100/90"
+            >
+              <Star className="h-3 w-3 mr-1 fill-current" />
+              Best Match
+            </Badge>
+          </div>
+        )}
+      </div>
+
+      <div className="p-4 flex flex-col flex-grow">
+        <div className="flex justify-between items-start mb-2">
+          <div>
+            <p className="text-xs font-medium text-[#FF6B35] uppercase tracking-wide mb-1">
+              {product.category}
+            </p>
+            <h3 className="text-lg font-bold text-gray-900 line-clamp-2 leading-tight">
+              {product.name}
+            </h3>
+          </div>
+        </div>
+
+        <p className="text-sm text-gray-600 mb-4 line-clamp-2 flex-grow">
+          {product.description}
+        </p>
+
+        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+          <span className="text-lg font-bold text-[#C41E3A]">
+            Rs. {product.price.toLocaleString()}
+          </span>
+          <Button size="sm" variant="outline" className="rounded-full">
+            <ShoppingBag className="h-4 w-4 mr-1.5" />
+            Details
+          </Button>
+        </div>
+      </div>
+    </Card>
+  )
+}
+
+```
+```components/results/ResultsGrid.tsx
+import React from 'react'
+import { SearchResult } from '../../types'
+import { ProductCard } from './ProductCard'
+import { StoreCard } from './StoreCard'
+interface ResultsGridProps {
+  results: SearchResult
+}
+export function ResultsGrid({ results }: ResultsGridProps) {
+  return (
+    <div className="space-y-8">
+      {/* Products Section */}
+      <section>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-bold text-gray-900">
+            Recommended Products
+          </h2>
+          <span className="text-sm text-gray-500">
+            {results.products.length} results
+          </span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {results.products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
+
+      {/* Stores Section */}
+      <section>
+        <h2 className="text-xl font-bold text-gray-900 mb-4">
+          Available at Nearby Stores
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {results.stores.map((store) => (
+            <StoreCard key={store.id} store={store} />
+          ))}
+        </div>
+      </section>
+    </div>
+  )
+}
+
+```
+```components/results/StoreCard.tsx
+import React from 'react'
+import { MapPin, Phone, Clock, Navigation } from 'lucide-react'
+import { Store } from '../../types'
+import { Card } from '../ui/Card'
+import { Badge } from '../ui/Badge'
+import { Button } from '../ui/Button'
+interface StoreCardProps {
+  store: Store
+}
+export function StoreCard({ store }: StoreCardProps) {
+  return (
+    <Card className="p-4 hover:border-[#C41E3A]/30 transition-colors">
+      <div className="flex justify-between items-start">
+        <div>
+          <h3 className="font-bold text-gray-900">{store.name}</h3>
+          <div className="flex items-center text-sm text-gray-500 mt-1">
+            <MapPin className="h-3.5 w-3.5 mr-1" />
+            {store.city}
+          </div>
+        </div>
+        <Badge variant={store.isOpen ? 'success' : 'error'}>
+          {store.isOpen ? 'Open Now' : 'Closed'}
+        </Badge>
+      </div>
+
+      <div className="mt-4 space-y-2">
+        <div className="flex items-center text-sm text-gray-600">
+          <Navigation className="h-4 w-4 mr-2 text-[#FF6B35]" />
+          <span className="font-medium">{store.distance} km away</span>
+        </div>
+        <div className="flex items-center text-sm text-gray-600">
+          <Phone className="h-4 w-4 mr-2 text-gray-400" />
+          {store.contact}
+        </div>
+        <div className="flex items-center text-sm text-gray-600">
+          <Clock className="h-4 w-4 mr-2 text-gray-400" />
+          8:00 AM - 10:00 PM
+        </div>
+      </div>
+
+      <div className="mt-4 pt-3 border-t border-gray-100 flex gap-2">
+        <Button size="sm" variant="secondary" className="flex-1">
+          Directions
+        </Button>
+        <Button size="sm" variant="outline" className="flex-1">
+          Call Store
+        </Button>
+      </div>
+    </Card>
+  )
+}
+
+```
+```components/search/SearchBar.tsx
+import React, { useState } from 'react'
+import { Search, MapPin, Mic } from 'lucide-react'
+import { Button } from '../ui/Button'
+interface SearchBarProps {
+  onSearch: (query: string) => void
+  onLocationClick: () => void
+  isLocating: boolean
+  locationAddress?: string
+}
+export function SearchBar({
+  onSearch,
+  onLocationClick,
+  isLocating,
+  locationAddress,
+}: SearchBarProps) {
+  const [query, setQuery] = useState('')
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (query.trim()) {
+      onSearch(query)
+    }
+  }
+  return (
+    <div className="w-full max-w-3xl mx-auto">
+      <form onSubmit={handleSubmit} className="relative group">
+        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <Search className="h-5 w-5 text-gray-400 group-focus-within:text-[#C41E3A] transition-colors" />
+        </div>
+
+        <input
+          type="text"
+          className="block w-full pl-12 pr-32 py-4 rounded-2xl border-0 shadow-[0_4px_20px_rgba(0,0,0,0.08)] text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-[#C41E3A] sm:text-lg bg-white"
+          placeholder="What are you looking for today?"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+
+        <div className="absolute inset-y-0 right-2 flex items-center space-x-1">
+          <button
+            type="button"
+            className="p-2 text-gray-400 hover:text-[#C41E3A] transition-colors rounded-full hover:bg-red-50"
+            aria-label="Voice search"
+          >
+            <Mic className="h-5 w-5" />
+          </button>
+          <Button type="submit" size="sm" className="rounded-xl px-6">
+            Search
+          </Button>
+        </div>
+      </form>
+
+      <div className="mt-3 flex items-center justify-center sm:justify-start">
+        <button
+          onClick={onLocationClick}
+          className="flex items-center text-sm text-[#2D5016] hover:text-[#1a330d] transition-colors bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm border border-gray-100"
+        >
+          <MapPin
+            className={`h-4 w-4 mr-1.5 ${isLocating ? 'animate-bounce' : ''}`}
+          />
+          {isLocating
+            ? 'Locating...'
+            : locationAddress || 'Use my current location'}
+        </button>
+      </div>
+    </div>
+  )
+}
+
+```
+```components/ui/Badge.tsx
+import React from 'react'
+interface BadgeProps {
+  children: React.ReactNode
+  variant?: 'default' | 'success' | 'warning' | 'error' | 'outline'
+  className?: string
+}
+export function Badge({
+  children,
+  variant = 'default',
+  className = '',
+}: BadgeProps) {
+  const variants = {
+    default: 'bg-gray-100 text-gray-800',
+    success: 'bg-green-100 text-green-800',
+    warning: 'bg-yellow-100 text-yellow-800',
+    error: 'bg-red-100 text-red-800',
+    outline: 'border border-gray-200 text-gray-600',
+  }
+  return (
+    <span
+      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${variants[variant]} ${className}`}
+    >
+      {children}
+    </span>
+  )
+}
+
+```
+```components/ui/Button.tsx
+import React from 'react'
+import { Loader2 } from 'lucide-react'
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
+  size?: 'sm' | 'md' | 'lg'
+  isLoading?: boolean
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
+}
+export function Button({
+  children,
+  className = '',
+  variant = 'primary',
+  size = 'md',
+  isLoading = false,
+  leftIcon,
+  rightIcon,
+  disabled,
+  ...props
+}: ButtonProps) {
+  const baseStyles =
+    'inline-flex items-center justify-center rounded-lg font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+  const variants = {
+    primary: 'bg-[#C41E3A] text-white hover:bg-[#A01830] focus:ring-[#C41E3A]',
+    secondary:
+      'bg-[#FF6B35] text-white hover:bg-[#E55A25] focus:ring-[#FF6B35]',
+    outline:
+      'border-2 border-[#C41E3A] text-[#C41E3A] hover:bg-[#FFF9F5] focus:ring-[#C41E3A]',
+    ghost:
+      'text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:ring-gray-500',
+  }
+  const sizes = {
+    sm: 'h-9 px-3 text-sm',
+    md: 'h-11 px-5 text-base',
+    lg: 'h-14 px-8 text-lg',
+  }
+  return (
+    <button
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      disabled={disabled || isLoading}
+      {...props}
+    >
+      {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+      {!isLoading && leftIcon && <span className="mr-2">{leftIcon}</span>}
+      {children}
+      {!isLoading && rightIcon && <span className="ml-2">{rightIcon}</span>}
+    </button>
+  )
+}
+
+```
+```components/ui/Card.tsx
+import React from 'react'
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  hover?: boolean
+}
+export function Card({
+  children,
+  className = '',
+  hover = false,
+  ...props
+}: CardProps) {
+  return (
+    <div
+      className={`
+        bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden
+        ${hover ? 'transition-transform hover:-translate-y-1 hover:shadow-md duration-200' : ''}
+        ${className}
+      `}
+      {...props}
+    >
+      {children}
+    </div>
+  )
+}
+
+```
+```components/ui/EmptyState.tsx
+import React from 'react'
+import { SearchX } from 'lucide-react'
+interface EmptyStateProps {
+  title?: string
+  description?: string
+}
+export function EmptyState({
+  title = 'No results found',
+  description = "Try adjusting your search or filters to find what you're looking for.",
+}: EmptyStateProps) {
+  return (
+    <div className="flex flex-col items-center justify-center text-center p-8 bg-white rounded-xl border border-dashed border-gray-300">
+      <div className="bg-gray-50 p-4 rounded-full mb-4">
+        <SearchX className="h-8 w-8 text-gray-400" />
+      </div>
+      <h3 className="text-lg font-semibold text-gray-900 mb-1">{title}</h3>
+      <p className="text-gray-500 max-w-sm">{description}</p>
+    </div>
+  )
+}
+
+```
+```components/ui/Input.tsx
+import React, { useId } from 'react'
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string
+  error?: string
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
+}
+export function Input({
+  label,
+  error,
+  leftIcon,
+  rightIcon,
+  className = '',
+  id,
+  ...props
+}: InputProps) {
+  const inputId = id || useId()
+  return (
+    <div className="w-full">
+      {label && (
+        <label
+          htmlFor={inputId}
+          className="block text-sm font-medium text-gray-700 mb-1.5"
+        >
+          {label}
+        </label>
+      )}
+      <div className="relative">
+        {leftIcon && (
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+            {leftIcon}
+          </div>
+        )}
+        <input
+          id={inputId}
+          className={`
+            w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400
+            focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none transition-all
+            disabled:bg-gray-50 disabled:text-gray-500
+            ${leftIcon ? 'pl-10' : ''}
+            ${rightIcon ? 'pr-10' : ''}
+            ${error ? 'border-red-500 focus:border-red-500 focus:ring-red-200' : ''}
+            ${className}
+          `}
+          {...props}
+        />
+        {rightIcon && (
+          <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400">
+            {rightIcon}
+          </div>
+        )}
+      </div>
+      {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
+    </div>
+  )
+}
+
+```
+```components/ui/LoadingSpinner.tsx
+import React from 'react'
+import { Loader2 } from 'lucide-react'
+export function LoadingSpinner({ className = '' }: { className?: string }) {
+  return (
+    <div className={`flex justify-center items-center p-8 ${className}`}>
+      <Loader2 className="h-8 w-8 animate-spin text-[#C41E3A]" />
+    </div>
+  )
+}
+
+```
+```hooks/useGeolocation.ts
+import { useState, useEffect } from 'react'
+import { Location } from '../types'
+
+interface GeolocationState {
+  location: Location | null
+  error: string | null
+  loading: boolean
+}
+
+export function useGeolocation() {
+  const [state, setState] = useState<GeolocationState>({
+    location: null,
+    error: null,
+    loading: false,
+  })
+
+  const getLocation = () => {
+    if (!navigator.geolocation) {
+      setState((prev) => ({
+        ...prev,
+        error: 'Geolocation is not supported by your browser',
+      }))
+      return
+    }
+
+    setState((prev) => ({ ...prev, loading: true, error: null }))
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setState({
+          location: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          },
+          error: null,
+          loading: false,
+        })
+      },
+      (error) => {
+        setState({
+          location: null,
+          error: error.message,
+          loading: false,
+        })
+      },
+    )
+  }
+
+  return { ...state, getLocation }
+}
+
+```
+```hooks/useProductSearch.ts
+import { useState } from 'react'
+import { Product, Store, SearchResult } from '../types'
+
+// Mock Data
+const MOCK_PRODUCTS: Product[] = [
+  {
+    id: 'p1',
+    code: '07NE05',
+    name: 'Nelna EASY 5Kg',
+    category: 'Frozen',
+    description: 'Premium quality frozen chicken, easy to cook.',
+    image:
+      'https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&q=80&w=800',
+    price: 4500,
+    relevanceScore: 0.98,
+  },
+  {
+    id: 'p2',
+    code: '07NE02',
+    name: 'Chicken Sausages 500g',
+    category: 'Processed',
+    description: 'Spicy and delicious chicken sausages.',
+    image:
+      'https://images.unsplash.com/photo-1597430225609-026c48324e94?auto=format&fit=crop&q=80&w=800',
+    price: 850,
+    relevanceScore: 0.85,
+  },
+  {
+    id: 'p3',
+    code: '07NE08',
+    name: 'Whole Chicken (Skinless)',
+    category: 'Fresh',
+    description: 'Farm fresh whole chicken, skin removed.',
+    image:
+      'https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?auto=format&fit=crop&q=80&w=800',
+    price: 1200,
+    relevanceScore: 0.75,
+  },
+  {
+    id: 'p4',
+    code: '07NE10',
+    name: 'Chicken Drumsticks',
+    category: 'Fresh',
+    description: 'Juicy chicken drumsticks pack.',
+    image:
+      'https://images.unsplash.com/photo-1588723205383-26d2530452ec?auto=format&fit=crop&q=80&w=800',
+    price: 950,
+    relevanceScore: 0.6,
+  },
+]
+
+const MOCK_STORES: Store[] = [
+  {
+    id: 's1',
+    name: 'Cargills Food City - Kandy',
+    city: 'Kandy',
+    location: { lat: 7.2906, lng: 80.6337 },
+    distance: 2.1,
+    availableProducts: ['p1', 'p2', 'p3'],
+    contact: '081-2223333',
+    isOpen: true,
+  },
+  {
+    id: 's2',
+    name: 'Keells Super - Colombo 03',
+    city: 'Colombo',
+    location: { lat: 6.9271, lng: 79.8612 },
+    distance: 15.4,
+    availableProducts: ['p2', 'p4'],
+    contact: '011-2224444',
+    isOpen: true,
+  },
+  {
+    id: 's3',
+    name: 'Nelna Exclusive Outlet',
+    city: 'Malabe',
+    location: { lat: 6.9061, lng: 79.9696 },
+    distance: 8.2,
+    availableProducts: ['p1', 'p2', 'p3', 'p4'],
+    contact: '011-5556666',
+    isOpen: true,
+  },
+]
+
+export function useProductSearch() {
+  const [loading, setLoading] = useState(false)
+  const [results, setResults] = useState<SearchResult | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  const search = async (
+    query: string,
+    location: { lat: number; lng: number } | null,
+  ) => {
+    setLoading(true)
+    setError(null)
+
+    try {
+      // Simulate API delay
+      await new Promise((resolve) => setTimeout(resolve, 1500))
+
+      // Simple mock logic: filter if query matches, otherwise return all
+      const relevantProducts = query
+        ? MOCK_PRODUCTS.filter(
+            (p) =>
+              p.name.toLowerCase().includes(query.toLowerCase()) ||
+              p.category.toLowerCase().includes(query.toLowerCase()),
+          )
+        : MOCK_PRODUCTS
+
+      // Sort stores by distance (mock)
+      const sortedStores = [...MOCK_STORES].sort(
+        (a, b) => a.distance - b.distance,
+      )
+
+      setResults({
+        products: relevantProducts,
+        stores: sortedStores,
+        relatedProducts: MOCK_PRODUCTS.filter(
+          (p) => !relevantProducts.includes(p),
+        ).slice(0, 2),
+      })
+    } catch (err) {
+      setError('Failed to fetch results. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return { search, results, loading, error }
+}
+
+```
+```index.css
+/* URL IMPORTS (SUCH AS FONT IMPORTS) SHOULD BE KEPT ABOVE TAILWIND IMPORTS - DO NOT DELETE THIS COMMENT */
+
+/* PLEASE NOTE: THESE TAILWIND IMPORTS SHOULD NEVER BE DELETED - DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* DO NOT DELETE THESE TAILWIND IMPORTS, OTHERWISE THE STYLING WILL NOT RENDER AT ALL - DO NOT DELETE THIS COMMENT */
+```
+```index.tsx
+import './index.css'
+import React from "react";
+import { render } from "react-dom";
+import { App } from "./App";
+
+render(<App />, document.getElementById("root"));
+
+```
+```pages/ProductFinderPage.tsx
+import React, { useState } from 'react'
+import { SearchBar } from '../components/search/SearchBar'
+import { FilterBar } from '../components/filters/FilterBar'
+import { ResultsGrid } from '../components/results/ResultsGrid'
+import { MapView } from '../components/map/MapView'
+import { RecommendationCarousel } from '../components/recommendations/RecommendationCarousel'
+import { LoadingSpinner } from '../components/ui/LoadingSpinner'
+import { EmptyState } from '../components/ui/EmptyState'
+import { useGeolocation } from '../hooks/useGeolocation'
+import { useProductSearch } from '../hooks/useProductSearch'
+import { Map as MapIcon, List } from 'lucide-react'
+export function ProductFinderPage() {
+  const { location, loading: locating, getLocation } = useGeolocation()
+  const { search, results, loading: searching, error } = useProductSearch()
+  const [showMapMobile, setShowMapMobile] = useState(false)
+  const handleSearch = (query: string) => {
+    search(query, location)
+  }
+  return (
+    <div className="min-h-screen bg-[#FFF9F5] flex flex-col">
+      {/* Header / Search Area */}
+      <header className="bg-white shadow-sm sticky top-0 z-20">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-2">
+              <div className="h-8 w-8 bg-[#C41E3A] rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                N
+              </div>
+              <span className="font-bold text-xl text-gray-900 tracking-tight">
+                Nelna <span className="text-[#C41E3A]">Finder</span>
+              </span>
+            </div>
+          </div>
+
+          <SearchBar
+            onSearch={handleSearch}
+            onLocationClick={getLocation}
+            isLocating={locating}
+            locationAddress={location ? 'Location active' : undefined}
+          />
+
+          <div className="mt-4">
+            <FilterBar />
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-grow max-w-7xl mx-auto w-full px-4 py-6">
+        {searching ? (
+          <div className="flex flex-col items-center justify-center py-20">
+            <LoadingSpinner />
+            <p className="text-gray-500 mt-4 animate-pulse">
+              Finding the best products for you...
+            </p>
+          </div>
+        ) : error ? (
+          <div className="text-center py-20">
+            <p className="text-red-600">{error}</p>
+          </div>
+        ) : results ? (
+          <div className="flex flex-col lg:flex-row gap-8 h-full">
+            {/* Results Column */}
+            <div
+              className={`flex-1 ${showMapMobile ? 'hidden lg:block' : 'block'}`}
+            >
+              {results.products.length > 0 ? (
+                <>
+                  <ResultsGrid results={results} />
+                  <RecommendationCarousel products={results.relatedProducts} />
+                </>
+              ) : (
+                <EmptyState />
+              )}
+            </div>
+
+            {/* Map Column (Desktop: Sticky Sidebar, Mobile: Toggle View) */}
+            <div
+              className={`
+              lg:w-[400px] xl:w-[450px] lg:block
+              ${showMapMobile ? 'block fixed inset-0 z-30 bg-white pt-20 px-4 pb-20' : 'hidden'}
+            `}
+            >
+              <div className="sticky top-48 h-[calc(100vh-250px)] min-h-[400px]">
+                <MapView stores={results.stores} />
+              </div>
+            </div>
+          </div> /* Initial State */
+        ) : (
+          <div className="text-center py-20 px-4">
+            <div className="max-w-md mx-auto">
+              <h1 className="text-3xl font-bold text-gray-900 mb-4">
+                Fresh <span className="text-[#C41E3A]">Poultry</span> &{' '}
+                <span className="text-[#FF6B35]">Frozen Foods</span> Near You
+              </h1>
+              <p className="text-gray-600 mb-8 text-lg">
+                Use our AI-powered search to find your favorite Nelna products
+                at the nearest stores.
+              </p>
+
+              <div className="grid grid-cols-2 gap-4 text-left">
+                <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                  <span className="text-2xl mb-2 block">🍗</span>
+                  <h3 className="font-bold text-gray-900">Fresh Chicken</h3>
+                  <p className="text-sm text-gray-500">Farm fresh quality</p>
+                </div>
+                <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                  <span className="text-2xl mb-2 block">🌭</span>
+                  <h3 className="font-bold text-gray-900">Sausages</h3>
+                  <p className="text-sm text-gray-500">Premium processed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </main>
+
+      {/* Mobile Map Toggle FAB */}
+      {results && (
+        <div className="fixed bottom-6 right-6 lg:hidden z-40">
+          <button
+            onClick={() => setShowMapMobile(!showMapMobile)}
+            className="bg-[#2D5016] text-white px-6 py-3 rounded-full shadow-lg flex items-center font-medium hover:bg-[#1a330d] transition-colors"
+          >
+            {showMapMobile ? (
+              <>
+                <List className="h-5 w-5 mr-2" />
+                Show List
+              </>
+            ) : (
+              <>
+                <MapIcon className="h-5 w-5 mr-2" />
+                View Map
+              </>
+            )}
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+```
+```tailwind.config.js
+export default {}
+```
+```types/index.ts
+export interface Location {
+  lat: number
+  lng: number
+  address?: string
+}
+
+export interface Product {
+  id: string
+  code: string
+  name: string
+  category: string
+  description: string
+  image: string
+  price: number
+  relevanceScore?: number // 0-1 score from AI
+}
+
+export interface Store {
+  id: string
+  name: string
+  city: string
+  location: Location
+  distance: number // in km
+  availableProducts: string[] // product IDs
+  contact: string
+  isOpen: boolean
+}
+
+export interface SearchResult {
+  products: Product[]
+  stores: Store[]
+  relatedProducts: Product[]
+}
+
+export type SortOption = 'relevance' | 'distance' | 'price-low' | 'price-high'
+
+```

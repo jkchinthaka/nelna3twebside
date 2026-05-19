@@ -1,0 +1,186 @@
+import { useEffect, useState } from 'react'
+import { ArrowRight, Eye, MessageCircle, Package, Snowflake } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'framer-motion'
+import { Badge, Button } from './ui/index.js'
+
+const whatsappNumber = '94762718923'
+
+function deriveBadges(product) {
+  const badges = []
+  const category = String(product.category || '').toLowerCase()
+  const tags = Array.isArray(product.tags) ? product.tags.map((tag) => String(tag).toLowerCase()) : []
+  const certs = Array.isArray(product.certifications)
+    ? product.certifications.map((item) => String(item).toLowerCase())
+    : []
+
+  if (product.isNew) badges.push({ label: 'New', tone: 'primary' })
+  if (tags.includes('popular') || tags.includes('best-seller')) badges.push({ label: 'Popular', tone: 'accent' })
+  if (category.includes('frozen')) badges.push({ label: 'Frozen', tone: 'neutral' })
+  if (category.includes('value') || tags.includes('value-added')) badges.push({ label: 'Value-Added', tone: 'accent' })
+  if (certs.some((value) => value.includes('halal'))) badges.push({ label: 'Halal', tone: 'primary' })
+
+  return badges.slice(0, 4)
+}
+
+function ProductCard({ product, view = 'grid', onQuickView }) {
+  const weights = Array.isArray(product.weights) && product.weights.length ? product.weights : ['Available on request']
+  const category = product.category || 'Premium Poultry'
+  const detailPath = `/products/${product.slug || product.id}`
+  const badges = deriveBadges(product)
+  const isList = view === 'list'
+  const prefersReducedMotion = useReducedMotion()
+  const [tiltEnabled, setTiltEnabled] = useState(false)
+
+  const pointerX = useMotionValue(0.5)
+  const pointerY = useMotionValue(0.5)
+
+  const rotateX = useTransform(pointerY, [0, 1], [6, -6])
+  const rotateY = useTransform(pointerX, [0, 1], [-7, 7])
+
+  const smoothRotateX = useSpring(rotateX, { stiffness: 170, damping: 18, mass: 0.45 })
+  const smoothRotateY = useSpring(rotateY, { stiffness: 170, damping: 18, mass: 0.45 })
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+      return
+    }
+
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 960px)')
+    const update = () => setTiltEnabled(mediaQuery.matches)
+
+    update()
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', update)
+      return () => mediaQuery.removeEventListener('change', update)
+    }
+
+    mediaQuery.addListener(update)
+    return () => mediaQuery.removeListener(update)
+  }, [])
+
+  const enableTilt = tiltEnabled && !prefersReducedMotion && !isList
+
+  const handlePointerMove = (event) => {
+    if (!enableTilt) {
+      return
+    }
+
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = (event.clientX - bounds.left) / bounds.width
+    const y = (event.clientY - bounds.top) / bounds.height
+    pointerX.set(x)
+    pointerY.set(y)
+  }
+
+  const handlePointerLeave = () => {
+    pointerX.set(0.5)
+    pointerY.set(0.5)
+  }
+
+  const message = encodeURIComponent(`Hello Nelna team, I need more information about ${product.name}.`)
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${message}`
+
+  return (
+    <motion.article
+      onMouseMove={handlePointerMove}
+      onMouseLeave={handlePointerLeave}
+      whileHover={enableTilt ? { y: -8 } : { y: -4 }}
+      style={
+        enableTilt
+          ? {
+              rotateX: smoothRotateX,
+              rotateY: smoothRotateY,
+              transformPerspective: 1200,
+            }
+          : undefined
+      }
+      className={`group [transform-style:preserve-3d] overflow-hidden rounded-2xl border border-[var(--card-border)] bg-[var(--card-fill)] shadow-card transition hover:shadow-card-hover ${
+        isList ? 'grid gap-4 md:grid-cols-[260px_1fr]' : 'flex h-full flex-col'
+      }`}
+    >
+      <div
+        className={`relative overflow-hidden bg-slate-100 ${isList ? 'h-full min-h-[230px]' : 'h-64'}`}
+        style={enableTilt ? { transform: 'translateZ(24px)' } : undefined}
+      >
+        {product.imageUrl ? (
+          <img
+            src={product.imageUrl}
+            alt={product.name || 'Nelna product image'}
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            loading="lazy"
+            onError={(event) => {
+              event.currentTarget.style.opacity = '0.6'
+            }}
+          />
+        ) : (
+          <div className="flex h-full items-center justify-center text-slate-500">
+            <Package className="h-10 w-10" aria-hidden="true" />
+          </div>
+        )}
+
+        <div className="absolute left-3 top-3 flex flex-wrap gap-2">
+          <Badge tone="primary" className="normal-case tracking-normal">{category}</Badge>
+          {badges.map((badge) => (
+            <Badge key={`${product.id}-${badge.label}`} tone={badge.tone} className="normal-case tracking-normal">
+              {badge.label}
+            </Badge>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex flex-1 flex-col gap-4 p-5" style={enableTilt ? { transform: 'translateZ(18px)' } : undefined}>
+        <div>
+          <h3 className="font-display text-xl font-bold text-slate-950">{product.name}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-800 line-clamp-3">{product.description}</p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          {weights.slice(0, 3).map((weight) => (
+            <span
+              key={`${product.id}-weight-${weight}`}
+              className="inline-flex items-center gap-1 rounded-pill bg-brand-green-50 px-3 py-1 text-xs font-semibold text-brand-green-700"
+            >
+              <Snowflake className="h-3.5 w-3.5" aria-hidden="true" />
+              {weight}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-auto grid gap-2 sm:grid-cols-2">
+          <Link
+            to={detailPath}
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-pill border border-slate-400 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+          >
+            View Details
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+
+          <Button
+            type="button"
+            variant="secondary"
+            className="w-full justify-center"
+            onClick={() => onQuickView?.(product)}
+          >
+            <Eye className="h-4 w-4" aria-hidden="true" />
+            Quick View
+          </Button>
+
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-pill border border-brand-green-300 bg-brand-green-100/70 px-4 py-2 text-sm font-semibold text-brand-green-800 transition hover:bg-brand-green-100 sm:col-span-2"
+            aria-label={`Ask on WhatsApp about ${product.name}`}
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" />
+            Ask on WhatsApp
+          </a>
+        </div>
+      </div>
+    </motion.article>
+  )
+}
+
+export default ProductCard

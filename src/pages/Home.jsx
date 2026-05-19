@@ -1,0 +1,471 @@
+import { useCallback, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import {
+   ShieldCheck,
+   Leaf,
+   Award,
+   Clock,
+   CheckCircle2,
+   ArrowRight,
+   Star,
+   ChefHat,
+} from 'lucide-react'
+import { motion } from 'framer-motion'
+import HeroSlider from '../components/HeroSlider.jsx'
+import SectionHeading from '../components/SectionHeading.jsx'
+import ProductCard from '../components/ProductCard.jsx'
+import PartnerStrip from '../components/PartnerStrip.jsx'
+import BrandStripeImage from '../components/BrandStripeImage.jsx'
+import AnimatedCTASection from '../components/AnimatedCTASection.jsx'
+import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
+import NewsCard from '../components/NewsCard.jsx'
+import Counter from '../components/Counter.jsx'
+import { ErrorState, Skeleton } from '../components/ui/index.js'
+import { getProducts } from '../services/productService.js'
+import { getNews } from '../services/newsService.js'
+import { fallbackProducts } from '../data/products.js'
+import { fallbackNews } from '../data/news.js'
+
+import homePremiumFeatureImg from '../assets/nelna-gallery-08.jpg'
+import processCardImg1 from '../assets/nelna-gallery-11.jpg'
+import processCardImg2 from '../assets/nelna-gallery-12.jpg'
+import processCardImg3 from '../assets/nelna-gallery-13.jpg'
+
+import certGMP from '../assets/GMP.jpg'
+import certHACCP from '../assets/HACCP.jpg'
+import certHalal from '../assets/HALAL.jpg'
+import certISO from '../assets/ISO_22000.jpg'
+import chickenIllustration from '../assets/Asset 1.png'
+
+function Home() {
+   const [products, setProducts] = useState(fallbackProducts)
+   const [news, setNews] = useState(fallbackNews)
+   const [productsLoading, setProductsLoading] = useState(true)
+   const [newsLoading, setNewsLoading] = useState(true)
+   const [productsError, setProductsError] = useState('')
+   const [newsError, setNewsError] = useState('')
+
+   const loadProducts = useCallback(async () => {
+      setProductsLoading(true)
+      setProductsError('')
+
+      try {
+         const response = await getProducts()
+         if (Array.isArray(response) && response.length) {
+            const merged = response.map((item) => {
+               const fallback = fallbackProducts.find(
+                  (entry) => entry.id === item.id || entry.slug === item.slug
+               )
+               return {
+                  ...fallback,
+                  ...item,
+                  slug: item.slug || fallback?.slug || item.id,
+               }
+            })
+            setProducts(merged)
+         } else {
+            setProducts(fallbackProducts)
+         }
+      } catch (error) {
+         console.error('Failed to load products', error)
+         setProductsError('Unable to load live products right now. Showing fallback catalog.')
+         setProducts(fallbackProducts)
+      } finally {
+         setProductsLoading(false)
+      }
+   }, [])
+
+   const loadNews = useCallback(async () => {
+      setNewsLoading(true)
+      setNewsError('')
+
+      try {
+         const response = await getNews()
+         if (Array.isArray(response) && response.length) {
+            setNews(response)
+         } else {
+            setNews(fallbackNews)
+         }
+      } catch (error) {
+         console.error('Failed to load news', error)
+         setNewsError('Unable to load latest news right now. Showing recent highlights.')
+         setNews(fallbackNews)
+      } finally {
+         setNewsLoading(false)
+      }
+   }, [])
+
+   useEffect(() => {
+      loadProducts()
+   }, [loadProducts])
+
+   useEffect(() => {
+      loadNews()
+   }, [loadNews])
+
+   const processCards = [
+      {
+         title: 'Bio-secure Farms',
+         desc: 'Healthy poultry raised in controlled, bio-secure environments.',
+         image: processCardImg1,
+      },
+      {
+         title: 'Modern Processing',
+         desc: 'State-of-the-art processing for safety, freshness, and consistency.',
+         image: processCardImg2,
+      },
+      {
+         title: 'Cold-chain Delivery',
+         desc: 'Fast, chilled delivery to keep products fresh from farm to store.',
+         image: processCardImg3,
+      },
+   ]
+
+   return (
+      <div className="bg-white">
+         {/* 1. Hero Section */}
+         <section className="relative">
+            <HeroSlider />
+            <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-10">
+               <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1, duration: 0.3 }}
+                  className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 bg-white backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-200"
+               >
+                  {[
+                     { value: 200, suffix: '+', label: 'Contract Farmers', color: 'text-brand-700' },
+                     { value: 1500, suffix: '+', label: 'Employees', color: 'text-brand-yellow-600' },
+                     { text: 'Since 1998', label: 'Industry Heritage', color: 'text-brand-green-700' },
+                     { text: 'Nationwide', label: 'Distribution Coverage', color: 'text-brand-red-600' },
+                  ].map((stat, i) => (
+                     <div key={i} className="text-center group cursor-default">
+                        <div className={`text-2xl md:text-3xl font-display font-bold ${stat.color} mb-1 group-hover:scale-110 transition-transform`}>
+                           {stat.text || <Counter to={stat.value} suffix={stat.suffix} />}
+                        </div>
+                        <div className="text-xs font-bold text-slate-600 uppercase tracking-wider group-hover:text-slate-800 transition-colors">
+                           {stat.label}
+                        </div>
+                     </div>
+                  ))}
+               </motion.div>
+            </div>
+         </section>
+
+         {/* 2. Premium Experience Section */}
+         <section className="py-24 px-4 max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+               <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="relative"
+               >
+                  <div className="absolute top-10 right-10 w-full h-full bg-brand-100/65 rounded-[3rem] -z-10 transform translate-x-4 translate-y-4" />
+                  <img
+                     src={homePremiumFeatureImg}
+                     alt="Fresh Premium Chicken"
+                     className="rounded-[3rem] shadow-2xl w-full object-cover"
+                     loading="lazy"
+                  />
+                  <div className="absolute bottom-8 left-8 bg-white/98 backdrop-blur p-6 rounded-2xl shadow-lg max-w-xs border border-slate-200 hidden md:block">
+                     <div className="flex items-center gap-2 mb-2 text-gold-500">
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
+                     </div>
+                     <p className="text-sm font-semibold text-slate-800 italic leading-snug">
+                        "Consistently the highest quality chicken in the market. Nelna has been our trusted supplier for over a decade."
+                     </p>
+                     <div className="mt-2 text-xs font-bold text-slate-600 uppercase tracking-widest">
+                        — Leading Hotel Chain
+                     </div>
+                  </div>
+               </motion.div>
+
+               <div>
+                  <div className="flex items-center gap-2 text-gold-600 font-bold tracking-widest uppercase text-xs mb-4">
+                     <Award className="w-4 h-4" />
+                     <span>Premium Quality Standard</span>
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
+                     Taste the Difference of <span className="text-brand-600">Pure Freshness</span>
+                  </h2>
+                  <p className="text-lg text-slate-700 mb-8 leading-relaxed">
+                     At Nelna, we don't cut corners. From our bio-secure farms to your kitchen table, every step is monitored to ensure you get poultry that is tender, juicy, and completely safe for your loved ones.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-6 mb-10">
+                     {[
+                        { icon: ShieldCheck, title: 'Antibiotic Free', desc: 'Raised without growth promoters.' },
+                        { icon: Clock, title: 'Maximum Freshness', desc: 'Processed and delivered daily.' },
+                        { icon: Leaf, title: 'Ethically Raised', desc: 'Humane farming practices.' },
+                        { icon: CheckCircle2, title: 'Full Traceability', desc: 'Know where your food comes from.' },
+                     ].map((feature, i) => (
+                        <div key={i} className="flex gap-4">
+                           <div className="w-10 h-10 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                              <feature.icon className="w-5 h-5" />
+                           </div>
+                           <div>
+                              <h4 className="font-bold text-slate-900">{feature.title}</h4>
+                              <p className="text-xs text-slate-600">{feature.desc}</p>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+
+                  <Link
+                     to="/about"
+                     className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-brand-600 text-white font-bold shadow-lg shadow-brand-200 transition-all hover:bg-brand-700 hover:shadow-xl hover:-translate-y-1"
+                  >
+                     Explore Our Standard <ArrowRight className="w-4 h-4" />
+                  </Link>
+               </div>
+            </div>
+         </section>
+
+         <BrandStripeImage variant="green" />
+
+         {/* 3. Shop Favorites Section */}
+         <section className="bg-slate-50 py-24">
+            <div className="max-w-7xl mx-auto px-4">
+               <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                  <div className="max-w-2xl">
+                     <SectionHeading
+                        eyebrow="Featured Range"
+                        title="Premium Poultry and Frozen Food Selection"
+                        subtitle="Explore frozen chicken products, value-added cuts, and trusted nutrition for homes, retailers, and HORECA operations."
+                        align="left"
+                        eyebrowClassName="text-brand-green-800"
+                        titleClassName="text-slate-950"
+                        subtitleClassName="text-slate-800 md:text-[1.04rem] leading-relaxed font-medium"
+                     />
+                  </div>
+                  <Link
+                     to="/products"
+                     className="hidden md:flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-bold text-white shadow-lg hover:bg-brand-700 transition-all hover:shadow-xl hover:-translate-y-0.5"
+                  >
+                     View All Products <ArrowRight className="w-4 h-4" />
+                  </Link>
+               </div>
+
+               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {productsLoading ? (
+                     Array.from({ length: 3 }).map((_, index) => (
+                        <Skeleton key={`product-skeleton-${index}`} className="h-[420px] rounded-3xl" />
+                     ))
+                  ) : (
+                     products.slice(0, 3).map((product, idx) => (
+                        <ProductCard key={product.id} product={product} featured={idx === 1} />
+                     ))
+                  )}
+               </div>
+
+               {!productsLoading && productsError ? (
+                  <div className="mt-6">
+                     <ErrorState
+                        title="Live catalog temporarily unavailable"
+                        description={productsError}
+                        retryLabel="Retry products"
+                        onRetry={loadProducts}
+                     />
+                  </div>
+               ) : null}
+
+               {!productsLoading ? (
+                  <div className="md:hidden mt-8 text-center">
+                     <Link to="/products" className="inline-flex items-center gap-2 font-bold text-brand-600">
+                        View Full Catalog <ArrowRight className="w-4 h-4" />
+                     </Link>
+                  </div>
+               ) : null}
+            </div>
+         </section>
+
+         {/* 4. Why Choose Nelna (Process) */}
+         <section className="py-24 overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-50/70 -z-10" />
+            <img
+               src={chickenIllustration}
+               alt=""
+               aria-hidden="true"
+               loading="lazy"
+               className="pointer-events-none absolute -bottom-4 -right-16 hidden w-[220px] opacity-90 md:block lg:w-[320px] xl:w-[420px]"
+            />
+            <div className="relative z-10 max-w-7xl mx-auto px-4">
+               <div className="mb-16 text-center max-w-3xl mx-auto">
+                  <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
+                     Why Top Chefs & Families<br/> <span className="text-brand-600">Trust Nelna</span>
+                  </h2>
+                  <p className="text-slate-700 text-lg">
+                     It's not just chicken. It's a commitment to <span className="font-bold text-slate-800">uncompromising quality</span> that you can taste in every bite.
+                  </p>
+               </div>
+
+               <div className="grid md:grid-cols-3 gap-8">
+                  {processCards.map((item, idx) => (
+                     <motion.div
+                        key={idx}
+                        whileHover={{ y: -10 }}
+                        transition={{ duration: 0.3 }}
+                        className="group rounded-3xl overflow-hidden bg-white shadow-lg border border-slate-200"
+                     >
+                        <div className="h-48 overflow-hidden">
+                           <img
+                              src={item.image}
+                              alt={item.title}
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              loading="lazy"
+                           />
+                        </div>
+                        <div className="p-8">
+                           <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                           <p className="text-slate-700 text-sm leading-relaxed">{item.desc}</p>
+                        </div>
+                     </motion.div>
+                  ))}
+               </div>
+            </div>
+         </section>
+
+         <section className="bg-white py-24">
+            <div className="mx-auto grid max-w-7xl gap-6 px-4 md:grid-cols-3">
+               {[
+                  {
+                     title: 'Quality & Safety',
+                     body: 'International processing standards, hygienic handling, and veterinary supervision at every stage.',
+                     href: '/quality-safety',
+                  },
+                  {
+                     title: 'Traceability',
+                     body: 'Farm-to-table visibility covering breeder stock, feed, processing, packaging, and cold-chain distribution.',
+                     href: '/traceability',
+                  },
+                  {
+                     title: 'Sustainability',
+                     body: 'Responsible waste management, compost initiatives, and environmentally mindful operations since 2009.',
+                     href: '/sustainability',
+                  },
+               ].map((item) => (
+                  <article key={item.title} className="surface-card surface-card-hover p-6">
+                     <h3 className="text-xl font-display font-bold text-slate-900">{item.title}</h3>
+                     <p className="mt-3 text-sm leading-relaxed text-slate-700">{item.body}</p>
+                     <Link to={item.href} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-green-700">
+                        Explore
+                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                     </Link>
+                  </article>
+               ))}
+            </div>
+         </section>
+
+         <div className="bg-brand-950 py-16 text-white relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-400 via-brand-900 to-transparent"></div>
+            
+            <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16 relative z-10">
+               {[
+                  { label: 'ISO 22000 Certified', img: certISO },
+                  { label: 'GMP Standards', img: certGMP },
+                  { label: 'HACCP Approved', img: certHACCP },
+                  { label: 'Halal Certified', img: certHalal },
+               ].map((badge, i) => (
+                  <div key={i} className="flex items-center gap-3 group opacity-100 transition-all duration-300">
+                     <div className="w-12 h-12 rounded-full overflow-hidden bg-white p-1 group-hover:scale-110 transition-transform duration-300">
+                        <img src={badge.img} alt={badge.label} className="w-full h-full object-contain" />
+                     </div>
+                     <span className="font-display font-bold text-lg text-brand-50 group-hover:text-white transition-colors">{badge.label}</span>
+                  </div>
+               ))}
+            </div>
+         </div>
+
+         <PartnerStrip />
+
+         {/* 6. Testimonials */}
+         <section className="py-24 bg-brand-50/70">
+            <div className="max-w-4xl mx-auto px-6 text-center">
+               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold-100 text-gold-600 mb-8 border border-gold-200">
+                  <ChefHat className="w-8 h-8" />
+               </div>
+               <SectionHeading
+                  title="Trusted by Culinary Experts"
+                  subtitle="We are the silent partner behind many of Sri Lanka's finest culinary experiences. From 5-star hotels to local favorites."
+                  titleClassName="!text-slate-900"
+                  subtitleClassName="!text-slate-700"
+               />
+               <div className="mt-12">
+                  <TestimonialCarousel
+                     items={[
+                        {
+                           quote:
+                              'Nelna’s consistency is unmatched. I can rely on them for every banquet and every service.',
+                           name: 'Chef Anura Perera',
+                           role: 'Executive Chef, Colombo Hotel Group',
+                        },
+                        {
+                           quote: 'Our customers immediately noticed the difference in tenderness when we switched to Nelna.',
+                           name: 'Mrs. Shalini Dias',
+                           role: 'Owner, FreshMart Supermarkets',
+                        },
+                        {
+                           quote: 'As an exporter, I need guarantees on safety standards. Nelna delivers every single time.',
+                           name: 'Imran Kareem',
+                           role: 'Director, Lanka Foods Export',
+                        },
+                     ]}
+                  />
+               </div>
+            </div>
+         </section>
+
+         {/* 7. Latest News Preview */}
+         <section className="bg-slate-50 py-24">
+            <div className="mx-auto max-w-7xl px-4">
+               <SectionHeading
+                  eyebrow="Community & Updates"
+                  title="Life at Nelna Farm"
+                  subtitle="Stay connected with our latest initiatives, recipes, and farm updates."
+                  align="left"
+               />
+               <div className="mt-12 grid gap-8 md:grid-cols-3">
+                  {newsLoading ? (
+                     Array.from({ length: 3 }).map((_, index) => (
+                        <Skeleton key={`news-skeleton-${index}`} className="h-[360px] rounded-3xl" />
+                     ))
+                  ) : (
+                     news.slice(0, 3).map((article) => (
+                        <NewsCard key={article.id} article={article} />
+                     ))
+                  )}
+               </div>
+
+               {!newsLoading && newsError ? (
+                  <div className="mt-6">
+                     <ErrorState
+                        title="News feed temporarily unavailable"
+                        description={newsError}
+                        retryLabel="Retry news"
+                        onRetry={loadNews}
+                     />
+                  </div>
+               ) : null}
+            </div>
+         </section>
+
+         <BrandStripeImage variant="red" />
+
+         {/* 8. Final CTA */}
+         <AnimatedCTASection
+            title="Ready to Experience Premium Quality?"
+            body="Join thousands of satisfied customers who trust Nelna for their daily protein needs."
+            primary={{ href: '/products', label: 'Explore Our Products' }}
+            secondary={{ href: '/product-finder', label: 'Find Products Near You' }}
+         />
+      </div>
+   )
+}
+
+export default Home

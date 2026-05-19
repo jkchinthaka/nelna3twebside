@@ -1,0 +1,1 @@
+const o="Products",t="Broiler Chicken, Eggs, and Processed Chicken",s="Download Catalog (PDF)",e="Bulk Inquiry / Order",n="We respond within 1 business day.",r={title:o,subtitle:t,downloadCatalog:s,bulkOrder:e,formNote:n};export{e as bulkOrder,r as default,s as downloadCatalog,n as formNote,t as subtitle,o as title};

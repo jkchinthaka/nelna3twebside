@@ -1,0 +1,1 @@
+import{r as t}from"./httpClient-CWGXANBD.js";const n="/api/contact-settings";async function e(){return t(n,{method:"GET"})}async function a(o){return t(n,{method:"PUT",body:JSON.stringify(o||{})})}export{e as g,a as u};

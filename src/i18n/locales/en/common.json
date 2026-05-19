@@ -1,0 +1,35 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About Us",
+    "quality": "Quality & Safety",
+    "sustainability": "Sustainability & CSR",
+    "news": "News & Updates",
+    "contact": "Contact",
+    "portal": "Portal",
+    "login": "Portal Login"
+  },
+  "cta": {
+    "orderNow": "Order Now",
+    "contactUs": "Contact Us",
+    "learnMore": "Learn More",
+    "becomeDistributor": "Become a Distributor",
+    "exploreProducts": "Explore Products"
+  },
+  "portal": {
+    "title": "Admin / Distributor Portal",
+    "login": "Login",
+    "email": "Email address",
+    "password": "Password"
+  },
+  "forms": {
+    "name": "Full name",
+    "company": "Company",
+    "phone": "Phone number",
+    "quantity": "Expected quantity",
+    "message": "Message",
+    "submit": "Submit",
+    "required": "Required"
+  }
+}

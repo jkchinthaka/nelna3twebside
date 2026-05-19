@@ -1,0 +1,1 @@
+const t="නිෂ්පාදන",o="බ්‍රොයිලර් කුකුළු, බිත්තර, සැකසූ කුකුළු",s="කැටලොගය බාගන්න (PDF)",c="තොග විමසුම / ඇණවුම",n="කාර්යදින 1 තුළ පිළිතුරු ලබාදෙමු.",e={title:t,subtitle:o,downloadCatalog:s,bulkOrder:c,formNote:n};export{c as bulkOrder,e as default,s as downloadCatalog,n as formNote,o as subtitle,t as title};
