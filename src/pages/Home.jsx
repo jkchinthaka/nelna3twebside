@@ -37,7 +37,6 @@ import certGMP from '../assets/GMP.jpg'
 import certHACCP from '../assets/HACCP.jpg'
 import certHalal from '../assets/HALAL.jpg'
 import certISO from '../assets/ISO_22000.jpg'
-import chickenIllustration from '../assets/Asset 1.png'
 
 function Home() {
    const [products, setProducts] = useState(fallbackProducts)
@@ -221,7 +220,7 @@ function Home() {
          {/* 1. Hero Section */}
          <section className="relative">
             <HeroSlider />
-            <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-10">
+            <div className="max-w-7xl mx-auto px-4 pt-4 pb-8 md:pt-5 md:pb-10 relative z-10">
                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
