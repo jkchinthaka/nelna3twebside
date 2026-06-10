@@ -30,9 +30,11 @@ import { getProducts } from '../services/productService.js'
 import { addOrder } from '../services/orderService.js'
 import { hasNotificationBackend, notifyEmail, notifyWhatsApp } from '../services/notificationService.js'
 import { fallbackProducts } from '../data/products.js'
+import { MOBILE } from '../data/companyContact.js'
 
 const catalogUrl = '/catalogs/nelna-catalog.pdf'
-const whatsappNumber = '94762718923'
+
+const whatsappNumber = MOBILE.whatsapp
 const notificationEmail = 'info@nelna.lk'
 const recentlyViewedStorageKey = 'nelna_recent_products'
 
@@ -361,7 +363,7 @@ function Products() {
                   type="button"
                   onClick={() => setViewMode('grid')}
                   className={`inline-flex min-h-[36px] min-w-[40px] items-center justify-center rounded-pill px-3 ${
-                    viewMode === 'grid' ? 'bg-brand-green-600 text-white' : 'text-slate-600'
+                    viewMode === 'grid' ? 'bg-brand-green text-white' : 'text-slate-600'
                   }`}
                   aria-label="Grid view"
                 >
@@ -371,7 +373,7 @@ function Products() {
                   type="button"
                   onClick={() => setViewMode('list')}
                   className={`inline-flex min-h-[36px] min-w-[40px] items-center justify-center rounded-pill px-3 ${
-                    viewMode === 'list' ? 'bg-brand-green-600 text-white' : 'text-slate-600'
+                    viewMode === 'list' ? 'bg-brand-green text-white' : 'text-slate-600'
                   }`}
                   aria-label="List view"
                 >

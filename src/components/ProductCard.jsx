@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'framer-motion'
 import { Badge } from './ui/index.js'
 
-const whatsappNumber = '94762718923'
+import { MOBILE } from '../data/companyContact.js'
+
+const whatsappNumber = MOBILE.whatsapp
 
 function deriveBadges(product) {
   const badges = []

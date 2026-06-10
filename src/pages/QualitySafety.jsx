@@ -38,8 +38,8 @@ function QualitySafety() {
       icon: Stethoscope,
       title: 'Veterinary Oversight',
       body: 'Dedicated on-site veterinary teams monitor flock health 24/7, ensuring ethically raised poultry free from unauthorized antibiotics.',
-      color: 'text-green-600',
-      bg: 'bg-green-50'
+      color: 'text-brand-green',
+      bg: 'bg-brand-green-50'
     },
     {
       icon: ThermometerSnowflake,
@@ -86,19 +86,19 @@ function QualitySafety() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm font-bold text-green-400 backdrop-blur-md mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/30 bg-brand-green/15 px-4 py-1.5 text-sm font-bold text-brand-yellow-300 backdrop-blur-md mb-6">
               <ShieldCheck className="h-4 w-4" />
               <span>World-Class Standards</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight drop-shadow-xl">
               Safety isn't just a protocol.<br />
-              It's our <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-300">Commitment</span>.
+              It's our <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-300 to-white">Commitment</span>.
             </h1>
             <p className="text-lg md:text-xl text-slate-100 max-w-2xl font-medium leading-relaxed mb-8 drop-shadow-md">
               We go beyond industry standards to ensure every bite is safe, nutritious, and ethically produced for your family.
             </p>
             <div className="flex gap-4">
-               <Link to="/contact" className="rounded-full bg-green-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-green-900/20 transition hover:bg-green-500 hover:scale-[1.02]">
+               <Link to="/contact" className="btn-green rounded-full px-8 py-4 text-base font-bold shadow-lg shadow-brand-green/20 transition hover:brightness-95 hover:scale-[1.02]">
                   Contact Our Team
                </Link>
             </div>
@@ -161,7 +161,7 @@ function QualitySafety() {
              />
              <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur rounded-2xl p-6 shadow-lg z-20 border border-slate-100">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+                  <div className="h-2 w-2 rounded-full bg-brand-green animate-pulse"></div>
                   <span className="text-sm font-bold uppercase tracking-wider text-slate-500">Live Status</span>
                 </div>
                 <p className="font-display font-bold text-slate-900 text-lg">

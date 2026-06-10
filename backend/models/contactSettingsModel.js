@@ -1,9 +1,20 @@
 import mongoose from 'mongoose';
 
+const defaultAddressLines = [
+  'Nelna Farm (Pvt) Ltd',
+  'No 03A, Hathduwa Estate,',
+  'Ranwala, Meethirigala',
+];
+
+const defaultPhoneNumbers = [
+  'Tel: 0112-405091 / 0112-405092 / 0112-405094',
+  'Mobile: 0777774029',
+];
+
 const contactSettingsSchema = new mongoose.Schema(
   {
     locationTitle: { type: String, default: 'Our Location' },
-    addressLines: { type: [String], default: ['No. 45, Nelna Mawatha,', 'Wansawila, Meethirigala,', 'Sri Lanka.'] },
+    addressLines: { type: [String], default: defaultAddressLines },
     mapEmbedUrl: {
       type: String,
       default:
@@ -11,10 +22,10 @@ const contactSettingsSchema = new mongoose.Schema(
     },
     mapLink: {
       type: String,
-      default: 'https://maps.google.com/?q=Nelna+Farm,+Meethirigala',
+      default: 'https://maps.google.com/?q=No+03A,+Hathduwa+Estate,+Ranwala,+Meethirigala',
     },
     phoneTitle: { type: String, default: 'Phone Support' },
-    phoneNumbers: { type: [String], default: ['+94 37 222 4567', '+94 77 123 4567'] },
+    phoneNumbers: { type: [String], default: defaultPhoneNumbers },
     emailTitle: { type: String, default: 'Email' },
     emails: { type: [String], default: ['info@nelna.lk', 'sales@nelna.lk'] },
     hoursTitle: { type: String, default: 'Working Hours' },

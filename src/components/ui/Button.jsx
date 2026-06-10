@@ -3,8 +3,8 @@ import { cn } from '../../lib/cn.js'
 
 const variants = {
   primary: 'bg-brand-red-500 text-white border-2 border-brand-red-500 hover:bg-brand-red-600 hover:border-brand-red-600 focus-visible:ring-brand-red-500',
-  secondary: 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-brand-green-600 focus-visible:ring-white',
-  green: 'bg-brand-green-500 text-white border-2 border-brand-green-500 hover:bg-brand-green-700 hover:border-brand-green-700 focus-visible:ring-brand-green-500',
+  secondary: 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-brand-green focus-visible:ring-white',
+  green: 'bg-brand-green text-white border-2 border-brand-green hover:brightness-95 focus-visible:ring-brand-green',
   ghost: 'bg-transparent text-slate-800 shadow-none hover:bg-slate-200/80 focus-visible:ring-brand-green-500',
   outline: 'bg-white border-2 border-slate-400 text-slate-800 shadow-none hover:border-brand-green-500 hover:bg-slate-50 focus-visible:ring-brand-green-500',
   danger: 'bg-brand-red-500 text-white border-2 border-brand-red-500 hover:bg-brand-red-600 focus-visible:ring-brand-red-500',

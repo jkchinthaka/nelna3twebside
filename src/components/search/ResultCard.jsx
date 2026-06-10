@@ -6,11 +6,11 @@ export default function ResultCard({ store }) {
   const distanceLabel = typeof store?.distance === 'number' ? `${store.distance.toFixed(1)} km away` : 'Distance unavailable'
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all hover:border-green-100 hover:shadow-md">
+    <div className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all hover:border-brand-green-100 hover:shadow-md">
       <div className="flex items-start justify-between">
         <div>
            <div className="flex items-center gap-2">
-             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-50 text-green-600">
+             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-green-50 text-brand-green">
                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m8-2a2 2 0 00-2-2H9a2 2 0 00-2 2v2m-4 0h14" />
                </svg>
@@ -25,7 +25,7 @@ export default function ResultCard({ store }) {
           </p>
         </div>
         <div className="text-right">
-          <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
+          <span className="inline-flex items-center rounded-full bg-brand-green-50 px-2.5 py-0.5 text-xs font-medium text-brand-green">
             {distanceLabel}
           </span>
         </div>

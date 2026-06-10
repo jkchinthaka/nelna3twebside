@@ -88,7 +88,7 @@ function Farm3DSection() {
 
           <h2 className="mt-5 text-3xl font-display font-bold leading-tight text-slate-950 sm:text-4xl lg:text-5xl">
             Sri Lankan Freshness with
-            <span className="block bg-gradient-to-r from-brand-green-700 via-brand-green-500 to-brand-yellow-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-brand-green via-brand-yellow-500 to-brand-yellow-600 bg-clip-text text-transparent">
               Modern Food Excellence
             </span>
           </h2>
@@ -164,7 +164,7 @@ function Farm3DSection() {
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-green-950/45 via-transparent to-brand-green-900/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-green/45 via-transparent to-brand-green/10" />
               </div>
             )}
 

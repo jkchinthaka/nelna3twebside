@@ -40,7 +40,7 @@ function Login() {
     <div className="bg-slate-50 py-12">
       <div className="page-shell">
         <div className="mx-auto grid max-w-5xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card lg:grid-cols-[0.95fr_1.05fr]">
-          <section className="bg-gradient-to-br from-brand-green-950 via-brand-green-900 to-brand-green-800 p-8 text-white md:p-10">
+          <section className="surface-brand-green p-8 md:p-10">
             <div className="inline-flex items-center gap-3">
               <img src={logo} alt="Nelna Farm logo" className="h-12 w-12 rounded-full object-cover" />
               <div>
@@ -52,11 +52,11 @@ function Login() {
             <h1 className="mt-8 font-display text-3xl font-extrabold leading-tight md:text-4xl">
               Secure Login for Admin and Distributor Teams
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-brand-green-50">
+            <p className="mt-4 text-sm leading-relaxed text-white/90">
               Access product operations, orders, inquiries, and dashboard tools. All portal activity is role protected.
             </p>
 
-            <div className="mt-8 space-y-3 text-sm text-brand-green-50">
+            <div className="mt-8 space-y-3 text-sm text-white/90">
               <p className="inline-flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-brand-yellow-200" aria-hidden="true" />
                 Firebase authentication enabled

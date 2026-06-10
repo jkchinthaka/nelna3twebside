@@ -123,7 +123,7 @@ export default function SearchBar({ onSearch, isLoading }) {
              <button
                 onClick={() => handleSearch()} 
                 disabled={isLoading}
-                className="w-full h-full min-h-[48px] rounded-xl bg-brand-green-500 text-sm font-bold text-white shadow-lg shadow-brand-green-900/20 hover:bg-brand-green-500 hover:brightness-95 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full h-full min-h-[48px] rounded-xl bg-brand-green text-sm font-bold text-white shadow-lg shadow-brand-green/20 hover:brightness-95 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
                 {isLoading ? (
                     <>

@@ -16,6 +16,11 @@ import {
 import useAuth from '../context/useAuth.js'
 import logo from '../assets/nelna-logo.jpg'
 import mango3dLogo from '../assets/mongo3dlogo.png'
+import {
+  COMPANY_LOCATION_SHORT,
+  MAP_LINK,
+  PRIMARY_PHONE,
+} from '../data/companyContact.js'
 
 const directLinks = [
   { to: '/', key: 'nav.home', fallback: 'Home' },
@@ -56,18 +61,18 @@ function isPathActive(pathname, to) {
 
 function TopBar() {
   return (
-    <div className="hidden border-b border-brand-green-800/80 bg-brand-green-950 text-brand-green-50 lg:block">
+    <div className="hidden border-b border-white/15 bg-brand-green text-white lg:block">
       <div className="page-shell flex min-h-topbar items-center justify-between gap-3 py-1 text-[10px] xl:text-xs">
-        <p className="font-medium uppercase tracking-[0.1em] text-brand-green-100">
+        <p className="font-medium uppercase tracking-[0.1em] text-white/90">
           Trusted Sri Lankan poultry since 1998
         </p>
-        <div className="flex items-center gap-2 text-brand-green-50 xl:gap-3">
+        <div className="flex items-center gap-2 text-white xl:gap-3">
           <a
-            href="tel:+94112405091"
+            href={`tel:${PRIMARY_PHONE.tel}`}
             className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-brand-yellow-200"
           >
             <Phone className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>+94 11 240 5091-94</span>
+            <span>{PRIMARY_PHONE.display}</span>
           </a>
           <a
             href="mailto:info@nelna.lk"
@@ -77,13 +82,13 @@ function TopBar() {
             <span>info@nelna.lk</span>
           </a>
           <a
-            href="https://maps.google.com/?q=Nelna+Farm,+Meethirigala"
+            href={MAP_LINK}
             target="_blank"
             rel="noreferrer"
             className="hidden items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-brand-yellow-200 xl:inline-flex"
           >
             <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Meethirigala, Sri Lanka</span>
+            <span>{COMPANY_LOCATION_SHORT}</span>
           </a>
         </div>
       </div>
@@ -233,7 +238,7 @@ function UserMenu({ user, role, logout }) {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-gradient-to-br from-brand-green-500 to-brand-green-700 text-sm font-bold text-white shadow-[0_12px_28px_-14px_rgba(39,116,58,0.95)] ring-2 ring-brand-green-100 transition hover:scale-[1.03]"
+        className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-brand-green text-sm font-bold text-white shadow-[0_12px_28px_-14px_rgba(39,116,58,0.95)] ring-2 ring-brand-green-100 transition hover:scale-[1.03] hover:brightness-95"
         aria-label="Open profile menu"
         aria-expanded={open}
       >
@@ -526,7 +531,7 @@ function Navbar() {
                     <Link
                       to={role === 'distributor' ? '/distributor' : '/admin'}
                       onClick={closeMobile}
-                      className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-brand-green-600 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-green-700"
+                      className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-brand-green px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:brightness-95"
                     >
                       {role === 'distributor' ? 'Open Distributor Portal' : 'Open Admin Portal'}
                     </Link>

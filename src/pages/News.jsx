@@ -72,7 +72,7 @@ function News() {
 
   return (
     <div className="bg-slate-50">
-      <section className="bg-gradient-to-br from-brand-green-950 via-brand-green-900 to-brand-green-800 py-16 text-white">
+      <section className="surface-brand-green py-16">
         <div className="page-shell">
           <p className="inline-flex rounded-pill border border-brand-yellow-300/60 bg-brand-yellow-500/28 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-50">
             Newsroom
@@ -100,7 +100,7 @@ function News() {
                 onClick={() => setCategory(item)}
                 className={`inline-flex min-h-[40px] items-center rounded-pill border px-4 text-sm font-semibold transition ${
                   category === item
-                    ? 'border-brand-green-600 bg-brand-green-600 text-white'
+                    ? 'border-brand-green bg-brand-green text-white'
                     : 'border-slate-400 text-slate-800 hover:border-brand-green-400 hover:text-brand-green-800'
                 }`}
               >

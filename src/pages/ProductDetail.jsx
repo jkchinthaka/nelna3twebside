@@ -13,9 +13,11 @@ import {
 } from '../components/ui/index.js'
 import { getProducts } from '../services/productService.js'
 import { fallbackProducts } from '../data/products.js'
+import { MOBILE } from '../data/companyContact.js'
 
 const recentlyViewedStorageKey = 'nelna_recent_products'
-const whatsappNumber = '94762718923'
+
+const whatsappNumber = MOBILE.whatsapp
 
 function ProductDetail() {
   const { slug } = useParams()
@@ -285,7 +287,7 @@ function ProductDetail() {
           </a>
           <Link
             to="/contact"
-            className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-pill bg-brand-green-600 px-3 text-sm font-semibold text-white"
+            className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-pill bg-brand-green px-3 text-sm font-semibold text-white transition hover:brightness-95"
           >
             Order Inquiry
           </Link>

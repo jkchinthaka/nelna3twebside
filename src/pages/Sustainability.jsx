@@ -39,8 +39,8 @@ function Sustainability() {
       icon: Recycle,
       title: 'Zero-Waste Philosophy',
       body: 'Nothing goes to waste. Organic by-products are converted into nutrient-rich fertilizer, supporting a circular economy with local vegetable farmers.',
-      color: 'text-emerald-500',
-      bg: 'bg-emerald-50'
+      color: 'text-brand-green',
+      bg: 'bg-brand-green-50'
     },
     {
       icon: HeartHandshake,
@@ -62,7 +62,7 @@ function Sustainability() {
     <div className="w-full bg-white">
       
       {/* 1. Hero Section */}
-      <div className="relative h-[60vh] min-h-[500px] w-full bg-emerald-900 overflow-hidden">
+      <div className="relative h-[60vh] min-h-[500px] w-full bg-brand-green overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={sustainabilityHeroImg} 
@@ -70,7 +70,7 @@ function Sustainability() {
             className="w-full h-full object-cover opacity-50"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-green via-brand-green/40 to-transparent"></div>
         </div>
 
         <div className="relative h-full max-w-7xl mx-auto px-6 flex flex-col justify-end pb-24">
@@ -80,13 +80,13 @@ function Sustainability() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/20 px-4 py-1.5 text-sm font-bold text-emerald-300 backdrop-blur-md mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-1.5 text-sm font-bold text-white backdrop-blur-md mb-6">
               <Sprout className="h-4 w-4" />
               <span>Planet First Approach</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
               Growing for the Future,<br />
-              <span className="text-emerald-300">Responsibly.</span>
+              <span className="text-brand-yellow-300">Responsibly.</span>
             </h1>
             <p className="text-lg text-slate-200 max-w-xl leading-relaxed mb-8">
               True quality isn't just about the product—it's about the process. We are committed to leaving the land better than we found it.
@@ -96,15 +96,15 @@ function Sustainability() {
       </div>
 
       {/* 2. Impact Stats */}
-      <div className="bg-emerald-950 py-12 border-b border-emerald-900">
+      <div className="surface-brand-green py-12 border-b border-white/15">
          <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                {stats.map((stat, idx) => (
                  <div key={idx} className="text-center md:text-left">
-                    <div className="text-3xl md:text-4xl font-bold text-emerald-400 mb-1 font-display">
+                    <div className="text-3xl md:text-4xl font-bold text-brand-yellow-300 mb-1 font-display">
                       <Counter to={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-sm font-medium text-emerald-100 uppercase tracking-widest">{stat.label}</div>
+                    <div className="text-sm font-medium text-white/90 uppercase tracking-widest">{stat.label}</div>
                  </div>
                ))}
             </div>
@@ -166,7 +166,7 @@ function Sustainability() {
                />
                <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl z-20 max-w-xs border border-slate-100">
                   <div className="flex items-center gap-3 mb-2">
-                     <Users className="text-brand-600 h-5 w-5" />
+                     <Users className="text-brand-green h-5 w-5" />
                      <span className="font-bold text-slate-800">Community First</span>
                   </div>
                   <p className="text-xs text-slate-500">"Nelna changed my life by teaching me modern poultry farming techniques." — local partner</p>
@@ -174,12 +174,12 @@ function Sustainability() {
             </div>
             
             <div className="order-1 lg:order-2">
-               <span className="text-emerald-600 font-bold tracking-wider text-sm uppercase mb-3 block">Corporate Social Responsibility</span>
+               <span className="text-brand-green font-bold tracking-wider text-sm uppercase mb-3 block">Corporate Social Responsibility</span>
                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-display mb-6">Empowering the Nation</h2>
                <p className="text-slate-600 text-lg leading-relaxed mb-8">
                   We believe that a sustainable business cannot exist in a vacuum. Our success is tied to the prosperity of our rural communities. We actively invest in education, infrastructure, and fair-trade partnerships.
                </p>
-               <Link to="/contact" className="inline-flex items-center gap-2 text-emerald-700 font-bold hover:gap-4 transition-all group">
+               <Link to="/contact" className="inline-flex items-center gap-2 text-brand-green font-bold hover:gap-4 transition-all group">
                   Partner with us <ArrowRight className="h-4 w-4" />
                </Link>
             </div>
@@ -187,12 +187,12 @@ function Sustainability() {
       </section>
 
       {/* 5. Minimal CTA */}
-      <section className="py-24 bg-brand-900 text-center px-6">
+      <section className="surface-brand-green py-24 text-center px-6">
          <h2 className="text-3xl font-display font-bold text-white mb-6">Partner with a Responsible Food Producer</h2>
-         <p className="text-emerald-100 max-w-2xl mx-auto mb-10 text-lg">
+         <p className="text-white/90 max-w-2xl mx-auto mb-10 text-lg">
             When you work with Nelna, you support ethical farming, responsible operations, and a greener planet.
          </p>
-         <Link to="/contact" className="inline-block rounded-full bg-white px-8 py-4 font-bold text-brand-900 hover:bg-emerald-50 transition-colors">
+         <Link to="/contact" className="inline-block rounded-full bg-white px-8 py-4 font-bold text-brand-green hover:bg-brand-green-50 transition-colors">
             Contact Sales
          </Link>
       </section>

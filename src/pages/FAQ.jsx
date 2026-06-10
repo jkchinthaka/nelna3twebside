@@ -78,7 +78,7 @@ function FAQ() {
               onClick={() => setCategory(item)}
               className={`inline-flex min-h-[40px] items-center rounded-pill border px-4 text-sm font-semibold transition ${
                 category === item
-                  ? 'border-brand-green-600 bg-brand-green-600 text-white'
+                  ? 'border-brand-green bg-brand-green text-white'
                   : 'border-slate-300 text-slate-700 hover:border-brand-green-300 hover:text-brand-green-700'
               }`}
             >
@@ -128,9 +128,9 @@ function FAQ() {
         />
       )}
 
-      <section className="surface-card bg-brand-green-950 text-white">
+      <section className="surface-card surface-brand-green">
         <h2 className="font-display text-2xl font-bold">Need more help?</h2>
-        <p className="mt-2 text-sm text-brand-green-50">
+        <p className="mt-2 text-sm text-white/90">
           Contact our support and sales team for product guidance, distributor assistance, or quality documentation.
         </p>
         <div className="mt-4">

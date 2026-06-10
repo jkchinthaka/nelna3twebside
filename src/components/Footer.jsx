@@ -12,6 +12,12 @@ import {
   Twitter,
 } from 'lucide-react'
 import wordmarkLogo from '../assets/Vector Smart Object.png'
+import {
+  COMPANY_ADDRESS_FULL,
+  getWhatsAppHref,
+  MOBILE,
+  TELEPHONES,
+} from '../data/companyContact.js'
 
 const businessLinks = [
   { to: '/contact', label: 'Contact Sales' },
@@ -83,22 +89,22 @@ function Footer() {
   }
 
   return (
-    <footer className="bg-brand-green-950 pt-14 text-brand-green-50">
+    <footer className="surface-brand-green pt-14">
       <div className="page-shell">
-        <section className="rounded-2xl border border-brand-green-700 bg-brand-green-900/80 p-6 md:p-8">
+        <section className="rounded-2xl border border-white/20 bg-black/10 p-6 md:p-8">
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
               <h2 className="font-display text-xl font-bold text-white md:text-2xl">
                 Stay Connected with Nelna Farm
               </h2>
-              <p className="mt-2 text-sm text-brand-green-100 md:text-base">
+              <p className="mt-2 text-sm text-white/90 md:text-base">
                 Receive product updates, quality announcements, and news from Sri Lanka&apos;s trusted poultry brand.
               </p>
             </div>
             <form className="flex flex-col gap-3 sm:flex-row" onSubmit={handleNewsletterSubmit} noValidate>
               <input
                 type="email"
-                className="field-base rounded-pill border-brand-green-600 bg-brand-green-950 text-brand-green-50 placeholder:text-brand-green-200"
+                className="field-base rounded-pill border-white/25 bg-white/10 text-white placeholder:text-white/60"
                 placeholder="Enter your email"
                 aria-label="Newsletter email"
                 value={newsletterEmail}
@@ -139,13 +145,13 @@ function Footer() {
                 className="h-14 w-[220px] object-cover object-center md:h-16 md:w-[250px]"
               />
             </Link>
-            <p className="max-w-md text-sm leading-relaxed text-brand-green-100">
+            <p className="max-w-md text-sm leading-relaxed text-white/90">
               Nelna Farm (Pvt) Ltd is a Sri Lankan poultry and food company delivering premium protein products with certified quality, food safety, and dependable nationwide distribution.
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map(({ label, Icon, href }) => {
                 const iconClassName =
-                  'inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-brand-green-600 bg-brand-green-900/95 text-brand-green-50'
+                  'inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/25 bg-white/10 text-white'
 
                 if (!href) {
                   return (
@@ -175,7 +181,7 @@ function Footer() {
               })}
             </div>
             {!hasAnySocialLink ? (
-              <p className="text-xs text-brand-green-200">Official social channels will be linked here soon.</p>
+              <p className="text-xs text-white/75">Official social channels will be linked here soon.</p>
             ) : null}
           </div>
 
@@ -184,7 +190,7 @@ function Footer() {
             <ul className="space-y-2">
               {businessLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-brand-green-100 transition hover:text-brand-yellow-300">
+                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-brand-yellow-300">
                     {item.label}
                   </Link>
                 </li>
@@ -197,7 +203,7 @@ function Footer() {
             <ul className="space-y-2">
               {qualityLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-brand-green-100 transition hover:text-brand-yellow-300">
+                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-brand-yellow-300">
                     {item.label}
                   </Link>
                 </li>
@@ -211,7 +217,7 @@ function Footer() {
               {['Halal Certified', 'ISO 22000', 'HACCP & GMP', 'Farm Fresh Quality'].map((item) => (
                 <span
                   key={item}
-                  className="inline-flex w-fit rounded-md bg-brand-green-600 px-3 py-1 text-xs font-semibold text-white"
+                  className="inline-flex w-fit rounded-md bg-white/15 px-3 py-1 text-xs font-semibold text-white ring-1 ring-white/20"
                 >
                   ✓ {item}
                 </span>
@@ -221,7 +227,7 @@ function Footer() {
             <ul className="space-y-2">
               {companyLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-brand-green-100 transition hover:text-brand-yellow-300">
+                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-brand-yellow-300">
                     {item.label}
                   </Link>
                 </li>
@@ -230,17 +236,33 @@ function Footer() {
           </div>
         </section>
 
-        <section className="grid gap-8 border-t border-brand-green-800 py-8 sm:grid-cols-2">
+        <section className="grid gap-8 border-t border-white/15 py-8 sm:grid-cols-2">
           <div>
             <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Contact</h3>
-            <ul className="space-y-3 text-sm text-brand-green-100">
+            <ul className="space-y-3 text-sm text-white/90">
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
-                <span>3A, Hathduwa Estate, Ranwala, Meethirigala, Sri Lanka</span>
+                <span>{COMPANY_ADDRESS_FULL}</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
+                <span>
+                  <span className="font-semibold text-white">Tel: </span>
+                  {TELEPHONES.map((phone, index) => (
+                    <span key={phone.tel}>
+                      {index > 0 ? <span className="text-white/60"> / </span> : null}
+                      <a href={`tel:${phone.tel}`} className="transition hover:text-brand-yellow-300">
+                        {phone.display}
+                      </a>
+                    </span>
+                  ))}
+                </span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
-                <a href="tel:+94112405091" className="transition hover:text-brand-yellow-300">+94 11 240 5091-94</a>
+                <a href={`tel:${MOBILE.tel}`} className="transition hover:text-brand-yellow-300">
+                  Mobile: {MOBILE.display}
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
@@ -248,12 +270,12 @@ function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <a
-                  href="https://wa.me/94762718923"
+                  href={getWhatsAppHref()}
                   target="_blank"
                   rel="noreferrer"
                   className="font-semibold text-[#25D366] transition hover:underline"
                 >
-                  WhatsApp Us
+                  WhatsApp: {MOBILE.display}
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -264,7 +286,7 @@ function Footer() {
           </div>
           <div>
             <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Business Hours</h3>
-            <ul className="space-y-2 text-sm text-brand-green-100">
+            <ul className="space-y-2 text-sm text-white/90">
               {businessHours.map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
@@ -275,7 +297,7 @@ function Footer() {
           </div>
         </section>
 
-        <section className="flex flex-col gap-3 border-t border-brand-green-800 py-5 text-xs text-brand-green-100 sm:flex-row sm:items-center sm:justify-between">
+        <section className="flex flex-col gap-3 border-t border-white/15 py-5 text-xs text-white/85 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright {currentYear} Nelna Farm (Pvt) Ltd. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
             <Link to="/privacy" className="transition hover:text-brand-yellow-300">Privacy</Link>

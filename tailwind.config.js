@@ -1,3 +1,5 @@
+import { brandGreenScale, BRAND_GREEN } from './src/data/brandColors.js'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
@@ -5,19 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-green': {
-          50: '#eff8f1',
-          100: '#dceddf',
-          200: '#badbc3',
-          300: '#8ac19b',
-          400: '#55a26f',
-          500: '#27743a',
-          600: '#205f30',
-          700: '#1b4b27',
-          800: '#163b1f',
-          900: '#122f19',
-          950: '#081b0e',
-        },
+        'brand-green': brandGreenScale,
         'brand-red': {
           50: '#fdf1f1',
           100: '#fce3e3',
@@ -45,17 +35,17 @@ export default {
           950: '#3e2908',
         },
         brand: {
-          50: '#eff8f1',
-          100: '#dceddf',
-          200: '#badbc3',
-          300: '#8ac19b',
-          400: '#55a26f',
-          500: '#27743a',
-          600: '#205f30',
-          700: '#1b4b27',
-          800: '#163b1f',
-          900: '#122f19',
-          950: '#081b0e',
+          50: brandGreenScale[50],
+          100: brandGreenScale[100],
+          200: brandGreenScale[200],
+          300: brandGreenScale[300],
+          400: BRAND_GREEN,
+          500: BRAND_GREEN,
+          600: BRAND_GREEN,
+          700: BRAND_GREEN,
+          800: BRAND_GREEN,
+          900: BRAND_GREEN,
+          950: BRAND_GREEN,
         },
         gold: {
           50: '#fff9eb',
@@ -87,13 +77,13 @@ export default {
           warm: '#f5f1ea',
         },
         forest: {
-          DEFAULT: '#081b0e',
-          mid: '#122f19',
+          DEFAULT: BRAND_GREEN,
+          mid: BRAND_GREEN,
         },
-        primary: '#27743a',
+        primary: BRAND_GREEN,
         secondary: '#f8bc24',
         danger: '#da2328',
-        success: '#205f30',
+        success: BRAND_GREEN,
         warning: '#d97706',
         info: '#0369a1',
         surface: '#ffffff',
@@ -177,4 +167,3 @@ export default {
   },
   plugins: [],
 }
-

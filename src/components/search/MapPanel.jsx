@@ -20,7 +20,7 @@ export default function MapPanel({ stores, view, onViewChange, apiKey }) {
   return (
     <div className="relative overflow-hidden rounded-3xl bg-white p-6 shadow-xl shadow-slate-200/50">
        <div className="absolute top-0 right-0 p-4 opacity-10">
-          <svg className="w-24 h-24 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <svg className="w-24 h-24 text-brand-green" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
        </div>
       <div className="relative z-10 flex items-center justify-between">
         <h3 className="font-heading text-lg font-bold text-slate-900">Map Highlights</h3>
@@ -29,7 +29,7 @@ export default function MapPanel({ stores, view, onViewChange, apiKey }) {
             type="button"
             onClick={() => onViewChange("map")}
             className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all ${
-              view === "map" ? "bg-white text-green-600 shadow-sm" : "text-slate-500 hover:text-slate-700"
+              view === "map" ? "bg-white text-brand-green shadow-sm" : "text-slate-500 hover:text-slate-700"
             }`}
           >
             Map
@@ -38,7 +38,7 @@ export default function MapPanel({ stores, view, onViewChange, apiKey }) {
             type="button"
             onClick={() => onViewChange("list")}
             className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all ${
-              view === "list" ? "bg-white text-green-600 shadow-sm" : "text-slate-500 hover:text-slate-700"
+              view === "list" ? "bg-white text-brand-green shadow-sm" : "text-slate-500 hover:text-slate-700"
             }`}
           >
             List
@@ -74,7 +74,7 @@ export default function MapPanel({ stores, view, onViewChange, apiKey }) {
                 </p>
               </div>
               <a
-                className={`font-semibold ${hasLocation ? 'text-green-600' : 'text-slate-300 cursor-not-allowed'}`}
+                className={`font-semibold ${hasLocation ? 'text-brand-green' : 'text-slate-300 cursor-not-allowed'}`}
                 href={hasLocation ? `https://www.google.com/maps/search/?api=1&query=${store.location.lat},${store.location.lng}` : undefined}
                 target="_blank"
                 rel="noreferrer"

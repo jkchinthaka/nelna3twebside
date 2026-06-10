@@ -115,7 +115,7 @@ function ProductFinder() {
       />
 
       <div className="bg-slate-50">
-        <section className="bg-gradient-to-br from-brand-green-950 via-brand-green-900 to-brand-green-800 py-16 text-white">
+        <section className="surface-brand-green py-16">
           <div className="page-shell">
             <span className="inline-flex items-center gap-2 rounded-pill border border-brand-yellow-300/60 bg-brand-yellow-500/28 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-50">
               <Sparkles className="h-4 w-4" aria-hidden="true" />
@@ -298,7 +298,7 @@ function ProductFinder() {
                                   href={`https://www.google.com/maps/search/?api=1&query=${store.location.lat},${store.location.lng}`}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className="inline-flex min-h-[40px] items-center gap-2 rounded-pill bg-brand-green-600 px-4 py-2 text-sm font-semibold text-white"
+                                  className="inline-flex min-h-[40px] items-center gap-2 rounded-pill bg-brand-green px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95"
                                 >
                                   <MapPin className="h-4 w-4" aria-hidden="true" />
                                   Google Maps

@@ -1,4 +1,6 @@
-const fallbackNumber = '94762718923'
+import { MOBILE } from '../data/companyContact.js'
+
+const fallbackNumber = MOBILE.whatsapp
 const fallbackMessage =
   'Hello Nelna Farm! I am interested in your products.'
 

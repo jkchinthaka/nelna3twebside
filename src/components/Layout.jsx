@@ -4,6 +4,7 @@ import Footer from './Footer.jsx'
 import SEO from './SEO.jsx'
 import ScrollToTopButton from './ScrollToTopButton.jsx'
 import FloatingWhatsAppButton from './FloatingWhatsAppButton.jsx'
+import { getOrganizationSchema } from '../data/companyContact.js'
 
 const routeMeta = {
   '/': {
@@ -12,13 +13,7 @@ const routeMeta = {
       'Nelna Farm is a trusted Sri Lankan food and poultry company delivering premium chicken products, eggs, fresh produce, and value-added foods with certified quality and reliable distribution.',
     keywords:
       'Nelna Farm, Sri Lanka poultry company, premium chicken Sri Lanka, frozen chicken products, eggs supplier Sri Lanka, fresh produce Sri Lanka, food safety certified poultry, distributor poultry Sri Lanka',
-    schema: {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Nelna Farm',
-      description:
-        'Premium poultry and frozen food with strict quality, safety, and sustainability standards.',
-    },
+    useOrganizationSchema: true,
   },
   '/products': {
     title: 'Products | Nelna Farm',
@@ -47,8 +42,10 @@ const routeMeta = {
   },
   '/contact': {
     title: 'Contact | Nelna Farm',
-    description: 'Reach Nelna Farm for inquiries, orders, and partnerships.',
+    description:
+      'Contact Nelna Farm (Pvt) Ltd at No 03A, Hathduwa Estate, Ranwala, Meethirigala. Tel: 0112-405091 / 0112-405092 / 0112-405094. Mobile: 0777774029.',
     keywords: 'contact Nelna Farm, poultry distributor inquiry Sri Lanka, Nelna sales contact',
+    useOrganizationSchema: true,
   },
   '/certifications': {
     title: 'Certifications | Nelna Farm',
@@ -110,13 +107,15 @@ function Layout() {
       'Sri Lanka poultry company, premium chicken supplier, frozen food distribution, Nelna Farm',
   }
   const canonical = `${siteUrl}${location.pathname}`
-  const schema = meta.schema
-    ? {
-        ...meta.schema,
-        url: siteUrl,
-        name: siteName,
-      }
-    : undefined
+  const schema = meta.useOrganizationSchema
+    ? getOrganizationSchema(siteUrl)
+    : meta.schema
+      ? {
+          ...meta.schema,
+          url: siteUrl,
+          name: siteName,
+        }
+      : undefined
 
   return (
     <div className="min-h-screen bg-white">

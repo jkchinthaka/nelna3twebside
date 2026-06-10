@@ -11,25 +11,16 @@ import {
 import { addInquiry } from '../services/inquiryService.js'
 import { hasNotificationBackend, notifyEmail, notifyWhatsApp } from '../services/notificationService.js'
 import { getContactSettings } from '../services/contactSettingsService.js'
+import {
+  getDefaultContactSettings,
+  getWhatsAppHref,
+  MOBILE,
+  NOTIFICATION_EMAIL,
+  PHONE_CONTACT_GROUPS,
+  PRIMARY_PHONE,
+} from '../data/companyContact.js'
 
-
-const whatsappNumber = '94762718923'
-const notificationEmail = 'info@nelna.lk'
-
-const defaultSettings = {
-  locationTitle: 'Our Location',
-  addressLines: ['3A, Hathduwa Estate,', 'Ranwala, Meethirigala,', 'Sri Lanka'],
-  mapEmbedUrl:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12666.529853758257!2d80.1234567!3d7.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae300c30985474d%3A0x62957754388373!2sNelna%20Agri%20Development%20(Pvt)%20Ltd!5e0!3m2!1sen!2slk!4v1625637258000!5m2!1sen!2slk',
-  mapLink: 'https://maps.google.com/?q=Nelna+Farm,+Meethirigala',
-  directionsLabel: 'Get Directions',
-  phoneTitle: 'Phone Support',
-  phoneNumbers: ['+94 11 240 5091-94', '+94 77 123 4567'],
-  emailTitle: 'Email',
-  emails: ['info@nelna.lk', 'sales@nelna.lk'],
-  hoursTitle: 'Working Hours',
-  workingHours: ['Mon - Fri: 8:00 AM - 5:00 PM', 'Sat: 8:00 AM - 12:00 PM'],
-}
+const defaultSettings = getDefaultContactSettings()
 
 function isValidEmail(value) {
   if (!value) return true
@@ -38,6 +29,29 @@ function isValidEmail(value) {
 
 function isValidPhone(value) {
   return /^\+?[0-9\s-]{7,20}$/.test(String(value || '').trim())
+}
+
+function PhoneContactLines() {
+  return (
+    <div className="mt-2 space-y-2 text-sm font-medium text-slate-700">
+      {PHONE_CONTACT_GROUPS.map((group) => (
+        <p key={group.prefix}>
+          <span className="font-semibold text-slate-800">{group.prefix}: </span>
+          {group.numbers.map((number, index) => (
+            <span key={number.tel}>
+              {index > 0 ? <span className="text-slate-400"> / </span> : null}
+              <a
+                href={`tel:${number.tel}`}
+                className="text-brand-green-700 transition hover:text-brand-green-900 hover:underline"
+              >
+                {number.display}
+              </a>
+            </span>
+          ))}
+        </p>
+      ))}
+    </div>
+  )
 }
 
 function Contact() {
@@ -146,8 +160,8 @@ function Contact() {
 
       const notificationPayload = {
         ...formState,
-        recipients: [notificationEmail],
-        whatsappNumber,
+        recipients: [NOTIFICATION_EMAIL],
+        whatsappNumber: MOBILE.whatsapp,
       }
 
       if (hasNotificationBackend) {
@@ -166,7 +180,7 @@ function Contact() {
           `Message: ${formState.message}`,
         ].filter(Boolean)
 
-        window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join('\n'))}`
+        window.location.href = getWhatsAppHref(lines.join('\n'))
       }
 
       setStatus('success')
@@ -180,7 +194,6 @@ function Contact() {
   }
 
   const safeSettings = contactSettings || defaultSettings
-  const primaryPhone = (safeSettings.phoneNumbers?.[0] || defaultSettings.phoneNumbers[0]).replace(/\s+/g, '')
 
   const detailCards = [
     {
@@ -193,9 +206,9 @@ function Contact() {
     {
       icon: Phone,
       title: safeSettings.phoneTitle,
-      lines: safeSettings.phoneNumbers,
+      isPhoneCard: true,
       actionLabel: 'Call Now',
-      actionHref: `tel:${primaryPhone}`,
+      actionHref: PRIMARY_PHONE.tel,
     },
     {
       icon: Mail,
@@ -213,19 +226,17 @@ function Contact() {
 
   return (
     <div className="bg-slate-50">
-      <section className="bg-gradient-to-br from-brand-green-950 via-brand-green-900 to-brand-green-800 py-16 text-white">
+      <section className="surface-brand-green py-16">
         <div className="page-shell">
           <p className="inline-flex rounded-pill border border-brand-yellow-300/65 bg-brand-yellow-500/30 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-50">
             Contact and Sales Support
           </p>
           <h1 className="mt-5 font-display text-4xl font-extrabold text-white md:text-5xl">Find Us and Get in Touch</h1>
-          <p className="mt-4 max-w-3xl text-base font-medium text-brand-green-50/95 md:text-lg">
+          <p className="mt-4 max-w-3xl text-base font-medium text-white/90 md:text-lg">
             Reach Nelna Farm for product inquiries, distribution partnerships, and food-safety related questions.
           </p>
         </div>
       </section>
-
-
 
       <section className="page-shell -mt-8 pb-12">
         {settingsError ? (
@@ -249,11 +260,15 @@ function Contact() {
                     </span>
                     <div className="flex-1">
                       <h2 className="text-base font-semibold tracking-tight text-slate-900">{card.title}</h2>
-                      <div className="mt-2 space-y-1 text-sm font-medium text-slate-700">
-                        {card.lines?.map((line) => (
-                          <p key={line}>{line}</p>
-                        ))}
-                      </div>
+                      {card.isPhoneCard ? (
+                        <PhoneContactLines />
+                      ) : (
+                        <div className="mt-2 space-y-1 text-sm font-medium text-slate-700">
+                          {card.lines?.map((line) => (
+                            <p key={line}>{line}</p>
+                          ))}
+                        </div>
+                      )}
                       {card.actionHref ? (
                         <a
                           href={card.actionHref}
@@ -279,13 +294,13 @@ function Contact() {
                 <li>Quality & Safety: quality@nelna.lk</li>
               </ul>
               <a
-                href={`https://wa.me/${whatsappNumber}`}
+                href={getWhatsAppHref()}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-4 inline-flex min-h-[44px] items-center gap-2 rounded-pill border border-brand-green-300 bg-brand-green-100/70 px-4 py-2 text-sm font-semibold text-brand-green-800"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                WhatsApp Quick Contact
+                WhatsApp: {MOBILE.display}
               </a>
             </article>
 
@@ -337,7 +352,7 @@ function Contact() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 required
-                hint="Format: +94 7X XXX XXXX"
+                hint="Format: 0777774029 or +94 77 777 4029"
                 error={getFieldError('phone')}
               />
               <Input
@@ -379,8 +394,6 @@ function Contact() {
           </div>
         </div>
       </section>
-
-
     </div>
   )
 }

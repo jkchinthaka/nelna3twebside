@@ -205,7 +205,7 @@ function Home() {
          </section>
 
          {/* Certification strip */}
-         <section className="bg-brand-green-950 py-14 text-white" aria-label="Certifications">
+         <section className="certification-strip py-14" aria-label="Certifications">
             <div className="page-shell flex flex-wrap items-center justify-center gap-8 md:gap-14">
                {[
                   { label: 'ISO 22000 Certified', img: certISO },
@@ -214,10 +214,10 @@ function Home() {
                   { label: 'Halal Certified', img: certHalal },
                ].map((badge) => (
                   <div key={badge.label} className="flex items-center gap-3">
-                     <div className="h-12 w-12 overflow-hidden rounded-full bg-white p-1">
+                     <div className="certification-strip__logo h-12 w-12 overflow-hidden rounded-full bg-white p-1">
                         <img src={badge.img} alt={badge.label} className="h-full w-full object-contain" />
                      </div>
-                     <span className="font-display text-base font-bold text-brand-green-50 md:text-lg">{badge.label}</span>
+                     <span className="font-display text-base font-bold text-white md:text-lg">{badge.label}</span>
                   </div>
                ))}
             </div>
@@ -262,7 +262,7 @@ function Home() {
          </section>
 
          {/* 7. Distributor opportunity */}
-         <section id="distributor-opportunity" className="bg-brand-green-950 py-16 text-white">
+         <section id="distributor-opportunity" className="surface-brand-green py-16">
             <div className="page-shell">
                <div className="grid gap-8 rounded-3xl border border-white/20 bg-white/5 p-8 md:grid-cols-[1.3fr_0.7fr] md:items-center md:p-10">
                   <div>
@@ -272,7 +272,7 @@ function Home() {
                      <h2 className="mt-4 font-display text-3xl font-bold text-white md:text-4xl">
                         Become a Nelna Farm Distributor
                      </h2>
-                     <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-brand-green-50 md:text-base">
+                     <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-white/90 md:text-base">
                         Partner with Nelna Farm to access stable supply, category support, and a recognized brand trusted by customers across Sri Lanka.
                      </p>
                   </div>
