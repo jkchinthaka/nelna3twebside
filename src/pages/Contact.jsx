@@ -11,6 +11,7 @@ import {
 import { addInquiry } from '../services/inquiryService.js'
 import { hasNotificationBackend, notifyEmail, notifyWhatsApp } from '../services/notificationService.js'
 import { getContactSettings } from '../services/contactSettingsService.js'
+import BrandChickenMascot from '../components/BrandChickenMascot.jsx'
 import {
   getDefaultContactSettings,
   getWhatsAppHref,
@@ -226,8 +227,14 @@ function Contact() {
 
   return (
     <div className="bg-slate-50">
-      <section className="surface-brand-green py-16">
-        <div className="page-shell">
+      <section className="surface-brand-green relative overflow-hidden py-16">
+        <BrandChickenMascot
+          size="sm"
+          variant="float"
+          animate
+          className="pointer-events-none absolute bottom-2 right-4 z-0 hidden opacity-85 sm:block md:right-10"
+        />
+        <div className="page-shell relative z-10">
           <p className="inline-flex rounded-pill border border-brand-yellow-300/65 bg-brand-yellow-500/30 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-50">
             Contact and Sales Support
           </p>

@@ -958,6 +958,86 @@ textarea,
   color: var(--brand-red);
 }
 
+/* Nelna Farm chicken mascot — branded decorative illustration */
+.brand-chicken {
+  display: block;
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.brand-chicken--decorative,
+.brand-chicken--watermark,
+.brand-chicken--float {
+  pointer-events: none;
+}
+
+.brand-chicken--xs {
+  width: clamp(3.5rem, 7vw, 5rem);
+}
+
+.brand-chicken--sm {
+  width: clamp(8.75rem, 16vw, 11.25rem);
+}
+
+.brand-chicken--md {
+  width: clamp(11.25rem, 20vw, 15rem);
+}
+
+.brand-chicken--lg {
+  width: clamp(15rem, 26vw, 20rem);
+}
+
+.brand-chicken--xl {
+  width: clamp(20rem, 34vw, 32.5rem);
+}
+
+.brand-chicken--watermark {
+  opacity: 0.07;
+  filter: saturate(0.85);
+}
+
+.brand-chicken--float {
+  filter: drop-shadow(0 14px 28px rgba(15, 23, 42, 0.08));
+}
+
+@keyframes brand-chicken-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.brand-chicken--animate {
+  animation: brand-chicken-float 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-chicken--animate {
+    animation: none;
+  }
+}
+
+.hero-section__mascot {
+  position: absolute;
+  right: clamp(0.75rem, 3vw, 2rem);
+  bottom: clamp(7.5rem, 14vw, 9.5rem);
+  z-index: 5;
+  opacity: 0.92;
+}
+
+@media (max-width: 767px) {
+  .hero-section__mascot {
+    display: none;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

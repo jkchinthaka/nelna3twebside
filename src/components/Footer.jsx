@@ -12,6 +12,7 @@ import {
   Twitter,
 } from 'lucide-react'
 import wordmarkLogo from '../assets/Vector Smart Object.png'
+import BrandChickenMascot from './BrandChickenMascot.jsx'
 import {
   COMPANY_ADDRESS_FULL,
   getWhatsAppHref,
@@ -134,8 +135,12 @@ function Footer() {
         </section>
 
         <section className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-12">
-          <div className="space-y-4 sm:col-span-2 lg:col-span-4">
-            <Link to="/" className="inline-flex items-center gap-3" aria-label="Nelna Farm home">
+          <div className="relative space-y-4 sm:col-span-2 lg:col-span-4">
+            <BrandChickenMascot
+              size="xs"
+              className="pointer-events-none absolute -right-1 top-0 opacity-25 lg:-right-4"
+            />
+            <Link to="/" className="relative inline-flex items-center gap-3" aria-label="Nelna Farm home">
               <img
                 src={wordmarkLogo}
                 alt="Nelna Farm"

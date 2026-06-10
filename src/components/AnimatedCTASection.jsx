@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import BrandChickenMascot from './BrandChickenMascot.jsx'
 
 function AnimatedCTASection({ title, body, primary, secondary }) {
   return (
-    <section className="section-green section-spacing" aria-labelledby="final-cta-heading">
-      <div className="page-shell flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
+    <section className="section-green section-spacing relative overflow-hidden" aria-labelledby="final-cta-heading">
+      <BrandChickenMascot
+        size="md"
+        variant="float"
+        animate
+        className="pointer-events-none absolute -bottom-4 right-4 z-0 hidden opacity-90 sm:block md:right-10 lg:-bottom-2"
+      />
+      <div className="page-shell relative z-10 flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
         <div className="max-w-2xl">
           <h2 id="final-cta-heading" className="font-display text-3xl font-bold leading-tight text-white md:text-4xl">
             {title}

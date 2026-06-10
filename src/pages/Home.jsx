@@ -17,6 +17,7 @@ import PartnerStrip from '../components/PartnerStrip.jsx'
 import QualitySafetyCards from '../components/QualitySafetyCards.jsx'
 import BusinessSupplySection from '../components/BusinessSupplySection.jsx'
 import AnimatedCTASection from '../components/AnimatedCTASection.jsx'
+import BrandChickenMascot from '../components/BrandChickenMascot.jsx'
 import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
 import NewsCard from '../components/NewsCard.jsx'
 import { ErrorState, Skeleton } from '../components/ui/index.js'
@@ -126,8 +127,14 @@ function Home() {
          {/* 3. Farm-to-Kitchen Process */}
          <ScrollReveal as="section" className="section-spacing relative overflow-hidden bg-white">
             <div className="absolute top-0 right-0 -z-10 h-full w-1/3 bg-brand-50/70" aria-hidden="true" />
+            <BrandChickenMascot
+               size="xl"
+               variant="float"
+               animate
+               className="pointer-events-none absolute -right-4 bottom-8 z-0 hidden opacity-90 lg:block xl:right-8"
+            />
 
-            <div className="page-shell">
+            <div className="page-shell relative z-10">
                <div className="mx-auto mb-12 max-w-3xl text-center">
                   <SectionHeading
                      eyebrow="Our Process"
@@ -178,8 +185,13 @@ function Home() {
          <BusinessSupplySection />
 
          {/* 5. Why Choose Nelna */}
-         <section className="section-spacing bg-slate-50">
-            <div className="page-shell">
+         <section className="section-spacing relative overflow-hidden bg-slate-50">
+            <BrandChickenMascot
+               size="sm"
+               variant="float"
+               className="pointer-events-none absolute right-4 top-8 z-0 hidden opacity-80 md:block lg:right-10"
+            />
+            <div className="page-shell relative z-10">
                <SectionHeading
                   eyebrow="Why Choose Nelna"
                   title="A Production System Designed for Reliability"

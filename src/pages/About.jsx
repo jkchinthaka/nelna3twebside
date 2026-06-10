@@ -16,6 +16,7 @@ import {
   Building
 } from 'lucide-react'
 
+import BrandChickenMascot from '../components/BrandChickenMascot.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import CertificationBadge from '../components/CertificationBadge.jsx'
 import StatsGrid from '../components/StatsGrid.jsx'
@@ -177,7 +178,13 @@ function About() {
              {/* Highlight Card */}
              <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-xl border border-slate-100 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-50 rounded-full -mr-32 -mt-32 opacity-50 blur-3xl"></div>
-                
+                <BrandChickenMascot
+                  size="lg"
+                  variant="float"
+                  animate
+                  className="pointer-events-none absolute -bottom-6 -right-4 z-0 hidden opacity-90 md:block lg:-right-2 lg:bottom-0"
+                />
+
                 <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
                    <div>
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-widest mb-6">
