@@ -80,13 +80,11 @@ function Contact() {
 
       try {
         const settings = await getContactSettings()
-        if (mounted && settings) {
-          setContactSettings({ ...defaultSettings, ...settings })
-        }
-      } catch (error) {
-        console.warn('Failed to load contact settings', error)
         if (mounted) {
-          setSettingsError('Contact settings are temporarily unavailable. Showing standard company contact details.')
+          setContactSettings(settings)
+        }
+      } catch {
+        if (mounted) {
           setContactSettings(defaultSettings)
         }
       } finally {

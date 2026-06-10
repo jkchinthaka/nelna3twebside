@@ -12,7 +12,7 @@ function normalizePath(value) {
 export const API_BASE_URL = normalizeBaseUrl(
   import.meta.env.VITE_API_BASE_URL ||
   import.meta.env.VITE_API_BASE ||
-  'http://localhost:5001',
+  (import.meta.env.DEV ? '' : 'http://localhost:5000'),
 );
 
 function buildUrl(input) {
@@ -71,13 +71,29 @@ export async function requestJson(input, options = {}) {
   return payload;
 }
 
-export function unwrapCollection(payload) {
-  if (Array.isArray(payload)) {
-    return payload;
+export function unwrapPayload(payload) {
+  if (
+    payload &&
+    typeof payload === 'object' &&
+    !Array.isArray(payload) &&
+    payload.success === true &&
+    Object.prototype.hasOwnProperty.call(payload, 'data')
+  ) {
+    return payload.data;
   }
 
-  if (payload && typeof payload === 'object' && Array.isArray(payload.items)) {
-    return payload.items;
+  return payload;
+}
+
+export function unwrapCollection(payload) {
+  const unwrapped = unwrapPayload(payload);
+
+  if (Array.isArray(unwrapped)) {
+    return unwrapped;
+  }
+
+  if (unwrapped && typeof unwrapped === 'object' && Array.isArray(unwrapped.items)) {
+    return unwrapped.items;
   }
 
   return [];

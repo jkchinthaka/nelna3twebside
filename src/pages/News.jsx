@@ -34,8 +34,7 @@ function News() {
         } else {
           setNews(fallbackNews)
         }
-      } catch (requestError) {
-        console.error('Failed to load news', requestError)
+      } catch {
         setError('News feed is temporarily unavailable. Showing fallback highlights.')
         setNews(fallbackNews)
       } finally {

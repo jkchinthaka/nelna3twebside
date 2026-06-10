@@ -49,8 +49,7 @@ function Home() {
          } else {
             setNews(fallbackNews)
          }
-      } catch (error) {
-         console.error('Failed to load news', error)
+      } catch {
          setNewsError('Unable to load latest news right now. Showing recent highlights.')
          setNews(fallbackNews)
       } finally {

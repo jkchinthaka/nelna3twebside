@@ -46,6 +46,14 @@ function manualChunks(id) {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), imagetools()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
+    },
+  },
   build: {
     rollupOptions: {
       output: {
