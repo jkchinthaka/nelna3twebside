@@ -66,7 +66,7 @@ function BusinessSupplySection() {
             Contact Sales
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-          <Link to="/contact#distributor-partnership" className="btn-secondary gap-2 px-6">
+          <Link to="/contact#distributor-partnership" className="btn-yellow gap-2 px-6">
             Become a Distributor
           </Link>
           <Link to="/contact" className="btn-outline gap-2 px-6">

@@ -323,7 +323,7 @@ function Products() {
           subtitleClassName="text-slate-800 md:text-[1.03rem] leading-relaxed font-medium"
         />
         <div className="flex flex-wrap items-center gap-3">
-          <a href={catalogUrl} className="btn-secondary inline-flex items-center gap-2 px-5 py-2.5 text-sm" download>
+          <a href={catalogUrl} className="btn-yellow inline-flex items-center gap-2 px-5 py-2.5 text-sm" download>
             <Download className="h-4 w-4" aria-hidden="true" />
             {t('downloadCatalog', { ns: 'products' })}
           </a>

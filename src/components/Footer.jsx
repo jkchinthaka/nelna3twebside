@@ -120,7 +120,7 @@ function Footer() {
                 }}
                 required
               />
-              <button type="submit" className="btn-secondary whitespace-nowrap px-5 py-3">
+              <button type="submit" className="btn-yellow whitespace-nowrap px-5 py-3">
                 Subscribe
               </button>
             </form>
@@ -229,7 +229,18 @@ function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Company</h3>
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Certifications</h3>
+            <div className="flex flex-col gap-2">
+              {['Halal Certified', 'ISO 22000', 'HACCP & GMP', 'Farm Fresh Quality'].map((item) => (
+                <span
+                  key={item}
+                  className="inline-flex w-fit rounded-md bg-brand-green-600 px-3 py-1 text-xs font-semibold text-white"
+                >
+                  ✓ {item}
+                </span>
+              ))}
+            </div>
+            <h3 className="mb-4 mt-6 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Company</h3>
             <ul className="space-y-2">
               {companyLinks.map((item) => (
                 <li key={item.to}>
@@ -257,6 +268,16 @@ function Footer() {
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
                 <a href="mailto:info@nelna.lk" className="transition hover:text-brand-yellow-300">info@nelna.lk</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <a
+                  href="https://wa.me/94762718923"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-[#25D366] transition hover:underline"
+                >
+                  WhatsApp Us
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />

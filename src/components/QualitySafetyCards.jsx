@@ -47,7 +47,7 @@ const pillars = [
 
 function QualitySafetyCards() {
   return (
-    <section className="section-spacing bg-cream-warm" aria-labelledby="quality-safety-section-heading">
+    <section className="section-spacing section-light" aria-labelledby="quality-safety-section-heading">
       <div className="page-shell">
         <SectionHeading
           eyebrow="Quality & Safety"
@@ -75,7 +75,7 @@ function QualitySafetyCards() {
         </div>
 
         <div className="mt-8">
-          <Link to="/quality-safety" className="btn-primary gap-2 px-6">
+          <Link to="/quality-safety" className="btn-green gap-2 px-6">
             Explore Quality & Safety
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>

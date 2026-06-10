@@ -360,12 +360,20 @@ function Contact() {
                 error={getFieldError('message')}
               />
 
-              <div className="md:col-span-2 flex flex-wrap items-center gap-3 pt-1">
-                <Button type="submit" loading={status === 'loading'}>
-                  Submit Inquiry
+              <div className="md:col-span-2 space-y-3 pt-1">
+                <Button type="submit" loading={status === 'loading'} variant="primary">
+                  Send Message
                 </Button>
-                {status === 'success' ? <p className="text-sm font-semibold text-brand-green-700">Inquiry sent successfully.</p> : null}
-                {status === 'error' ? <p className="text-sm font-semibold text-brand-red-700">Please review your details and try again.</p> : null}
+                {status === 'success' ? (
+                  <div className="form-feedback form-feedback--success" role="alert">
+                    ✓ Message sent! We&apos;ll contact you within 24 hours.
+                  </div>
+                ) : null}
+                {status === 'error' ? (
+                  <div className="form-feedback form-feedback--error" role="alert">
+                    ✗ Something went wrong. Please call us or WhatsApp directly.
+                  </div>
+                ) : null}
               </div>
             </form>
           </div>

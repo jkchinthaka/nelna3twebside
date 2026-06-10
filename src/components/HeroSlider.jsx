@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import heroImageJpg from '../assets/nelna-gallery-01.jpg'
 import heroImageWebp from '../assets/nelna-gallery-01.jpg?format=webp'
 import heroImageAvif from '../assets/nelna-gallery-01.jpg?format=avif'
@@ -11,8 +12,7 @@ function HeroSlider() {
           <source srcSet={heroImageWebp} type="image/webp" />
           <img
             src={heroImageJpg}
-            alt=""
-            role="presentation"
+            alt="Nelna Farm premium poultry and fresh produce in Sri Lanka"
             className="h-full w-full object-cover object-[center_35%]"
             loading="eager"
             fetchPriority="high"
@@ -22,13 +22,21 @@ function HeroSlider() {
           />
         </picture>
         <div className="hero-section__overlay" aria-hidden="true" />
-        <div className="hero-section__message">
-          <h1
-            id="hero-heading"
-            className="font-display text-lg font-bold tracking-tight text-white drop-shadow-md sm:text-xl md:text-2xl"
-          >
-            Premium Poultry &amp; Fresh Produce — Trusted Since 1998
-          </h1>
+        <div className="hero-section__content page-shell">
+          <div className="hero-section__content-inner">
+            <h1 id="hero-heading">Farm Fresh. Always.</h1>
+            <p>
+              Sri Lanka&apos;s trusted source for premium chicken, eggs, and fresh produce — Halal certified, ISO 22000 compliant.
+            </p>
+            <div className="hero-ctas">
+              <Link to="/products" className="btn-primary">
+                Explore Products
+              </Link>
+              <Link to="/contact#distributor-partnership" className="btn-secondary">
+                Become a Distributor
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>

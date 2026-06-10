@@ -12,6 +12,7 @@ import {
 import { motion } from 'framer-motion'
 import HeroSlider from '../components/HeroSlider.jsx'
 import AchievementStatsBar from '../components/AchievementStatsBar.jsx'
+import ScrollReveal from '../components/ScrollReveal.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import ProductCard from '../components/ProductCard.jsx'
 import PartnerStrip from '../components/PartnerStrip.jsx'
@@ -221,7 +222,7 @@ function Home() {
          </section>
 
          {/* 2. Product Categories */}
-         <section className="section-spacing bg-white">
+         <ScrollReveal as="section" className="section-spacing section-white">
             <div className="page-shell">
                <SectionHeading
                   eyebrow="Product Portfolio"
@@ -262,10 +263,10 @@ function Home() {
                   ))}
                </div>
             </div>
-         </section>
+         </ScrollReveal>
 
          {/* 3. Featured Products */}
-         <section className="section-spacing bg-slate-50">
+         <ScrollReveal as="section" className="section-spacing section-light">
             <div className="page-shell">
                <div className="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
                   <div className="max-w-2xl">
@@ -317,7 +318,7 @@ function Home() {
                   </div>
                ) : null}
             </div>
-         </section>
+         </ScrollReveal>
 
          {/* 4. Quality & Safety */}
          <QualitySafetyCards />
@@ -476,10 +477,10 @@ function Home() {
                      </p>
                   </div>
                   <div className="flex flex-col gap-3 md:items-end">
-                     <Link to="/contact#distributor-partnership" className="btn-secondary w-full justify-center md:w-auto md:min-w-[220px]">
+                     <Link to="/contact#distributor-partnership" className="btn-yellow w-full justify-center md:w-auto md:min-w-[220px]">
                         Become a Distributor
                      </Link>
-                     <Link to="/contact" className="btn-outline w-full justify-center border-white/70 text-white hover:bg-white hover:text-brand-green-800 md:w-auto md:min-w-[220px]">
+                     <Link to="/contact" className="btn-secondary w-full justify-center md:w-auto md:min-w-[220px]">
                         Contact Sales Team
                      </Link>
                   </div>

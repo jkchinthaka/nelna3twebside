@@ -264,7 +264,7 @@ function ProductDetail() {
           href={`https://wa.me/${whatsappNumber}?text=${whatsappText}`}
           target="_blank"
           rel="noreferrer"
-          className="btn-secondary"
+          className="btn-green"
         >
           WhatsApp Inquiry
         </a>

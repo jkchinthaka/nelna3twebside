@@ -81,7 +81,9 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
 
   const message = encodeURIComponent(`Hello Nelna team, I need more information about ${product.name}.`)
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=${message}`
+  const quoteHref = `/contact?product=${encodeURIComponent(product.slug || product.id)}`
   const canQuickView = typeof onQuickView === 'function'
+  const hasHalal = badges.some((badge) => badge.label === 'Halal')
 
   return (
     <motion.article
@@ -97,7 +99,7 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
             }
           : undefined
       }
-      className={`group [transform-style:preserve-3d] overflow-hidden rounded-2xl border border-[var(--card-border)] bg-[var(--card-fill)] shadow-card transition hover:shadow-card-hover ${
+      className={`product-card group [transform-style:preserve-3d] ${
         isList ? 'grid gap-4 md:grid-cols-[260px_1fr]' : 'flex h-full flex-col'
       }`}
     >
@@ -105,12 +107,15 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
         className={`relative aspect-[4/3] overflow-hidden ${isList ? 'h-full min-h-[230px] md:aspect-auto' : ''}`}
         style={enableTilt ? { transform: 'translateZ(24px)' } : undefined}
       >
+        {hasHalal ? <span className="product-badge">Halal ✓</span> : null}
         {product.imageUrl ? (
           <img
             src={product.imageUrl}
-            alt={product.name || 'Nelna product image'}
+            alt={`${product.name || 'Nelna product'} — premium poultry Sri Lanka`}
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
             loading="lazy"
+            width={400}
+            height={300}
             onError={(event) => {
               event.currentTarget.style.opacity = '0.6'
             }}
@@ -149,35 +154,37 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
           ))}
         </div>
 
-        <div className="mt-auto flex gap-2">
-          <Link
-            to={detailPath}
-            className="btn-primary flex-1 gap-2 px-4"
-          >
-            View Details
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        <div className="mt-auto space-y-2">
+          <Link to={quoteHref} className="btn-primary w-full justify-center">
+            Request Quote
           </Link>
+          <div className="flex gap-2">
+            <Link to={detailPath} className="btn-green flex-1 justify-center gap-2 px-3 text-sm">
+              View Details
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
 
-          {canQuickView ? (
-            <button
-              type="button"
-              onClick={() => onQuickView(product)}
-              className="inline-flex min-h-[44px] w-[44px] items-center justify-center rounded-full border border-brand-green-200 bg-white text-brand-green-700 transition hover:border-brand-green-300 hover:bg-brand-green-50"
-              aria-label={`Quick view ${product.name}`}
+            {canQuickView ? (
+              <button
+                type="button"
+                onClick={() => onQuickView(product)}
+                className="inline-flex min-h-[44px] w-[44px] items-center justify-center rounded-md border border-brand-green-200 bg-white text-brand-green-700 transition hover:border-brand-green-300 hover:bg-brand-green-50"
+                aria-label={`Quick view ${product.name}`}
+              >
+                <Eye className="h-4.5 w-4.5" aria-hidden="true" />
+              </button>
+            ) : null}
+
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-[44px] w-[44px] items-center justify-center rounded-md bg-[#25D366] text-white shadow-sm transition hover:scale-105"
+              aria-label={`Ask on WhatsApp about ${product.name}`}
             >
-              <Eye className="h-4.5 w-4.5" aria-hidden="true" />
-            </button>
-          ) : null}
-
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex min-h-[44px] w-[44px] items-center justify-center rounded-full bg-[#25D366] text-white transition hover:scale-105 shadow-sm"
-            aria-label={`Ask on WhatsApp about ${product.name}`}
-          >
-            <MessageCircle className="h-5 w-5" aria-hidden="true" />
-          </a>
+              <MessageCircle className="h-5 w-5" aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </div>
     </motion.article>
