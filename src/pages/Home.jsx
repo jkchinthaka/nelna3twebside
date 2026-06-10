@@ -11,7 +11,6 @@ import {
 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import HeroSlider from '../components/HeroSlider.jsx'
-import AchievementStatsBar from '../components/AchievementStatsBar.jsx'
 import ScrollReveal from '../components/ScrollReveal.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import ProductCard from '../components/ProductCard.jsx'
@@ -218,7 +217,6 @@ function Home() {
          {/* 1. Hero + Achievement Counter */}
          <section className="hero-home relative -mt-header-offset">
             <HeroSlider />
-            <AchievementStatsBar />
          </section>
 
          {/* 2. Product Categories */}
