@@ -4,31 +4,28 @@ import {
    ShieldCheck,
    Leaf,
    Award,
-   Clock,
    CheckCircle2,
    ArrowRight,
-   Star,
-   ChefHat,
    Truck,
    Users,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import HeroSlider from '../components/HeroSlider.jsx'
+import AchievementStatsBar from '../components/AchievementStatsBar.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import ProductCard from '../components/ProductCard.jsx'
 import PartnerStrip from '../components/PartnerStrip.jsx'
-import BrandStripeImage from '../components/BrandStripeImage.jsx'
+import QualitySafetyCards from '../components/QualitySafetyCards.jsx'
+import BusinessSupplySection from '../components/BusinessSupplySection.jsx'
 import AnimatedCTASection from '../components/AnimatedCTASection.jsx'
 import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
 import NewsCard from '../components/NewsCard.jsx'
-import Counter from '../components/Counter.jsx'
 import { ErrorState, Skeleton } from '../components/ui/index.js'
 import { getProducts } from '../services/productService.js'
 import { getNews } from '../services/newsService.js'
 import { fallbackProducts } from '../data/products.js'
 import { fallbackNews } from '../data/news.js'
 
-import homePremiumFeatureImg from '../assets/nelna-gallery-08.jpg'
 import processCardImg1 from '../assets/nelna-gallery-11.jpg'
 import processCardImg2 from '../assets/nelna-gallery-12.jpg'
 import processCardImg3 from '../assets/nelna-gallery-13.jpg'
@@ -217,115 +214,60 @@ function Home() {
 
    return (
       <div className="bg-white">
-         {/* 1. Hero Section */}
-         <section className="relative">
+         {/* 1. Hero + Achievement Counter */}
+         <section className="relative pb-6 md:pb-8">
             <HeroSlider />
-            <div className="max-w-7xl mx-auto px-4 pt-4 pb-8 md:pt-5 md:pb-10 relative z-10">
-               <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1, duration: 0.3 }}
-                  className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 bg-white/95 backdrop-blur-xl p-5 md:p-10 rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/50"
-               >
-                  {[
-                     { value: 200, suffix: '+', label: 'Contract Farmers', color: 'text-brand-700' },
-                     { value: 1500, suffix: '+', label: 'Employees', color: 'text-brand-yellow-600' },
-                     { text: 'Since 1998', label: 'Industry Heritage', color: 'text-brand-green-700' },
-                     { text: 'Nationwide', label: 'Distribution Coverage', color: 'text-brand-red-600' },
-                  ].map((stat, i) => (
-                     <div key={i} className="text-center group cursor-default">
-                         <div className={`text-2xl md:text-4xl font-display font-extrabold ${stat.color} mb-1 md:mb-2 group-hover:scale-105 transition-transform origin-bottom`}>
-                            {stat.text || <Counter to={stat.value} suffix={stat.suffix} />}
-                         </div>
-                         <div className="text-[10px] md:text-sm font-bold text-slate-500 uppercase tracking-widest group-hover:text-slate-800 transition-colors">
-                            {stat.label}
-                         </div>
-                     </div>
-                  ))}
-               </motion.div>
-            </div>
+            <AchievementStatsBar />
          </section>
 
-         {/* 2. Premium Experience Section */}
-         <section className="py-24 px-4 max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-               <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="relative"
-               >
-                  <div className="absolute top-10 right-10 w-full h-full bg-brand-100/65 rounded-[3rem] -z-10 transform translate-x-4 translate-y-4" />
-                  <img
-                     src={homePremiumFeatureImg}
-                     alt="Fresh Premium Chicken"
-                     className="rounded-[3rem] shadow-2xl w-full object-cover"
-                     loading="lazy"
-                  />
-                  <div className="absolute bottom-8 left-8 bg-white/98 backdrop-blur p-6 rounded-2xl shadow-lg max-w-xs border border-slate-200 hidden md:block">
-                     <div className="flex items-center gap-2 mb-2 text-gold-500">
-                        <Star className="w-4 h-4 fill-current" />
-                        <Star className="w-4 h-4 fill-current" />
-                        <Star className="w-4 h-4 fill-current" />
-                        <Star className="w-4 h-4 fill-current" />
-                        <Star className="w-4 h-4 fill-current" />
-                     </div>
-                     <p className="text-sm font-semibold text-slate-800 italic leading-snug">
-                        "Consistently the highest quality chicken in the market. Nelna has been our trusted supplier for over a decade."
-                     </p>
-                     <div className="mt-2 text-xs font-bold text-slate-600 uppercase tracking-widest">
-                        — Leading Hotel Chain
-                     </div>
-                  </div>
-               </motion.div>
+         {/* 2. Product Categories */}
+         <section className="section-spacing bg-white">
+            <div className="page-shell">
+               <SectionHeading
+                  eyebrow="Product Portfolio"
+                  title="Professional Product Categories for Every Business Need"
+                  subtitle="Explore Nelna Farm categories built for retail shelves, food service kitchens, and distribution networks across Sri Lanka."
+                  align="left"
+                  eyebrowClassName="text-brand-green-800"
+                  titleClassName="text-slate-950"
+                  subtitleClassName="text-slate-800 md:text-[1.03rem] leading-relaxed font-medium"
+               />
 
-               <div>
-                  <div className="flex items-center gap-2 text-gold-600 font-bold tracking-widest uppercase text-xs mb-4">
-                     <Award className="w-4 h-4" />
-                     <span>Premium Quality Standard</span>
-                  </div>
-                  <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
-                     Built for <span className="text-brand-600">Quality, Safety, and Trust</span>
-                  </h2>
-                  <p className="text-lg text-slate-700 mb-8 leading-relaxed">
-                     Nelna Farm combines certified production standards, modern processing, and disciplined cold-chain logistics to deliver dependable premium poultry and food products for households, retailers, and food service operations.
-                  </p>
-
-                  <div className="grid sm:grid-cols-2 gap-6 mb-10">
-                     {[
-                        { icon: ShieldCheck, title: 'Certified Food Safety', desc: 'Operational controls aligned with international quality systems.' },
-                        { icon: Clock, title: 'Freshness Commitment', desc: 'Efficient processing and dispatch for dependable shelf quality.' },
-                        { icon: Leaf, title: 'Responsible Farming', desc: 'Structured farm management with animal welfare oversight.' },
-                        { icon: CheckCircle2, title: 'Batch Traceability', desc: 'Clear process visibility from farm inputs to final delivery.' },
-                     ].map((feature, i) => (
-                        <div key={i} className="flex gap-4">
-                           <div className="w-10 h-10 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
-                              <feature.icon className="w-5 h-5" />
-                           </div>
-                           <div>
-                              <h4 className="font-bold text-slate-900">{feature.title}</h4>
-                              <p className="text-xs text-slate-600">{feature.desc}</p>
-                           </div>
+               <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+                  {categoryCards.map((item) => (
+                     <article key={item.title} className="surface-card surface-card-hover overflow-hidden">
+                        <div className="relative h-40 w-full overflow-hidden bg-slate-50 group">
+                           {item.imageUrl ? (
+                              <img
+                                 src={item.imageUrl}
+                                 alt={`${item.title} by Nelna Farm`}
+                                 loading="lazy"
+                                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                           ) : (
+                              <div className="relative flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-50 via-white to-brand-100">
+                                 <span className="scale-[3] -rotate-12 transform font-display text-4xl font-bold text-brand-300 opacity-20">Nelna</span>
+                              </div>
+                           )}
                         </div>
-                     ))}
-                  </div>
-
-                  <Link
-                     to="/quality-safety"
-                     className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-brand-600 text-white font-bold shadow-lg shadow-brand-200 transition-all hover:bg-brand-700 hover:shadow-xl hover:-translate-y-1"
-                  >
-                     Read Our Standards <ArrowRight className="w-4 h-4" />
-                  </Link>
+                        <div className="space-y-3 p-5">
+                           <h2 className="text-lg font-display font-bold text-slate-900">{item.title}</h2>
+                           <p className="text-sm leading-relaxed text-slate-700">{item.description}</p>
+                           <Link to={item.to} className="btn-link">
+                              View Category
+                              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                           </Link>
+                        </div>
+                     </article>
+                  ))}
                </div>
             </div>
          </section>
 
-
-
-         {/* 3. Shop Favorites Section */}
-         <section className="bg-slate-50 py-24">
-            <div className="max-w-7xl mx-auto px-4">
-               <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+         {/* 3. Featured Products */}
+         <section className="section-spacing bg-slate-50">
+            <div className="page-shell">
+               <div className="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
                   <div className="max-w-2xl">
                      <SectionHeading
                         eyebrow="Featured Range"
@@ -337,15 +279,13 @@ function Home() {
                         subtitleClassName="text-slate-800 md:text-[1.04rem] leading-relaxed font-medium"
                      />
                   </div>
-                  <Link
-                     to="/products"
-                     className="hidden md:flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-bold text-white shadow-lg hover:bg-brand-700 transition-all hover:shadow-xl hover:-translate-y-0.5"
-                  >
-                     View All Products <ArrowRight className="w-4 h-4" />
+                  <Link to="/products" className="btn-primary hidden gap-2 md:inline-flex">
+                     View All Products
+                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                </div>
 
-               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                   {productsLoading ? (
                      Array.from({ length: 3 }).map((_, index) => (
                         <Skeleton key={`product-skeleton-${index}`} className="h-[420px] rounded-3xl" />
@@ -369,106 +309,78 @@ function Home() {
                ) : null}
 
                {!productsLoading ? (
-                  <div className="md:hidden mt-8 text-center">
-                     <Link to="/products" className="inline-flex items-center gap-2 font-bold text-brand-600">
-                        View Full Catalog <ArrowRight className="w-4 h-4" />
+                  <div className="mt-8 text-center md:hidden">
+                     <Link to="/products" className="btn-link justify-center">
+                        View Full Catalog
+                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
                      </Link>
                   </div>
                ) : null}
             </div>
          </section>
 
-         <section className="bg-white py-24">
-            <div className="mx-auto max-w-7xl px-4">
-               <SectionHeading
-                  eyebrow="Product Portfolio"
-                  title="Professional Product Categories for Every Business Need"
-                  subtitle="Explore Nelna Farm categories built for retail shelves, food service kitchens, and distribution networks across Sri Lanka."
-                  align="left"
-                  eyebrowClassName="text-brand-green-800"
-                  titleClassName="text-slate-950"
-                  subtitleClassName="text-slate-800 md:text-[1.03rem] leading-relaxed font-medium"
-               />
+         {/* 4. Quality & Safety */}
+         <QualitySafetyCards />
 
-               <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
-                  {categoryCards.map((item) => (
-                     <article key={item.title} className="surface-card surface-card-hover overflow-hidden">
-                        <div className="h-40 w-full bg-slate-50 relative overflow-hidden group">
-                           {item.imageUrl ? (
-                              <img
-                                 src={item.imageUrl}
-                                 alt={`${item.title} by Nelna Farm`}
-                                 loading="lazy"
-                                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                              />
-                           ) : (
-                              <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-50 via-white to-brand-100 relative">
-                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(39,116,58,0.05),transparent_50%)]" />
-                                 <span className="text-brand-300 opacity-20 transform -rotate-12 scale-[3] font-display font-bold">Nelna</span>
-                              </div>
-                           )}
-                        </div>
-                        <div className="space-y-3 p-5">
-                           <h3 className="text-lg font-display font-bold text-slate-900">{item.title}</h3>
-                           <p className="text-sm leading-relaxed text-slate-700">{item.description}</p>
-                           <Link
-                              to={item.to}
-                              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-green-700"
-                           >
-                              View Category
-                              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                           </Link>
-                        </div>
-                     </article>
-                  ))}
-               </div>
-            </div>
-         </section>
+         {/* 5. Farm-to-Kitchen Process */}
+         <section className="section-spacing relative overflow-hidden bg-white">
+            <div className="absolute top-0 right-0 -z-10 h-full w-1/3 bg-brand-50/70" aria-hidden="true" />
 
-         {/* 4. Why Choose Nelna (Process) */}
-         <section className="py-24 overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-50/70 -z-10" />
-
-            <div className="relative z-10 max-w-7xl mx-auto px-4">
-               <div className="mb-16 text-center max-w-3xl mx-auto">
-                  <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
-                     Why Businesses and Families<br/> <span className="text-brand-600">Trust Nelna Farm</span>
-                  </h2>
-                  <p className="text-slate-700 text-lg">
-                     Beyond products, we deliver disciplined operations, quality assurance, and accountable service that protect your brand and your customers.
-                  </p>
+            <div className="page-shell">
+               <div className="mx-auto mb-12 max-w-3xl text-center">
+                  <SectionHeading
+                     eyebrow="Our Process"
+                     title="From Farm to Kitchen with Disciplined Operations"
+                     subtitle="Beyond products, we deliver quality assurance and accountable service that protect your brand and your customers."
+                     align="center"
+                     center
+                     eyebrowClassName="text-brand-green-800"
+                     titleClassName="text-slate-950"
+                     subtitleClassName="text-slate-700"
+                  />
                </div>
 
-               <div className="grid md:grid-cols-3 gap-8">
+               <div className="grid gap-8 md:grid-cols-3">
                   {processCards.map((item, idx) => (
-                     <motion.div
+                     <motion.article
                         key={idx}
-                        whileHover={{ y: -10 }}
-                        transition={{ duration: 0.3 }}
-                        className="group rounded-3xl overflow-hidden bg-white shadow-lg border border-slate-200"
+                        whileHover={{ y: -6 }}
+                        transition={{ duration: 0.25 }}
+                        className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card"
                      >
                         <div className="h-48 overflow-hidden">
                            <img
                               src={item.image}
                               alt={item.title}
-                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                               loading="lazy"
                            />
                         </div>
-                        <div className="p-8">
-                           <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                           <p className="text-slate-700 text-sm leading-relaxed">{item.desc}</p>
+                        <div className="p-6">
+                           <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
+                           <p className="mt-3 text-sm leading-relaxed text-slate-700">{item.desc}</p>
                         </div>
-                     </motion.div>
+                     </motion.article>
                   ))}
+               </div>
+
+               <div className="mt-8 text-center">
+                  <Link to="/process" className="btn-outline gap-2 px-6">
+                     View Full Process
+                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
                </div>
             </div>
          </section>
 
-         <section className="bg-white py-24">
-            <div className="mx-auto max-w-7xl px-4">
+         {/* 6. Business / HORECA */}
+         <BusinessSupplySection />
+
+         {/* 7. Why Choose Nelna */}
+         <section className="section-spacing bg-slate-50">
+            <div className="page-shell">
                <SectionHeading
-                  eyebrow="Trust and Quality"
+                  eyebrow="Why Choose Nelna"
                   title="A Production System Designed for Reliability"
                   subtitle="Our end-to-end process supports consistent quality, safe food handling, and dependable commercial supply."
                   align="left"
@@ -488,65 +400,47 @@ function Home() {
                      </article>
                   ))}
                </div>
-
-               <div className="mt-8 flex flex-wrap gap-3">
-                  <Link to="/quality-safety" className="btn-primary px-5 py-2.5 text-sm">
-                     Quality and Safety
-                  </Link>
-                  <Link to="/traceability" className="btn-secondary px-5 py-2.5 text-sm">
-                     Traceability
-                  </Link>
-                  <Link
-                     to="/sustainability"
-                     className="inline-flex min-h-[44px] items-center justify-center rounded-pill border border-brand-green-200 bg-brand-green-50 px-5 py-2.5 text-sm font-semibold text-brand-green-700"
-                  >
-                     Sustainability
-                  </Link>
-               </div>
             </div>
          </section>
 
-         <div className="bg-brand-950 py-16 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-400 via-brand-900 to-transparent"></div>
-            
-            <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16 relative z-10">
+         {/* Certification strip */}
+         <section className="bg-brand-green-950 py-14 text-white" aria-label="Certifications">
+            <div className="page-shell flex flex-wrap items-center justify-center gap-8 md:gap-14">
                {[
                   { label: 'ISO 22000 Certified', img: certISO },
                   { label: 'GMP Standards', img: certGMP },
                   { label: 'HACCP Approved', img: certHACCP },
                   { label: 'Halal Certified', img: certHalal },
-               ].map((badge, i) => (
-                  <div key={i} className="flex items-center gap-3 group opacity-100 transition-all duration-300">
-                     <div className="w-12 h-12 rounded-full overflow-hidden bg-white p-1 group-hover:scale-110 transition-transform duration-300">
-                        <img src={badge.img} alt={badge.label} className="w-full h-full object-contain" />
+               ].map((badge) => (
+                  <div key={badge.label} className="flex items-center gap-3">
+                     <div className="h-12 w-12 overflow-hidden rounded-full bg-white p-1">
+                        <img src={badge.img} alt={badge.label} className="h-full w-full object-contain" />
                      </div>
-                     <span className="font-display font-bold text-lg text-brand-50 group-hover:text-white transition-colors">{badge.label}</span>
+                     <span className="font-display text-base font-bold text-brand-green-50 md:text-lg">{badge.label}</span>
                   </div>
                ))}
             </div>
-         </div>
+         </section>
 
          <PartnerStrip />
 
-         {/* 6. Testimonials */}
-         <section className="py-24 bg-brand-50/70">
-            <div className="max-w-4xl mx-auto px-6 text-center">
-               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold-100 text-gold-600 mb-8 border border-gold-200">
-                  <ChefHat className="w-8 h-8" />
-               </div>
+         {/* 8. Testimonials */}
+         <section className="section-spacing bg-brand-50/70">
+            <div className="page-shell max-w-4xl text-center">
                <SectionHeading
                   title="Trusted by Culinary and Retail Professionals"
                   subtitle="From hotel kitchens to modern supermarkets, businesses rely on Nelna Farm for consistent quality and dependable supply."
+                  align="center"
+                  center
                   titleClassName="!text-slate-900"
                   subtitleClassName="!text-slate-700"
                />
-               <div className="mt-12">
+               <div className="mt-10">
                   <TestimonialCarousel
                      items={[
                         {
                            quote:
-                              'Nelna’s consistency is unmatched. I can rely on them for every banquet and every service.',
+                              "Nelna's consistency is unmatched. I can rely on them for every banquet and every service.",
                            name: 'Chef Anura Perera',
                            role: 'Executive Chef, Colombo Hotel Group',
                         },
@@ -566,28 +460,26 @@ function Home() {
             </div>
          </section>
 
-         <section id="distributor-opportunity" className="bg-gradient-to-r from-brand-green-950 via-brand-green-900 to-brand-green-800 py-20 text-white">
-            <div className="mx-auto max-w-7xl px-4">
-               <div className="grid gap-8 rounded-3xl border border-white/25 bg-white/10 p-8 backdrop-blur md:grid-cols-[1.3fr_0.7fr] md:items-center md:p-10">
+         {/* 9. Distributor opportunity */}
+         <section id="distributor-opportunity" className="bg-brand-green-950 py-16 text-white">
+            <div className="page-shell">
+               <div className="grid gap-8 rounded-3xl border border-white/20 bg-white/5 p-8 md:grid-cols-[1.3fr_0.7fr] md:items-center md:p-10">
                   <div>
-                     <p className="inline-flex rounded-pill border border-brand-yellow-200/70 bg-brand-yellow-400/25 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-brand-yellow-100">
+                     <p className="inline-flex rounded-pill border border-brand-yellow-200/70 bg-brand-yellow-400/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-brand-yellow-100">
                         Distributor and Dealer Network
                      </p>
-                     <h2 className="mt-4 text-3xl font-display font-bold text-white md:text-4xl">
+                     <h2 className="mt-4 font-display text-3xl font-bold text-white md:text-4xl">
                         Become a Nelna Farm Distributor
                      </h2>
                      <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-brand-green-50 md:text-base">
-                        Partner with Nelna Farm to access stable supply, category support, and a recognized brand trusted by customers across Sri Lanka. We work with distributors and dealers focused on long-term growth and service excellence.
+                        Partner with Nelna Farm to access stable supply, category support, and a recognized brand trusted by customers across Sri Lanka.
                      </p>
                   </div>
                   <div className="flex flex-col gap-3 md:items-end">
-                     <Link to="/contact#distributor-partnership" className="btn-secondary w-full justify-center px-6 py-3 text-sm md:w-auto md:min-w-[230px]">
+                     <Link to="/contact#distributor-partnership" className="btn-secondary w-full justify-center md:w-auto md:min-w-[220px]">
                         Become a Distributor
                      </Link>
-                     <Link
-                        to="/contact"
-                        className="inline-flex min-h-[44px] w-full items-center justify-center rounded-pill border border-white/80 bg-black/20 px-6 py-3 text-sm font-bold text-white md:w-auto md:min-w-[230px]"
-                     >
+                     <Link to="/contact" className="btn-outline w-full justify-center border-white/70 text-white hover:bg-white hover:text-brand-green-800 md:w-auto md:min-w-[220px]">
                         Contact Sales Team
                      </Link>
                   </div>
@@ -595,16 +487,16 @@ function Home() {
             </div>
          </section>
 
-         {/* 7. Latest News Preview */}
-         <section className="bg-slate-50 py-24">
-            <div className="mx-auto max-w-7xl px-4">
+         {/* 10. Latest News */}
+         <section className="section-spacing bg-slate-50">
+            <div className="page-shell">
                <SectionHeading
                   eyebrow="Community & Updates"
                   title="Life at Nelna Farm"
                   subtitle="Stay connected with our latest initiatives, recipes, and farm updates."
                   align="left"
                />
-               <div className="mt-12 grid gap-8 md:grid-cols-3">
+               <div className="mt-10 grid gap-8 md:grid-cols-3">
                   {newsLoading ? (
                      Array.from({ length: 3 }).map((_, index) => (
                         <Skeleton key={`news-skeleton-${index}`} className="h-[360px] rounded-3xl" />
@@ -629,9 +521,7 @@ function Home() {
             </div>
          </section>
 
-
-
-         {/* 8. Final CTA */}
+         {/* 11. Final CTA */}
          <AnimatedCTASection
             title="Ready to Work with a Trusted Food and Poultry Partner?"
             body="Talk to our team for product supply, distributor opportunities, and reliable delivery support tailored to your business needs."

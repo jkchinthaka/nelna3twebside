@@ -102,7 +102,7 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
       }`}
     >
       <div
-        className={`relative overflow-hidden ${isList ? 'h-full min-h-[230px]' : 'h-64'}`}
+        className={`relative aspect-[4/3] overflow-hidden ${isList ? 'h-full min-h-[230px] md:aspect-auto' : ''}`}
         style={enableTilt ? { transform: 'translateZ(24px)' } : undefined}
       >
         {product.imageUrl ? (
@@ -152,7 +152,7 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
         <div className="mt-auto flex gap-2">
           <Link
             to={detailPath}
-            className="flex-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-pill bg-brand-green-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-brand-green-700"
+            className="btn-primary flex-1 gap-2 px-4"
           >
             View Details
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

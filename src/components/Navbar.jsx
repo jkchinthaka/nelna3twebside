@@ -37,26 +37,28 @@ const dropdownMenus = [
     ],
   },
   {
-    id: 'company',
-    key: 'nav.company',
-    fallback: 'Company',
+    id: 'business',
+    key: 'nav.business',
+    fallback: 'For Business',
     items: [
-      { to: '/about', label: 'About Us' },
-      { to: '/process', label: 'Process' },
-      { to: '/sustainability', label: 'Sustainability & CSR' },
-      { to: '/certifications', label: 'Certifications' },
-      { to: '/traceability', label: 'Traceability' },
+      { to: '/contact', label: 'Contact Sales' },
+      { to: '/contact#distributor-partnership', label: 'Become a Distributor' },
+      { to: '/products#bulk-order', label: 'Bulk Orders' },
+      { to: '/product-finder', label: 'Product Finder' },
     ],
   },
   {
-    id: 'resources',
-    key: 'nav.resources',
-    fallback: 'Resources',
+    id: 'about',
+    key: 'nav.about',
+    fallback: 'About Nelna',
     items: [
+      { to: '/about', label: 'About Us' },
+      { to: '/process', label: 'Our Process' },
+      { to: '/sustainability', label: 'Sustainability & CSR' },
+      { to: '/certifications', label: 'Certifications' },
+      { to: '/traceability', label: 'Traceability' },
       { to: '/news', label: 'News & Updates' },
       { to: '/faq', label: 'FAQ' },
-      { to: '/privacy', label: 'Privacy' },
-      { to: '/terms', label: 'Terms' },
     ],
   },
 ]
@@ -68,10 +70,10 @@ function isPathActive(pathname, to) {
 
 function TopBar() {
   return (
-    <div className="hidden border-b border-brand-green-800/80 bg-gradient-to-r from-brand-green-950 via-brand-green-900 to-brand-green-800 text-brand-green-50 lg:block">
-      <div className="page-shell flex min-h-[42px] items-center justify-between gap-4 py-1.5 text-[11px] xl:text-xs">
-        <p className="font-semibold uppercase tracking-[0.12em] text-brand-yellow-200">
-          Delivering Sri Lanka's Trusted Poultry Excellence Since 1998
+    <div className="hidden border-b border-brand-green-800/80 bg-brand-green-950 text-brand-green-50 lg:block">
+      <div className="page-shell flex min-h-topbar items-center justify-between gap-3 py-1 text-[10px] xl:text-xs">
+        <p className="font-medium uppercase tracking-[0.1em] text-brand-green-100">
+          Trusted Sri Lankan poultry since 1998
         </p>
         <div className="flex items-center gap-2 text-brand-green-50 xl:gap-3">
           <a
@@ -113,7 +115,7 @@ function DesktopNav({ pathname, t }) {
           <NavLink key={link.to} to={link.to} className="relative block rounded-full">
             {({ isActive }) => (
               <span
-                className={`relative inline-flex min-h-[40px] items-center whitespace-nowrap rounded-full px-3.5 text-[0.92rem] font-semibold tracking-[0.01em] transition ${
+                className={`relative inline-flex min-h-[38px] items-center whitespace-nowrap rounded-full px-3 text-[0.875rem] font-semibold tracking-[0.01em] transition ${
                   isActive
                     ? 'text-brand-green-800'
                     : 'text-slate-700 hover:text-brand-green-700'
@@ -146,7 +148,7 @@ function DesktopNav({ pathname, t }) {
               <button
                 type="button"
                 onClick={() => setOpenMenu((value) => (value === menu.id ? null : menu.id))}
-                className={`relative inline-flex min-h-[40px] items-center gap-1 whitespace-nowrap rounded-full px-3.5 text-[0.92rem] font-semibold transition ${
+                className={`relative inline-flex min-h-[38px] items-center gap-1 whitespace-nowrap rounded-full px-3 text-[0.875rem] font-semibold transition ${
                   isActive
                     ? 'text-brand-green-800'
                     : 'text-slate-700 hover:text-brand-green-700'
@@ -327,7 +329,7 @@ function Navbar() {
   const mangoRedirectPath = '/mango'
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-header">
       <TopBar />
 
       <div
@@ -337,7 +339,7 @@ function Navbar() {
             : 'border-slate-200/80 bg-white'
         }`}
       >
-        <div className="page-shell flex min-h-[74px] items-center gap-3 py-2 sm:min-h-[82px]">
+        <div className="page-shell flex min-h-header items-center gap-3 py-1.5">
           <div className="flex min-w-0 items-center gap-2.5 sm:gap-3.5">
             <Link to="/" className="group inline-flex items-center gap-2.5" aria-label="Nelna Farm home">
               <div className="relative">

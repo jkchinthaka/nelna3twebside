@@ -2,11 +2,11 @@ import { forwardRef } from 'react'
 import { cn } from '../../lib/cn.js'
 
 const variants = {
-  primary: 'bg-[#27743a] text-white hover:bg-[#27743a] hover:brightness-95 focus-visible:ring-[#27743a]',
-  secondary: 'bg-[#f8bc24] text-[#1f3b24] hover:bg-[#f8bc24] hover:brightness-95 focus-visible:ring-[#f8bc24]',
-  ghost: 'bg-transparent text-slate-800 hover:bg-slate-200/80 focus-visible:ring-[#27743a]',
-  outline: 'bg-white border border-slate-400 text-slate-800 hover:border-[#27743a] hover:bg-slate-50 focus-visible:ring-[#27743a]',
-  danger: 'bg-[#da2328] text-white hover:bg-[#da2328] hover:brightness-95 focus-visible:ring-[#da2328]',
+  primary: 'bg-brand-green-500 text-white hover:brightness-95 focus-visible:ring-brand-green-500',
+  secondary: 'bg-brand-yellow-500 text-brand-green-900 hover:brightness-95 focus-visible:ring-brand-yellow-500',
+  ghost: 'bg-transparent text-slate-800 shadow-none hover:bg-slate-200/80 focus-visible:ring-brand-green-500',
+  outline: 'bg-white border border-slate-400 text-slate-800 shadow-none hover:border-brand-green-500 hover:bg-slate-50 focus-visible:ring-brand-green-500',
+  danger: 'bg-brand-red-500 text-white hover:brightness-95 focus-visible:ring-brand-red-500',
 }
 
 const sizes = {

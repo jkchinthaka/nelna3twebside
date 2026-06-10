@@ -4,24 +4,32 @@ import heroImageAvif from '../assets/nelna-gallery-01.jpg?format=avif'
 
 function HeroSlider() {
   return (
-    <section
-      className="relative w-full overflow-hidden bg-brand-green-950 pt-0"
-      aria-label="Nelna Farm hero banner"
-    >
-      <div className="relative h-[52vh] min-h-[300px] w-full sm:h-[58vh] sm:min-h-[360px] lg:h-[64vh] lg:min-h-[460px]">
+    <section className="hero-section" aria-labelledby="hero-heading">
+      <div className="hero-section__media relative">
         <picture>
           <source srcSet={heroImageAvif} type="image/avif" />
           <source srcSet={heroImageWebp} type="image/webp" />
           <img
             src={heroImageJpg}
-            alt="Nelna Farm poultry operations"
-            className="h-full w-full object-cover object-center"
+            alt=""
+            role="presentation"
+            className="h-full w-full object-cover object-[center_35%]"
             loading="eager"
             fetchPriority="high"
             decoding="async"
+            width={1920}
+            height={1080}
           />
         </picture>
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-green-950/12 via-transparent to-transparent" />
+        <div className="hero-section__overlay" aria-hidden="true" />
+        <div className="hero-section__message">
+          <h1
+            id="hero-heading"
+            className="font-display text-lg font-bold tracking-tight text-white drop-shadow-md sm:text-xl md:text-2xl"
+          >
+            Premium Poultry &amp; Fresh Produce — Trusted Since 1998
+          </h1>
+        </div>
       </div>
     </section>
   )

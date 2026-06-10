@@ -82,6 +82,14 @@ export default {
           50: '#f8fafc',
           100: '#f1f5f9',
         },
+        cream: {
+          DEFAULT: '#faf8f4',
+          warm: '#f5f1ea',
+        },
+        forest: {
+          DEFAULT: '#081b0e',
+          mid: '#122f19',
+        },
         primary: '#27743a',
         secondary: '#f8bc24',
         danger: '#da2328',
@@ -103,9 +111,27 @@ export default {
         serif: ['Playfair Display', 'serif'],
       },
       spacing: {
-        'section-sm': '3rem',
-        'section-md': '4.5rem',
-        'section-lg': '6rem',
+        'section-sm': 'var(--section-spacing-sm)',
+        'section-md': 'var(--section-spacing-md)',
+        'section-lg': 'var(--section-spacing-lg)',
+        'header': 'var(--header-height)',
+        'topbar': 'var(--topbar-height)',
+        'header-offset': 'var(--header-offset)',
+      },
+      maxWidth: {
+        container: 'var(--container-max)',
+      },
+      height: {
+        hero: 'var(--hero-height)',
+      },
+      minHeight: {
+        btn: 'var(--btn-height)',
+      },
+      zIndex: {
+        dropdown: 'var(--z-dropdown)',
+        header: 'var(--z-header)',
+        fab: 'var(--z-fab)',
+        overlay: 'var(--z-overlay)',
       },
       borderRadius: {
         sm: '4px',

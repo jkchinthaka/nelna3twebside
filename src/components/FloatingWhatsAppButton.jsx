@@ -25,13 +25,10 @@ function FloatingWhatsAppButton() {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="group fixed bottom-5 right-4 z-40 inline-flex min-h-[52px] items-center gap-2 rounded-full bg-brand-green-600 px-4 py-3 text-sm font-bold text-white shadow-[0_16px_30px_-18px_rgba(39,116,58,0.95)] ring-1 ring-brand-green-300 transition hover:bg-brand-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-300 sm:bottom-6 sm:right-6"
+      className="group fixed bottom-[4.5rem] right-3 z-fab inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-2 rounded-full bg-brand-green-600 px-3 py-2.5 text-sm font-bold text-white shadow-card transition hover:bg-brand-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-400 focus-visible:ring-offset-2 sm:bottom-6 sm:right-5 sm:min-h-[48px] sm:px-4 motion-reduce:transition-none"
       aria-label="Chat with Nelna Farm on WhatsApp"
     >
-      <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/22">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/30" aria-hidden="true" />
-        <MessageCircle className="relative h-4 w-4" aria-hidden="true" />
-      </span>
+      <MessageCircle className="h-5 w-5" aria-hidden="true" />
       <span className="hidden sm:inline">WhatsApp</span>
     </a>
   )
