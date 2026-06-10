@@ -216,6 +216,7 @@ function Home() {
       <div className="bg-white">
          {/* 1. Hero + Achievement Counter */}
          <section className="hero-home relative -mt-header-offset">
+            <h1 className="sr-only">Nelna Farm — Premium Poultry and Fresh Produce in Sri Lanka</h1>
             <HeroSlider />
          </section>
 
