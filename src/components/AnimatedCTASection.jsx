@@ -13,10 +13,10 @@ function AnimatedCTASection({ title, body, primary, secondary }) {
         </div>
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
           <Link
-            to={primary?.href || '/products#bulk-order'}
+            to={primary?.href || '/contact'}
             className="btn-primary w-full justify-center gap-2 sm:w-auto"
           >
-            {primary?.label || 'Order Now'}
+            {primary?.label || 'Contact Sales'}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
           <Link

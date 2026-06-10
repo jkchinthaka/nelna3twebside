@@ -431,8 +431,8 @@ function About() {
                Join thousands of satisfied families and businesses who trust us for their daily nutrition.
              </p>
              <div className="flex flex-wrap gap-4">
-               <Link to="/products" className="px-8 py-4 bg-brand-500 hover:bg-brand-400 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-brand-500/30 flex items-center gap-2">
-                 View Products
+               <Link to="/contact" className="px-8 py-4 bg-brand-500 hover:bg-brand-400 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-brand-500/30 flex items-center gap-2">
+                 Contact Sales
                </Link>
                <Link to="/contact" className="px-8 py-4 bg-white text-brand-900 font-bold rounded-full transition-all hover:bg-slate-100 flex items-center gap-2">
                  Get in Touch

@@ -19,23 +19,12 @@ import mango3dLogo from '../assets/mongo3dlogo.png'
 
 const directLinks = [
   { to: '/', key: 'nav.home', fallback: 'Home' },
-  { to: '/product-finder', key: 'nav.productFinder', fallback: 'Product Finder' },
+  { to: '/about', key: 'nav.about', fallback: 'About' },
   { to: '/quality-safety', key: 'nav.quality', fallback: 'Quality & Safety' },
   { to: '/contact', key: 'nav.contact', fallback: 'Contact' },
 ]
 
 const dropdownMenus = [
-  {
-    id: 'products',
-    key: 'nav.products',
-    fallback: 'Products',
-    items: [
-      { to: '/products', label: 'All Products' },
-      { to: '/products?cat=frozen', label: 'Frozen Range' },
-      { to: '/products?cat=value-added', label: 'Value Added' },
-      { to: '/recipes', label: 'Recipes' },
-    ],
-  },
   {
     id: 'business',
     key: 'nav.business',
@@ -43,16 +32,13 @@ const dropdownMenus = [
     items: [
       { to: '/contact', label: 'Contact Sales' },
       { to: '/contact#distributor-partnership', label: 'Become a Distributor' },
-      { to: '/products#bulk-order', label: 'Bulk Orders' },
-      { to: '/product-finder', label: 'Product Finder' },
     ],
   },
   {
-    id: 'about',
-    key: 'nav.about',
-    fallback: 'About Nelna',
+    id: 'company',
+    key: 'nav.company',
+    fallback: 'Company',
     items: [
-      { to: '/about', label: 'About Us' },
       { to: '/process', label: 'Our Process' },
       { to: '/sustainability', label: 'Sustainability & CSR' },
       { to: '/certifications', label: 'Certifications' },
@@ -379,8 +365,8 @@ function Navbar() {
           <DesktopNav key={pathname} pathname={pathname} t={t} />
 
           <div className="ml-auto hidden items-center gap-2 lg:flex">
-            <Link to="/products#bulk-order" className="btn-primary px-5 py-2.5 text-sm">
-              Order Now
+            <Link to="/contact" className="btn-primary px-5 py-2.5 text-sm">
+              Contact Sales
             </Link>
             {user ? (
               <UserMenu user={user} role={role} logout={logout} />
@@ -522,8 +508,8 @@ function Navbar() {
               </nav>
 
               <div className="space-y-2 border-t border-slate-200 p-4">
-                <Link to="/products#bulk-order" onClick={closeMobile} className="btn-primary w-full justify-center text-sm">
-                  Order Now
+                <Link to="/contact" onClick={closeMobile} className="btn-primary w-full justify-center text-sm">
+                  Contact Sales
                 </Link>
 
                 <Link

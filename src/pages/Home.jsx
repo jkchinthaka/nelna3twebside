@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
    ShieldCheck,
@@ -13,7 +13,6 @@ import { motion } from 'framer-motion'
 import HeroSlider from '../components/HeroSlider.jsx'
 import ScrollReveal from '../components/ScrollReveal.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
-import ProductCard from '../components/ProductCard.jsx'
 import PartnerStrip from '../components/PartnerStrip.jsx'
 import QualitySafetyCards from '../components/QualitySafetyCards.jsx'
 import BusinessSupplySection from '../components/BusinessSupplySection.jsx'
@@ -21,9 +20,7 @@ import AnimatedCTASection from '../components/AnimatedCTASection.jsx'
 import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
 import NewsCard from '../components/NewsCard.jsx'
 import { ErrorState, Skeleton } from '../components/ui/index.js'
-import { getProducts } from '../services/productService.js'
 import { getNews } from '../services/newsService.js'
-import { fallbackProducts } from '../data/products.js'
 import { fallbackNews } from '../data/news.js'
 
 import processCardImg1 from '../assets/nelna-gallery-11.jpg'
@@ -36,42 +33,9 @@ import certHalal from '../assets/HALAL.jpg'
 import certISO from '../assets/ISO_22000.jpg'
 
 function Home() {
-   const [products, setProducts] = useState(fallbackProducts)
    const [news, setNews] = useState(fallbackNews)
-   const [productsLoading, setProductsLoading] = useState(true)
    const [newsLoading, setNewsLoading] = useState(true)
-   const [productsError, setProductsError] = useState('')
    const [newsError, setNewsError] = useState('')
-
-   const loadProducts = useCallback(async () => {
-      setProductsLoading(true)
-      setProductsError('')
-
-      try {
-         const response = await getProducts()
-         if (Array.isArray(response) && response.length) {
-            const merged = response.map((item) => {
-               const fallback = fallbackProducts.find(
-                  (entry) => entry.id === item.id || entry.slug === item.slug
-               )
-               return {
-                  ...fallback,
-                  ...item,
-                  slug: item.slug || fallback?.slug || item.id,
-               }
-            })
-            setProducts(merged)
-         } else {
-            setProducts(fallbackProducts)
-         }
-      } catch (error) {
-         console.error('Failed to load products', error)
-         setProductsError('Unable to load live products right now. Showing fallback catalog.')
-         setProducts(fallbackProducts)
-      } finally {
-         setProductsLoading(false)
-      }
-   }, [])
 
    const loadNews = useCallback(async () => {
       setNewsLoading(true)
@@ -94,10 +58,6 @@ function Home() {
    }, [])
 
    useEffect(() => {
-      loadProducts()
-   }, [loadProducts])
-
-   useEffect(() => {
       loadNews()
    }, [loadNews])
 
@@ -114,70 +74,10 @@ function Home() {
       },
       {
          title: 'Reliable Cold-chain Distribution',
-         desc: 'Timely chilled distribution keeps products fresh from processing to retail shelves.',
+         desc: 'Timely chilled distribution keeps supply fresh from processing to retail shelves.',
          image: processCardImg3,
       },
    ]
-
-   const categoryCards = useMemo(() => {
-      const sourceProducts = Array.isArray(products) && products.length ? products : fallbackProducts
-
-      const categories = [
-         {
-            title: 'Chicken Products',
-            description: 'Whole birds, cuts, and frozen packs for retail, food service, and wholesale supply.',
-            to: '/products?cat=chicken',
-            matcher: (product) => {
-               const text = `${product.name || ''} ${product.category || ''}`.toLowerCase()
-               return text.includes('chicken') || text.includes('broiler')
-            },
-         },
-         {
-            title: 'Eggs',
-            description: 'Fresh, graded eggs handled under controlled quality and hygienic packing standards.',
-            to: '/products?cat=egg',
-            matcher: (product) => {
-               const text = `${product.name || ''} ${product.category || ''}`.toLowerCase()
-               return text.includes('egg')
-            },
-         },
-         {
-            title: 'Fresh Produce',
-            description: 'Selected farm produce and seasonal items distributed with quality-first handling.',
-            to: '/products?cat=fresh%20produce',
-            matcher: (product) => {
-               const text = `${product.name || ''} ${product.category || ''}`.toLowerCase()
-               return text.includes('produce') || text.includes('fresh') || text.includes('vegetable') || text.includes('fruit')
-            },
-         },
-         {
-            title: 'Processed & Value-Added',
-            description: 'Convenient ready-to-cook and value-added poultry products for modern kitchens.',
-            to: '/products?cat=value-added',
-            matcher: (product) => {
-               const text = `${product.name || ''} ${product.category || ''}`.toLowerCase()
-               return text.includes('value') || text.includes('processed') || text.includes('ready')
-            },
-         },
-         {
-            title: 'Poultry Inputs',
-            description: 'Poultry feed and day-old broiler chicks to support reliable farming operations.',
-            to: '/products?cat=feed',
-            matcher: (product) => {
-               const text = `${product.name || ''} ${product.category || ''}`.toLowerCase()
-               return text.includes('feed') || text.includes('chicks') || text.includes('broiler')
-            },
-         },
-      ]
-
-      return categories.map((item) => {
-         const sample = sourceProducts.find(item.matcher)
-         return {
-            ...item,
-            imageUrl: sample?.imageUrl || null,
-         }
-      })
-   }, [products])
 
    const trustPillars = [
       {
@@ -197,7 +97,7 @@ function Home() {
       },
       {
          title: 'Reliable Distribution',
-         description: 'Cold-chain logistics and coordinated dispatch maintain product integrity across Sri Lanka.',
+         description: 'Cold-chain logistics and coordinated dispatch maintain integrity across Sri Lanka.',
          icon: Truck,
       },
       {
@@ -220,110 +120,11 @@ function Home() {
             <HeroSlider />
          </section>
 
-         {/* 2. Product Categories */}
-         <ScrollReveal as="section" className="section-spacing section-white">
-            <div className="page-shell">
-               <SectionHeading
-                  eyebrow="Product Portfolio"
-                  title="Professional Product Categories for Every Business Need"
-                  subtitle="Explore Nelna Farm categories built for retail shelves, food service kitchens, and distribution networks across Sri Lanka."
-                  align="left"
-                  eyebrowClassName="text-brand-green-800"
-                  titleClassName="text-slate-950"
-                  subtitleClassName="text-slate-800 md:text-[1.03rem] leading-relaxed font-medium"
-               />
-
-               <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
-                  {categoryCards.map((item) => (
-                     <article key={item.title} className="surface-card surface-card-hover overflow-hidden">
-                        <div className="relative h-40 w-full overflow-hidden bg-slate-50 group">
-                           {item.imageUrl ? (
-                              <img
-                                 src={item.imageUrl}
-                                 alt={`${item.title} by Nelna Farm`}
-                                 loading="lazy"
-                                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                              />
-                           ) : (
-                              <div className="relative flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-50 via-white to-brand-100">
-                                 <span className="scale-[3] -rotate-12 transform font-display text-4xl font-bold text-brand-300 opacity-20">Nelna</span>
-                              </div>
-                           )}
-                        </div>
-                        <div className="space-y-3 p-5">
-                           <h2 className="text-lg font-display font-bold text-slate-900">{item.title}</h2>
-                           <p className="text-sm leading-relaxed text-slate-700">{item.description}</p>
-                           <Link to={item.to} className="btn-link">
-                              View Category
-                              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                           </Link>
-                        </div>
-                     </article>
-                  ))}
-               </div>
-            </div>
-         </ScrollReveal>
-
-         {/* 3. Featured Products */}
-         <ScrollReveal as="section" className="section-spacing section-light">
-            <div className="page-shell">
-               <div className="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-                  <div className="max-w-2xl">
-                     <SectionHeading
-                        eyebrow="Featured Range"
-                        title="Premium Poultry and Frozen Food Selection"
-                        subtitle="Explore frozen chicken products, value-added cuts, and trusted nutrition for homes, retailers, and HORECA operations."
-                        align="left"
-                        eyebrowClassName="text-brand-green-800"
-                        titleClassName="text-slate-950"
-                        subtitleClassName="text-slate-800 md:text-[1.04rem] leading-relaxed font-medium"
-                     />
-                  </div>
-                  <Link to="/products" className="btn-primary hidden gap-2 md:inline-flex">
-                     View All Products
-                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-               </div>
-
-               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                  {productsLoading ? (
-                     Array.from({ length: 3 }).map((_, index) => (
-                        <Skeleton key={`product-skeleton-${index}`} className="h-[420px] rounded-3xl" />
-                     ))
-                  ) : (
-                     products.slice(0, 3).map((product, idx) => (
-                        <ProductCard key={product.id} product={product} featured={idx === 1} />
-                     ))
-                  )}
-               </div>
-
-               {!productsLoading && productsError ? (
-                  <div className="mt-6">
-                     <ErrorState
-                        title="Live catalog temporarily unavailable"
-                        description={productsError}
-                        retryLabel="Retry products"
-                        onRetry={loadProducts}
-                     />
-                  </div>
-               ) : null}
-
-               {!productsLoading ? (
-                  <div className="mt-8 text-center md:hidden">
-                     <Link to="/products" className="btn-link justify-center">
-                        View Full Catalog
-                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                     </Link>
-                  </div>
-               ) : null}
-            </div>
-         </ScrollReveal>
-
-         {/* 4. Quality & Safety */}
+         {/* 2. Quality & Safety */}
          <QualitySafetyCards />
 
-         {/* 5. Farm-to-Kitchen Process */}
-         <section className="section-spacing relative overflow-hidden bg-white">
+         {/* 3. Farm-to-Kitchen Process */}
+         <ScrollReveal as="section" className="section-spacing relative overflow-hidden bg-white">
             <div className="absolute top-0 right-0 -z-10 h-full w-1/3 bg-brand-50/70" aria-hidden="true" />
 
             <div className="page-shell">
@@ -331,7 +132,7 @@ function Home() {
                   <SectionHeading
                      eyebrow="Our Process"
                      title="From Farm to Kitchen with Disciplined Operations"
-                     subtitle="Beyond products, we deliver quality assurance and accountable service that protect your brand and your customers."
+                     subtitle="We deliver quality assurance and accountable service that protect your brand and your customers."
                      align="center"
                      center
                      eyebrowClassName="text-brand-green-800"
@@ -371,12 +172,12 @@ function Home() {
                   </Link>
                </div>
             </div>
-         </section>
+         </ScrollReveal>
 
-         {/* 6. Business / HORECA */}
+         {/* 4. Business / HORECA */}
          <BusinessSupplySection />
 
-         {/* 7. Why Choose Nelna */}
+         {/* 5. Why Choose Nelna */}
          <section className="section-spacing bg-slate-50">
             <div className="page-shell">
                <SectionHeading
@@ -424,7 +225,7 @@ function Home() {
 
          <PartnerStrip />
 
-         {/* 8. Testimonials */}
+         {/* 6. Testimonials */}
          <section className="section-spacing bg-brand-50/70">
             <div className="page-shell max-w-4xl text-center">
                <SectionHeading
@@ -460,7 +261,7 @@ function Home() {
             </div>
          </section>
 
-         {/* 9. Distributor opportunity */}
+         {/* 7. Distributor opportunity */}
          <section id="distributor-opportunity" className="bg-brand-green-950 py-16 text-white">
             <div className="page-shell">
                <div className="grid gap-8 rounded-3xl border border-white/20 bg-white/5 p-8 md:grid-cols-[1.3fr_0.7fr] md:items-center md:p-10">
@@ -487,7 +288,7 @@ function Home() {
             </div>
          </section>
 
-         {/* 10. Latest News */}
+         {/* 8. Latest News */}
          <section className="section-spacing bg-slate-50">
             <div className="page-shell">
                <SectionHeading
@@ -521,12 +322,12 @@ function Home() {
             </div>
          </section>
 
-         {/* 11. Final CTA */}
+         {/* 9. Final CTA */}
          <AnimatedCTASection
             title="Ready to Work with a Trusted Food and Poultry Partner?"
-            body="Talk to our team for product supply, distributor opportunities, and reliable delivery support tailored to your business needs."
-            primary={{ href: '/products#bulk-order', label: 'Order Now' }}
-            secondary={{ href: '/contact', label: 'Contact Sales' }}
+            body="Talk to our team for supply inquiries, distributor opportunities, and reliable delivery support tailored to your business needs."
+            primary={{ href: '/contact', label: 'Contact Sales' }}
+            secondary={{ href: '/about', label: 'About Nelna' }}
          />
       </div>
    )

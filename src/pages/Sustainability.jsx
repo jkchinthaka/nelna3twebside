@@ -188,12 +188,12 @@ function Sustainability() {
 
       {/* 5. Minimal CTA */}
       <section className="py-24 bg-brand-900 text-center px-6">
-         <h2 className="text-3xl font-display font-bold text-white mb-6">Choose Products You Can Feel Good About</h2>
+         <h2 className="text-3xl font-display font-bold text-white mb-6">Partner with a Responsible Food Producer</h2>
          <p className="text-emerald-100 max-w-2xl mx-auto mb-10 text-lg">
-            When you buy Nelna, you're not just getting premium quality—you're supporting ethical farming and a greener planet.
+            When you work with Nelna, you support ethical farming, responsible operations, and a greener planet.
          </p>
-         <Link to="/products" className="inline-block rounded-full bg-white px-8 py-4 font-bold text-brand-900 hover:bg-emerald-50 transition-colors">
-            Shop Sustainably
+         <Link to="/contact" className="inline-block rounded-full bg-white px-8 py-4 font-bold text-brand-900 hover:bg-emerald-50 transition-colors">
+            Contact Sales
          </Link>
       </section>
 

@@ -98,8 +98,8 @@ function QualitySafety() {
               We go beyond industry standards to ensure every bite is safe, nutritious, and ethically produced for your family.
             </p>
             <div className="flex gap-4">
-               <Link to="/products" className="rounded-full bg-green-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-green-900/20 transition hover:bg-green-500 hover:scale-[1.02]">
-                  Shop with Confidence
+               <Link to="/contact" className="rounded-full bg-green-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-green-900/20 transition hover:bg-green-500 hover:scale-[1.02]">
+                  Contact Our Team
                </Link>
             </div>
           </motion.div>

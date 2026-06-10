@@ -13,20 +13,9 @@ import {
 } from 'lucide-react'
 import wordmarkLogo from '../assets/Vector Smart Object.png'
 
-const productLinks = [
-  { to: '/products', label: 'All Products' },
-  { to: '/products?cat=chicken', label: 'Chicken Products' },
-  { to: '/products?cat=egg', label: 'Eggs' },
-  { to: '/products?cat=fresh%20produce', label: 'Fresh Produce' },
-  { to: '/products?cat=value-added', label: 'Value-Added Products' },
-  { to: '/recipes', label: 'Recipes' },
-]
-
 const businessLinks = [
   { to: '/contact', label: 'Contact Sales' },
   { to: '/contact#distributor-partnership', label: 'Become a Distributor' },
-  { to: '/products#bulk-order', label: 'Bulk Orders' },
-  { to: '/product-finder', label: 'Product Finder' },
   { to: '/portal', label: 'Portal Login' },
 ]
 
@@ -40,6 +29,7 @@ const qualityLinks = [
 
 const companyLinks = [
   { to: '/about', label: 'About Nelna' },
+  { to: '/process', label: 'Our Process' },
   { to: '/news', label: 'News & Updates' },
   { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
@@ -189,20 +179,7 @@ function Footer() {
             ) : null}
           </div>
 
-          <div className="lg:col-span-2">
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Products</h3>
-            <ul className="space-y-2">
-              {productLinks.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-brand-green-100 transition hover:text-brand-yellow-300">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3">
             <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">For Business</h3>
             <ul className="space-y-2">
               {businessLinks.map((item) => (
@@ -215,7 +192,7 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3">
             <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Quality & Safety</h3>
             <ul className="space-y-2">
               {qualityLinks.map((item) => (
