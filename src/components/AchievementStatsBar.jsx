@@ -9,7 +9,7 @@ const stats = [
     value: '1998',
     prefix: 'Since ',
     label: 'Trusted Heritage',
-    tone: 'text-brand-green-700',
+    tone: 'achievement-bar__number',
   },
   {
     id: 'farmers',
@@ -17,7 +17,7 @@ const stats = [
     value: 200,
     suffix: '+',
     label: 'Contract Farmers',
-    tone: 'text-brand-green-700',
+    tone: 'achievement-bar__number achievement-bar__number--accent',
     animate: true,
   },
   {
@@ -26,24 +26,22 @@ const stats = [
     value: 1500,
     suffix: '+',
     label: 'Employees',
-    tone: 'text-brand-yellow-700',
+    tone: 'achievement-bar__number',
     animate: true,
   },
   {
     id: 'delivery',
     icon: Truck,
-    value: null,
     text: 'Island-wide',
     label: 'Delivery Network',
-    tone: 'text-brand-red-600',
+    tone: 'achievement-bar__number achievement-bar__number--red',
   },
   {
     id: 'quality',
     icon: ShieldCheck,
-    value: null,
     text: 'Certified',
     label: 'Food Safety',
-    tone: 'text-brand-green-700',
+    tone: 'achievement-bar__number',
   },
 ]
 
@@ -56,28 +54,23 @@ function AchievementStatsBar() {
         Nelna Farm achievements and credibility
       </h2>
       <motion.div
-        initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+        initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35, delay: 0.15 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
         className="achievement-bar__inner"
       >
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-6">
+        <dl className="achievement-bar__grid">
           {stats.map((stat) => {
             const Icon = stat.icon
             return (
-              <div key={stat.id} className="text-center">
-                <dt className="flex flex-col items-center gap-2">
-                  <span
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-green-50 text-brand-green-700"
-                    aria-hidden="true"
-                  >
-                    <Icon className="h-5 w-5" />
+              <div key={stat.id} className="achievement-bar__item">
+                <dt className="achievement-bar__label">
+                  <span className="achievement-bar__icon" aria-hidden="true">
+                    <Icon className="h-3.5 w-3.5" />
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500 sm:text-xs">
-                    {stat.label}
-                  </span>
+                  {stat.label}
                 </dt>
-                <dd className={`mt-1 font-display text-xl font-extrabold sm:text-2xl lg:text-3xl ${stat.tone}`}>
+                <dd className={stat.tone}>
                   {stat.animate ? (
                     <Counter to={stat.value} suffix={stat.suffix} duration={2} />
                   ) : (

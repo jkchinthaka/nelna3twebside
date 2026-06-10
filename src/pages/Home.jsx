@@ -216,7 +216,7 @@ function Home() {
    return (
       <div className="bg-white">
          {/* 1. Hero + Achievement Counter */}
-         <section className="relative pb-6 md:pb-8">
+         <section className="hero-home relative -mt-header-offset">
             <HeroSlider />
             <AchievementStatsBar />
          </section>
