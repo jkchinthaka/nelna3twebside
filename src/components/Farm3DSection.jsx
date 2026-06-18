@@ -118,7 +118,7 @@ function Farm3DSection() {
               {
                 icon: BadgeCheck,
                 title: 'Trusted Brand',
-                detail: 'Serving Sri Lankan homes and businesses since 1998.',
+                detail: 'Serving Sri Lankan homes and businesses since 1996.',
               },
             ].map((item) => (
               <article key={item.title} className="rounded-2xl border border-nelna-dark-soft bg-nelna-white/88 p-4 shadow-[0_18px_35px_-30px_rgba(37,27,37,0.45)]">

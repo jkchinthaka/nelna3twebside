@@ -8,10 +8,10 @@ export const entities = [
     color: "bg-nelna-gold-soft",
     themeColor: "orange",
     shortDesc: "Leading chicken processing & distribution.",
-    description: `Nelna Farm (Pvt) Ltd commenced its business in 1998 as the first business entity of the Nelna Group and at present, it has outstretched its operations into diversified businesses in the fields of chicken meat products, ready-to-eat processed food products, quality poultry feed, and commercial supplementary pet food production.`,
+    description: `Nelna Farm (Pvt) Ltd commenced its business in 1996 as the first business entity of the Nelna Group and at present, it has outstretched its operations into diversified businesses in the fields of chicken meat products, ready-to-eat processed food products, quality poultry feed, and commercial supplementary pet food production.`,
     description2: `Today Nelna Farm has been considered a market leader in providing the best protein and nourishment to the nation, by supplying safe, tasty & quality food products with the contribution of an experienced and dedicated management team and skilled workforce.`,
     stats: [
-        { label: "Founded", value: "1998" },
+        { label: "Founded", value: "1996" },
         { label: "Status", value: "Market Leader" },
         { label: "Focus", value: "Protein & Nourishment" }
     ],
