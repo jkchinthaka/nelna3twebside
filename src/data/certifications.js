@@ -9,15 +9,14 @@ import {
   CheckCircle2,
 } from 'lucide-react'
 
-import certISO from '../assets/ISO_22000.jpg'
-import certHACCP from '../assets/HACCP.jpg'
-import certGMP from '../assets/GMP.jpg'
-import certHalal from '../assets/HALAL.jpg'
-// import certOrganic from '../assets/organic.jpg'
-
-// Fallback images for other certs
-import certImg1 from '../assets/nelna-gallery-17.jpg'
-import certImg2 from '../assets/nelna-gallery-18.jpg'
+import certISO from '../assets/qulity/cert_iso22000.png'
+import certHACCP from '../assets/qulity/cert_haccp.png'
+import certGMP from '../assets/qulity/cert_gmp.png'
+import certISO9001 from '../assets/qulity/cert_iso9001.png'
+import certISO14001 from '../assets/qulity/cert_iso14001.png'
+import certSLS from '../assets/qulity/cert_sls.png'
+import certFSSC from '../assets/qulity/cert_fssc22000.png'
+import certHalal from '../assets/qulity/cert_halal.png'
 
 export const certifications = [
   {
@@ -70,7 +69,7 @@ export const certifications = [
     file: '',
     status: 'Available on request',
     icon: BadgeCheck,
-    imageUrl: certImg1,
+    imageUrl: certISO9001,
   },
   {
     id: 'cert-fssc-22000',
@@ -83,7 +82,7 @@ export const certifications = [
     file: '',
     status: 'Available on request',
     icon: FileCheck2,
-    imageUrl: certImg1,
+    imageUrl: certFSSC,
   },
   {
     id: 'cert-iso-14001-2015',
@@ -96,7 +95,7 @@ export const certifications = [
     file: '',
     status: 'Available on request',
     icon: Leaf,
-    imageUrl: certImg2,
+    imageUrl: certISO14001,
   },
   {
     id: 'cert-sls-1218',
@@ -109,7 +108,7 @@ export const certifications = [
     file: '',
     status: 'Available on request',
     icon: Globe,
-    imageUrl: certImg2,
+    imageUrl: certSLS,
   },
   {
     id: 'cert-halal',
