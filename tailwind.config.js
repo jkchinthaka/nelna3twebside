@@ -144,6 +144,15 @@ export default {
       },
       maxWidth: {
         container: 'var(--container-max)',
+        read: 'var(--read-max-width)',
+      },
+      fontSize: {
+        topbar: ['var(--font-size-topbar)', { lineHeight: '1.45' }],
+        nav: ['var(--font-size-nav)', { lineHeight: '1.45' }],
+        body: ['var(--font-size-body)', { lineHeight: '1.65' }],
+        'body-lg': ['var(--font-size-body-lg)', { lineHeight: '1.75' }],
+        section: ['var(--font-size-section)', { lineHeight: '1.2' }],
+        'section-lg': ['var(--font-size-section-lg)', { lineHeight: '1.15' }],
       },
       height: {
         hero: 'var(--hero-height)',

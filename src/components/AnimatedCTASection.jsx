@@ -13,10 +13,10 @@ function AnimatedCTASection({ title, body, primary, secondary }) {
       />
       <div className="page-shell relative z-10 flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
         <div className="max-w-2xl">
-          <h2 id="final-cta-heading" className="font-display text-3xl font-bold leading-tight text-nelna-white md:text-4xl">
+          <h2 id="final-cta-heading" className="font-display section-heading-lg font-bold text-nelna-white">
             {title}
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-nelna-white/90 md:text-lg">{body}</p>
+          <p className="mt-4 text-body leading-relaxed text-nelna-white/90 md:text-body-lg">{body}</p>
         </div>
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
           <Link

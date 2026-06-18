@@ -107,7 +107,7 @@ function Home() {
       },
       {
          title: 'Company Reputation',
-         description: 'Since 1998, Nelna has built a reputation for reliability, accountability, and long-term value.',
+         description: 'Since 1996, Nelna has built a reputation for reliability, accountability, and long-term value.',
          icon: Award,
       },
    ]

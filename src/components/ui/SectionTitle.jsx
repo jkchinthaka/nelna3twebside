@@ -28,7 +28,7 @@ function SectionTitle({
       ) : null}
       <h2
         className={cn(
-          'text-2xl font-bold leading-tight md:text-3xl',
+          'section-heading',
           tone === 'light' ? 'text-nelna-white' : 'text-nelna-dark',
           titleClassName,
         )}
@@ -38,9 +38,9 @@ function SectionTitle({
       {subtitle ? (
         <p
           className={cn(
-            'text-sm leading-relaxed md:text-base',
+            'text-body max-w-read leading-relaxed',
             tone === 'light' ? 'text-nelna-white' : 'text-nelna-dark/90',
-            centered ? 'mx-auto max-w-3xl' : 'max-w-3xl',
+            centered ? 'mx-auto' : '',
             subtitleClassName,
           )}
         >
