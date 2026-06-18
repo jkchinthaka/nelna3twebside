@@ -15,7 +15,6 @@ import {
 } from 'lucide-react'
 import useAuth from '../context/useAuth.js'
 import logo from '../assets/nelna-logo.jpg'
-import mango3dLogo from '../assets/mongo3dlogo.png'
 import {
   COMPANY_LOCATION_SHORT,
   MAP_LINK,
@@ -317,7 +316,6 @@ function Navbar() {
   }
 
   const pathname = location.pathname
-  const mangoRedirectPath = '/mango'
 
   return (
     <header className="fixed inset-x-0 top-0 z-header">
@@ -351,20 +349,7 @@ function Navbar() {
               </div>
             </Link>
 
-            <Link
-              to={mangoRedirectPath}
-              className="hidden min-h-[44px] items-center gap-2 rounded-full border border-brand-green-200 bg-nelna-white px-2.5 py-1.5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-green-300 lg:inline-flex"
-              aria-label="Open Nelna Mango website"
-            >
-              <img
-                src={mango3dLogo}
-                alt="Nelna Mango"
-                className="h-8 w-8 rounded-full object-cover"
-              />
-              <span className="hidden text-xs font-bold uppercase tracking-[0.11em] text-brand-green-800 xl:inline">
-                Nelna Mango
-              </span>
-            </Link>
+
           </div>
 
           <DesktopNav key={pathname} pathname={pathname} t={t} />
@@ -379,17 +364,6 @@ function Navbar() {
           </div>
 
           <div className="ml-auto flex items-center gap-2 lg:hidden">
-            <Link
-              to={mangoRedirectPath}
-              className="inline-flex min-h-[42px] min-w-[42px] items-center justify-center rounded-full border border-brand-green-200 bg-nelna-white p-1 shadow-sm"
-              aria-label="Open Nelna Mango website"
-            >
-              <img
-                src={mango3dLogo}
-                alt="Nelna Mango"
-                className="h-8 w-8 rounded-full object-cover"
-              />
-            </Link>
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
@@ -515,15 +489,6 @@ function Navbar() {
               <div className="space-y-2 border-t border-nelna-dark-soft p-4">
                 <Link to="/contact" onClick={closeMobile} className="btn-primary w-full justify-center text-sm">
                   Contact Sales
-                </Link>
-
-                <Link
-                  to={mangoRedirectPath}
-                  onClick={closeMobile}
-                  className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-brand-green-200 bg-nelna-white px-4 py-2 text-sm font-bold text-brand-green-800 shadow-sm transition hover:border-brand-green-300"
-                >
-                  <img src={mango3dLogo} alt="Nelna Mango" className="h-7 w-7 rounded-full object-cover" />
-                  Visit Nelna Mango
                 </Link>
 
                 {user ? (

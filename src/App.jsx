@@ -34,7 +34,6 @@ const SiteHealthDashboard = lazy(() => import('./pages/admin/SiteHealthDashboard
 const ContactSettings = lazy(() => import('./pages/admin/ContactSettings.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 const ProductFinder = lazy(() => import('./pages/ProductFinder.jsx'))
-const MangoRedirect = lazy(() => import('./pages/MangoRedirect.jsx'))
 
 function RouteFallback() {
   return (
@@ -50,7 +49,6 @@ function App() {
       <ScrollToTop />
       <Suspense fallback={<RouteFallback />}>
         <Routes>
-          <Route path="/mango" element={<MangoRedirect />} />
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />

@@ -91,7 +91,7 @@ function About() {
             transition={{ duration: 0.8 }}
           >
             <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold uppercase tracking-widest text-gold-400 border border-gold-400/30 rounded-full backdrop-blur-sm bg-nelna-dark/20">
-              Est. 1997
+              Est. 1996
             </span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-nelna-white mb-6 drop-shadow-lg">
               Cultivating <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-gold-400">Trust</span>,<br />

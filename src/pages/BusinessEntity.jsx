@@ -103,19 +103,6 @@ const BusinessEntity = () => {
                     </p>
                  </div>
 
-                 {entity.extraAction && (
-                    <div className="mt-10">
-                       <a 
-                         href={entity.extraAction.url} 
-                         target="_blank" 
-                         rel="noopener noreferrer"
-                         className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl text-nelna-white font-bold shadow-lg shadow-brand-green-200 transform hover:-translate-y-1 transition-all duration-300 bg-gradient-to-r ${theme.gradient}`}
-                       >
-                         {entity.extraAction.label}
-                         <ExternalLink size={20} />
-                       </a>
-                    </div>
-                 )}
                </motion.div>
             </div>
 
