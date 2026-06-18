@@ -62,7 +62,7 @@ function isPathActive(pathname, to) {
 function TopBar() {
   return (
     <div className="hidden border-b border-nelna-white/10 bg-nelna-green-dark text-nelna-white lg:block">
-      <div className="page-shell flex min-h-topbar items-center justify-between gap-3 py-1 text-[10px] xl:text-xs">
+      <div className="page-shell flex min-h-topbar items-center justify-between gap-3 py-1 text-topbar">
         <p className="font-medium uppercase tracking-[0.1em] text-nelna-white/90">
           Trusted Sri Lankan poultry since 1996
         </p>
@@ -106,7 +106,7 @@ function DesktopNav({ pathname, t }) {
           <NavLink key={link.to} to={link.to} className="relative block rounded-full">
             {({ isActive }) => (
               <span
-                className={`relative inline-flex min-h-[38px] items-center whitespace-nowrap rounded-full px-3 text-[0.875rem] font-semibold tracking-[0.01em] transition ${
+                className={`relative inline-flex min-h-[38px] items-center whitespace-nowrap rounded-full px-3 text-nav font-semibold tracking-[0.01em] transition ${
                   isActive
                     ? 'text-brand-green-800'
                     : 'text-nelna-dark/90 hover:text-brand-green-700'
@@ -446,7 +446,7 @@ function Navbar() {
                     <NavLink key={link.to} to={link.to} onClick={closeMobile} className="block">
                       {({ isActive }) => (
                         <span
-                          className={`relative flex min-h-[46px] items-center rounded-xl border px-4 text-sm font-semibold transition ${
+                          className={`relative flex min-h-[46px] items-center rounded-xl border px-4 text-nav font-semibold transition ${
                             isActive
                               ? 'border-brand-green-200 bg-brand-green-50 text-brand-green-800 shadow-sm'
                               : 'border-transparent text-nelna-dark/90 hover:border-brand-green-100 hover:bg-nelna-white'
@@ -469,7 +469,7 @@ function Navbar() {
                         <button
                           type="button"
                           onClick={() => setMobileExpanded((value) => (value === menu.id ? null : menu.id))}
-                          className="flex min-h-[46px] w-full items-center justify-between px-4 text-left text-sm font-semibold text-nelna-dark"
+                          className="flex min-h-[46px] w-full items-center justify-between px-4 text-left text-nav font-semibold text-nelna-dark"
                           aria-expanded={expanded}
                         >
                           <span>{t(menu.key, { defaultValue: menu.fallback })}</span>
@@ -492,7 +492,7 @@ function Navbar() {
                                     to={item.to}
                                     onClick={closeMobile}
                                     className={({ isActive }) =>
-                                      `block rounded-lg px-3 py-2 text-sm transition ${
+                                      `block rounded-lg px-3 py-2 text-nav transition ${
                                         isActive
                                           ? 'bg-brand-green-50 font-semibold text-brand-green-800'
                                           : 'text-nelna-dark/90 hover:bg-nelna-green-soft'

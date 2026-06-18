@@ -132,11 +132,11 @@ function About() {
              viewport={{ once: true }}
              transition={{ duration: 0.6 }}
            >
-             <h2 className="text-brand-600 font-bold tracking-wider uppercase text-sm mb-2">Chairman's Message</h2>
-             <h3 className="text-3xl md:text-4xl font-display font-bold text-nelna-dark mb-6 leading-tight">
+             <h2 className="text-brand-600 font-bold tracking-wider uppercase text-xs mb-2">Chairman's Message</h2>
+             <h3 className="section-heading-lg font-display text-nelna-dark mb-6">
                Guided by Purpose, <span className="text-brand-600">Driven by Quality</span>
              </h3>
-             <div className="space-y-4 text-nelna-dark/80 leading-relaxed text-base text-justify">
+             <div className="prose-long read-content space-y-4 text-nelna-dark/80 text-justify">
                <p>
                  At Nelna Farm, our journey has always been guided by a single purpose — to deliver safe, high-quality poultry products while earning the trust of every Sri Lankan family we serve.
                </p>
@@ -191,15 +191,17 @@ function About() {
                          <History className="w-4 h-4" /> 
                          <span>Since 1996</span>
                       </div>
-                      <h3 className="text-3xl font-display font-bold text-nelna-dark mb-6">
+                      <h3 className="section-heading font-display text-nelna-dark mb-6">
                          A Visionary Journey
                       </h3>
-                      <p className="text-nelna-dark/80 leading-relaxed mb-6 text-lg">
+                      <div className="prose-long read-content space-y-4">
+                      <p className="text-nelna-dark/80">
                          Since the establishment of Nelna as a sole-proprietorship in 1996, its growth has been very predictable, due to the great entrepreneurial mind of <span className="text-brand-700 font-bold">Mr. W. G. E. G. Nanayakkara</span> (Managing Director).
                       </p>
-                      <p className="text-nelna-dark/80 leading-relaxed">
+                      <p className="text-nelna-dark/80">
                          His timely input and ability to perfectly execute his thoughts to action, has outspread the group's operations into diversified business sectors such as <span className="font-medium text-nelna-dark">ready-to-eat processed food products, chicken meat products, maize cultivation, fruit cultivation, organic fertilizer, and disease-free day-old chicks.</span>
                       </p>
+                      </div>
                    </div>
 
                    <div className="bg-nelna-green-soft rounded-3xl p-8 border border-nelna-green-soft">
@@ -327,8 +329,8 @@ function About() {
               <span className="inline-block py-1 px-3 rounded-full bg-brand-900/50 border border-brand-700 text-brand-300 text-xs font-bold uppercase tracking-widest mb-4 backdrop-blur-md">
                 Our Promise
               </span>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-nelna-white mb-6">Why Customers Choose Us</h2>
-              <p className="text-brand-100 text-lg font-light leading-relaxed">
+              <h2 className="section-heading-lg font-display text-nelna-white mb-6">Why Customers Choose Us</h2>
+              <p className="text-brand-100 text-body-lg font-light max-w-read mx-auto">
                 We believe that true quality comes from a harmony of nature, science, and integrity. Here is how we differ from the rest.
               </p>
             </div>
