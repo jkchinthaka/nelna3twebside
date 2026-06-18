@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+/**
+ * Fails fast when critical static assets referenced by the app are missing.
+ * Prevents opaque Vite "Could not resolve" errors on Cloudflare Pages.
+ */
+import { existsSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
+
+const ROOT = process.cwd()
+const ASSETS = join(ROOT, 'src', 'assets')
+
+const REQUIRED = [
+  'nelna-logo.jpg',
+  'Vector Smart Object.png',
+  'nelna-gallery-02.jpg',
+  'nelna-gallery-07.jpg',
+  'recipe1.jpg',
+  'recipe2.jpg',
+]
+
+function assetsFromPartnersJs() {
+  try {
+    const src = readFileSync(join(ROOT, 'src', 'data', 'partners.js'), 'utf8')
+    return [...src.matchAll(/from '\.\.\/assets\/([^']+)'/g)].map((m) => m[1])
+  } catch {
+    return []
+  }
+}
+
+const missing = []
+
+for (const file of [...REQUIRED, ...assetsFromPartnersJs()]) {
+  const path = join(ASSETS, file)
+  if (!existsSync(path)) {
+    missing.push(`src/assets/${file}`)
+  }
+}
+
+if (missing.length > 0) {
+  console.error('Critical asset verification failed — missing files:\n')
+  for (const path of missing) {
+    console.error(`  - ${path}`)
+  }
+  console.error(
+    '\nRestore these files before deploying. Commit 56d0fb4 accidentally removed image assets.',
+  )
+  process.exit(1)
+}
+
+console.log(`Asset verification passed (${REQUIRED.length + assetsFromPartnersJs().length} paths checked).`)
