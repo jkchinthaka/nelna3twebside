@@ -11,29 +11,41 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Brand */
-  --primary-green: #27743a;
-  --brand-green: #27743a;
+  /* Brand — Nelna logo palette */
+  --nelna-green: #27743a;
+  --nelna-green-light: #46af53;
+  --nelna-green-dark: #0d3013;
+  --nelna-gold: #d8c76b;
+  --nelna-white: #ebe9da;
+  --nelna-dark-bg: #251b25;
+
+  --primary-green: var(--nelna-green);
+  --brand-green: var(--nelna-green);
   --brand-green-rgb: 39, 116, 58;
-  --brand-green-50: #edf5ef;
-  --brand-green-100: #dceee1;
-  --brand-green-200: #b9dcc4;
-  --brand-green-300: #8fc5a0;
+  --brand-green-50: #f0f6f1;
+  --brand-green-100: #e3efe6;
+  --brand-green-200: #c5dcc9;
+  --brand-green-300: #9fc4a8;
   --brand-red: #da2328;
-  --brand-yellow: #f8bc24;
-  --primary: var(--brand-green);
-  --secondary: var(--brand-yellow);
+  --brand-yellow: var(--nelna-gold);
+  --primary: var(--nelna-green);
+  --secondary: var(--nelna-gold);
   --danger: var(--brand-red);
-  --focus-ring: var(--brand-green);
+  --focus-ring: var(--nelna-green);
 
   /* Supporting palette */
-  --forest: #27743a;
-  --forest-mid: #27743a;
-  --cream: #faf8f4;
-  --cream-warm: #f5f1ea;
-  --overlay-dark: rgba(39, 116, 58, 0.42);
+  --forest: var(--nelna-green);
+  --forest-mid: var(--nelna-green-light);
+  --cream: var(--nelna-white);
+  --cream-warm: #e8e6d8;
+  --overlay-dark: linear-gradient(
+    180deg,
+    rgba(13, 48, 19, 0.35) 0%,
+    rgba(13, 48, 19, 0.55) 45%,
+    rgba(37, 27, 37, 0.72) 100%
+  );
   --overlay-light: rgba(255, 255, 255, 0.92);
-  --success: #27743a;
+  --success: var(--nelna-green);
   --warning: #d97706;
   --error: #da2328;
 
@@ -76,7 +88,7 @@
   --header-height: 4rem;
   --topbar-height: 2.25rem;
   --header-offset: var(--header-height);
-  --hero-height: clamp(360px, 58vh, 600px);
+  --hero-height: clamp(320px, 62svh, 640px);
   --font-heading: 'Poppins', 'Sora', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif;
   --font-body: 'Inter', 'Manrope', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif;
   --text-xs: 0.75rem;
@@ -418,17 +430,17 @@ textarea,
 
 .section-white { background: #ffffff; }
 .section-light { background: #f5f9f5; }
-.section-green { background: var(--brand-green); color: #ffffff; }
+.section-green { background: var(--nelna-green); color: #ffffff; }
 
-/* Brand green surfaces (footer, nav topbar, page heroes) */
+/* Brand green surfaces (footer, page heroes) */
 .surface-brand-green {
-  background-color: var(--brand-green);
+  background-color: var(--nelna-green);
   color: #ffffff;
 }
 
 /* Homepage certification logo strip */
 .certification-strip {
-  background-color: var(--brand-green);
+  background-color: var(--nelna-green-dark);
   color: #ffffff;
 }
 
@@ -442,7 +454,7 @@ textarea,
 .quality-safety-section {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, #f2f7f3 0%, #f9fbfa 42%, #f2f7f3 100%);
+  background: linear-gradient(180deg, var(--nelna-white) 0%, #f7f6f0 48%, var(--nelna-white) 100%);
 }
 
 .quality-safety-section::before {
@@ -594,8 +606,14 @@ textarea,
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.125rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 25%, #fff 0%, var(--nelna-white) 55%, #e3efe6 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(13, 48, 19, 0.08),
+    0 4px 14px rgba(13, 48, 19, 0.08);
 }
 
 .quality-badge-icon__svg {
@@ -729,14 +747,14 @@ textarea,
 .hero-section {
   position: relative;
   width: 100%;
-  min-height: clamp(72svh, 82svh, 86svh);
+  min-height: var(--hero-height);
   overflow: hidden;
-  background-color: var(--forest);
+  background-color: var(--nelna-green-dark);
 }
 
 @media (min-width: 1024px) {
   .hero-section {
-    min-height: 100svh;
+    min-height: clamp(480px, 72svh, 720px);
   }
 }
 
@@ -761,6 +779,73 @@ textarea,
   object-position: center;
   user-select: none;
   -webkit-user-drag: none;
+  transform: scale(1.02);
+}
+
+.hero-carousel__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: var(--overlay-dark);
+}
+
+.hero-carousel__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(13, 48, 19, 0.45);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transform: translateY(-50%);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-carousel__nav:hover {
+  background: rgba(13, 48, 19, 0.65);
+  border-color: rgba(216, 199, 107, 0.55);
+}
+
+.hero-carousel__nav:focus-visible {
+  outline: 2px solid var(--nelna-gold);
+  outline-offset: 2px;
+}
+
+.hero-carousel__nav--prev {
+  left: 0.75rem;
+}
+
+.hero-carousel__nav--next {
+  right: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .hero-carousel__nav {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .hero-carousel__nav--prev {
+    left: 1.25rem;
+  }
+
+  .hero-carousel__nav--next {
+    right: 1.25rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-carousel__nav {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -803,8 +888,23 @@ textarea,
 }
 
 .hero-carousel__bullet--active {
-  background: var(--brand-yellow);
+  background: var(--nelna-gold);
   transform: scale(1.15);
+}
+
+.nav-scrolled {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-nav, 0 8px 32px rgba(13, 48, 19, 0.08));
+}
+
+.section-nelna-cream {
+  background-color: var(--nelna-white);
+}
+
+.section-nelna-light {
+  background: linear-gradient(180deg, #f5f3ea 0%, var(--nelna-white) 100%);
 }
 
 .product-card {

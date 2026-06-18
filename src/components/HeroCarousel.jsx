@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useRef } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
+import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
+import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 import gallery01 from '../assets/nelna-gallery-01.jpg'
@@ -32,6 +34,8 @@ const HERO_SLIDES = [
 function HeroCarousel() {
   const swiperRef = useRef(null)
   const resumeTimeoutRef = useRef(null)
+  const prevRef = useRef(null)
+  const nextRef = useRef(null)
 
   const clearResumeTimeout = useCallback(() => {
     if (resumeTimeoutRef.current) {
@@ -59,7 +63,7 @@ function HeroCarousel() {
     <div className="hero-carousel">
       <Swiper
         className="hero-carousel__swiper"
-        modules={[Autoplay, EffectFade, Pagination]}
+        modules={[Autoplay, EffectFade, Navigation, Pagination]}
         effect="fade"
         fadeEffect={{ crossFade: true }}
         speed={FADE_SPEED_MS}
@@ -69,6 +73,10 @@ function HeroCarousel() {
         allowTouchMove
         resistanceRatio={0.85}
         longSwipesRatio={0.2}
+        onBeforeInit={(swiper) => {
+          swiper.params.navigation.prevEl = prevRef.current
+          swiper.params.navigation.nextEl = nextRef.current
+        }}
         autoplay={{
           delay: AUTOPLAY_DELAY_MS,
           disableOnInteraction: false,
@@ -83,6 +91,14 @@ function HeroCarousel() {
         }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper
+          setTimeout(() => {
+            if (swiper.params.navigation) {
+              swiper.params.navigation.prevEl = prevRef.current
+              swiper.params.navigation.nextEl = nextRef.current
+              swiper.navigation.init()
+              swiper.navigation.update()
+            }
+          })
           swiper.autoplay?.start()
         }}
         onTouchStart={pauseAutoplay}
@@ -106,6 +122,26 @@ function HeroCarousel() {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className="hero-carousel__overlay" aria-hidden="true" />
+
+      <button
+        ref={prevRef}
+        type="button"
+        className="hero-carousel__nav hero-carousel__nav--prev"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+      </button>
+      <button
+        ref={nextRef}
+        type="button"
+        className="hero-carousel__nav hero-carousel__nav--next"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="h-5 w-5" aria-hidden="true" />
+      </button>
+
       <div className="hero-carousel__pagination" aria-hidden="true" />
     </div>
   )

@@ -64,8 +64,6 @@ function Footer() {
   const [newsletterEmail, setNewsletterEmail] = useState('')
   const [newsletterStatus, setNewsletterStatus] = useState({ type: 'idle', message: '' })
 
-  const hasAnySocialLink = socialLinks.some((item) => Boolean(item.href))
-
   const handleNewsletterSubmit = (event) => {
     event.preventDefault()
 
@@ -154,48 +152,29 @@ function Footer() {
               Nelna Farm (Pvt) Ltd is a Sri Lankan poultry and food company delivering premium protein products with certified quality, food safety, and dependable nationwide distribution.
             </p>
             <div className="flex items-center gap-3">
-              {socialLinks.map(({ label, Icon, href }) => {
-                const iconClassName =
-                  'inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/25 bg-white/10 text-white'
-
-                if (!href) {
-                  return (
-                    <span
-                      key={`social-${label}`}
-                      className={`${iconClassName} cursor-not-allowed opacity-60`}
-                      title={`${label} link coming soon`}
-                      aria-hidden="true"
-                    >
-                      <Icon className="h-4 w-4" />
-                    </span>
-                  )
-                }
-
-                return (
+              {socialLinks
+                .filter(({ href }) => Boolean(href))
+                .map(({ label, Icon, href }) => (
                   <a
                     key={`social-${label}`}
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className={`${iconClassName} transition hover:border-brand-yellow-300 hover:text-brand-yellow-300`}
+                    className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:border-nelna-gold hover:text-nelna-gold"
                     aria-label={`Follow Nelna Farm on ${label}`}
                   >
                     <Icon className="h-4 w-4" aria-hidden="true" />
                   </a>
-                )
-              })}
+                ))}
             </div>
-            {!hasAnySocialLink ? (
-              <p className="text-xs text-white/75">Official social channels will be linked here soon.</p>
-            ) : null}
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">For Business</h3>
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">For Business</h3>
             <ul className="space-y-2">
               {businessLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-brand-yellow-300">
+                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-nelna-gold">
                     {item.label}
                   </Link>
                 </li>
@@ -204,11 +183,11 @@ function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Quality & Safety</h3>
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Quality & Safety</h3>
             <ul className="space-y-2">
               {qualityLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-brand-yellow-300">
+                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-nelna-gold">
                     {item.label}
                   </Link>
                 </li>
@@ -217,7 +196,7 @@ function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Certifications</h3>
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Certifications</h3>
             <div className="flex flex-col gap-2">
               {['Halal Certified', 'ISO 22000', 'HACCP & GMP', 'Farm Fresh Quality'].map((item) => (
                 <span
@@ -228,11 +207,11 @@ function Footer() {
                 </span>
               ))}
             </div>
-            <h3 className="mb-4 mt-6 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Company</h3>
+            <h3 className="mb-4 mt-6 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Company</h3>
             <ul className="space-y-2">
               {companyLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-brand-yellow-300">
+                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-nelna-gold">
                     {item.label}
                   </Link>
                 </li>
@@ -243,20 +222,20 @@ function Footer() {
 
         <section className="grid gap-8 border-t border-white/15 py-8 sm:grid-cols-2">
           <div>
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Contact</h3>
+            <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Contact</h3>
             <ul className="space-y-3 text-sm text-white/90">
               <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
                 <span>{COMPANY_ADDRESS_FULL}</span>
               </li>
               <li className="flex items-start gap-2">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
                 <span>
                   <span className="font-semibold text-white">Tel: </span>
                   {TELEPHONES.map((phone, index) => (
                     <span key={phone.tel}>
                       {index > 0 ? <span className="text-white/60"> / </span> : null}
-                      <a href={`tel:${phone.tel}`} className="transition hover:text-brand-yellow-300">
+                      <a href={`tel:${phone.tel}`} className="transition hover:text-nelna-gold">
                         {phone.display}
                       </a>
                     </span>
@@ -264,14 +243,14 @@ function Footer() {
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
-                <a href={`tel:${MOBILE.tel}`} className="transition hover:text-brand-yellow-300">
+                <Phone className="h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
+                <a href={`tel:${MOBILE.tel}`} className="transition hover:text-nelna-gold">
                   Mobile: {MOBILE.display}
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
-                <a href="mailto:info@nelna.lk" className="transition hover:text-brand-yellow-300">info@nelna.lk</a>
+                <Mail className="h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
+                <a href="mailto:info@nelna.lk" className="transition hover:text-nelna-gold">info@nelna.lk</a>
               </li>
               <li className="flex items-center gap-2">
                 <a
@@ -284,17 +263,17 @@ function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
+                <ShieldCheck className="h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
                 <span>ISO 22000, HACCP, GMP, Halal</span>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-300">Business Hours</h3>
+            <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Business Hours</h3>
             <ul className="space-y-2 text-sm text-white/90">
               {businessHours.map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow-300" aria-hidden="true" />
+                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -305,8 +284,8 @@ function Footer() {
         <section className="flex flex-col gap-3 border-t border-white/15 py-5 text-xs text-white/85 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright {currentYear} Nelna Farm (Pvt) Ltd. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
-            <Link to="/privacy" className="transition hover:text-brand-yellow-300">Privacy</Link>
-            <Link to="/terms" className="transition hover:text-brand-yellow-300">Terms</Link>
+            <Link to="/privacy" className="transition hover:text-nelna-gold">Privacy</Link>
+            <Link to="/terms" className="transition hover:text-nelna-gold">Terms</Link>
           </div>
         </section>
       </div>

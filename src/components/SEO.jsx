@@ -97,7 +97,7 @@ function SEO({ title, description, keywords, image, canonical, schema, siteName,
     upsertAlternateLink('x-default', canonical)
 
     upsertJsonLd(schema)
-  }, [title, description, image, canonical, schema, siteName, locale, hreflangs])
+  }, [title, description, keywords, image, canonical, schema, siteName, locale, hreflangs])
 
   return null
 }

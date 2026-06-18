@@ -1,16 +1,23 @@
 import { cn } from '../lib/cn.js'
-import { BRAND_GREEN, BRAND_GREEN_TINT_100 } from '../data/brandColors.js'
+import {
+  NELNA_GREEN,
+  NELNA_GREEN_DARK,
+  NELNA_GOLD,
+  NELNA_WHITE,
+  BRAND_GREEN_TINT_100,
+} from '../data/brandColors.js'
 
-const GREEN = BRAND_GREEN
-const YELLOW = '#f8bc24'
-const CREAM = '#faf8f4'
+const GREEN = NELNA_GREEN
+const GREEN_DARK = NELNA_GREEN_DARK
+const YELLOW = NELNA_GOLD
+const CREAM = NELNA_WHITE
 const GREEN_LIGHT = BRAND_GREEN_TINT_100
 
 const badgeArt = {
   iso22000: (
     <>
-      <circle cx="32" cy="32" r="28" fill={CREAM} stroke={GREEN} strokeWidth="1.75" />
-      <circle cx="32" cy="32" r="24" fill="none" stroke={YELLOW} strokeWidth="1.25" strokeDasharray="4 3" opacity="0.85" />
+      <circle cx="32" cy="32" r="28" fill={CREAM} stroke={GREEN_DARK} strokeWidth="2" />
+      <circle cx="32" cy="32" r="24" fill="none" stroke={YELLOW} strokeWidth="1.25" strokeDasharray="3 2" opacity="0.9" />
       <path
         d="M32 14 L44 20 V32 C44 40.5 38.5 46.5 32 49 C25.5 46.5 20 40.5 20 32 V20 Z"
         fill={GREEN_LIGHT}
@@ -118,8 +125,6 @@ const badgeArt = {
   ),
 }
 
-const variantKeys = Object.keys(badgeArt)
-
 function QualityBadgeIcon({ variant = 'iso22000', className }) {
   const art = badgeArt[variant] ?? badgeArt.iso22000
 
@@ -138,5 +143,4 @@ function QualityBadgeIcon({ variant = 'iso22000', className }) {
   )
 }
 
-export { variantKeys }
 export default QualityBadgeIcon

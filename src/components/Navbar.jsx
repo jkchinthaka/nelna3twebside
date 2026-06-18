@@ -61,7 +61,7 @@ function isPathActive(pathname, to) {
 
 function TopBar() {
   return (
-    <div className="hidden border-b border-white/15 bg-brand-green text-white lg:block">
+    <div className="hidden border-b border-white/10 bg-nelna-green-dark text-white lg:block">
       <div className="page-shell flex min-h-topbar items-center justify-between gap-3 py-1 text-[10px] xl:text-xs">
         <p className="font-medium uppercase tracking-[0.1em] text-white/90">
           Trusted Sri Lankan poultry since 1998
@@ -69,14 +69,14 @@ function TopBar() {
         <div className="flex items-center gap-2 text-white xl:gap-3">
           <a
             href={`tel:${PRIMARY_PHONE.tel}`}
-            className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-brand-yellow-200"
+            className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-nelna-gold"
           >
             <Phone className="h-3.5 w-3.5" aria-hidden="true" />
             <span>{PRIMARY_PHONE.display}</span>
           </a>
           <a
             href="mailto:info@nelna.lk"
-            className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-brand-yellow-200"
+            className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-nelna-gold"
           >
             <Mail className="h-3.5 w-3.5" aria-hidden="true" />
             <span>info@nelna.lk</span>
@@ -85,7 +85,7 @@ function TopBar() {
             href={MAP_LINK}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-brand-yellow-200 xl:inline-flex"
+            className="hidden items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-nelna-gold xl:inline-flex"
           >
             <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
             <span>{COMPANY_LOCATION_SHORT}</span>
@@ -326,15 +326,15 @@ function Navbar() {
       <div
         className={`border-b transition duration-300 ${
           isScrolled
-            ? 'nav-scrolled border-brand-green-100 bg-white'
-            : 'border-slate-200/80 bg-white'
+            ? 'nav-scrolled border-brand-green-100/80 bg-white/95 shadow-nav backdrop-blur-md'
+            : 'border-slate-200/80 bg-white/98'
         }`}
       >
         <div className="page-shell flex min-h-header items-center gap-3 py-1.5">
           <div className="flex min-w-0 items-center gap-2.5 sm:gap-3.5">
             <Link to="/" className="group inline-flex items-center gap-2.5" aria-label="Nelna Farm home">
               <div className="relative">
-                <span className="absolute -inset-0.5 rounded-full bg-gradient-to-br from-brand-yellow-300/70 to-brand-green-500/40 opacity-0 blur-[1px] transition group-hover:opacity-100" />
+                <span className="absolute -inset-0.5 rounded-full bg-gradient-to-br from-nelna-gold/70 to-nelna-green/40 opacity-0 blur-[1px] transition group-hover:opacity-100" />
                 <img
                   src={logo}
                   alt="Nelna Farm logo"
@@ -342,10 +342,10 @@ function Navbar() {
                 />
               </div>
               <div>
-                <p className="font-display text-lg font-extrabold leading-none tracking-[0.02em] text-brand-green-800 sm:text-xl">
+                <p className="font-display text-lg font-extrabold leading-none tracking-[0.02em] text-nelna-green-dark sm:text-xl">
                   NELNA
                 </p>
-                <p className="hidden text-[0.65rem] font-bold uppercase tracking-[0.24em] text-brand-yellow-700 sm:block">
+                <p className="hidden text-[0.65rem] font-bold uppercase tracking-[0.24em] text-nelna-gold sm:block">
                   Farm
                 </p>
               </div>

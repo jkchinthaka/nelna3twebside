@@ -1,1 +1,0 @@
-const t="தயாரிப்புகள்",o="ப்ராய்லர் கோழி, முட்டை மற்றும் செயல்முறையாக்கப்பட்ட கோழி",s="கட்டளை புத்தகத்தை பதிவிறக்கம் செய்யவும் (PDF)",c="மொத்த விசாரணை / ஆர்டர்",n="ஒரு வேலை நாளுக்குள் பதிலளிக்கிறோம்.",e={title:t,subtitle:o,downloadCatalog:s,bulkOrder:c,formNote:n};export{c as bulkOrder,e as default,s as downloadCatalog,n as formNote,o as subtitle,t as title};

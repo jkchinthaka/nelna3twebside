@@ -184,7 +184,7 @@ function Home() {
          <BusinessSupplySection />
 
          {/* 5. Why Choose Nelna */}
-         <section className="section-spacing relative overflow-hidden bg-slate-50">
+         <section className="section-spacing section-nelna-light relative overflow-hidden">
             <BrandChickenMascot
                size="sm"
                variant="float"
@@ -237,7 +237,7 @@ function Home() {
          <PartnerStrip />
 
          {/* 6. Testimonials */}
-         <section className="section-spacing bg-brand-50/70">
+         <section className="section-spacing bg-nelna-white/80">
             <div className="page-shell max-w-4xl text-center">
                <SectionHeading
                   title="Trusted by Culinary and Retail Professionals"
@@ -277,7 +277,7 @@ function Home() {
             <div className="page-shell">
                <div className="grid gap-8 rounded-3xl border border-white/20 bg-white/5 p-8 md:grid-cols-[1.3fr_0.7fr] md:items-center md:p-10">
                   <div>
-                     <p className="inline-flex rounded-pill border border-brand-yellow-200/70 bg-brand-yellow-400/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-brand-yellow-100">
+                     <p className="inline-flex rounded-pill border border-nelna-gold/40 bg-nelna-gold/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-nelna-gold">
                         Distributor and Dealer Network
                      </p>
                      <h2 className="mt-4 font-display text-3xl font-bold text-white md:text-4xl">
@@ -300,7 +300,7 @@ function Home() {
          </section>
 
          {/* 8. Latest News */}
-         <section className="section-spacing bg-slate-50">
+         <section className="section-spacing section-nelna-cream">
             <div className="page-shell">
                <SectionHeading
                   eyebrow="Community & Updates"

@@ -52,7 +52,7 @@ function BrandRedirectLoader({
             animate={prefersReducedMotion ? undefined : { scale: [1, 1.03, 1] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <img src={fromLogo} alt="" className="brand-redirect-loader__logo" />
+            <img src={fromLogo} alt={fromAlt} className="brand-redirect-loader__logo" />
             <span className="brand-redirect-loader__logo-label">Nelna Farm</span>
           </motion.div>
 
@@ -75,7 +75,7 @@ function BrandRedirectLoader({
             animate={prefersReducedMotion ? undefined : { scale: [1, 1.05, 1] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
           >
-            <img src={toLogo} alt="" className="brand-redirect-loader__logo" />
+            <img src={toLogo} alt={toAlt} className="brand-redirect-loader__logo" />
             <span className="brand-redirect-loader__logo-label">Nelna Mango</span>
           </motion.div>
         </div>
