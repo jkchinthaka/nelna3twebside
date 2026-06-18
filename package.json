@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postinstall": "node scripts/cloudflare-pages-build.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
