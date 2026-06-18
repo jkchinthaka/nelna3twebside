@@ -81,6 +81,22 @@ npm run build
 firebase deploy --only hosting
 ```
 
+
+## CRITICAL: Cloudflare Pages build command
+
+Your deploy log shows **"No build command specified. Skipping build step."** — Cloudflare never runs `vite build`, so `dist/` does not exist.
+
+`wrangler.toml` only sets the **output directory** (`dist`). It does **not** set the build command. You must set it in the dashboard:
+
+1. Open [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages** → **nelna3twebside**
+2. **Settings** → **Build & deployments** → **Build configurations** → **Edit**
+3. Set **Framework preset**: Vite / React (or None)
+4. Set **Build command**: `npm run build` (or `bash build.sh`)
+5. Set **Build output directory**: `dist` (may show as read-only when `wrangler.toml` is used — that is OK)
+6. Set **Root directory**: `/`
+7. **Save** and **Retry deployment**
+
+Without step 4, every deploy will fail with `Output directory "dist" not found` once the dependency cache skips `npm install`.
 ## Deployment (Cloudflare Pages)
 
 This project is a Vite + React SPA. Cloudflare must run `npm run build` so the `dist/` folder exists before deploy (`dist/` is gitignored).
@@ -127,3 +143,4 @@ Admins can manage products, orders, inquiries, users, and news. Distributors can
 - Replace placeholder contact data and maps with production values.
 - Replace video placeholders with actual farm media assets.
 - Update sitemap URLs in [public/sitemap.xml](public/sitemap.xml) with your domain.
+
