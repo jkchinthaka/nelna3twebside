@@ -64,7 +64,7 @@ function TopBar() {
     <div className="hidden border-b border-nelna-white/10 bg-nelna-green-dark text-nelna-white lg:block">
       <div className="page-shell flex min-h-topbar items-center justify-between gap-3 py-1 text-[10px] xl:text-xs">
         <p className="font-medium uppercase tracking-[0.1em] text-nelna-white/90">
-          Trusted Sri Lankan poultry since 1998
+          Trusted Sri Lankan poultry since 1996
         </p>
         <div className="flex items-center gap-2 text-nelna-white xl:gap-3">
           <a
