@@ -4,14 +4,14 @@ import {
   NELNA_GREEN_DARK,
   NELNA_GOLD,
   NELNA_WHITE,
-  BRAND_GREEN_TINT_100,
+  NELNA_GREEN_SOFT,
 } from '../data/brandColors.js'
 
 const GREEN = NELNA_GREEN
 const GREEN_DARK = NELNA_GREEN_DARK
 const YELLOW = NELNA_GOLD
 const CREAM = NELNA_WHITE
-const GREEN_LIGHT = BRAND_GREEN_TINT_100
+const GREEN_LIGHT = NELNA_GREEN_SOFT
 
 const badgeArt = {
   iso22000: (

@@ -8,6 +8,7 @@
     "build": "vite build",
     "postinstall": "node scripts/cloudflare-pages-build.mjs",
     "lint": "eslint .",
+    "audit:colors": "node scripts/audit-colors.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

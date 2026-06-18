@@ -10,20 +10,20 @@ const Radio = forwardRef(function Radio(
 
   return (
     <div className="space-y-1">
-      <label htmlFor={radioId} className="inline-flex min-h-[44px] cursor-pointer items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
+      <label htmlFor={radioId} className="inline-flex min-h-[44px] cursor-pointer items-center gap-3 text-sm text-nelna-dark/90 dark:text-nelna-white/90">
         <input
           id={radioId}
           ref={ref}
           type="radio"
           className={cn(
-            'h-4 w-4 border-slate-300 text-brand-green-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green-500 focus-visible:ring-offset-2',
+            'h-4 w-4 border-nelna-dark/25 text-brand-green-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green-500 focus-visible:ring-offset-2',
             className,
           )}
           {...props}
         />
         <span>{label}</span>
       </label>
-      {hint ? <p className="text-xs text-slate-500 dark:text-slate-400">{hint}</p> : null}
+      {hint ? <p className="text-xs text-nelna-dark/70 dark:text-nelna-dark/60">{hint}</p> : null}
     </div>
   )
 })

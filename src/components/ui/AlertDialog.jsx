@@ -21,7 +21,7 @@ function AlertDialog({
         <Button key="confirm" variant={danger ? 'danger' : 'primary'} onClick={onConfirm}>{confirmLabel}</Button>,
       ]}
     >
-      <p className="text-sm text-slate-600 dark:text-slate-300">{description}</p>
+      <p className="text-sm text-nelna-dark/80 dark:text-nelna-white/80">{description}</p>
     </Modal>
   )
 }

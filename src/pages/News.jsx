@@ -70,14 +70,14 @@ function News() {
   const pageItems = filteredNews.slice((page - 1) * pageSize, page * pageSize)
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-nelna-green-soft">
       <section className="surface-brand-green py-16">
         <div className="page-shell">
           <p className="inline-flex rounded-pill border border-brand-yellow-300/60 bg-brand-yellow-500/28 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-50">
             Newsroom
           </p>
-          <h1 className="mt-5 font-display text-4xl font-extrabold tracking-[0.01em] text-white md:text-5xl">Latest News and Updates</h1>
-          <p className="mt-4 max-w-3xl text-base font-medium leading-relaxed text-white md:text-lg">
+          <h1 className="mt-5 font-display text-4xl font-extrabold tracking-[0.01em] text-nelna-white md:text-5xl">Latest News and Updates</h1>
+          <p className="mt-4 max-w-3xl text-base font-medium leading-relaxed text-nelna-white md:text-lg">
             Follow product launches, quality milestones, sustainability updates, and corporate announcements from Nelna Farm.
           </p>
         </div>
@@ -99,15 +99,15 @@ function News() {
                 onClick={() => setCategory(item)}
                 className={`inline-flex min-h-[40px] items-center rounded-pill border px-4 text-sm font-semibold transition ${
                   category === item
-                    ? 'border-brand-green bg-brand-green text-white'
-                    : 'border-slate-400 text-slate-800 hover:border-brand-green-400 hover:text-brand-green-800'
+                    ? 'border-brand-green bg-brand-green text-nelna-white'
+                    : 'border-nelna-dark/30 text-nelna-dark hover:border-brand-green-400 hover:text-brand-green-800'
                 }`}
               >
                 {item}
               </button>
             ))}
           </div>
-          <p className="text-sm text-slate-700">
+          <p className="text-sm text-nelna-dark/90">
             Showing <span className="font-semibold text-brand-green-700">{filteredNews.length}</span> article(s)
           </p>
         </div>

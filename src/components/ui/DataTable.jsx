@@ -34,10 +34,10 @@ function DataTable({
   const mobileColumns = columns.filter((column) => column.mobileHidden !== true)
 
   return (
-    <div className={cn('overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900', className)}>
+    <div className={cn('overflow-hidden rounded-2xl border border-nelna-dark-soft bg-nelna-white dark:border-nelna-green-dark dark:bg-nelna-dark', className)}>
       <div className="hidden overflow-x-auto md:block">
         <table className="min-w-full text-left text-sm" aria-label={ariaLabel}>
-          <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+          <thead className="bg-nelna-green-soft text-xs uppercase tracking-wide text-nelna-dark/80 dark:bg-nelna-green-dark dark:text-nelna-white/80">
             <tr>
               {desktopColumns.map((column) => (
                 <th key={column.key} scope="col" className="px-4 py-3 font-semibold">{column.label}</th>
@@ -46,9 +46,9 @@ function DataTable({
           </thead>
           <tbody>
             {rows.map((row, index) => (
-              <tr key={row[rowKey] || index} className="border-t border-slate-100 align-top dark:border-slate-700">
+              <tr key={row[rowKey] || index} className="border-t border-nelna-green-soft align-top dark:border-nelna-green-dark">
                 {desktopColumns.map((column) => (
-                  <td key={column.key} className="px-4 py-3 text-slate-800 dark:text-slate-200">
+                  <td key={column.key} className="px-4 py-3 text-nelna-dark dark:text-nelna-white/90">
                     {renderColumnValue(row, column, false)}
                   </td>
                 ))}
@@ -63,14 +63,14 @@ function DataTable({
           <article
             key={row[rowKey] || index}
             role="listitem"
-            className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm dark:border-slate-700 dark:bg-slate-800"
+            className="rounded-xl border border-nelna-dark-soft bg-nelna-white p-3 shadow-sm dark:border-nelna-green-dark dark:bg-nelna-green-dark"
           >
             {mobileColumns.map((column) => (
               <div key={column.key} className="flex items-start justify-between gap-3 py-1 text-sm">
-                <span className="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-400">
+                <span className="text-xs font-semibold uppercase tracking-wide text-nelna-dark/80 dark:text-nelna-dark/60">
                   {getColumnLabel(column)}
                 </span>
-                <div className="text-right text-slate-800 dark:text-slate-100">
+                <div className="text-right text-nelna-dark dark:text-nelna-white">
                   {renderColumnValue(row, column, true)}
                 </div>
               </div>

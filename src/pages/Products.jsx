@@ -321,8 +321,8 @@ function Products() {
           subtitle="Browse frozen chicken products, value-added cuts, and certified poultry solutions for Sri Lankan households and businesses."
           align="left"
           eyebrowClassName="text-brand-green-800"
-          titleClassName="text-slate-950"
-          subtitleClassName="text-slate-800 md:text-[1.03rem] leading-relaxed font-medium"
+          titleClassName="text-nelna-dark"
+          subtitleClassName="text-nelna-dark md:text-[1.03rem] leading-relaxed font-medium"
         />
         <div className="flex flex-wrap items-center gap-3">
           <a href={catalogUrl} className="btn-yellow inline-flex items-center gap-2 px-5 py-2.5 text-sm" download>
@@ -348,7 +348,7 @@ function Products() {
 
         <div className="space-y-5">
           <div className="surface-card flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="text-sm font-medium text-slate-600">
+            <div className="text-sm font-medium text-nelna-dark/80">
               Showing <span className="font-bold text-brand-green-700">{filteredProducts.length}</span> matching products
             </div>
 
@@ -358,12 +358,12 @@ function Products() {
                 Filters
               </Button>
 
-              <div className="inline-flex rounded-pill border border-slate-300 p-1" role="group" aria-label="View toggle">
+              <div className="inline-flex rounded-pill border border-nelna-dark/25 p-1" role="group" aria-label="View toggle">
                 <button
                   type="button"
                   onClick={() => setViewMode('grid')}
                   className={`inline-flex min-h-[36px] min-w-[40px] items-center justify-center rounded-pill px-3 ${
-                    viewMode === 'grid' ? 'bg-brand-green text-white' : 'text-slate-600'
+                    viewMode === 'grid' ? 'bg-brand-green text-nelna-white' : 'text-nelna-dark/80'
                   }`}
                   aria-label="Grid view"
                 >
@@ -373,7 +373,7 @@ function Products() {
                   type="button"
                   onClick={() => setViewMode('list')}
                   className={`inline-flex min-h-[36px] min-w-[40px] items-center justify-center rounded-pill px-3 ${
-                    viewMode === 'list' ? 'bg-brand-green text-white' : 'text-slate-600'
+                    viewMode === 'list' ? 'bg-brand-green text-nelna-white' : 'text-nelna-dark/80'
                   }`}
                   aria-label="List view"
                 >
@@ -438,8 +438,8 @@ function Products() {
             subtitle="Quickly continue from products you viewed recently."
             align="left"
             eyebrowClassName="text-brand-green-800"
-            titleClassName="text-slate-950"
-            subtitleClassName="text-slate-800 md:text-[1.02rem] leading-relaxed font-medium"
+            titleClassName="text-nelna-dark"
+            subtitleClassName="text-nelna-dark md:text-[1.02rem] leading-relaxed font-medium"
           />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {recentlyViewedProducts.map((product) => (
@@ -456,8 +456,8 @@ function Products() {
           subtitle={t('formNote', { ns: 'products' })}
           align="left"
           eyebrowClassName="text-brand-green-800"
-          titleClassName="text-slate-950"
-          subtitleClassName="text-slate-800 md:text-[1.02rem] leading-relaxed font-medium"
+          titleClassName="text-nelna-dark"
+          subtitleClassName="text-nelna-dark md:text-[1.02rem] leading-relaxed font-medium"
         />
         <form className="mt-6 grid gap-4 md:grid-cols-2" onSubmit={handleSubmit}>
           <Input
@@ -514,7 +514,7 @@ function Products() {
               <Send className="h-4 w-4" aria-hidden="true" />
             </Button>
             {status === 'success' ? <span className="text-xs font-semibold text-brand-green-700">Submitted successfully.</span> : null}
-            {status === 'error' ? <span className="text-xs font-semibold text-brand-red-700">Please review required fields and retry.</span> : null}
+            {status === 'error' ? <span className="text-xs font-semibold text-nelna-green-dark-700">Please review required fields and retry.</span> : null}
           </div>
         </form>
       </section>

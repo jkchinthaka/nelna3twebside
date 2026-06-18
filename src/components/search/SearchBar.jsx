@@ -51,11 +51,11 @@ export default function SearchBar({ onSearch, isLoading }) {
 
   return (
     <div className="relative z-30 mx-auto w-full max-w-3xl">
-      <div className="rounded-[2rem] bg-white p-6 md:p-8 shadow-2xl shadow-slate-200/50 border border-white/50 ring-1 ring-slate-100">
+      <div className="rounded-[2rem] bg-nelna-white p-6 md:p-8 shadow-2xl shadow-nelna-dark/200/50 border border-nelna-white/50 ring-1 ring-nelna-dark/100">
         
         {/* Search Input Group */}
         <div className="relative group">
-          <div className="absolute inset-y-0 left-0 flex items-center pl-5 text-slate-400 group-focus-within:text-brand-green-600 transition-colors">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-5 text-nelna-dark/60 group-focus-within:text-brand-green-600 transition-colors">
             <Search className="w-5 h-5" />
           </div>
           <input
@@ -63,7 +63,7 @@ export default function SearchBar({ onSearch, isLoading }) {
             onChange={(event) => setQuery(event.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             placeholder="Try 'Chicken sausages in Colombo'..."
-            className="w-full rounded-2xl border-2 border-slate-100 bg-slate-50/50 py-4 pl-14 pr-4 text-lg text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-brand-green-500 focus:ring-4 focus:ring-brand-green-500/10 transition-all outline-none shadow-inner"
+            className="w-full rounded-2xl border-2 border-nelna-green-soft bg-nelna-green-soft/50 py-4 pl-14 pr-4 text-lg text-nelna-dark placeholder:text-nelna-dark/60 focus:bg-nelna-white focus:border-brand-green-500 focus:ring-4 focus:ring-brand-green-500/10 transition-all outline-none shadow-inner"
           />
         </div>
 
@@ -77,13 +77,13 @@ export default function SearchBar({ onSearch, isLoading }) {
             className={`col-span-1 md:col-span-4 flex items-center justify-center gap-2 rounded-xl border-2 px-4 py-3 text-sm font-semibold transition-all ${
                 status === "Location captured." 
                 ? "bg-brand-green-50 border-brand-green-200 text-brand-green-700" 
-                : "bg-slate-50 border-slate-100 text-slate-600 hover:bg-slate-100 hover:border-slate-200"
+                : "bg-nelna-green-soft border-nelna-green-soft text-nelna-dark/80 hover:bg-nelna-green-soft hover:border-nelna-dark-soft"
             }`}
           >
             {status === "Location captured." ? (
                 <Navigation className="w-4 h-4 text-brand-green-600" />
             ) : (
-                <Crosshair className="w-4 h-4 text-slate-500" />
+                <Crosshair className="w-4 h-4 text-nelna-dark/70" />
             )}
             <span>{status === "Location captured." ? "Location Set" : "Use Current Location"}</span>
           </button>
@@ -94,27 +94,27 @@ export default function SearchBar({ onSearch, isLoading }) {
                 <select
                 value={category}
                 onChange={(event) => setCategory(event.target.value)}
-                className="w-full appearance-none rounded-xl border-2 border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 focus:border-brand-green-500 focus:ring-0 outline-none"
+                className="w-full appearance-none rounded-xl border-2 border-nelna-green-soft bg-nelna-green-soft px-4 py-3 text-sm font-medium text-nelna-dark/90 focus:border-brand-green-500 focus:ring-0 outline-none"
                 >
                 <option value="All">All Categories</option>
                 <option value="Frozen">Frozen</option>
                 <option value="Processed">Processed</option>
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-nelna-dark/60 pointer-events-none" />
             </div>
             
             <div className="relative w-28">
                 <select
                 value={maxDistanceKm}
                 onChange={(event) => setMaxDistanceKm(Number(event.target.value))}
-                className="w-full appearance-none rounded-xl border-2 border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 focus:border-brand-green-500 focus:ring-0 outline-none"
+                className="w-full appearance-none rounded-xl border-2 border-nelna-green-soft bg-nelna-green-soft px-4 py-3 text-sm font-medium text-nelna-dark/90 focus:border-brand-green-500 focus:ring-0 outline-none"
                 >
                 <option value={5}>5 km</option>
                 <option value={10}>10 km</option>
                 <option value={20}>20 km</option>
                 <option value={50}>50 km</option>
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-nelna-dark/60 pointer-events-none" />
             </div>
           </div>
 
@@ -123,11 +123,11 @@ export default function SearchBar({ onSearch, isLoading }) {
              <button
                 onClick={() => handleSearch()} 
                 disabled={isLoading}
-                className="w-full h-full min-h-[48px] rounded-xl bg-brand-green text-sm font-bold text-white shadow-lg shadow-brand-green/20 hover:brightness-95 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full h-full min-h-[48px] rounded-xl bg-brand-green text-sm font-bold text-nelna-white shadow-lg shadow-brand-green/20 hover:brightness-95 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
                 {isLoading ? (
                     <>
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-nelna-white/30 border-t-nelna-white rounded-full animate-spin" />
                     <span>Search...</span>
                     </>
                 ) : (
@@ -142,8 +142,8 @@ export default function SearchBar({ onSearch, isLoading }) {
         </div>
         
         {status && status !== "Location captured." && (
-            <div className="mt-3 flex items-center justify-center gap-2 text-xs font-medium text-slate-400 animate-pulse">
-                <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+            <div className="mt-3 flex items-center justify-center gap-2 text-xs font-medium text-nelna-dark/60 animate-pulse">
+                <div className="w-1.5 h-1.5 rounded-full bg-nelna-green-light" />
                 {status}
             </div>
         )}

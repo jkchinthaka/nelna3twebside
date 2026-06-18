@@ -55,12 +55,12 @@ export default function SearchBar({ onSearch, isLoading }: SearchBarProps) {
 
   return (
     <div className="relative z-10 mx-auto w-full max-w-2xl transform transition-all">
-      <div className="rounded-3xl bg-white/80 p-6 shadow-2xl backdrop-blur-xl ring-1 ring-black/5 dark:bg-slate-900/80">
+      <div className="rounded-3xl bg-nelna-white/80 p-6 shadow-2xl backdrop-blur-xl ring-1 ring-black/5 dark:bg-nelna-dark/80">
         <div className="mb-4 text-center">
           <h2 className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-3xl font-bold tracking-tight text-transparent font-heading">
             Find Nelna, Anywhere.
           </h2>
-          <p className="mt-2 text-sm text-slate-500">
+          <p className="mt-2 text-sm text-nelna-dark/70">
             Smart location-based product discovery powered by AI.
           </p>
         </div>
@@ -71,9 +71,9 @@ export default function SearchBar({ onSearch, isLoading }: SearchBarProps) {
             onChange={(event) => setQuery(event.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             placeholder="Try 'Chicken sausages in Colombo'..."
-            className="w-full rounded-2xl border-0 bg-slate-100 py-4 pl-12 pr-4 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-brand-500 sm:text-sm sm:leading-6 shadow-inner"
+            className="w-full rounded-2xl border-0 bg-nelna-green-soft py-4 pl-12 pr-4 text-nelna-dark placeholder:text-nelna-dark/60 focus:bg-nelna-white focus:ring-2 focus:ring-brand-500 sm:text-sm sm:leading-6 shadow-inner"
           />
-          <div className="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-4 text-nelna-dark/60">
             <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clipRule="evenodd" />
             </svg>
@@ -84,7 +84,7 @@ export default function SearchBar({ onSearch, isLoading }: SearchBarProps) {
           <button
             type="button"
             onClick={handleLocation}
-            className="flex items-center justify-center gap-2 rounded-xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-200"
+            className="flex items-center justify-center gap-2 rounded-xl bg-nelna-green-soft px-4 py-3 text-sm font-semibold text-nelna-dark/90 transition-colors hover:bg-nelna-gold-soft"
           >
             <svg className="h-5 w-5 text-brand-500" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 002.273 1.765 11.842 11.842 0 00.976.544l.062.029.006.003.002.001.003.001a.75.75 0 00.014-.003zM10 6a3 3 0 110 6 3 3 0 010-6z" clipRule="evenodd" />
@@ -96,7 +96,7 @@ export default function SearchBar({ onSearch, isLoading }: SearchBarProps) {
             <select
               value={category}
               onChange={(event) => setCategory(event.target.value as SearchFilters["category"])}
-              className="flex-1 rounded-xl border-0 bg-slate-100 px-4 py-3 text-sm font-medium text-slate-700 focus:ring-2 focus:ring-brand-500"
+              className="flex-1 rounded-xl border-0 bg-nelna-green-soft px-4 py-3 text-sm font-medium text-nelna-dark/90 focus:ring-2 focus:ring-brand-500"
             >
               <option value="All">All Categories</option>
               <option value="Frozen">Frozen</option>
@@ -107,7 +107,7 @@ export default function SearchBar({ onSearch, isLoading }: SearchBarProps) {
               type="button"
               onClick={handleSearch}
               disabled={isLoading || query.trim().length === 0}
-              className="flex-1 rounded-xl bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition-all hover:bg-brand-500 hover:shadow-brand-500/50 disabled:opacity-50 disabled:shadow-none"
+              className="flex-1 rounded-xl bg-brand-600 px-4 py-3 text-sm font-semibold text-nelna-white shadow-lg shadow-brand-500/30 transition-all hover:bg-brand-500 hover:shadow-brand-500/50 disabled:opacity-50 disabled:shadow-none"
             >
               {isLoading ? "Searching..." : "Search"}
             </button>
@@ -115,9 +115,9 @@ export default function SearchBar({ onSearch, isLoading }: SearchBarProps) {
         </div>
 
         <div className="mt-4 flex flex-col gap-2">
-           <div className="flex justify-between items-center text-xs font-medium text-slate-500">
+           <div className="flex justify-between items-center text-xs font-medium text-nelna-dark/70">
               <span>Search Radius</span>
-              <span className="bg-slate-100 px-2 py-1 rounded text-slate-700">{maxDistanceKm} km</span>
+              <span className="bg-nelna-green-soft px-2 py-1 rounded text-nelna-dark/90">{maxDistanceKm} km</span>
            </div>
            <input
             type="range"
@@ -126,7 +126,7 @@ export default function SearchBar({ onSearch, isLoading }: SearchBarProps) {
             step={1}
             value={maxDistanceKm}
             onChange={(event) => setMaxDistanceKm(Number(event.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-200 accent-brand-600"
+            className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-nelna-gold-soft accent-brand-600"
           />
         </div>
 

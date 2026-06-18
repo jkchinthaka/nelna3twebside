@@ -37,7 +37,7 @@ const segments = [
 
 function BusinessSupplySection() {
   return (
-    <section className="section-spacing bg-white" aria-labelledby="business-supply-heading">
+    <section className="section-spacing bg-nelna-white" aria-labelledby="business-supply-heading">
       <div className="page-shell">
         <SectionHeading
           eyebrow="For Business"
@@ -45,8 +45,8 @@ function BusinessSupplySection() {
           subtitle="Whether you run a hotel kitchen, retail chain, or distribution network, Nelna Farm provides dependable poultry and food products with professional support."
           align="left"
           eyebrowClassName="text-brand-green-800"
-          titleClassName="text-slate-950"
-          subtitleClassName="text-slate-700 md:text-[1.03rem] leading-relaxed"
+          titleClassName="text-nelna-dark"
+          subtitleClassName="text-nelna-dark/90 md:text-[1.03rem] leading-relaxed"
         />
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -55,8 +55,8 @@ function BusinessSupplySection() {
               <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-brand-green-50 text-brand-green-700">
                 <item.icon className="h-5 w-5" aria-hidden="true" />
               </div>
-              <h3 className="mt-4 font-display text-lg font-bold text-slate-900">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-700">{item.description}</p>
+              <h3 className="mt-4 font-display text-lg font-bold text-nelna-dark">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-nelna-dark/90">{item.description}</p>
             </article>
           ))}
         </div>

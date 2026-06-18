@@ -14,7 +14,7 @@ function MobileAdminBottomNav() {
   return (
     <nav
       aria-label="Admin quick navigation"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 px-2 py-1 backdrop-blur lg:hidden dark:border-slate-700 dark:bg-slate-900/95"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-nelna-dark-soft bg-nelna-white/95 px-2 py-1 backdrop-blur lg:hidden dark:border-nelna-green-dark dark:bg-nelna-dark/95"
     >
       <ul className="flex gap-1 overflow-x-auto pb-1">
         {links.map((item) => {
@@ -27,7 +27,7 @@ function MobileAdminBottomNav() {
                   `flex min-h-[44px] min-w-[78px] flex-col items-center justify-center rounded-lg px-2 text-[11px] font-medium ${
                     isActive
                       ? 'text-brand-green-700 dark:text-brand-green-200'
-                      : 'text-slate-600 dark:text-slate-300'
+                      : 'text-nelna-dark/80 dark:text-nelna-white/80'
                   }`
                 }
               >

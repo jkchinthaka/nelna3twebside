@@ -12,7 +12,7 @@ function NewsCard({ article }) {
       whileHover={{ y: -6 }}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--card-border)] bg-[var(--card-fill)] shadow-card hover:shadow-card-hover transition-all duration-300"
     >
-      <div className="relative h-48 overflow-hidden bg-slate-100">
+      <div className="relative h-48 overflow-hidden bg-nelna-green-soft">
         {article.imageUrl ? (
           <img
             src={article.imageUrl}
@@ -21,30 +21,30 @@ function NewsCard({ article }) {
             loading="lazy"
           />
         ) : (
-           <div className="flex h-full items-center justify-center bg-slate-100 text-slate-400">
+           <div className="flex h-full items-center justify-center bg-nelna-green-soft text-nelna-dark/60">
              <span className="text-xs font-semibold uppercase tracking-wider">No Image</span>
           </div>
         )}
         
         {/* Category Badge */}
-          <div className="absolute left-4 top-4 rounded-full border border-white/85 bg-white/97 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-700 shadow-sm backdrop-blur">
+          <div className="absolute left-4 top-4 rounded-full border border-nelna-white/85 bg-nelna-white/97 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-700 shadow-sm backdrop-blur">
            {category}
         </div>
       </div>
 
         <div className="flex-1 p-6 flex flex-col">
-          <div className="mb-3 flex items-center gap-3 text-xs text-slate-600">
+          <div className="mb-3 flex items-center gap-3 text-xs text-nelna-dark/80">
              <div className="flex items-center gap-1">
                  <Calendar className="w-3.5 h-3.5" />
                  <span>{dateStr}</span>
              </div>
          </div>
 
-         <h3 className="text-lg font-bold text-slate-950 mb-3 font-display leading-tight group-hover:text-brand-600 transition-colors">
+         <h3 className="text-lg font-bold text-nelna-dark mb-3 font-display leading-tight group-hover:text-brand-600 transition-colors">
             {article.title}
          </h3>
          
-          <p className="mb-6 flex-1 text-sm leading-relaxed text-slate-800">
+          <p className="mb-6 flex-1 text-sm leading-relaxed text-nelna-dark">
             {article.summary}
          </p>
 

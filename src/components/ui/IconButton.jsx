@@ -8,10 +8,10 @@ const IconButton = forwardRef(function IconButton(
   const sizeClass = size === 'sm' ? 'h-9 w-9' : size === 'lg' ? 'h-12 w-12' : 'h-11 w-11'
   const variantClass =
     variant === 'primary'
-      ? 'bg-brand-green text-white hover:brightness-95'
+      ? 'bg-brand-green text-nelna-white hover:brightness-95'
       : variant === 'danger'
-        ? 'bg-brand-red-500 text-white hover:bg-brand-red-600'
-        : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+        ? 'bg-nelna-green-dark-500 text-nelna-white hover:bg-nelna-green-dark-600'
+        : 'bg-nelna-white text-nelna-dark/90 hover:bg-nelna-green-soft border border-nelna-dark-soft'
 
   return (
     <button

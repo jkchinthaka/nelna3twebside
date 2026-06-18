@@ -336,10 +336,10 @@ function ManageProducts() {
               </Button>
             ) : null}
             {status === 'error' ? (
-              <p className="self-center text-sm text-brand-red-600">{errorMessage || 'Save failed.'}</p>
+              <p className="self-center text-sm text-nelna-green-dark-600">{errorMessage || 'Save failed.'}</p>
             ) : null}
             {status === 'success' && errorMessage ? (
-              <p className="self-center text-sm text-amber-700">{errorMessage}</p>
+              <p className="self-center text-sm text-nelna-green-dark">{errorMessage}</p>
             ) : null}
           </div>
         </form>

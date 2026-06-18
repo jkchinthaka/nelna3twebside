@@ -7,7 +7,7 @@ function ProtectedRoute({ roles, children }) {
   if (loading) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <p className="text-sm text-slate-500">Loading...</p>
+        <p className="text-sm text-nelna-dark/70">Loading...</p>
       </div>
     )
   }

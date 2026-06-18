@@ -58,8 +58,8 @@ function FAQ() {
         subtitle="Quick answers for product storage, ordering, certifications, and distribution support."
         align="left"
         eyebrowClassName="text-brand-green-800"
-        titleClassName="text-slate-950"
-        subtitleClassName="text-slate-800 md:text-[1.03rem] leading-relaxed font-medium"
+        titleClassName="text-nelna-dark"
+        subtitleClassName="text-nelna-dark md:text-[1.03rem] leading-relaxed font-medium"
       />
 
       <section className="surface-card space-y-4">
@@ -78,8 +78,8 @@ function FAQ() {
               onClick={() => setCategory(item)}
               className={`inline-flex min-h-[40px] items-center rounded-pill border px-4 text-sm font-semibold transition ${
                 category === item
-                  ? 'border-brand-green bg-brand-green text-white'
-                  : 'border-slate-300 text-slate-700 hover:border-brand-green-300 hover:text-brand-green-700'
+                  ? 'border-brand-green bg-brand-green text-nelna-white'
+                  : 'border-nelna-dark/25 text-nelna-dark/90 hover:border-brand-green-300 hover:text-brand-green-700'
               }`}
             >
               {item}
@@ -104,14 +104,14 @@ function FAQ() {
                     <span className="rounded-pill bg-brand-yellow-100 px-3 py-1 text-xs font-semibold text-brand-yellow-900">
                       {item.category}
                     </span>
-                    <h2 className="mt-2 text-base font-semibold text-slate-900">{item.question}</h2>
+                    <h2 className="mt-2 text-base font-semibold text-nelna-dark">{item.question}</h2>
                   </div>
                   <ChevronDown
-                    className={`h-5 w-5 text-slate-500 transition ${isOpen ? 'rotate-180' : ''}`}
+                    className={`h-5 w-5 text-nelna-dark/70 transition ${isOpen ? 'rotate-180' : ''}`}
                     aria-hidden="true"
                   />
                 </button>
-                {isOpen ? <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.answer}</p> : null}
+                {isOpen ? <p className="mt-3 text-sm leading-relaxed text-nelna-dark/80">{item.answer}</p> : null}
               </article>
             )
           })}
@@ -130,7 +130,7 @@ function FAQ() {
 
       <section className="surface-card surface-brand-green">
         <h2 className="font-display text-2xl font-bold">Need more help?</h2>
-        <p className="mt-2 text-sm text-white/90">
+        <p className="mt-2 text-sm text-nelna-white/90">
           Contact our support and sales team for product guidance, distributor assistance, or quality documentation.
         </p>
         <div className="mt-4">

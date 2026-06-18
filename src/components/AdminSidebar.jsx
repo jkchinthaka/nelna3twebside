@@ -25,7 +25,7 @@ const links = [
 
 function AdminSidebar() {
   return (
-    <aside className="hidden w-64 shrink-0 border-r border-slate-200 bg-white p-4 lg:block dark:border-slate-700 dark:bg-slate-900">
+    <aside className="hidden w-64 shrink-0 border-r border-nelna-dark-soft bg-nelna-white p-4 lg:block dark:border-nelna-green-dark dark:bg-nelna-dark">
       <nav aria-label="Admin" className="space-y-1">
         {links.map((item) => {
           const Icon = item.icon
@@ -37,7 +37,7 @@ function AdminSidebar() {
                 `flex min-h-[44px] items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium transition ${
                   isActive
                     ? 'bg-brand-green-50 text-brand-green-700 dark:bg-brand-green-950/40 dark:text-brand-green-200'
-                    : 'text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800'
+                    : 'text-nelna-dark/90 hover:bg-nelna-green-soft dark:text-nelna-white/90 dark:hover:bg-nelna-green-dark'
                 }`
               }
             >

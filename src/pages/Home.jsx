@@ -113,7 +113,7 @@ function Home() {
    ]
 
    return (
-      <div className="bg-white">
+      <div className="bg-nelna-white">
          {/* 1. Hero + Achievement Counter */}
          <section className="hero-home relative -mt-header-offset">
             <h1 className="sr-only">Nelna Farm — Premium Poultry and Fresh Produce in Sri Lanka</h1>
@@ -124,7 +124,7 @@ function Home() {
          <QualitySafetyCards />
 
          {/* 3. Farm-to-Kitchen Process */}
-         <ScrollReveal as="section" className="section-spacing relative overflow-hidden bg-white">
+         <ScrollReveal as="section" className="section-spacing relative overflow-hidden bg-nelna-white">
             <div className="absolute top-0 right-0 -z-10 h-full w-1/3 bg-brand-50/70" aria-hidden="true" />
             <BrandChickenMascot
                size="xl"
@@ -142,8 +142,8 @@ function Home() {
                      align="center"
                      center
                      eyebrowClassName="text-brand-green-800"
-                     titleClassName="text-slate-950"
-                     subtitleClassName="text-slate-700"
+                     titleClassName="text-nelna-dark"
+                     subtitleClassName="text-nelna-dark/90"
                   />
                </div>
 
@@ -153,7 +153,7 @@ function Home() {
                         key={idx}
                         whileHover={{ y: -6 }}
                         transition={{ duration: 0.25 }}
-                        className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card"
+                        className="group overflow-hidden rounded-3xl border border-nelna-dark-soft bg-nelna-white shadow-card"
                      >
                         <div className="h-48 overflow-hidden">
                            <img
@@ -164,8 +164,8 @@ function Home() {
                            />
                         </div>
                         <div className="p-6">
-                           <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
-                           <p className="mt-3 text-sm leading-relaxed text-slate-700">{item.desc}</p>
+                           <h3 className="text-xl font-bold text-nelna-dark">{item.title}</h3>
+                           <p className="mt-3 text-sm leading-relaxed text-nelna-dark/90">{item.desc}</p>
                         </div>
                      </motion.article>
                   ))}
@@ -197,8 +197,8 @@ function Home() {
                   subtitle="Our end-to-end process supports consistent quality, safe food handling, and dependable commercial supply."
                   align="left"
                   eyebrowClassName="text-brand-green-800"
-                  titleClassName="text-slate-950"
-                  subtitleClassName="text-slate-800 md:text-[1.03rem] leading-relaxed font-medium"
+                  titleClassName="text-nelna-dark"
+                  subtitleClassName="text-nelna-dark md:text-[1.03rem] leading-relaxed font-medium"
                />
 
                <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -207,8 +207,8 @@ function Home() {
                         <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-brand-green-50 text-brand-green-700">
                            <item.icon className="h-5 w-5" aria-hidden="true" />
                         </div>
-                        <h3 className="mt-4 text-xl font-display font-bold text-slate-900">{item.title}</h3>
-                        <p className="mt-3 text-sm leading-relaxed text-slate-700">{item.description}</p>
+                        <h3 className="mt-4 text-xl font-display font-bold text-nelna-dark">{item.title}</h3>
+                        <p className="mt-3 text-sm leading-relaxed text-nelna-dark/90">{item.description}</p>
                      </article>
                   ))}
                </div>
@@ -225,10 +225,10 @@ function Home() {
                   { label: 'Halal Certified', img: certHalal },
                ].map((badge) => (
                   <div key={badge.label} className="flex items-center gap-3">
-                     <div className="certification-strip__logo h-12 w-12 overflow-hidden rounded-full bg-white p-1">
+                     <div className="certification-strip__logo h-12 w-12 overflow-hidden rounded-full bg-nelna-white p-1">
                         <img src={badge.img} alt={badge.label} className="h-full w-full object-contain" />
                      </div>
-                     <span className="font-display text-base font-bold text-white md:text-lg">{badge.label}</span>
+                     <span className="font-display text-base font-bold text-nelna-white md:text-lg">{badge.label}</span>
                   </div>
                ))}
             </div>
@@ -244,8 +244,8 @@ function Home() {
                   subtitle="From hotel kitchens to modern supermarkets, businesses rely on Nelna Farm for consistent quality and dependable supply."
                   align="center"
                   center
-                  titleClassName="!text-slate-900"
-                  subtitleClassName="!text-slate-700"
+                  titleClassName="!text-nelna-dark"
+                  subtitleClassName="!text-nelna-dark/90"
                />
                <div className="mt-10">
                   <TestimonialCarousel
@@ -275,15 +275,15 @@ function Home() {
          {/* 7. Distributor opportunity */}
          <section id="distributor-opportunity" className="surface-brand-green py-16">
             <div className="page-shell">
-               <div className="grid gap-8 rounded-3xl border border-white/20 bg-white/5 p-8 md:grid-cols-[1.3fr_0.7fr] md:items-center md:p-10">
+               <div className="grid gap-8 rounded-3xl border border-nelna-white/20 bg-nelna-white/5 p-8 md:grid-cols-[1.3fr_0.7fr] md:items-center md:p-10">
                   <div>
                      <p className="inline-flex rounded-pill border border-nelna-gold/40 bg-nelna-gold/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-nelna-gold">
                         Distributor and Dealer Network
                      </p>
-                     <h2 className="mt-4 font-display text-3xl font-bold text-white md:text-4xl">
+                     <h2 className="mt-4 font-display text-3xl font-bold text-nelna-white md:text-4xl">
                         Become a Nelna Farm Distributor
                      </h2>
-                     <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-white/90 md:text-base">
+                     <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-nelna-white/90 md:text-base">
                         Partner with Nelna Farm to access stable supply, category support, and a recognized brand trusted by customers across Sri Lanka.
                      </p>
                   </div>

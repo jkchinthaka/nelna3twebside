@@ -118,7 +118,7 @@ function SiteHealthDashboard() {
       ) : null}
 
       <section className="surface-card">
-        <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Register a site</h2>
+        <h2 className="text-lg font-semibold text-nelna-dark dark:text-nelna-white">Register a site</h2>
         <form onSubmit={handleCreate} className="mt-4 grid gap-3 md:grid-cols-2">
           <Input
             label="Site name"
@@ -173,7 +173,7 @@ function SiteHealthDashboard() {
                   <CardHeader>
                     <div>
                       <CardTitle>{site.name}</CardTitle>
-                      <p className="text-sm text-slate-500 dark:text-slate-300">{site.baseUrl}</p>
+                      <p className="text-sm text-nelna-dark/70 dark:text-nelna-white/80">{site.baseUrl}</p>
                     </div>
                     <Button onClick={() => handleRunAudit(site._id)} loading={Boolean(running[site._id])}>
                       {running[site._id] ? 'Running audit...' : 'Run Audit'}
@@ -199,12 +199,12 @@ function SiteHealthDashboard() {
 
                       {issues.length > 0 ? (
                         <div className="space-y-2">
-                          <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Latest issues</p>
+                          <p className="text-sm font-semibold text-nelna-dark dark:text-nelna-white">Latest issues</p>
                           <div className="grid gap-2">
                             {issues.slice(0, 6).map((issue, index) => (
                               <div
                                 key={issue._id || `${site._id}-issue-${index}`}
-                                className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+                                className="rounded-xl border border-nelna-dark-soft bg-nelna-green-soft px-3 py-2 text-sm text-nelna-dark/90 dark:border-nelna-green-dark dark:bg-nelna-green-dark dark:text-nelna-white/90"
                               >
                                 <Badge tone={getSeverityTone(issue.severity)} className="mr-2">{issue.severity || 'issue'}</Badge>
                                 {issue.message}

@@ -114,17 +114,17 @@ function ProductFinder() {
         description="Find nearby stores and distributors for Nelna products using AI-assisted search, location filters, and directions."
       />
 
-      <div className="bg-slate-50">
+      <div className="bg-nelna-green-soft">
         <section className="surface-brand-green py-16">
           <div className="page-shell">
             <span className="inline-flex items-center gap-2 rounded-pill border border-brand-yellow-300/60 bg-brand-yellow-500/28 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-50">
               <Sparkles className="h-4 w-4" aria-hidden="true" />
               AI-Assisted Product Finder
             </span>
-            <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold leading-tight !text-white md:text-5xl">
+            <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold leading-tight !text-nelna-white md:text-5xl">
               Find Nelna Products Near You
             </h1>
-            <p className="mt-4 max-w-3xl text-base text-white md:text-lg">
+            <p className="mt-4 max-w-3xl text-base text-nelna-white md:text-lg">
               Search by product name, use-case, category, and location to discover nearby stores and
               distributor points with direction shortcuts.
             </p>
@@ -172,10 +172,10 @@ function ProductFinder() {
                 <option value="50">Within 50 km</option>
               </Select>
 
-              <label className="inline-flex min-h-[44px] items-center gap-2 rounded-pill border border-slate-400 px-4 py-2 text-sm font-medium text-slate-800">
+              <label className="inline-flex min-h-[44px] items-center gap-2 rounded-pill border border-nelna-dark/30 px-4 py-2 text-sm font-medium text-nelna-dark">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 rounded border-slate-300 text-brand-green-600"
+                  className="h-4 w-4 rounded border-nelna-dark/25 text-brand-green-600"
                   checked={openNowOnly}
                   onChange={(event) => setOpenNowOnly(event.target.checked)}
                 />
@@ -194,17 +194,17 @@ function ProductFinder() {
               </div>
             </div>
 
-            {locationStatus ? <p className="text-xs font-medium text-slate-600">{locationStatus}</p> : null}
+            {locationStatus ? <p className="text-xs font-medium text-nelna-dark/80">{locationStatus}</p> : null}
 
             {recentSearches.length ? (
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wide text-slate-600">Recent</span>
+                <span className="text-xs font-semibold uppercase tracking-wide text-nelna-dark/80">Recent</span>
                 {recentSearches.map((item) => (
                   <button
                     key={item}
                     type="button"
                     onClick={() => setQuery(item)}
-                    className="rounded-pill border border-slate-400 px-3 py-1 text-xs font-medium text-slate-800 transition hover:border-brand-green-400 hover:text-brand-green-800"
+                    className="rounded-pill border border-nelna-dark/30 px-3 py-1 text-xs font-medium text-nelna-dark transition hover:border-brand-green-400 hover:text-brand-green-800"
                   >
                     {item}
                   </button>
@@ -220,7 +220,7 @@ function ProductFinder() {
           ) : null}
 
           {isLoading ? (
-            <div className="mt-8 flex items-center justify-center rounded-2xl border border-slate-200 bg-white p-8 text-slate-700">
+            <div className="mt-8 flex items-center justify-center rounded-2xl border border-nelna-dark-soft bg-nelna-white p-8 text-nelna-dark/90">
               <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
               Searching products and stores...
             </div>
@@ -230,8 +230,8 @@ function ProductFinder() {
             <section className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
               <div className="space-y-4">
                 <div className="surface-card">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Why these results?</p>
-                  <p className="mt-2 text-sm text-slate-700">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-nelna-dark/70">Why these results?</p>
+                  <p className="mt-2 text-sm text-nelna-dark/90">
                     Results are ranked using your search text, selected category, distance preference,
                     and available matching products in nearby stores.
                   </p>
@@ -239,14 +239,14 @@ function ProductFinder() {
 
                 {Array.isArray(results.products) && results.products.length ? (
                   <div className="surface-card">
-                    <h2 className="font-display text-xl font-bold text-slate-900">Recommended Products</h2>
+                    <h2 className="font-display text-xl font-bold text-nelna-dark">Recommended Products</h2>
                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
                       {results.products.slice(0, 6).map((entry) => (
-                        <article key={entry.product.productCode} className="rounded-xl border border-slate-200 p-4">
+                        <article key={entry.product.productCode} className="rounded-xl border border-nelna-dark-soft p-4">
                           <p className="text-xs font-semibold uppercase tracking-wide text-brand-green-700">
                             Match {(Number(entry.score || 0) * 100).toFixed(0)}%
                           </p>
-                          <h3 className="mt-2 font-semibold text-slate-900">{entry.product.name}</h3>
+                          <h3 className="mt-2 font-semibold text-nelna-dark">{entry.product.name}</h3>
                           <p className="mt-2 text-xs">
                             <span className="bg-brand-green-50 text-brand-green-800 px-2 py-0.5 font-mono rounded-full">{entry.product.productCode}</span>
                           </p>
@@ -268,9 +268,9 @@ function ProductFinder() {
                         <article key={store.storeName} className="surface-card">
                           <div className="flex flex-wrap items-start justify-between gap-3">
                             <div>
-                              <h3 className="font-display text-lg font-bold text-slate-900">{store.storeName}</h3>
-                              <p className="mt-1 text-sm text-slate-700">{store.city || 'Sri Lanka'}</p>
-                              <p className="mt-1 text-xs text-slate-600">
+                              <h3 className="font-display text-lg font-bold text-nelna-dark">{store.storeName}</h3>
+                              <p className="mt-1 text-sm text-nelna-dark/90">{store.city || 'Sri Lanka'}</p>
+                              <p className="mt-1 text-xs text-nelna-dark/80">
                                 {typeof store.distance === 'number'
                                   ? `${store.distance.toFixed(1)} km away`
                                   : 'Distance not available'}
@@ -284,7 +284,7 @@ function ProductFinder() {
                           {Array.isArray(store.availableProducts) && store.availableProducts.length ? (
                             <div className="mt-3 flex flex-wrap gap-2">
                               {store.availableProducts.slice(0, 6).map((item) => (
-                                <span key={`${store.storeName}-${item}`} className="rounded-pill bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+                                <span key={`${store.storeName}-${item}`} className="rounded-pill bg-nelna-green-soft px-3 py-1 text-xs font-medium text-nelna-dark/90">
                                   {item}
                                 </span>
                               ))}
@@ -298,7 +298,7 @@ function ProductFinder() {
                                   href={`https://www.google.com/maps/search/?api=1&query=${store.location.lat},${store.location.lng}`}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className="inline-flex min-h-[40px] items-center gap-2 rounded-pill bg-brand-green px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95"
+                                  className="inline-flex min-h-[40px] items-center gap-2 rounded-pill bg-brand-green px-4 py-2 text-sm font-semibold text-nelna-white transition hover:brightness-95"
                                 >
                                   <MapPin className="h-4 w-4" aria-hidden="true" />
                                   Google Maps
@@ -308,7 +308,7 @@ function ProductFinder() {
                                   href={`https://waze.com/ul?ll=${store.location.lat},${store.location.lng}&navigate=yes`}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className="inline-flex min-h-[40px] items-center gap-2 rounded-pill border border-slate-400 px-4 py-2 text-sm font-semibold text-slate-800"
+                                  className="inline-flex min-h-[40px] items-center gap-2 rounded-pill border border-nelna-dark/30 px-4 py-2 text-sm font-semibold text-nelna-dark"
                                 >
                                   <Navigation className="h-4 w-4" aria-hidden="true" />
                                   Waze
@@ -319,7 +319,7 @@ function ProductFinder() {
                                 <button
                                   type="button"
                                   disabled
-                                  className="inline-flex min-h-[40px] cursor-not-allowed items-center gap-2 rounded-pill bg-slate-300 px-4 py-2 text-sm font-semibold text-slate-600"
+                                  className="inline-flex min-h-[40px] cursor-not-allowed items-center gap-2 rounded-pill bg-nelna-gold-soft px-4 py-2 text-sm font-semibold text-nelna-dark/80"
                                 >
                                   <MapPin className="h-4 w-4" aria-hidden="true" />
                                   Google Maps
@@ -328,7 +328,7 @@ function ProductFinder() {
                                 <button
                                   type="button"
                                   disabled
-                                  className="inline-flex min-h-[40px] cursor-not-allowed items-center gap-2 rounded-pill border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-500"
+                                  className="inline-flex min-h-[40px] cursor-not-allowed items-center gap-2 rounded-pill border border-nelna-dark/25 px-4 py-2 text-sm font-semibold text-nelna-dark/70"
                                 >
                                   <Navigation className="h-4 w-4" aria-hidden="true" />
                                   Waze
@@ -352,16 +352,16 @@ function ProductFinder() {
 
               <aside className="space-y-4 lg:sticky lg:top-24 lg:h-fit">
                 <div className="surface-card">
-                  <h2 className="font-display text-lg font-bold text-slate-900">Map Preview</h2>
+                  <h2 className="font-display text-lg font-bold text-nelna-dark">Map Preview</h2>
                   {mapStore?.location && mapsApiKey ? (
                     <iframe
                       title="Store location map"
-                      className="mt-3 h-64 w-full rounded-xl border border-slate-200"
+                      className="mt-3 h-64 w-full rounded-xl border border-nelna-dark-soft"
                       loading="lazy"
                       src={`https://www.google.com/maps/embed/v1/place?key=${mapsApiKey}&q=${mapStore.location.lat},${mapStore.location.lng}`}
                     />
                   ) : (
-                    <div className="mt-3 flex h-64 items-center justify-center rounded-xl border border-dashed border-slate-300 text-center text-sm text-slate-600">
+                    <div className="mt-3 flex h-64 items-center justify-center rounded-xl border border-dashed border-nelna-dark/25 text-center text-sm text-nelna-dark/80">
                       Map placeholder. Add VITE_GOOGLE_MAPS_KEY to enable embedded map.
                     </div>
                   )}
@@ -369,7 +369,7 @@ function ProductFinder() {
 
                 {Array.isArray(results.recommendations) && results.recommendations.length ? (
                   <div className="surface-card">
-                    <h2 className="font-display text-lg font-bold text-slate-900">Recommendations</h2>
+                    <h2 className="font-display text-lg font-bold text-nelna-dark">Recommendations</h2>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {results.recommendations.map((item) => (
                         <span key={item} className="rounded-pill bg-brand-yellow-100 px-3 py-1 text-xs font-semibold text-brand-yellow-900">
@@ -384,10 +384,10 @@ function ProductFinder() {
           ) : null}
 
           {!isLoading && !results ? (
-            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 text-center">
+            <div className="mt-8 rounded-2xl border border-nelna-dark-soft bg-nelna-white p-8 text-center">
               <Store className="mx-auto h-10 w-10 text-brand-green-600" aria-hidden="true" />
-              <h2 className="mt-3 font-display text-2xl font-bold text-slate-900">Ready to locate products?</h2>
-              <p className="mt-2 text-sm text-slate-700">
+              <h2 className="mt-3 font-display text-2xl font-bold text-nelna-dark">Ready to locate products?</h2>
+              <p className="mt-2 text-sm text-nelna-dark/90">
                 Start with a product name or use-case and we will suggest nearby stores and distributor options.
               </p>
             </div>

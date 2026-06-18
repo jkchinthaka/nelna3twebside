@@ -29,7 +29,7 @@ function SectionTitle({
       <h2
         className={cn(
           'text-2xl font-bold leading-tight md:text-3xl',
-          tone === 'light' ? 'text-white' : 'text-slate-900',
+          tone === 'light' ? 'text-nelna-white' : 'text-nelna-dark',
           titleClassName,
         )}
       >
@@ -39,7 +39,7 @@ function SectionTitle({
         <p
           className={cn(
             'text-sm leading-relaxed md:text-base',
-            tone === 'light' ? 'text-slate-100' : 'text-slate-700',
+            tone === 'light' ? 'text-nelna-white' : 'text-nelna-dark/90',
             centered ? 'mx-auto max-w-3xl' : 'max-w-3xl',
             subtitleClassName,
           )}

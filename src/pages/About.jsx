@@ -71,7 +71,7 @@ function About() {
   // const { t } = useTranslation()
 
   return (
-    <div className="w-full overflow-hidden bg-white">
+    <div className="w-full overflow-hidden bg-nelna-white">
       
       {/* 1. Page Hero */}
       <div className="relative h-[50vh] min-h-[400px] w-full bg-brand-950">
@@ -90,14 +90,14 @@ function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold uppercase tracking-widest text-gold-400 border border-gold-400/30 rounded-full backdrop-blur-sm bg-black/20">
+            <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold uppercase tracking-widest text-gold-400 border border-gold-400/30 rounded-full backdrop-blur-sm bg-nelna-dark/20">
               Est. 1997
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 drop-shadow-lg">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-nelna-white mb-6 drop-shadow-lg">
               Cultivating <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-gold-400">Trust</span>,<br />
               Delivering <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-gold-400">Excellence</span>.
             </h1>
-            <p className="text-lg text-slate-200 max-w-2xl font-light leading-relaxed">
+            <p className="text-lg text-nelna-white/90 max-w-2xl font-light leading-relaxed">
               Leading the way in ethical poultry production and premium agriculture in Sri Lanka.
             </p>
           </motion.div>
@@ -114,7 +114,7 @@ function About() {
              transition={{ duration: 0.6 }}
              className="relative"
            >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 aspect-[3/4] max-h-[600px] w-full mx-auto bg-slate-200">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 aspect-[3/4] max-h-[600px] w-full mx-auto bg-nelna-gold-soft">
                  <img 
                     src={chairmanImg} 
                     alt="Emil Stanley - Chairman" 
@@ -133,10 +133,10 @@ function About() {
              transition={{ duration: 0.6 }}
            >
              <h2 className="text-brand-600 font-bold tracking-wider uppercase text-sm mb-2">Chairman's Message</h2>
-             <h3 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6 leading-tight">
+             <h3 className="text-3xl md:text-4xl font-display font-bold text-nelna-dark mb-6 leading-tight">
                Guided by Purpose, <span className="text-brand-600">Driven by Quality</span>
              </h3>
-             <div className="space-y-4 text-slate-600 leading-relaxed text-base text-justify">
+             <div className="space-y-4 text-nelna-dark/80 leading-relaxed text-base text-justify">
                <p>
                  At Nelna Farm, our journey has always been guided by a single purpose — to deliver safe, high-quality poultry products while earning the trust of every Sri Lankan family we serve.
                </p>
@@ -155,7 +155,7 @@ function About() {
              </div>
              
              <div className="mt-8 flex flex-col items-start gap-1">
-                <h4 className="text-xl font-display font-bold text-slate-900">Chairman</h4>
+                <h4 className="text-xl font-display font-bold text-nelna-dark">Chairman</h4>
                 <div className="text-sm font-bold uppercase tracking-wider text-brand-600">Nelna Group of Companies</div>
              </div>
            </motion.div>
@@ -163,8 +163,8 @@ function About() {
       </section>
 
       {/* 2.5 Business Background & Timeline */}
-      <section className="py-24 bg-slate-50 relative overflow-hidden">
-        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-white to-transparent"></div>
+      <section className="py-24 bg-nelna-green-soft relative overflow-hidden">
+        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-nelna-white to-transparent"></div>
         <div className="max-w-7xl mx-auto px-6 relative">
           <SectionHeading 
             eyebrow="Our History" 
@@ -176,7 +176,7 @@ function About() {
           {/* Redesigned Business Background Section */}
           <div className="mt-16 mb-24">
              {/* Highlight Card */}
-             <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-xl border border-slate-100 relative overflow-hidden">
+             <div className="bg-nelna-white rounded-[2rem] p-8 md:p-12 shadow-xl border border-nelna-green-soft relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-50 rounded-full -mr-32 -mt-32 opacity-50 blur-3xl"></div>
                 <BrandChickenMascot
                   size="lg"
@@ -191,41 +191,41 @@ function About() {
                          <History className="w-4 h-4" /> 
                          <span>Since 1998</span>
                       </div>
-                      <h3 className="text-3xl font-display font-bold text-slate-900 mb-6">
+                      <h3 className="text-3xl font-display font-bold text-nelna-dark mb-6">
                          A Visionary Journey
                       </h3>
-                      <p className="text-slate-600 leading-relaxed mb-6 text-lg">
+                      <p className="text-nelna-dark/80 leading-relaxed mb-6 text-lg">
                          Since the establishment of Nelna as a sole-proprietorship in 1998, its growth has been very predictable, due to the great entrepreneurial mind of <span className="text-brand-700 font-bold">Mr. W. G. E. G. Nanayakkara</span> (Managing Director).
                       </p>
-                      <p className="text-slate-600 leading-relaxed">
-                         His timely input and ability to perfectly execute his thoughts to action, has outspread the group's operations into diversified business sectors such as <span className="font-medium text-slate-800">ready-to-eat processed food products, chicken meat products, maize cultivation, fruit cultivation, organic fertilizer, and disease-free day-old chicks.</span>
+                      <p className="text-nelna-dark/80 leading-relaxed">
+                         His timely input and ability to perfectly execute his thoughts to action, has outspread the group's operations into diversified business sectors such as <span className="font-medium text-nelna-dark">ready-to-eat processed food products, chicken meat products, maize cultivation, fruit cultivation, organic fertilizer, and disease-free day-old chicks.</span>
                       </p>
                    </div>
 
-                   <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+                   <div className="bg-nelna-green-soft rounded-3xl p-8 border border-nelna-green-soft">
                       <h4 className="font-bold text-brand-800 mb-6 flex items-center gap-2">
                          <TrendingUp className="w-5 h-5"/> The Nelna Promise
                       </h4>
                       <div className="space-y-6">
                          <div className="flex gap-4">
-                            <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-500">
+                            <div className="flex-shrink-0 w-12 h-12 bg-nelna-white rounded-xl shadow-sm flex items-center justify-center text-brand-500">
                                <ShieldCheck className="w-6 h-6" />
                             </div>
                             <div>
-                               <h5 className="font-bold text-slate-900">Uncompromising Authenticity</h5>
-                               <p className="text-sm text-slate-600 mt-1 leading-relaxed">
+                               <h5 className="font-bold text-nelna-dark">Uncompromising Authenticity</h5>
+                               <p className="text-sm text-nelna-dark/80 mt-1 leading-relaxed">
                                   Nelna Group maintains strict authenticity by having inter-related strategic business units operating under one umbrella.
                                </p>
                             </div>
                          </div>
-                         <div className="w-full h-px bg-slate-200/60"></div>
+                         <div className="w-full h-px bg-nelna-gold-soft/60"></div>
                          <div className="flex gap-4">
-                            <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-gold-500">
+                            <div className="flex-shrink-0 w-12 h-12 bg-nelna-white rounded-xl shadow-sm flex items-center justify-center text-gold-500">
                                <Factory className="w-6 h-6" />
                             </div>
                             <div>
-                               <h5 className="font-bold text-slate-900">Self-Sufficient Ecosystem</h5>
-                               <p className="text-sm text-slate-600 mt-1 leading-relaxed">
+                               <h5 className="font-bold text-nelna-dark">Self-Sufficient Ecosystem</h5>
+                               <p className="text-sm text-nelna-dark/80 mt-1 leading-relaxed">
                                   We operate independently without outsourcing, ensuring total quality control from farm to table.
                                </p>
                             </div>
@@ -238,7 +238,7 @@ function About() {
 
           <div className="relative">
              {/* Timeline Line */}
-             <div className="absolute left-1 md:left-1/2 -ml-0.5 w-0.5 h-full bg-slate-200"></div>
+             <div className="absolute left-1 md:left-1/2 -ml-0.5 w-0.5 h-full bg-nelna-gold-soft"></div>
              
              <div className="space-y-12 pl-8 md:pl-0">
                {timelineData.map((item, idx) => (
@@ -253,15 +253,15 @@ function About() {
                    }`}
                  >
                    <div className="w-full md:w-5/12"></div>
-                   <div className="absolute left-1 md:left-1/2 flex items-center justify-center w-8 h-8 md:w-12 md:h-12 -ml-4 md:-ml-6 bg-white rounded-full border-4 border-brand-100 ring-4 ring-white z-10 shadow-lg">
+                   <div className="absolute left-1 md:left-1/2 flex items-center justify-center w-8 h-8 md:w-12 md:h-12 -ml-4 md:-ml-6 bg-nelna-white rounded-full border-4 border-brand-100 ring-4 ring-nelna-white z-10 shadow-lg">
                       <div className="w-2 h-2 md:w-3 md:h-3 bg-brand-500 rounded-full"></div>
                    </div>
-                   <div className={`w-full md:w-5/12 bg-white p-8 rounded-2xl shadow-xl border border-slate-100 hover:shadow-2xl transition-all duration-300 relative group`}>
+                   <div className={`w-full md:w-5/12 bg-nelna-white p-8 rounded-2xl shadow-xl border border-nelna-green-soft hover:shadow-2xl transition-all duration-300 relative group`}>
                       <span className="inline-block px-3 py-1 bg-brand-50 text-brand-600 text-sm font-bold rounded-full mb-3">
                         {item.year || "Milestone"}
                       </span>
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 font-display group-hover:text-brand-600 transition-colors">{item.title}</h3>
-                      <p className="text-slate-600">{item.description}</p>
+                      <h3 className="text-xl font-bold text-nelna-dark mb-2 font-display group-hover:text-brand-600 transition-colors">{item.title}</h3>
+                      <p className="text-nelna-dark/80">{item.description}</p>
                    </div>
                  </motion.div>
                ))}
@@ -271,8 +271,8 @@ function About() {
       </section>
 
       {/* 2.6 Business Entities */}
-      <section className="py-24 bg-white relative">
-         <div className="absolute inset-0 bg-slate-50/50 skew-y-1 transform origin-top-left -z-10"></div>
+      <section className="py-24 bg-nelna-white relative">
+         <div className="absolute inset-0 bg-nelna-green-soft/50 skew-y-1 transform origin-top-left -z-10"></div>
          <div className="max-w-7xl mx-auto px-6">
             <SectionHeading 
                eyebrow="Our Structure"
@@ -289,22 +289,22 @@ function About() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1, duration: 0.4 }}
-                    className="group bg-white rounded-3xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full"
+                    className="group bg-nelna-white rounded-3xl p-6 border border-nelna-green-soft shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full"
                   >
-                     <div className={`w-14 h-14 ${entity.color} rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-gray-200 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
+                     <div className={`w-14 h-14 ${entity.color} rounded-2xl flex items-center justify-center text-nelna-white mb-6 shadow-lg shadow-card group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
                         <entity.icon className="w-7 h-7" />
                      </div>
-                     <h3 className="text-lg font-bold text-slate-900 mb-3 flex-grow">
+                     <h3 className="text-lg font-bold text-nelna-dark mb-3 flex-grow">
                         {entity.name}
                      </h3>
-                     <p className="text-sm text-slate-500 mb-8">
+                     <p className="text-sm text-nelna-dark/70 mb-8">
                         {entity.shortDesc}
                      </p>
                      
                      <div className="mt-auto">
                       <Link
                        to={`/about/entity/${entity.id}`}
-                       className="w-full py-3 px-4 bg-slate-50 border border-slate-200 text-slate-700 font-semibold rounded-xl hover:bg-brand-600 hover:text-white hover:border-brand-600 transition-all active:scale-95 flex items-center justify-center gap-2 group/btn"
+                       className="w-full py-3 px-4 bg-nelna-green-soft border border-nelna-dark-soft text-nelna-dark/90 font-semibold rounded-xl hover:bg-brand-600 hover:text-nelna-white hover:border-brand-600 transition-all active:scale-95 flex items-center justify-center gap-2 group/btn"
                       >
                         Visit Entity
                         <TrendingUp className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -327,7 +327,7 @@ function About() {
               <span className="inline-block py-1 px-3 rounded-full bg-brand-900/50 border border-brand-700 text-brand-300 text-xs font-bold uppercase tracking-widest mb-4 backdrop-blur-md">
                 Our Promise
               </span>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Why Customers Choose Us</h2>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-nelna-white mb-6">Why Customers Choose Us</h2>
               <p className="text-brand-100 text-lg font-light leading-relaxed">
                 We believe that true quality comes from a harmony of nature, science, and integrity. Here is how we differ from the rest.
               </p>
@@ -346,11 +346,11 @@ function About() {
                    {/* Icon Glow */}
                    <div className="absolute top-8 left-8 w-16 h-16 bg-brand-400/20 rounded-full blur-xl group-hover:bg-brand-400/30 transition-colors"></div>
                    
-                   <div className="relative w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mb-8 text-white shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform duration-300 ring-4 ring-brand-900/50">
+                   <div className="relative w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mb-8 text-nelna-white shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform duration-300 ring-4 ring-brand-900/50">
                      <item.icon className="w-8 h-8" />
                    </div>
                    
-                   <h3 className="text-2xl font-bold mb-4 font-display text-white group-hover:text-brand-200 transition-colors">{item.title}</h3>
+                   <h3 className="text-2xl font-bold mb-4 font-display text-nelna-white group-hover:text-brand-200 transition-colors">{item.title}</h3>
                    <p className="text-brand-100 leading-relaxed group-hover:text-brand-100 transition-colors">
                      {item.desc}
                    </p>
@@ -368,7 +368,7 @@ function About() {
       {/* 5. Certifications */}
       <section className="py-24 relative overflow-hidden">
          {/* Background decoration */}
-         <div className="absolute inset-0 bg-slate-50/50 -skew-y-1 transform origin-top-right z-0"></div>
+         <div className="absolute inset-0 bg-nelna-green-soft/50 -skew-y-1 transform origin-top-right z-0"></div>
          
          <div className="max-w-7xl mx-auto px-6 relative z-10">
            <SectionHeading 
@@ -394,11 +394,11 @@ function About() {
              className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
            >
               {[
-                { img: certISO, label: "ISO 22000", desc: "Food Safety", shadow: "shadow-blue-200" },
+                { img: certISO, label: "ISO 22000", desc: "Food Safety", shadow: "shadow-nelna-dark/10" },
                 { img: certHACCP, label: "HACCP", desc: "Hazard Analysis", shadow: "shadow-brand-green-200" },
-                { img: certGMP, label: "GMP", desc: "Good Manufacturing", shadow: "shadow-amber-200" },
+                { img: certGMP, label: "GMP", desc: "Good Manufacturing", shadow: "shadow-nelna-gold/20" },
                 { img: certHalal, label: "Halal", desc: "Standard Certified", shadow: "shadow-brand-green-200" },
-                { img: certOrganic, label: "Organic", desc: "Eco Practices", shadow: "shadow-lime-200" },
+                { img: certOrganic, label: "Organic", desc: "Eco Practices", shadow: "shadow-nelna-green/20" },
               ].map((cert, idx) => (
                 <motion.div
                   key={idx}
@@ -407,13 +407,13 @@ function About() {
                     visible: { opacity: 1, y: 0 }
                   }}
                   whileHover={{ y: -8 }}
-                  className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 group cursor-default"
+                  className="bg-nelna-white rounded-2xl p-6 shadow-sm border border-nelna-green-soft flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 group cursor-default"
                 >
-                   <div className={`w-24 h-24 mb-6 rounded-full overflow-hidden flex items-center justify-center p-1 bg-white shadow-lg ${cert.shadow} group-hover:scale-105 transition-transform duration-500`}>
+                   <div className={`w-24 h-24 mb-6 rounded-full overflow-hidden flex items-center justify-center p-1 bg-nelna-white shadow-lg ${cert.shadow} group-hover:scale-105 transition-transform duration-500`}>
                       <img src={cert.img} alt={cert.label} className="w-full h-full object-contain" />
                    </div>
-                   <h3 className="font-bold text-slate-900 mb-1">{cert.label}</h3>
-                   <span className="text-xs text-slate-500 font-medium uppercase tracking-wider">{cert.desc}</span>
+                   <h3 className="font-bold text-nelna-dark mb-1">{cert.label}</h3>
+                   <span className="text-xs text-nelna-dark/70 font-medium uppercase tracking-wider">{cert.desc}</span>
                 </motion.div>
               ))}
            </motion.div>
@@ -428,20 +428,20 @@ function About() {
              alt="Fresh Harvest"
              className="absolute inset-0 w-full h-full object-cover"
            />
-           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
+           <div className="absolute inset-0 bg-gradient-to-r from-nelna-dark-bg/90 via-nelna-dark-bg/50 to-transparent"></div>
            
            <div className="relative z-10 max-w-2xl">
-             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+             <h2 className="text-4xl md:text-5xl font-display font-bold text-nelna-white mb-6">
                Experience the Nelna Difference Today
              </h2>
-             <p className="text-xl text-slate-200 mb-10 font-light">
+             <p className="text-xl text-nelna-white/90 mb-10 font-light">
                Join thousands of satisfied families and businesses who trust us for their daily nutrition.
              </p>
              <div className="flex flex-wrap gap-4">
-               <Link to="/contact" className="px-8 py-4 bg-brand-500 hover:bg-brand-400 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-brand-500/30 flex items-center gap-2">
+               <Link to="/contact" className="px-8 py-4 bg-brand-500 hover:bg-brand-400 text-nelna-white font-bold rounded-full transition-all shadow-lg hover:shadow-brand-500/30 flex items-center gap-2">
                  Contact Sales
                </Link>
-               <Link to="/contact" className="px-8 py-4 bg-white text-brand-900 font-bold rounded-full transition-all hover:bg-slate-100 flex items-center gap-2">
+               <Link to="/contact" className="px-8 py-4 bg-nelna-white text-brand-900 font-bold rounded-full transition-all hover:bg-nelna-green-soft flex items-center gap-2">
                  Get in Touch
                </Link>
              </div>

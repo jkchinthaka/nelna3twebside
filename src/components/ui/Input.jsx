@@ -13,8 +13,8 @@ const Input = forwardRef(function Input(
   return (
     <div className="space-y-1.5">
       {label ? (
-        <label htmlFor={inputId} className={cn('block text-sm font-semibold tracking-[0.01em] text-slate-700 dark:text-slate-200', labelClassName)}>
-          {label} {required ? <span className="text-brand-red-600">*</span> : null}
+        <label htmlFor={inputId} className={cn('block text-sm font-semibold tracking-[0.01em] text-nelna-dark/90 dark:text-nelna-white/90', labelClassName)}>
+          {label} {required ? <span className="text-nelna-green-dark-600">*</span> : null}
         </label>
       ) : null}
       <input
@@ -25,16 +25,16 @@ const Input = forwardRef(function Input(
         aria-describedby={[hintId, errorId].filter(Boolean).join(' ') || undefined}
         className={cn(
           'field-base',
-          error ? 'border-brand-red-500 focus-visible:border-brand-red-500 focus-visible:ring-brand-red-500' : '',
+          error ? 'border-nelna-green-dark-500 focus-visible:border-nelna-green-dark-500 focus-visible:ring-nelna-green-dark-500' : '',
           className,
         )}
         {...props}
       />
       {hint ? (
-        <p id={hintId} className="text-xs font-medium text-slate-500 dark:text-slate-400">{hint}</p>
+        <p id={hintId} className="text-xs font-medium text-nelna-dark/70 dark:text-nelna-dark/60">{hint}</p>
       ) : null}
       {error ? (
-        <p id={errorId} className="text-xs font-medium text-brand-red-600">{error}</p>
+        <p id={errorId} className="text-xs font-medium text-nelna-green-dark-600">{error}</p>
       ) : null}
     </div>
   )

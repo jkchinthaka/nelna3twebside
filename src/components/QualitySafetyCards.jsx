@@ -63,11 +63,11 @@ function QualitySafetyCards() {
           <p className="quality-safety-eyebrow">Quality &amp; Safety</p>
           <h2
             id="quality-safety-section-heading"
-            className="mt-3 font-display text-2xl font-bold leading-tight tracking-tight text-slate-950 md:text-3xl lg:text-[2rem]"
+            className="mt-3 font-display text-2xl font-bold leading-tight tracking-tight text-nelna-dark md:text-3xl lg:text-[2rem]"
           >
             Certified Standards You Can Trust
           </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base md:leading-relaxed">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-nelna-dark/80 md:text-base md:leading-relaxed">
             Nelna Farm operates with internationally recognized food safety systems, veterinary oversight,
             and disciplined cold-chain controls.
           </p>
@@ -86,10 +86,10 @@ function QualitySafetyCards() {
                 <div className="quality-safety-icon">
                   <QualityBadgeIcon variant={item.badge} />
                 </div>
-                <h3 className="mt-5 font-display text-[1.0625rem] font-extrabold leading-snug tracking-tight text-slate-900">
+                <h3 className="mt-5 font-display text-[1.0625rem] font-extrabold leading-snug tracking-tight text-nelna-dark">
                   {item.title}
                 </h3>
-                <p className="mt-2.5 flex-1 text-sm leading-relaxed text-slate-500">
+                <p className="mt-2.5 flex-1 text-sm leading-relaxed text-nelna-dark/70">
                   {item.description}
                 </p>
               </article>
@@ -98,7 +98,7 @@ function QualitySafetyCards() {
         </div>
 
         <ScrollReveal className="quality-safety-cta-wrap mt-12" delay={120}>
-          <p className="mb-4 max-w-xl text-sm leading-relaxed text-slate-600">
+          <p className="mb-4 max-w-xl text-sm leading-relaxed text-nelna-dark/80">
             Learn how Nelna Farm applies certified food safety systems across every stage of production and distribution.
           </p>
           <Link

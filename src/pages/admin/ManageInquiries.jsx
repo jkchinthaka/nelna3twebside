@@ -83,7 +83,7 @@ function ManageInquiries() {
         <button
           type="button"
           onClick={() => setActiveInquiry(inquiry)}
-          className="line-clamp-2 text-left text-sm text-slate-700 underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green-500 focus-visible:ring-offset-2 dark:text-slate-200"
+          className="line-clamp-2 text-left text-sm text-nelna-dark/90 underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green-500 focus-visible:ring-offset-2 dark:text-nelna-white/90"
         >
           {inquiry.message}
         </button>
@@ -159,7 +159,7 @@ function ManageInquiries() {
         title="Inquiry Details"
       >
         {activeInquiry ? (
-          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-200">
+          <div className="space-y-3 text-sm text-nelna-dark/90 dark:text-nelna-white/90">
             <p><strong>Name:</strong> {activeInquiry.name}</p>
             <p><strong>Company:</strong> {activeInquiry.company || '-'}</p>
             <p><strong>Phone:</strong> {activeInquiry.phone || '-'}</p>

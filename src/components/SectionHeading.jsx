@@ -21,8 +21,8 @@ function SectionHeading({
         'space-y-3',
         className,
         tone === 'light'
-          ? 'text-white [&_h2]:text-white [&_p]:text-slate-100 [&_.eyebrow]:text-brand-yellow-300'
-          : 'text-slate-900 [&_h2]:text-slate-900 [&_p]:text-slate-700 [&_.eyebrow]:text-brand-green-700',
+          ? 'text-nelna-white [&_h2]:text-nelna-white [&_p]:text-nelna-white [&_.eyebrow]:text-brand-yellow-300'
+          : 'text-nelna-dark [&_h2]:text-nelna-dark [&_p]:text-nelna-dark/90 [&_.eyebrow]:text-brand-green-700',
       )}
     >
       <SectionTitle
@@ -34,7 +34,7 @@ function SectionHeading({
         eyebrowClassName={eyebrowClassName}
         titleClassName={titleClassName}
         subtitleClassName={subtitleClassName}
-        className={cn(tone === 'light' ? '[&_p]:text-slate-100 [&_h2]:text-white' : '')}
+        className={cn(tone === 'light' ? '[&_p]:text-nelna-white [&_h2]:text-nelna-white' : '')}
       />
       {resolvedAlign === 'left' ? <div className="h-1.5 w-20 rounded-full bg-brand-green-500" /> : null}
     </div>

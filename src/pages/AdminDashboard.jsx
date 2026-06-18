@@ -165,15 +165,15 @@ function AdminDashboard() {
                 <Link
                   key={card.path}
                   to={card.path}
-                  className="rounded-xl border border-slate-200 bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-card-hover dark:border-slate-700 dark:bg-slate-900"
+                  className="rounded-xl border border-nelna-dark-soft bg-nelna-white p-4 transition hover:-translate-y-0.5 hover:shadow-card-hover dark:border-nelna-green-dark dark:bg-nelna-dark"
                 >
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green-50 text-brand-green-700 dark:bg-brand-green-950/40 dark:text-brand-green-200">
                       <Icon className="h-5 w-5" />
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{card.label}</p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400">{card.description}</p>
+                      <p className="text-sm font-semibold text-nelna-dark dark:text-nelna-white">{card.label}</p>
+                      <p className="text-xs text-nelna-dark/70 dark:text-nelna-dark/60">{card.description}</p>
                     </div>
                   </div>
                 </Link>
@@ -209,7 +209,7 @@ function AdminDashboard() {
             <CardTitle>Sales and Traffic Insights</CardTitle>
           </CardHeader>
           <CardBody>
-            <div className="rounded-2xl border border-dashed border-slate-300 p-8 text-center text-sm text-slate-500 dark:border-slate-700 dark:text-slate-300">
+            <div className="rounded-2xl border border-dashed border-nelna-dark/25 p-8 text-center text-sm text-nelna-dark/70 dark:border-nelna-green-dark dark:text-nelna-white/80">
               Chart integration placeholder for revenue, inquiry conversion, and site traffic trends.
             </div>
           </CardBody>
