@@ -1,12 +1,10 @@
 /**
- * Ensures `dist/` exists when Cloudflare Pages skips the build step
- * (e.g. dashboard build command left empty). Runs only on Pages builds.
+ * Cloudflare Pages: run production build during `npm install` when CF_PAGES=1.
+ * Needed when the dashboard Build command is empty and dependency install runs.
  */
 import { execSync } from 'node:child_process'
-import { existsSync } from 'node:fs'
 
-const isPagesBuild = process.env.CF_PAGES === '1'
-
-if (isPagesBuild && !existsSync('dist/index.html')) {
+if (process.env.CF_PAGES === '1') {
+  console.log('[cloudflare-pages] CF_PAGES detected — running production build...')
   execSync('npm run build', { stdio: 'inherit' })
 }

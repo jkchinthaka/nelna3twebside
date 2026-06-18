@@ -1,4 +1,5 @@
-# Cloudflare Pages — see README "Deployment (Cloudflare Pages)" for dashboard settings.
+# Cloudflare Pages — output dir for wrangler.toml / Pages config-as-code.
+# Build command MUST be set in the Cloudflare dashboard (see README).
 name = "nelna3twebside"
 compatibility_date = "2026-05-19"
 pages_build_output_dir = "./dist"
