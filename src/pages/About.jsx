@@ -26,12 +26,7 @@ import aboutHeroImg from '../assets/nelna-gallery-14.jpg'
 // import aboutStoryImg from '../assets/nelna-gallery-15.jpg'
 import aboutCtaImg from '../assets/nelna-gallery-16.jpg'
 import chairmanImg from '../assets/chairman.png'
-
-import certGMP from '../assets/GMP.jpg'
-import certHACCP from '../assets/HACCP.jpg'
-import certHalal from '../assets/HALAL.jpg'
-import certISO from '../assets/ISO_22000.jpg'
-import certOrganic from '../assets/organic.jpg'
+import { certifications } from '../data/certifications.js'
 
 // Values Data
 const values = [
@@ -393,17 +388,11 @@ function About() {
                  }
                }
              }}
-             className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
            >
-              {[
-                { img: certISO, label: "ISO 22000", desc: "Food Safety", shadow: "shadow-nelna-dark/10" },
-                { img: certHACCP, label: "HACCP", desc: "Hazard Analysis", shadow: "shadow-brand-green-200" },
-                { img: certGMP, label: "GMP", desc: "Good Manufacturing", shadow: "shadow-nelna-gold/20" },
-                { img: certHalal, label: "Halal", desc: "Standard Certified", shadow: "shadow-brand-green-200" },
-                { img: certOrganic, label: "Organic", desc: "Eco Practices", shadow: "shadow-nelna-green/20" },
-              ].map((cert, idx) => (
+              {certifications.map((cert, idx) => (
                 <motion.div
-                  key={idx}
+                  key={cert.id}
                   variants={{
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 }
@@ -411,11 +400,11 @@ function About() {
                   whileHover={{ y: -8 }}
                   className="bg-nelna-white rounded-2xl p-6 shadow-sm border border-nelna-green-soft flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 group cursor-default"
                 >
-                   <div className={`w-24 h-24 mb-6 rounded-full overflow-hidden flex items-center justify-center p-1 bg-nelna-white shadow-lg ${cert.shadow} group-hover:scale-105 transition-transform duration-500`}>
-                      <img src={cert.img} alt={cert.label} className="w-full h-full object-contain" />
+                   <div className={`w-24 h-24 mb-6 rounded-full overflow-hidden flex items-center justify-center p-1 bg-nelna-white shadow-lg ${idx % 2 === 0 ? 'shadow-nelna-dark/10' : 'shadow-brand-green-200'} group-hover:scale-105 transition-transform duration-500`}>
+                      <img src={cert.imageUrl} alt={cert.shortName} className="w-full h-full object-contain" />
                    </div>
-                   <h3 className="font-bold text-nelna-dark mb-1">{cert.label}</h3>
-                   <span className="text-xs text-nelna-dark/70 font-medium uppercase tracking-wider">{cert.desc}</span>
+                   <h3 className="font-bold text-nelna-dark mb-1">{cert.shortName}</h3>
+                   <span className="text-xs text-nelna-dark/70 font-medium uppercase tracking-wider">{cert.status}</span>
                 </motion.div>
               ))}
            </motion.div>

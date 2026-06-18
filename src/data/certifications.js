@@ -9,20 +9,20 @@ import {
   CheckCircle2,
 } from 'lucide-react'
 
-import certISO from '../assets/qulity/cert_iso22000.png'
-import certHACCP from '../assets/qulity/cert_haccp.png'
-import certGMP from '../assets/qulity/cert_gmp.png'
-import certISO9001 from '../assets/qulity/cert_iso9001.png'
-import certISO14001 from '../assets/qulity/cert_iso14001.png'
-import certSLS from '../assets/qulity/cert_sls.png'
-import certFSSC from '../assets/qulity/cert_fssc22000.png'
-import certHalal from '../assets/qulity/cert_halal.png'
+import certISO from '../assets/cert_iso22000.png'
+import certHACCP from '../assets/cert_haccp.png'
+import certGMP from '../assets/cert_gmp.png'
+import certISO9001 from '../assets/cert_iso9001.png'
+import certISO14001 from '../assets/cert_iso14001.png'
+import certSLS from '../assets/cert_sls.png'
+import certFSSC from '../assets/cert_fssc22000.png'
+import certHalal from '../assets/cert_halal.png'
 
 export const certifications = [
   {
     id: 'cert-iso-22000-2018',
-    shortName: 'ISO 22000:2018',
-    name: 'ISO 22000:2018 Food Safety Management',
+    shortName: 'ISO 22000',
+    name: 'Food Safety Management System (ISO 22000)',
     issuer: 'International Organization for Standardization',
     certificateNo: 'ISO22000-NLN-2025-041',
     validFrom: '2025-01-10',
@@ -35,7 +35,7 @@ export const certifications = [
   {
     id: 'cert-haccp',
     shortName: 'HACCP',
-    name: 'HACCP Certification',
+    name: 'HACCP',
     issuer: 'Sri Lanka Standards Institution (SLSI)',
     certificateNo: 'HACCP-NLN-2024-118',
     validFrom: '2024-09-01',
@@ -48,7 +48,7 @@ export const certifications = [
   {
     id: 'cert-gmp',
     shortName: 'GMP',
-    name: 'Good Manufacturing Practice (GMP)',
+    name: 'Good Manufacturing Practices (GMP)',
     issuer: 'Sri Lanka Standards Institution (SLSI)',
     certificateNo: 'GMP-NLN-2024-090',
     validFrom: '2024-07-15',
@@ -60,8 +60,8 @@ export const certifications = [
   },
   {
     id: 'cert-iso-9001-2015',
-    shortName: 'ISO 9001:2015',
-    name: 'ISO 9001:2015 Quality Management System',
+    shortName: 'ISO 9001',
+    name: 'Quality Management System (ISO 9001)',
     issuer: 'International Organization for Standardization',
     certificateNo: '',
     validFrom: '',
@@ -72,22 +72,9 @@ export const certifications = [
     imageUrl: certISO9001,
   },
   {
-    id: 'cert-fssc-22000',
-    shortName: 'FSSC 22000',
-    name: 'FSSC 22000 Food Safety System Certification',
-    issuer: 'Foundation FSSC',
-    certificateNo: '',
-    validFrom: '',
-    validTo: '',
-    file: '',
-    status: 'Available on request',
-    icon: FileCheck2,
-    imageUrl: certFSSC,
-  },
-  {
     id: 'cert-iso-14001-2015',
-    shortName: 'ISO 14001:2015',
-    name: 'ISO 14001:2015 Environmental Management System',
+    shortName: 'ISO 14001',
+    name: 'Environmental Management System (ISO 14001)',
     issuer: 'International Organization for Standardization',
     certificateNo: '',
     validFrom: '',
@@ -99,8 +86,8 @@ export const certifications = [
   },
   {
     id: 'cert-sls-1218',
-    shortName: 'SLS 1218',
-    name: 'SLS 1218 Sri Lanka Standard Compliance',
+    shortName: 'SLS Mark',
+    name: 'SLS Mark',
     issuer: 'Sri Lanka Standards Institution (SLSI)',
     certificateNo: '',
     validFrom: '',
@@ -111,9 +98,22 @@ export const certifications = [
     imageUrl: certSLS,
   },
   {
+    id: 'cert-fssc-22000',
+    shortName: 'FSSC 22000',
+    name: 'Food Safety System Certification (FSSC 22000)',
+    issuer: 'Foundation FSSC',
+    certificateNo: '',
+    validFrom: '',
+    validTo: '',
+    file: '',
+    status: 'Available on request',
+    icon: FileCheck2,
+    imageUrl: certFSSC,
+  },
+  {
     id: 'cert-halal',
-    shortName: 'HALAL',
-    name: 'Halal Certification',
+    shortName: 'Halal',
+    name: 'Halal',
     issuer: 'Halal Certification Council',
     certificateNo: 'HALAL-NLN-2025-056',
     validFrom: '2025-02-01',

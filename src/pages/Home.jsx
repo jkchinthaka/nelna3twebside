@@ -23,15 +23,11 @@ import NewsCard from '../components/NewsCard.jsx'
 import { ErrorState, Skeleton } from '../components/ui/index.js'
 import { getNews } from '../services/newsService.js'
 import { fallbackNews } from '../data/news.js'
+import { certifications } from '../data/certifications.js'
 
 import processCardImg1 from '../assets/nelna-gallery-11.jpg'
 import processCardImg2 from '../assets/nelna-gallery-12.jpg'
 import processCardImg3 from '../assets/nelna-gallery-13.jpg'
-
-import certGMP from '../assets/GMP.jpg'
-import certHACCP from '../assets/HACCP.jpg'
-import certHalal from '../assets/HALAL.jpg'
-import certISO from '../assets/ISO_22000.jpg'
 
 function Home() {
    const [news, setNews] = useState(fallbackNews)
@@ -210,17 +206,12 @@ function Home() {
          {/* Certification strip */}
          <section className="certification-strip py-14" aria-label="Certifications">
             <div className="page-shell flex flex-wrap items-center justify-center gap-8 md:gap-14">
-               {[
-                  { label: 'ISO 22000 Certified', img: certISO },
-                  { label: 'GMP Standards', img: certGMP },
-                  { label: 'HACCP Approved', img: certHACCP },
-                  { label: 'Halal Certified', img: certHalal },
-               ].map((badge) => (
-                  <div key={badge.label} className="flex items-center gap-3">
+               {certifications.map((cert) => (
+                  <div key={cert.id} className="flex items-center gap-3">
                      <div className="certification-strip__logo h-12 w-12 overflow-hidden rounded-full bg-nelna-white p-1">
-                        <img src={badge.img} alt={badge.label} className="h-full w-full object-contain" />
+                        <img src={cert.imageUrl} alt={cert.shortName} className="h-full w-full object-contain" />
                      </div>
-                     <span className="font-display text-base font-bold text-nelna-white md:text-lg">{badge.label}</span>
+                     <span className="font-display text-base font-bold text-nelna-white md:text-lg">{cert.shortName}</span>
                   </div>
                ))}
             </div>

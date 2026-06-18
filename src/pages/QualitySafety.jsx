@@ -17,11 +17,7 @@ import { Link } from 'react-router-dom'
 
 import qualityHeroImg from '../assets/nelna-gallery-17.jpg'
 import qualityLabImg from '../assets/nelna-gallery-18.jpg'
-
-import certGMP from '../assets/GMP.jpg'
-import certHACCP from '../assets/HACCP.jpg'
-import certHalal from '../assets/HALAL.jpg'
-import certISO from '../assets/ISO_22000.jpg'
+import { certifications } from '../data/certifications.js'
 
 function QualitySafety() {
   // const { t } = useTranslation()
@@ -190,17 +186,12 @@ function QualitySafety() {
                viewport={{ once: true }}
                className="flex flex-wrap justify-center gap-8 md:gap-16"
             >
-               {[
-                  { label: 'ISO 22000:2018', img: certISO },
-                  { label: 'HACCP Certified', img: certHACCP },
-                  { label: 'GMP Standards', img: certGMP },
-                  { label: 'Halal Certified', img: certHalal },
-               ].map((cert, i) => (
-                  <div key={i} className="flex flex-col items-center gap-3">
+               {certifications.map((cert) => (
+                  <div key={cert.id} className="flex flex-col items-center gap-3">
                      <div className="w-20 h-20 bg-nelna-white rounded-full p-1 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
-                        <img src={cert.img} alt={cert.label} className="w-full h-full object-contain overflow-hidden rounded-full" />
+                        <img src={cert.imageUrl} alt={cert.shortName} className="w-full h-full object-contain overflow-hidden rounded-full" />
                      </div>
-                     <span className="font-bold text-nelna-white tracking-wide text-sm">{cert.label}</span>
+                     <span className="font-bold text-nelna-white tracking-wide text-sm">{cert.shortName}</span>
                   </div>
                ))}
             </motion.div>
