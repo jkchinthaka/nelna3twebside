@@ -125,14 +125,6 @@ function Home() {
 
          {/* 3. Farm-to-Kitchen Process */}
          <ScrollReveal as="section" className="section-spacing relative overflow-hidden bg-nelna-white">
-            <div className="absolute top-0 right-0 -z-10 h-full w-1/3 bg-brand-50/70" aria-hidden="true" />
-            <BrandChickenMascot
-               size="xl"
-               variant="float"
-               animate
-               className="pointer-events-none absolute -right-4 bottom-8 z-0 hidden opacity-90 lg:block xl:right-8"
-            />
-
             <div className="page-shell relative z-10">
                <div className="mx-auto mb-12 max-w-3xl text-center">
                   <SectionHeading
