@@ -90,20 +90,20 @@ function Footer() {
   return (
     <footer className="surface-brand-green pt-14">
       <div className="page-shell">
-        <section className="rounded-2xl border border-white/20 bg-black/10 p-6 md:p-8">
+        <section className="rounded-2xl border border-nelna-white/20 bg-nelna-dark/10 p-6 md:p-8">
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
-              <h2 className="font-display text-xl font-bold text-white md:text-2xl">
+              <h2 className="font-display text-xl font-bold text-nelna-white md:text-2xl">
                 Stay Connected with Nelna Farm
               </h2>
-              <p className="mt-2 text-sm text-white/90 md:text-base">
+              <p className="mt-2 text-sm text-nelna-white/90 md:text-base">
                 Receive product updates, quality announcements, and news from Sri Lanka&apos;s trusted poultry brand.
               </p>
             </div>
             <form className="flex flex-col gap-3 sm:flex-row" onSubmit={handleNewsletterSubmit} noValidate>
               <input
                 type="email"
-                className="field-base rounded-pill border-white/25 bg-white/10 text-white placeholder:text-white/60"
+                className="field-base rounded-pill border-nelna-white/25 bg-nelna-white/10 text-nelna-white placeholder:text-nelna-white/60"
                 placeholder="Enter your email"
                 aria-label="Newsletter email"
                 value={newsletterEmail}
@@ -122,7 +122,7 @@ function Footer() {
             {newsletterStatus.message ? (
               <p
                 className={`text-xs font-medium lg:col-span-2 ${
-                  newsletterStatus.type === 'error' ? 'text-brand-red-300' : 'text-brand-yellow-200'
+                  newsletterStatus.type === 'error' ? 'text-nelna-green-light' : 'text-nelna-gold'
                 }`}
                 aria-live="polite"
               >
@@ -148,7 +148,7 @@ function Footer() {
                 className="h-14 w-[220px] object-cover object-center md:h-16 md:w-[250px]"
               />
             </Link>
-            <p className="max-w-md text-sm leading-relaxed text-white/90">
+            <p className="max-w-md text-sm leading-relaxed text-nelna-white/90">
               Nelna Farm (Pvt) Ltd is a Sri Lankan poultry and food company delivering premium protein products with certified quality, food safety, and dependable nationwide distribution.
             </p>
             <div className="flex items-center gap-3">
@@ -160,7 +160,7 @@ function Footer() {
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:border-nelna-gold hover:text-nelna-gold"
+                    className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-nelna-white/25 bg-nelna-white/10 text-nelna-white transition hover:border-nelna-gold hover:text-nelna-gold"
                     aria-label={`Follow Nelna Farm on ${label}`}
                   >
                     <Icon className="h-4 w-4" aria-hidden="true" />
@@ -174,7 +174,7 @@ function Footer() {
             <ul className="space-y-2">
               {businessLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-nelna-gold">
+                  <Link to={item.to} className="text-sm text-nelna-white/90 transition hover:text-nelna-gold">
                     {item.label}
                   </Link>
                 </li>
@@ -187,7 +187,7 @@ function Footer() {
             <ul className="space-y-2">
               {qualityLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-nelna-gold">
+                  <Link to={item.to} className="text-sm text-nelna-white/90 transition hover:text-nelna-gold">
                     {item.label}
                   </Link>
                 </li>
@@ -201,7 +201,7 @@ function Footer() {
               {['Halal Certified', 'ISO 22000', 'HACCP & GMP', 'Farm Fresh Quality'].map((item) => (
                 <span
                   key={item}
-                  className="inline-flex w-fit rounded-md bg-white/15 px-3 py-1 text-xs font-semibold text-white ring-1 ring-white/20"
+                  className="inline-flex w-fit rounded-md bg-nelna-white/15 px-3 py-1 text-xs font-semibold text-nelna-white ring-1 ring-nelna-white/20"
                 >
                   ✓ {item}
                 </span>
@@ -211,7 +211,7 @@ function Footer() {
             <ul className="space-y-2">
               {companyLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-white/90 transition hover:text-nelna-gold">
+                  <Link to={item.to} className="text-sm text-nelna-white/90 transition hover:text-nelna-gold">
                     {item.label}
                   </Link>
                 </li>
@@ -220,10 +220,10 @@ function Footer() {
           </div>
         </section>
 
-        <section className="grid gap-8 border-t border-white/15 py-8 sm:grid-cols-2">
+        <section className="grid gap-8 border-t border-nelna-white/15 py-8 sm:grid-cols-2">
           <div>
             <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Contact</h3>
-            <ul className="space-y-3 text-sm text-white/90">
+            <ul className="space-y-3 text-sm text-nelna-white/90">
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
                 <span>{COMPANY_ADDRESS_FULL}</span>
@@ -231,10 +231,10 @@ function Footer() {
               <li className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
                 <span>
-                  <span className="font-semibold text-white">Tel: </span>
+                  <span className="font-semibold text-nelna-white">Tel: </span>
                   {TELEPHONES.map((phone, index) => (
                     <span key={phone.tel}>
-                      {index > 0 ? <span className="text-white/60"> / </span> : null}
+                      {index > 0 ? <span className="text-nelna-white/60"> / </span> : null}
                       <a href={`tel:${phone.tel}`} className="transition hover:text-nelna-gold">
                         {phone.display}
                       </a>
@@ -257,7 +257,7 @@ function Footer() {
                   href={getWhatsAppHref()}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-semibold text-[#25D366] transition hover:underline"
+                  className="font-semibold text-nelna-green transition hover:underline"
                 >
                   WhatsApp: {MOBILE.display}
                 </a>
@@ -270,7 +270,7 @@ function Footer() {
           </div>
           <div>
             <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Business Hours</h3>
-            <ul className="space-y-2 text-sm text-white/90">
+            <ul className="space-y-2 text-sm text-nelna-white/90">
               {businessHours.map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <Clock className="mt-0.5 h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
@@ -281,7 +281,7 @@ function Footer() {
           </div>
         </section>
 
-        <section className="flex flex-col gap-3 border-t border-white/15 py-5 text-xs text-white/85 sm:flex-row sm:items-center sm:justify-between">
+        <section className="flex flex-col gap-3 border-t border-nelna-white/15 py-5 text-xs text-nelna-white/85 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright {currentYear} Nelna Farm (Pvt) Ltd. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
             <Link to="/privacy" className="transition hover:text-nelna-gold">Privacy</Link>

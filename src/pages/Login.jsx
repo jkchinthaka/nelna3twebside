@@ -37,9 +37,9 @@ function Login() {
   }
 
   return (
-    <div className="bg-slate-50 py-12">
+    <div className="bg-nelna-green-soft py-12">
       <div className="page-shell">
-        <div className="mx-auto grid max-w-5xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="mx-auto grid max-w-5xl overflow-hidden rounded-2xl border border-nelna-dark-soft bg-nelna-white shadow-card lg:grid-cols-[0.95fr_1.05fr]">
           <section className="surface-brand-green p-8 md:p-10">
             <div className="inline-flex items-center gap-3">
               <img src={logo} alt="Nelna Farm logo" className="h-12 w-12 rounded-full object-cover" />
@@ -52,11 +52,11 @@ function Login() {
             <h1 className="mt-8 font-display text-3xl font-extrabold leading-tight md:text-4xl">
               Secure Login for Admin and Distributor Teams
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-white/90">
+            <p className="mt-4 text-sm leading-relaxed text-nelna-white/90">
               Access product operations, orders, inquiries, and dashboard tools. All portal activity is role protected.
             </p>
 
-            <div className="mt-8 space-y-3 text-sm text-white/90">
+            <div className="mt-8 space-y-3 text-sm text-nelna-white/90">
               <p className="inline-flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-brand-yellow-200" aria-hidden="true" />
                 Firebase authentication enabled
@@ -69,8 +69,8 @@ function Login() {
           </section>
 
           <section className="p-8 md:p-10">
-            <h2 className="text-2xl font-bold text-slate-900">{t('portal.title')}</h2>
-            <p className="mt-2 text-sm text-slate-600">
+            <h2 className="text-2xl font-bold text-nelna-dark">{t('portal.title')}</h2>
+            <p className="mt-2 text-sm text-nelna-dark/80">
               Sign in with your assigned portal credentials.
             </p>
 
@@ -102,7 +102,7 @@ function Login() {
               </Button>
 
               {status === 'error' ? (
-                <p className="text-sm font-semibold text-brand-red-700">
+                <p className="text-sm font-semibold text-nelna-green-dark-700">
                   {error || 'Login failed. Check your credentials and try again.'}
                 </p>
               ) : null}
@@ -118,7 +118,7 @@ function Login() {
               </button>
             </form>
 
-            <p className="mt-6 text-xs text-slate-500">
+            <p className="mt-6 text-xs text-nelna-dark/70">
               Security note: for protection, do not share portal credentials over chat apps.
             </p>
           </section>

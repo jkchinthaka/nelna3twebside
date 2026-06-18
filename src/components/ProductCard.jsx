@@ -140,8 +140,8 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
 
       <div className="flex flex-1 flex-col gap-4 p-5" style={enableTilt ? { transform: 'translateZ(18px)' } : undefined}>
         <div>
-          <h3 className="font-display text-xl font-bold text-slate-950">{product.name}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-800 line-clamp-3">{product.description}</p>
+          <h3 className="font-display text-xl font-bold text-nelna-dark">{product.name}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-nelna-dark line-clamp-3">{product.description}</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
@@ -170,7 +170,7 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
               <button
                 type="button"
                 onClick={() => onQuickView(product)}
-                className="inline-flex min-h-[44px] w-[44px] items-center justify-center rounded-md border border-brand-green-200 bg-white text-brand-green-700 transition hover:border-brand-green-300 hover:bg-brand-green-50"
+                className="inline-flex min-h-[44px] w-[44px] items-center justify-center rounded-md border border-brand-green-200 bg-nelna-white text-brand-green-700 transition hover:border-brand-green-300 hover:bg-brand-green-50"
                 aria-label={`Quick view ${product.name}`}
               >
                 <Eye className="h-4.5 w-4.5" aria-hidden="true" />
@@ -181,7 +181,7 @@ function ProductCard({ product, view = 'grid', onQuickView }) {
               href={whatsappHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-[44px] w-[44px] items-center justify-center rounded-md bg-[#25D366] text-white shadow-sm transition hover:scale-105"
+              className="inline-flex min-h-[44px] w-[44px] items-center justify-center rounded-md bg-nelna-green text-nelna-white shadow-sm transition hover:scale-105"
               aria-label={`Ask on WhatsApp about ${product.name}`}
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />

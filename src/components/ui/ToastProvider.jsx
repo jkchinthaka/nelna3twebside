@@ -12,9 +12,9 @@ const icons = {
 
 const toneClasses = {
   success: 'border-brand-green-300 bg-brand-green-50 text-brand-green-800',
-  error: 'border-brand-red-300 bg-brand-red-50 text-brand-red-800',
+  error: 'border-nelna-green-dark-300 bg-nelna-green-dark-50 text-nelna-green-dark-800',
   warning: 'border-brand-yellow-300 bg-brand-yellow-50 text-brand-yellow-900',
-  info: 'border-sky-300 bg-sky-50 text-sky-900',
+  info: 'border-nelna-green/40 bg-nelna-green-soft text-nelna-green-dark',
 }
 
 function ToastContainer({ toasts, dismiss }) {

@@ -28,13 +28,13 @@ function Modal({ open, onClose, title, children, footer }) {
     <div className="fixed inset-0 z-[90] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label={title || 'Dialog'}>
       <button
         type="button"
-        className="absolute inset-0 bg-slate-900/50"
+        className="absolute inset-0 bg-nelna-dark/50"
         onClick={onClose}
         aria-label="Close dialog"
       />
-      <div className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-auto rounded-2xl border border-slate-200 bg-white p-5 shadow-modal dark:border-slate-700 dark:bg-slate-900">
+      <div className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-auto rounded-2xl border border-nelna-dark-soft bg-nelna-white p-5 shadow-modal dark:border-nelna-green-dark dark:bg-nelna-dark">
         <div className="mb-4 flex items-center justify-between gap-3">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">{title}</h3>
+          <h3 className="text-lg font-semibold text-nelna-dark dark:text-nelna-white">{title}</h3>
           <IconButton label="Close dialog" size="sm" onClick={onClose}>
             <X className="h-4 w-4" />
           </IconButton>

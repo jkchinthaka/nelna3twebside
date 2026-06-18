@@ -25,15 +25,15 @@ function Sustainability() {
       icon: Sun,
       title: 'Renewable Energy Leader',
       body: 'We have transitioned our primary processing plants to 60% solar energy, significantly reducing our carbon footprint and reliance on fossil fuels.',
-      color: 'text-amber-500',
-      bg: 'bg-amber-50'
+      color: 'text-nelna-gold',
+      bg: 'bg-nelna-gold-soft'
     },
     {
       icon: Droplets,
       title: 'Advanced Water Stewardship',
       body: 'Our closed-loop water filtration systems allow us to recycle 40% of process water, protecting local aquifers and ensuring drought resilience.',
-      color: 'text-blue-500',
-      bg: 'bg-blue-50'
+      color: 'text-nelna-green',
+      bg: 'bg-nelna-green-soft'
     },
     {
       icon: Recycle,
@@ -46,8 +46,8 @@ function Sustainability() {
       icon: HeartHandshake,
       title: 'Community Empowerment',
       body: 'Through our "Nelna Cares" program, we provide technical training to over 200 small-scale poultry farmers annually to uplift rural livelihoods.',
-      color: 'text-rose-500',
-      bg: 'bg-rose-50'
+      color: 'text-nelna-green-dark',
+      bg: 'bg-nelna-gold-soft'
     },
   ]
 
@@ -59,7 +59,7 @@ function Sustainability() {
   ]
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-nelna-white">
       
       {/* 1. Hero Section */}
       <div className="relative h-[60vh] min-h-[500px] w-full bg-brand-green overflow-hidden">
@@ -80,15 +80,15 @@ function Sustainability() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-1.5 text-sm font-bold text-white backdrop-blur-md mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-nelna-white/30 bg-nelna-white/15 px-4 py-1.5 text-sm font-bold text-nelna-white backdrop-blur-md mb-6">
               <Sprout className="h-4 w-4" />
               <span>Planet First Approach</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-display font-bold text-nelna-white mb-6 leading-tight">
               Growing for the Future,<br />
               <span className="text-brand-yellow-300">Responsibly.</span>
             </h1>
-            <p className="text-lg text-slate-200 max-w-xl leading-relaxed mb-8">
+            <p className="text-lg text-nelna-white/90 max-w-xl leading-relaxed mb-8">
               True quality isn't just about the product—it's about the process. We are committed to leaving the land better than we found it.
             </p>
           </motion.div>
@@ -96,7 +96,7 @@ function Sustainability() {
       </div>
 
       {/* 2. Impact Stats */}
-      <div className="surface-brand-green py-12 border-b border-white/15">
+      <div className="surface-brand-green py-12 border-b border-nelna-white/15">
          <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                {stats.map((stat, idx) => (
@@ -104,7 +104,7 @@ function Sustainability() {
                     <div className="text-3xl md:text-4xl font-bold text-brand-yellow-300 mb-1 font-display">
                       <Counter to={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-sm font-medium text-white/90 uppercase tracking-widest">{stat.label}</div>
+                    <div className="text-sm font-medium text-nelna-white/90 uppercase tracking-widest">{stat.label}</div>
                  </div>
                ))}
             </div>
@@ -136,14 +136,14 @@ function Sustainability() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="flex gap-6 p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-xl transition-all duration-300 group"
+              className="flex gap-6 p-6 rounded-2xl border border-nelna-green-soft bg-nelna-green-soft hover:bg-nelna-white hover:shadow-xl transition-all duration-300 group"
              >
                <div className={`shrink-0 w-16 h-16 rounded-xl flex items-center justify-center ${item.bg} ${item.color} group-hover:scale-105 transition-transform`}>
                  <item.icon className="w-8 h-8" />
                </div>
                <div>
-                 <h3 className="text-xl font-bold text-slate-900 mb-3 font-display">{item.title}</h3>
-                 <p className="text-slate-600 leading-relaxed text-sm">
+                 <h3 className="text-xl font-bold text-nelna-dark mb-3 font-display">{item.title}</h3>
+                 <p className="text-nelna-dark/80 leading-relaxed text-sm">
                   {item.body}
                  </p>
                </div>
@@ -154,7 +154,7 @@ function Sustainability() {
       </section>
 
       {/* 4. CSR Feature Section */}
-      <section className="py-20 bg-slate-50 overflow-hidden">
+      <section className="py-20 bg-nelna-green-soft overflow-hidden">
          <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative order-2 lg:order-1">
                <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-200/50 rounded-full blur-3xl"></div>
@@ -164,19 +164,19 @@ function Sustainability() {
                 className="relative rounded-2xl shadow-2xl w-full z-10"
                 loading="lazy"
                />
-               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl z-20 max-w-xs border border-slate-100">
+               <div className="absolute -bottom-6 -right-6 bg-nelna-white p-6 rounded-xl shadow-xl z-20 max-w-xs border border-nelna-green-soft">
                   <div className="flex items-center gap-3 mb-2">
                      <Users className="text-brand-green h-5 w-5" />
-                     <span className="font-bold text-slate-800">Community First</span>
+                     <span className="font-bold text-nelna-dark">Community First</span>
                   </div>
-                  <p className="text-xs text-slate-500">"Nelna changed my life by teaching me modern poultry farming techniques." — local partner</p>
+                  <p className="text-xs text-nelna-dark/70">"Nelna changed my life by teaching me modern poultry farming techniques." — local partner</p>
                </div>
             </div>
             
             <div className="order-1 lg:order-2">
                <span className="text-brand-green font-bold tracking-wider text-sm uppercase mb-3 block">Corporate Social Responsibility</span>
-               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-display mb-6">Empowering the Nation</h2>
-               <p className="text-slate-600 text-lg leading-relaxed mb-8">
+               <h2 className="text-3xl md:text-4xl font-bold text-nelna-dark font-display mb-6">Empowering the Nation</h2>
+               <p className="text-nelna-dark/80 text-lg leading-relaxed mb-8">
                   We believe that a sustainable business cannot exist in a vacuum. Our success is tied to the prosperity of our rural communities. We actively invest in education, infrastructure, and fair-trade partnerships.
                </p>
                <Link to="/contact" className="inline-flex items-center gap-2 text-brand-green font-bold hover:gap-4 transition-all group">
@@ -188,11 +188,11 @@ function Sustainability() {
 
       {/* 5. Minimal CTA */}
       <section className="surface-brand-green py-24 text-center px-6">
-         <h2 className="text-3xl font-display font-bold text-white mb-6">Partner with a Responsible Food Producer</h2>
-         <p className="text-white/90 max-w-2xl mx-auto mb-10 text-lg">
+         <h2 className="text-3xl font-display font-bold text-nelna-white mb-6">Partner with a Responsible Food Producer</h2>
+         <p className="text-nelna-white/90 max-w-2xl mx-auto mb-10 text-lg">
             When you work with Nelna, you support ethical farming, responsible operations, and a greener planet.
          </p>
-         <Link to="/contact" className="inline-block rounded-full bg-white px-8 py-4 font-bold text-brand-green hover:bg-brand-green-50 transition-colors">
+         <Link to="/contact" className="inline-block rounded-full bg-nelna-white px-8 py-4 font-bold text-brand-green hover:bg-brand-green-50 transition-colors">
             Contact Sales
          </Link>
       </section>

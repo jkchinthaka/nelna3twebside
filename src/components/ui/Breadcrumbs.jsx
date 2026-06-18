@@ -6,7 +6,7 @@ function Breadcrumbs({ items = [] }) {
 
   return (
     <nav aria-label="Breadcrumb" className="mb-4">
-      <ol className="flex flex-wrap items-center gap-1 text-sm text-slate-500 dark:text-slate-300">
+      <ol className="flex flex-wrap items-center gap-1 text-sm text-nelna-dark/70 dark:text-nelna-white/80">
         {items.map((item, index) => {
           const isLast = index === items.length - 1
           return (
@@ -14,7 +14,7 @@ function Breadcrumbs({ items = [] }) {
               {item.to && !isLast ? (
                 <Link className="font-medium hover:text-brand-green-700" to={item.to}>{item.label}</Link>
               ) : (
-                <span className="font-medium text-slate-700 dark:text-slate-100">{item.label}</span>
+                <span className="font-medium text-nelna-dark/90 dark:text-nelna-white">{item.label}</span>
               )}
               {!isLast ? <ChevronRight className="h-4 w-4" aria-hidden="true" /> : null}
             </li>

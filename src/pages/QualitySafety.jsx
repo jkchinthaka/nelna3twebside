@@ -31,8 +31,8 @@ function QualitySafety() {
       icon: ShieldCheck,
       title: 'Stringent Biosecurity',
       body: 'Our facilities operate under strict controlled-entry protocols. Every vehicle and individual undergoes rigorous disinfection to prevent contamination.',
-      color: 'text-blue-600',
-      bg: 'bg-blue-50'
+      color: 'text-nelna-green',
+      bg: 'bg-nelna-green-soft'
     },
     {
       icon: Stethoscope,
@@ -45,15 +45,15 @@ function QualitySafety() {
       icon: ThermometerSnowflake,
       title: 'Unbroken Cold Chain',
       body: 'From processing to delivery, our fleet of temperature-controlled vehicles maintains products at optimal freshness (0-4°C).',
-      color: 'text-cyan-600',
-      bg: 'bg-cyan-50'
+      color: 'text-nelna-green-light',
+      bg: 'bg-nelna-green-soft'
     },
     {
       icon: ScanBarcode,
       title: 'Full Traceability',
       body: 'Every product can be traced back to its specific farm batch, ensuring complete transparency and accountability in our supply chain.',
-      color: 'text-purple-600',
-      bg: 'bg-purple-50'
+      color: 'text-nelna-green-dark',
+      bg: 'bg-nelna-green-soft'
     },
   ]
 
@@ -65,10 +65,10 @@ function QualitySafety() {
   ]
 
   return (
-    <div className="w-full bg-slate-50">
+    <div className="w-full bg-nelna-green-soft">
       
       {/* 1. Hero Section */}
-      <div className="relative h-[60vh] min-h-[500px] w-full bg-slate-900 overflow-hidden">
+      <div className="relative h-[60vh] min-h-[500px] w-full bg-nelna-dark overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={qualityHeroImg} 
@@ -76,7 +76,7 @@ function QualitySafety() {
             className="w-full h-full object-cover opacity-60"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-nelna-dark-bg via-nelna-dark-bg/80 to-nelna-dark-bg/40"></div>
         </div>
 
         <div className="relative h-full max-w-7xl mx-auto px-6 flex flex-col justify-center">
@@ -90,11 +90,11 @@ function QualitySafety() {
               <ShieldCheck className="h-4 w-4" />
               <span>World-Class Standards</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight drop-shadow-xl">
+            <h1 className="text-4xl md:text-6xl font-display font-bold text-nelna-white mb-6 leading-tight drop-shadow-xl">
               Safety isn't just a protocol.<br />
-              It's our <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-300 to-white">Commitment</span>.
+              It's our <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-300 to-nelna-white">Commitment</span>.
             </h1>
-            <p className="text-lg md:text-xl text-slate-100 max-w-2xl font-medium leading-relaxed mb-8 drop-shadow-md">
+            <p className="text-lg md:text-xl text-nelna-white max-w-2xl font-medium leading-relaxed mb-8 drop-shadow-md">
               We go beyond industry standards to ensure every bite is safe, nutritious, and ethically produced for your family.
             </p>
             <div className="flex gap-4">
@@ -116,13 +116,13 @@ function QualitySafety() {
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: idx * 0.1 }}
-               className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 group"
+               className="bg-nelna-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-nelna-green-soft group"
              >
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${item.bg} ${item.color} group-hover:scale-110 transition-transform duration-300`}>
                    <item.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 font-display">{item.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <h3 className="text-xl font-bold text-nelna-dark mb-3 font-display">{item.title}</h3>
+                <p className="text-sm text-nelna-dark/80 leading-relaxed">
                   {item.body}
                 </p>
              </motion.div>
@@ -141,11 +141,11 @@ function QualitySafety() {
              />
              <div className="mt-10 grid sm:grid-cols-2 gap-4">
                {technologies.map((tech) => (
-                 <div key={tech.name} className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-100 shadow-sm">
-                   <div className="p-2 bg-slate-100 rounded-lg text-slate-700">
+                 <div key={tech.name} className="flex items-center gap-4 p-4 rounded-xl bg-nelna-white border border-nelna-green-soft shadow-sm">
+                   <div className="p-2 bg-nelna-green-soft rounded-lg text-nelna-dark/90">
                      <tech.icon className="w-5 h-5" />
                    </div>
-                   <span className="font-semibold text-slate-800">{tech.name}</span>
+                   <span className="font-semibold text-nelna-dark">{tech.name}</span>
                  </div>
                ))}
              </div>
@@ -159,12 +159,12 @@ function QualitySafety() {
               className="relative rounded-[3rem] shadow-2xl w-full object-cover z-10"
               loading="lazy"
              />
-             <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur rounded-2xl p-6 shadow-lg z-20 border border-slate-100">
+             <div className="absolute bottom-8 left-8 right-8 bg-nelna-white/95 backdrop-blur rounded-2xl p-6 shadow-lg z-20 border border-nelna-green-soft">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="h-2 w-2 rounded-full bg-brand-green animate-pulse"></div>
-                  <span className="text-sm font-bold uppercase tracking-wider text-slate-500">Live Status</span>
+                  <span className="text-sm font-bold uppercase tracking-wider text-nelna-dark/70">Live Status</span>
                 </div>
-                <p className="font-display font-bold text-slate-900 text-lg">
+                <p className="font-display font-bold text-nelna-dark text-lg">
                   "Our labs conduct over 500 quality checks daily before products leave the facility."
                 </p>
              </div>
@@ -173,7 +173,7 @@ function QualitySafety() {
       </section>
 
       {/* 4. Certifications Banner */}
-      <section className="bg-brand-900 py-20 text-center text-white overflow-hidden relative">
+      <section className="bg-brand-900 py-20 text-center text-nelna-white overflow-hidden relative">
          {/* Decorative Circles */}
          <div className="absolute top-1/2 left-10 -translate-y-1/2 w-64 h-64 bg-brand-800/20 rounded-full blur-3xl"></div>
          <div className="absolute top-1/2 right-10 -translate-y-1/2 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl"></div>
@@ -197,10 +197,10 @@ function QualitySafety() {
                   { label: 'Halal Certified', img: certHalal },
                ].map((cert, i) => (
                   <div key={i} className="flex flex-col items-center gap-3">
-                     <div className="w-20 h-20 bg-white rounded-full p-1 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+                     <div className="w-20 h-20 bg-nelna-white rounded-full p-1 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
                         <img src={cert.img} alt={cert.label} className="w-full h-full object-contain overflow-hidden rounded-full" />
                      </div>
-                     <span className="font-bold text-white tracking-wide text-sm">{cert.label}</span>
+                     <span className="font-bold text-nelna-white tracking-wide text-sm">{cert.label}</span>
                   </div>
                ))}
             </motion.div>

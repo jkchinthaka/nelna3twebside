@@ -1,6 +1,12 @@
 /* eslint-disable react/no-unknown-property */
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
+import {
+  NELNA_GREEN,
+  NELNA_GREEN_DARK,
+  NELNA_GOLD,
+  NELNA_WHITE,
+} from '../data/brandColors.js'
 
 function FloatingPack({ position, rotation, color, scale = 1, speed = 1 }) {
   const meshRef = useRef(null)
@@ -43,18 +49,18 @@ function SceneContent() {
     <group ref={groupRef} position={[0, -0.06, 0]}>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.9, 0]}>
         <circleGeometry args={[2.65, 96]} />
-        <meshStandardMaterial color="#e6f2e9" roughness={0.95} />
+        <meshStandardMaterial color={NELNA_WHITE} roughness={0.95} />
       </mesh>
 
       <mesh position={[0.2, -0.45, -0.3]} rotation={[0.1, -0.24, 0.04]}>
         <boxGeometry args={[2.1, 0.34, 1.5]} />
-        <meshStandardMaterial color="#f4f8f5" roughness={0.6} metalness={0.04} />
+        <meshStandardMaterial color={NELNA_WHITE} roughness={0.6} metalness={0.04} />
       </mesh>
 
       <FloatingPack
         position={[0.18, 0.08, 0.45]}
         rotation={[0.1, -0.26, 0.04]}
-        color="#27743a"
+        color={NELNA_GREEN}
         scale={1.05}
         speed={1.05}
       />
@@ -62,7 +68,7 @@ function SceneContent() {
       <FloatingPack
         position={[-1.1, -0.05, -0.06]}
         rotation={[0.08, 0.48, -0.04]}
-        color="#da2328"
+        color={NELNA_GREEN_DARK}
         scale={0.68}
         speed={1.35}
       />
@@ -70,19 +76,19 @@ function SceneContent() {
       <FloatingPack
         position={[1.35, -0.12, -0.24]}
         rotation={[0.06, -0.56, 0.05]}
-        color="#f8bc24"
+        color={NELNA_GOLD}
         scale={0.56}
         speed={1.22}
       />
 
       <mesh position={[0.7, 0.62, -0.2]}>
         <sphereGeometry args={[0.22, 36, 36]} />
-        <meshStandardMaterial color="#f8bc24" roughness={0.2} metalness={0.14} />
+        <meshStandardMaterial color={NELNA_GOLD} roughness={0.2} metalness={0.14} />
       </mesh>
 
       <mesh position={[-0.64, 0.5, 0.35]}>
         <sphereGeometry args={[0.16, 32, 32]} />
-        <meshStandardMaterial color="#da2328" roughness={0.26} metalness={0.14} />
+        <meshStandardMaterial color={NELNA_GREEN_DARK} roughness={0.26} metalness={0.14} />
       </mesh>
     </group>
   )
@@ -96,12 +102,12 @@ function Farm3DSceneCanvas() {
         camera={{ position: [0, 1.25, 5.1], fov: 41 }}
         gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
       >
-        <color attach="background" args={['#edf6ef']} />
-        <fog attach="fog" args={['#edf6ef', 5.6, 11]} />
+        <color attach="background" args={[NELNA_WHITE]} />
+        <fog attach="fog" args={[NELNA_WHITE, 5.6, 11]} />
         <ambientLight intensity={0.8} />
-        <hemisphereLight intensity={0.4} groundColor="#dceddf" />
-        <directionalLight position={[5, 7, 4]} intensity={0.95} color="#fff8e9" />
-        <directionalLight position={[-3, 2, -2]} intensity={0.44} color="#e7f4ea" />
+        <hemisphereLight intensity={0.4} groundColor={NELNA_WHITE} />
+        <directionalLight position={[5, 7, 4]} intensity={0.95} color={NELNA_WHITE} />
+        <directionalLight position={[-3, 2, -2]} intensity={0.44} color={NELNA_WHITE} />
         <SceneContent />
       </Canvas>
     </div>

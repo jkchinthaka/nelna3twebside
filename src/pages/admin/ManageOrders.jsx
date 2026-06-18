@@ -121,7 +121,7 @@ function ManageOrders() {
         <input
           type="checkbox"
           aria-label={`Select order ${order.id}`}
-          className="h-4 w-4 rounded border-slate-300 text-brand-green-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green-500 focus-visible:ring-offset-2"
+          className="h-4 w-4 rounded border-nelna-dark/25 text-brand-green-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green-500 focus-visible:ring-offset-2"
           checked={selectedIds.includes(order.id)}
           onChange={() => toggleSelection(order.id)}
         />
@@ -221,7 +221,7 @@ function ManageOrders() {
         title="Order Details"
       >
         {activeOrder ? (
-          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-200">
+          <div className="space-y-3 text-sm text-nelna-dark/90 dark:text-nelna-white/90">
             <p><strong>Customer:</strong> {activeOrder.name}</p>
             <p><strong>Company:</strong> {activeOrder.company || '-'}</p>
             <p><strong>Phone:</strong> {activeOrder.phone || '-'}</p>

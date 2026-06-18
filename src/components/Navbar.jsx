@@ -61,22 +61,22 @@ function isPathActive(pathname, to) {
 
 function TopBar() {
   return (
-    <div className="hidden border-b border-white/10 bg-nelna-green-dark text-white lg:block">
+    <div className="hidden border-b border-nelna-white/10 bg-nelna-green-dark text-nelna-white lg:block">
       <div className="page-shell flex min-h-topbar items-center justify-between gap-3 py-1 text-[10px] xl:text-xs">
-        <p className="font-medium uppercase tracking-[0.1em] text-white/90">
+        <p className="font-medium uppercase tracking-[0.1em] text-nelna-white/90">
           Trusted Sri Lankan poultry since 1998
         </p>
-        <div className="flex items-center gap-2 text-white xl:gap-3">
+        <div className="flex items-center gap-2 text-nelna-white xl:gap-3">
           <a
             href={`tel:${PRIMARY_PHONE.tel}`}
-            className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-nelna-gold"
+            className="inline-flex items-center gap-1.5 rounded-full bg-nelna-white/10 px-3 py-1 transition hover:bg-nelna-white/20 hover:text-nelna-gold"
           >
             <Phone className="h-3.5 w-3.5" aria-hidden="true" />
             <span>{PRIMARY_PHONE.display}</span>
           </a>
           <a
             href="mailto:info@nelna.lk"
-            className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-nelna-gold"
+            className="inline-flex items-center gap-1.5 rounded-full bg-nelna-white/10 px-3 py-1 transition hover:bg-nelna-white/20 hover:text-nelna-gold"
           >
             <Mail className="h-3.5 w-3.5" aria-hidden="true" />
             <span>info@nelna.lk</span>
@@ -85,7 +85,7 @@ function TopBar() {
             href={MAP_LINK}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 transition hover:bg-white/20 hover:text-nelna-gold xl:inline-flex"
+            className="hidden items-center gap-1.5 rounded-full bg-nelna-white/10 px-3 py-1 transition hover:bg-nelna-white/20 hover:text-nelna-gold xl:inline-flex"
           >
             <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
             <span>{COMPANY_LOCATION_SHORT}</span>
@@ -101,7 +101,7 @@ function DesktopNav({ pathname, t }) {
 
   return (
     <nav className="hidden flex-1 items-center justify-center px-2 lg:flex" aria-label="Primary navigation">
-      <div className="flex items-center gap-0.5 rounded-full border border-slate-200/90 bg-white/95 px-1.5 py-1 shadow-sm backdrop-blur">
+      <div className="flex items-center gap-0.5 rounded-full border border-nelna-dark-soft/90 bg-nelna-white/95 px-1.5 py-1 shadow-sm backdrop-blur">
         {directLinks.map((link) => (
           <NavLink key={link.to} to={link.to} className="relative block rounded-full">
             {({ isActive }) => (
@@ -109,13 +109,13 @@ function DesktopNav({ pathname, t }) {
                 className={`relative inline-flex min-h-[38px] items-center whitespace-nowrap rounded-full px-3 text-[0.875rem] font-semibold tracking-[0.01em] transition ${
                   isActive
                     ? 'text-brand-green-800'
-                    : 'text-slate-700 hover:text-brand-green-700'
+                    : 'text-nelna-dark/90 hover:text-brand-green-700'
                 }`}
               >
                 {isActive ? (
                   <motion.span
                     layoutId="desktop-nav-active-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-white shadow-sm ring-1 ring-brand-green-100"
+                    className="absolute inset-0 -z-10 rounded-full bg-nelna-white shadow-sm ring-1 ring-brand-green-100"
                     transition={{ type: 'spring', stiffness: 420, damping: 32 }}
                   />
                 ) : null}
@@ -142,7 +142,7 @@ function DesktopNav({ pathname, t }) {
                 className={`relative inline-flex min-h-[38px] items-center gap-1 whitespace-nowrap rounded-full px-3 text-[0.875rem] font-semibold transition ${
                   isActive
                     ? 'text-brand-green-800'
-                    : 'text-slate-700 hover:text-brand-green-700'
+                    : 'text-nelna-dark/90 hover:text-brand-green-700'
                 }`}
                 aria-expanded={isOpen}
                 aria-haspopup="menu"
@@ -161,10 +161,10 @@ function DesktopNav({ pathname, t }) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute left-1/2 top-full z-50 mt-3 w-60 -translate-x-1/2 rounded-2xl border border-slate-200/90 bg-white/[0.97] p-2 shadow-popover backdrop-blur"
+                    className="absolute left-1/2 top-full z-50 mt-3 w-60 -translate-x-1/2 rounded-2xl border border-nelna-dark-soft/90 bg-nelna-white/[0.97] p-2 shadow-popover backdrop-blur"
                     role="menu"
                   >
-                    <p className="px-3 pb-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-slate-500">
+                    <p className="px-3 pb-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-nelna-dark/70">
                       {t(menu.key, { defaultValue: menu.fallback })}
                     </p>
                     {menu.items.map((item) => (
@@ -176,7 +176,7 @@ function DesktopNav({ pathname, t }) {
                           `relative block rounded-xl px-3 py-2.5 text-sm font-medium transition ${
                             itemActive
                               ? 'bg-brand-green-50 text-brand-green-800'
-                              : 'text-slate-700 hover:bg-slate-100 hover:text-brand-green-700'
+                              : 'text-nelna-dark/90 hover:bg-nelna-green-soft hover:text-brand-green-700'
                           }`
                         }
                       >
@@ -238,7 +238,7 @@ function UserMenu({ user, role, logout }) {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-brand-green text-sm font-bold text-white shadow-[0_12px_28px_-14px_rgba(39,116,58,0.95)] ring-2 ring-brand-green-100 transition hover:scale-[1.03] hover:brightness-95"
+        className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-brand-green text-sm font-bold text-nelna-white shadow-[0_12px_28px_-14px_rgba(39,116,58,0.95)] ring-2 ring-brand-green-100 transition hover:scale-[1.03] hover:brightness-95"
         aria-label="Open profile menu"
         aria-expanded={open}
       >
@@ -252,12 +252,12 @@ function UserMenu({ user, role, logout }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.16 }}
-            className="absolute right-0 top-full z-50 mt-3 w-56 rounded-2xl border border-slate-200 bg-white p-2 shadow-popover"
+            className="absolute right-0 top-full z-50 mt-3 w-56 rounded-2xl border border-nelna-dark-soft bg-nelna-white p-2 shadow-popover"
           >
             <Link
               to={dashboardLink}
               onClick={() => setOpen(false)}
-              className="flex min-h-[42px] items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+              className="flex min-h-[42px] items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-nelna-dark/90 transition hover:bg-nelna-green-soft"
             >
               <DashboardIcon className="h-4 w-4 text-brand-green-700" aria-hidden="true" />
               <span>{dashboardLabel}</span>
@@ -268,7 +268,7 @@ function UserMenu({ user, role, logout }) {
                 setOpen(false)
                 await logout()
               }}
-              className="flex min-h-[42px] w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm font-semibold text-brand-red-700 transition hover:bg-brand-red-50"
+              className="flex min-h-[42px] w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm font-semibold text-nelna-green-dark-700 transition hover:bg-nelna-green-dark-50"
             >
               <LogOut className="h-4 w-4" aria-hidden="true" />
               <span>Logout</span>
@@ -326,8 +326,8 @@ function Navbar() {
       <div
         className={`border-b transition duration-300 ${
           isScrolled
-            ? 'nav-scrolled border-brand-green-100/80 bg-white/95 shadow-nav backdrop-blur-md'
-            : 'border-slate-200/80 bg-white/98'
+            ? 'nav-scrolled border-brand-green-100/80 bg-nelna-white/95 shadow-nav backdrop-blur-md'
+            : 'border-nelna-dark-soft/80 bg-nelna-white/98'
         }`}
       >
         <div className="page-shell flex min-h-header items-center gap-3 py-1.5">
@@ -338,7 +338,7 @@ function Navbar() {
                 <img
                   src={logo}
                   alt="Nelna Farm logo"
-                  className="relative h-10 w-10 rounded-full border border-white object-cover shadow-sm ring-1 ring-brand-green-100 sm:h-12 sm:w-12"
+                  className="relative h-10 w-10 rounded-full border border-nelna-white object-cover shadow-sm ring-1 ring-brand-green-100 sm:h-12 sm:w-12"
                 />
               </div>
               <div>
@@ -353,7 +353,7 @@ function Navbar() {
 
             <Link
               to={mangoRedirectPath}
-              className="hidden min-h-[44px] items-center gap-2 rounded-full border border-brand-green-200 bg-white px-2.5 py-1.5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-green-300 lg:inline-flex"
+              className="hidden min-h-[44px] items-center gap-2 rounded-full border border-brand-green-200 bg-nelna-white px-2.5 py-1.5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-green-300 lg:inline-flex"
               aria-label="Open Nelna Mango website"
             >
               <img
@@ -381,7 +381,7 @@ function Navbar() {
           <div className="ml-auto flex items-center gap-2 lg:hidden">
             <Link
               to={mangoRedirectPath}
-              className="inline-flex min-h-[42px] min-w-[42px] items-center justify-center rounded-full border border-brand-green-200 bg-white p-1 shadow-sm"
+              className="inline-flex min-h-[42px] min-w-[42px] items-center justify-center rounded-full border border-brand-green-200 bg-nelna-white p-1 shadow-sm"
               aria-label="Open Nelna Mango website"
             >
               <img
@@ -393,7 +393,7 @@ function Navbar() {
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
-              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm transition hover:border-brand-green-300 hover:text-brand-green-700"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-nelna-dark/25 bg-nelna-white text-nelna-dark/90 shadow-sm transition hover:border-brand-green-300 hover:text-brand-green-700"
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" aria-hidden="true" />
@@ -408,32 +408,32 @@ function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] bg-slate-900/52 backdrop-blur-[2px] lg:hidden"
+            className="fixed inset-0 z-[70] bg-nelna-dark/52 backdrop-blur-[2px] lg:hidden"
           >
             <motion.aside
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.2 }}
-              className="ml-auto flex h-full w-full max-w-[23rem] flex-col border-l border-slate-200 bg-gradient-to-b from-white via-white to-brand-green-50/35"
+              className="ml-auto flex h-full w-full max-w-[23rem] flex-col border-l border-nelna-dark-soft bg-gradient-to-b from-nelna-white via-nelna-white to-brand-green-50/35"
               aria-label="Mobile navigation panel"
             >
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-nelna-dark-soft px-5 py-4">
                 <div className="inline-flex items-center gap-2.5">
                   <img
                     src={logo}
                     alt="Nelna Farm logo"
-                    className="h-10 w-10 rounded-full border border-white object-cover shadow-sm ring-1 ring-brand-green-100"
+                    className="h-10 w-10 rounded-full border border-nelna-white object-cover shadow-sm ring-1 ring-brand-green-100"
                   />
                   <div>
                     <p className="text-sm font-bold tracking-[0.03em] text-brand-green-800">NELNA FARM</p>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">Navigation</p>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-nelna-dark/70">Navigation</p>
                   </div>
                 </div>
                 <button
                   type="button"
                   onClick={closeMobile}
-                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm"
+                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-nelna-dark/25 bg-nelna-white text-nelna-dark/90 shadow-sm"
                   aria-label="Close menu"
                 >
                   <X className="h-5 w-5" aria-hidden="true" />
@@ -449,7 +449,7 @@ function Navbar() {
                           className={`relative flex min-h-[46px] items-center rounded-xl border px-4 text-sm font-semibold transition ${
                             isActive
                               ? 'border-brand-green-200 bg-brand-green-50 text-brand-green-800 shadow-sm'
-                              : 'border-transparent text-slate-700 hover:border-brand-green-100 hover:bg-white'
+                              : 'border-transparent text-nelna-dark/90 hover:border-brand-green-100 hover:bg-nelna-white'
                           }`}
                         >
                           {isActive ? <span className="absolute bottom-1 left-4 h-0.5 w-9 rounded-full bg-brand-green-500" /> : null}
@@ -460,16 +460,16 @@ function Navbar() {
                   ))}
                 </div>
 
-                <div className="mt-5 border-t border-slate-200 pt-4">
+                <div className="mt-5 border-t border-nelna-dark-soft pt-4">
                   {dropdownMenus.map((menu) => {
                     const expanded = mobileExpanded === menu.id
 
                     return (
-                      <div key={menu.id} className="mb-2 rounded-xl border border-slate-200/80 bg-white/80">
+                      <div key={menu.id} className="mb-2 rounded-xl border border-nelna-dark-soft/80 bg-nelna-white/80">
                         <button
                           type="button"
                           onClick={() => setMobileExpanded((value) => (value === menu.id ? null : menu.id))}
-                          className="flex min-h-[46px] w-full items-center justify-between px-4 text-left text-sm font-semibold text-slate-800"
+                          className="flex min-h-[46px] w-full items-center justify-between px-4 text-left text-sm font-semibold text-nelna-dark"
                           aria-expanded={expanded}
                         >
                           <span>{t(menu.key, { defaultValue: menu.fallback })}</span>
@@ -483,7 +483,7 @@ function Navbar() {
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
                               transition={{ duration: 0.16 }}
-                              className="overflow-hidden border-t border-slate-200"
+                              className="overflow-hidden border-t border-nelna-dark-soft"
                             >
                               <div className="space-y-1 p-2">
                                 {menu.items.map((item) => (
@@ -495,7 +495,7 @@ function Navbar() {
                                       `block rounded-lg px-3 py-2 text-sm transition ${
                                         isActive
                                           ? 'bg-brand-green-50 font-semibold text-brand-green-800'
-                                          : 'text-slate-700 hover:bg-slate-100'
+                                          : 'text-nelna-dark/90 hover:bg-nelna-green-soft'
                                       }`
                                     }
                                   >
@@ -512,7 +512,7 @@ function Navbar() {
                 </div>
               </nav>
 
-              <div className="space-y-2 border-t border-slate-200 p-4">
+              <div className="space-y-2 border-t border-nelna-dark-soft p-4">
                 <Link to="/contact" onClick={closeMobile} className="btn-primary w-full justify-center text-sm">
                   Contact Sales
                 </Link>
@@ -520,7 +520,7 @@ function Navbar() {
                 <Link
                   to={mangoRedirectPath}
                   onClick={closeMobile}
-                  className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-brand-green-200 bg-white px-4 py-2 text-sm font-bold text-brand-green-800 shadow-sm transition hover:border-brand-green-300"
+                  className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-brand-green-200 bg-nelna-white px-4 py-2 text-sm font-bold text-brand-green-800 shadow-sm transition hover:border-brand-green-300"
                 >
                   <img src={mango3dLogo} alt="Nelna Mango" className="h-7 w-7 rounded-full object-cover" />
                   Visit Nelna Mango
@@ -531,7 +531,7 @@ function Navbar() {
                     <Link
                       to={role === 'distributor' ? '/distributor' : '/admin'}
                       onClick={closeMobile}
-                      className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-brand-green px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:brightness-95"
+                      className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-brand-green px-4 py-2.5 text-sm font-bold text-nelna-white shadow-sm transition hover:brightness-95"
                     >
                       {role === 'distributor' ? 'Open Distributor Portal' : 'Open Admin Portal'}
                     </Link>
@@ -541,7 +541,7 @@ function Navbar() {
                         closeMobile()
                         await logout()
                       }}
-                      className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-brand-red-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-red-600"
+                      className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-nelna-green-dark-500 px-4 py-2.5 text-sm font-bold text-nelna-white shadow-sm transition hover:bg-nelna-green-dark-600"
                     >
                       Logout
                     </button>

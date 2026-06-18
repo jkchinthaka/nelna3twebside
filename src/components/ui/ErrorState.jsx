@@ -7,10 +7,10 @@ function ErrorState({
   retryLabel = 'Retry',
 }) {
   return (
-    <div className="surface-card border-brand-red-100 bg-brand-red-50/40 text-center dark:border-brand-red-900 dark:bg-brand-red-950/20">
+    <div className="surface-card border-nelna-green-dark-100 bg-nelna-green-dark-50/40 text-center dark:border-nelna-green-dark-900 dark:bg-nelna-green-dark-950/20">
       <div className="mx-auto max-w-lg py-4">
-        <h3 className="text-lg font-semibold text-brand-red-700 dark:text-brand-red-200">{title}</h3>
-        <p className="mt-2 text-sm text-slate-700 dark:text-slate-200">{description}</p>
+        <h3 className="text-lg font-semibold text-nelna-green-dark-700 dark:text-nelna-green-dark-200">{title}</h3>
+        <p className="mt-2 text-sm text-nelna-dark/90 dark:text-nelna-white/90">{description}</p>
         {onRetry ? (
           <div className="mt-5">
             <Button variant="danger" onClick={onRetry}>

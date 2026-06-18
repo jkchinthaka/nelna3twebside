@@ -37,7 +37,7 @@ function Hero() {
         pagination={{
           clickable: true,
           renderBullet: function (index, className) {
-            return '<span class="' + className + ' !bg-white !w-2 !h-2 !opacity-40 hover:!opacity-100 transition-opacity duration-300"></span>'
+            return '<span class="' + className + ' !bg-nelna-white !w-2 !h-2 !opacity-40 hover:!opacity-100 transition-opacity duration-300"></span>'
           },
         }}
         loop={true}
@@ -72,7 +72,7 @@ function Hero() {
                   <div className="overflow-hidden">
                     <h1 className="flex flex-col text-5xl font-bold uppercase leading-none tracking-tight md:text-7xl lg:text-8xl drop-shadow-2xl">
                        {/* First part: White/Light */}
-                        <span className="text-white">
+                        <span className="text-nelna-white">
                           {slideLines[0]} {slideLines[1]}
                        </span>
                        {/* Second part: Brand Color/Gold */}
@@ -85,14 +85,14 @@ function Hero() {
                   {/* Decorative line */}
                   <div className="h-1 w-24 bg-gradient-to-r from-brand-400 to-transparent rounded-full" />
 
-                  <p className="text-lg font-light tracking-wide text-white md:text-2xl md:leading-relaxed max-w-xl drop-shadow-lg font-display">
+                  <p className="text-lg font-light tracking-wide text-nelna-white md:text-2xl md:leading-relaxed max-w-xl drop-shadow-lg font-display">
                     {slide.subtitle}
                   </p>
 
                   <div className="flex flex-wrap gap-5 pt-8">
                     <Link
                       to="/products"
-                      className="group relative inline-flex items-center overflow-hidden rounded-full bg-brand-600 px-10 py-4 text-base font-bold text-white shadow-float transition duration-300 hover:bg-brand-500 hover:scale-[1.02]"
+                      className="group relative inline-flex items-center overflow-hidden rounded-full bg-brand-600 px-10 py-4 text-base font-bold text-nelna-white shadow-float transition duration-300 hover:bg-brand-500 hover:scale-[1.02]"
                     >
                        <span className="z-10 flex items-center gap-2">
                         {slide.button || t('cta.orderNow')}
@@ -101,7 +101,7 @@ function Hero() {
                     </Link>
                     <Link
                       to="/contact"
-                      className="inline-flex items-center rounded-full border border-white/30 bg-white/5 px-10 py-4 text-base font-bold text-white backdrop-blur-sm transition duration-300 hover:bg-white hover:text-brand-900 hover:border-white"
+                      className="inline-flex items-center rounded-full border border-nelna-white/30 bg-nelna-white/5 px-10 py-4 text-base font-bold text-nelna-white backdrop-blur-sm transition duration-300 hover:bg-nelna-white hover:text-brand-900 hover:border-nelna-white"
                     >
                       {t('cta.contactUs')}
                     </Link>
@@ -115,13 +115,13 @@ function Hero() {
         {/* Custom Navigation Buttons (Simple & Elegant) */}
         <button
           onClick={() => swiperRef.current?.slidePrev()}
-          className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/10 bg-black/20 p-3 text-white backdrop-blur-md transition hover:bg-white hover:text-brand-900 focus:outline-none hidden md:block"
+          className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-nelna-white/10 bg-nelna-dark/20 p-3 text-nelna-white backdrop-blur-md transition hover:bg-nelna-white hover:text-brand-900 focus:outline-none hidden md:block"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
         <button
           onClick={() => swiperRef.current?.slideNext()}
-          className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/10 bg-black/20 p-3 text-white backdrop-blur-md transition hover:bg-white hover:text-brand-900 focus:outline-none hidden md:block"
+          className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-nelna-white/10 bg-nelna-dark/20 p-3 text-nelna-white backdrop-blur-md transition hover:bg-nelna-white hover:text-brand-900 focus:outline-none hidden md:block"
         >
           <ChevronRight className="h-6 w-6" />
         </button>

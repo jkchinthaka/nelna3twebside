@@ -29,7 +29,7 @@ function LanguageSwitcher({ className = "" }) {
               {isActive && (
                 <motion.div 
                   layoutId="lang-pill"
-                  className="absolute inset-0 z-[-1] rounded-full bg-white shadow-sm"
+                  className="absolute inset-0 z-[-1] rounded-full bg-nelna-white shadow-sm"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}

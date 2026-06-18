@@ -8,7 +8,7 @@ function Pagination({ page = 1, totalPages = 1, onPageChange }) {
       <Button variant="outline" onClick={() => onPageChange?.(page - 1)} disabled={page <= 1}>
         Previous
       </Button>
-      <p className="text-sm text-slate-600 dark:text-slate-300">Page {page} of {totalPages}</p>
+      <p className="text-sm text-nelna-dark/80 dark:text-nelna-white/80">Page {page} of {totalPages}</p>
       <Button variant="outline" onClick={() => onPageChange?.(page + 1)} disabled={page >= totalPages}>
         Next
       </Button>

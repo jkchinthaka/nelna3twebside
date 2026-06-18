@@ -113,31 +113,31 @@ function NewsDetail() {
 
       <SectionHeading eyebrow={article.category || 'News'} title={article.title} subtitle={article.summary} align="left" />
 
-      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+      <p className="text-xs font-semibold uppercase tracking-wide text-nelna-dark/70">
         Published {article.date || 'Date unavailable'}
       </p>
 
       {article.imageUrl ? (
-        <div className="overflow-hidden rounded-2xl border border-slate-200">
+        <div className="overflow-hidden rounded-2xl border border-nelna-dark-soft">
           <img src={article.imageUrl} alt={article.title || 'Nelna news image'} className="h-[380px] w-full object-cover" loading="lazy" />
         </div>
       ) : null}
 
       <article className="surface-card">
-        <div className="prose prose-slate max-w-none text-sm leading-relaxed text-slate-700">
+        <div className="prose max-w-none text-sm leading-relaxed text-nelna-dark/90">
           {article.body}
         </div>
       </article>
 
       {relatedNews.length ? (
         <section className="space-y-3">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Related News</h2>
+          <h2 className="font-display text-2xl font-bold text-nelna-dark">Related News</h2>
           <div className="grid gap-4 md:grid-cols-3">
             {relatedNews.map((item) => (
               <Link
                 key={item.id}
                 to={`/news/${item.id}`}
-                className="rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-slate-700 transition hover:border-brand-green-300 hover:text-brand-green-700"
+                className="rounded-xl border border-nelna-dark-soft bg-nelna-white p-4 text-sm font-semibold text-nelna-dark/90 transition hover:border-brand-green-300 hover:text-brand-green-700"
               >
                 {item.title}
               </Link>

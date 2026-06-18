@@ -12,7 +12,7 @@ function ProductGallery({ product }) {
 
   return (
     <div className="space-y-3">
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+      <div className="overflow-hidden rounded-2xl border border-nelna-dark-soft bg-nelna-green-soft">
         {images.length ? (
           <img
             src={images[Math.min(activeIndex, images.length - 1)]}
@@ -21,7 +21,7 @@ function ProductGallery({ product }) {
             loading="eager"
           />
         ) : (
-          <div className="flex h-[340px] items-center justify-center text-sm text-slate-500 md:h-[460px]">
+          <div className="flex h-[340px] items-center justify-center text-sm text-nelna-dark/70 md:h-[460px]">
             Product image will be available soon.
           </div>
         )}
@@ -35,7 +35,7 @@ function ProductGallery({ product }) {
               key={`${image}-${index}`}
               onClick={() => setActiveIndex(index)}
               className={`overflow-hidden rounded-lg border ${
-                index === activeIndex ? 'border-brand-green-500 ring-2 ring-brand-green-200' : 'border-slate-200'
+                index === activeIndex ? 'border-brand-green-500 ring-2 ring-brand-green-200' : 'border-nelna-dark-soft'
               }`}
               aria-label={`View product image ${index + 1}`}
             >

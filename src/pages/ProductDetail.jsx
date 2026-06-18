@@ -174,10 +174,10 @@ function ProductDetail() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-green-700">
               {product.category || 'Premium Poultry'}
             </p>
-            <h1 className="mt-2 font-display text-3xl font-extrabold text-slate-900 md:text-4xl">
+            <h1 className="mt-2 font-display text-3xl font-extrabold text-nelna-dark md:text-4xl">
               {product.name}
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-slate-600 md:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-nelna-dark/80 md:text-base">
               {product.description}
             </p>
           </div>
@@ -196,7 +196,7 @@ function ProductDetail() {
           </div>
 
           <div className="surface-card space-y-3">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700">Available Weights</h2>
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-nelna-dark/90">Available Weights</h2>
             {weights.length ? (
               <div className="flex flex-wrap gap-2">
                 {weights.map((weight) => (
@@ -209,39 +209,39 @@ function ProductDetail() {
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-slate-500">Available on request.</p>
+              <p className="text-sm text-nelna-dark/70">Available on request.</p>
             )}
           </div>
 
           <div className="surface-card space-y-2">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700">Storage and Handling</h2>
-            <p className="text-sm text-slate-600">{product.storage || 'Keep frozen. Storage guidance available per SKU.'}</p>
-            <p className="text-sm text-slate-600">Temperature: {product.temperatureRange || '-18°C recommended'}</p>
-            <p className="text-sm text-slate-600">Availability: {product.availability || 'Nationwide distribution'}</p>
-            <p className="text-sm text-slate-600">Plant/Location: {product.plant || 'Sri Lanka processing facilities'}</p>
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-nelna-dark/90">Storage and Handling</h2>
+            <p className="text-sm text-nelna-dark/80">{product.storage || 'Keep frozen. Storage guidance available per SKU.'}</p>
+            <p className="text-sm text-nelna-dark/80">Temperature: {product.temperatureRange || '-18°C recommended'}</p>
+            <p className="text-sm text-nelna-dark/80">Availability: {product.availability || 'Nationwide distribution'}</p>
+            <p className="text-sm text-nelna-dark/80">Plant/Location: {product.plant || 'Sri Lanka processing facilities'}</p>
           </div>
         </div>
       </div>
 
       <div className="grid gap-5 md:grid-cols-2">
         <section className="surface-card">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700">Nutrition (per 100g)</h2>
-          <div className="mt-3 grid grid-cols-2 gap-2 text-sm text-slate-600">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-nelna-dark/90">Nutrition (per 100g)</h2>
+          <div className="mt-3 grid grid-cols-2 gap-2 text-sm text-nelna-dark/80">
             <p>Calories</p>
-            <p className="font-semibold text-slate-800">{product.nutrition?.calories || 'N/A'}</p>
+            <p className="font-semibold text-nelna-dark">{product.nutrition?.calories || 'N/A'}</p>
             <p>Protein</p>
-            <p className="font-semibold text-slate-800">{product.nutrition?.protein || 'N/A'}</p>
+            <p className="font-semibold text-nelna-dark">{product.nutrition?.protein || 'N/A'}</p>
             <p>Fat</p>
-            <p className="font-semibold text-slate-800">{product.nutrition?.fat || 'N/A'}</p>
+            <p className="font-semibold text-nelna-dark">{product.nutrition?.fat || 'N/A'}</p>
           </div>
         </section>
 
         <section className="surface-card">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700">Ingredients</h2>
-          <p className="mt-3 text-sm leading-relaxed text-slate-600">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-nelna-dark/90">Ingredients</h2>
+          <p className="mt-3 text-sm leading-relaxed text-nelna-dark/80">
             {product.ingredients || 'See packaging label for ingredient declaration and allergen notes.'}
           </p>
-          <p className="mt-3 text-xs font-medium text-slate-500">
+          <p className="mt-3 text-xs font-medium text-nelna-dark/70">
             Batch reference: {product.batchSample || 'Available on request'}
           </p>
         </section>
@@ -249,7 +249,7 @@ function ProductDetail() {
 
       {relatedProducts.length ? (
         <section className="space-y-4">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Related Products</h2>
+          <h2 className="font-display text-2xl font-bold text-nelna-dark">Related Products</h2>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {relatedProducts.map((item) => (
               <ProductCard key={item.id || item.slug} product={item} />
@@ -275,7 +275,7 @@ function ProductDetail() {
         </Link>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 shadow-popover md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-nelna-dark-soft bg-nelna-white/95 p-3 shadow-popover md:hidden">
         <div className="mx-auto flex max-w-5xl items-center gap-2">
           <a
             href={`https://wa.me/${whatsappNumber}?text=${whatsappText}`}
@@ -287,7 +287,7 @@ function ProductDetail() {
           </a>
           <Link
             to="/contact"
-            className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-pill bg-brand-green px-3 text-sm font-semibold text-white transition hover:brightness-95"
+            className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-pill bg-brand-green px-3 text-sm font-semibold text-nelna-white transition hover:brightness-95"
           >
             Order Inquiry
           </Link>

@@ -16,7 +16,7 @@ function Tooltip({ content, children, className }) {
       <span
         role="tooltip"
         className={cn(
-          'pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 w-max -translate-x-1/2 rounded-md bg-slate-900 px-2 py-1 text-xs text-white shadow-popover transition',
+          'pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 w-max -translate-x-1/2 rounded-md bg-nelna-dark px-2 py-1 text-xs text-nelna-white shadow-popover transition',
           open ? 'opacity-100' : 'opacity-0',
           className,
         )}

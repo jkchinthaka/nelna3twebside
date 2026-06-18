@@ -34,13 +34,13 @@ function isValidPhone(value) {
 
 function PhoneContactLines() {
   return (
-    <div className="mt-2 space-y-2 text-sm font-medium text-slate-700">
+    <div className="mt-2 space-y-2 text-sm font-medium text-nelna-dark/90">
       {PHONE_CONTACT_GROUPS.map((group) => (
         <p key={group.prefix}>
-          <span className="font-semibold text-slate-800">{group.prefix}: </span>
+          <span className="font-semibold text-nelna-dark">{group.prefix}: </span>
           {group.numbers.map((number, index) => (
             <span key={number.tel}>
-              {index > 0 ? <span className="text-slate-400"> / </span> : null}
+              {index > 0 ? <span className="text-nelna-dark/60"> / </span> : null}
               <a
                 href={`tel:${number.tel}`}
                 className="text-brand-green-700 transition hover:text-brand-green-900 hover:underline"
@@ -224,7 +224,7 @@ function Contact() {
   ]
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-nelna-green-soft">
       <section className="surface-brand-green relative overflow-hidden py-16">
         <BrandChickenMascot
           size="sm"
@@ -236,8 +236,8 @@ function Contact() {
           <p className="inline-flex rounded-pill border border-brand-yellow-300/65 bg-brand-yellow-500/30 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-50">
             Contact and Sales Support
           </p>
-          <h1 className="mt-5 font-display text-4xl font-extrabold text-white md:text-5xl">Find Us and Get in Touch</h1>
-          <p className="mt-4 max-w-3xl text-base font-medium text-white/90 md:text-lg">
+          <h1 className="mt-5 font-display text-4xl font-extrabold text-nelna-white md:text-5xl">Find Us and Get in Touch</h1>
+          <p className="mt-4 max-w-3xl text-base font-medium text-nelna-white/90 md:text-lg">
             Reach Nelna Farm for product inquiries, distribution partnerships, and food-safety related questions.
           </p>
         </div>
@@ -264,11 +264,11 @@ function Contact() {
                       <card.icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <div className="flex-1">
-                      <h2 className="text-base font-semibold tracking-tight text-slate-900">{card.title}</h2>
+                      <h2 className="text-base font-semibold tracking-tight text-nelna-dark">{card.title}</h2>
                       {card.isPhoneCard ? (
                         <PhoneContactLines />
                       ) : (
-                        <div className="mt-2 space-y-1 text-sm font-medium text-slate-700">
+                        <div className="mt-2 space-y-1 text-sm font-medium text-nelna-dark/90">
                           {card.lines?.map((line) => (
                             <p key={line}>{line}</p>
                           ))}
@@ -292,8 +292,8 @@ function Contact() {
             )}
 
             <article className="surface-card p-5 md:p-6">
-              <h2 className="text-base font-semibold tracking-tight text-slate-900">Department Contacts</h2>
-              <ul className="mt-3 space-y-2 text-sm font-medium text-slate-700">
+              <h2 className="text-base font-semibold tracking-tight text-nelna-dark">Department Contacts</h2>
+              <ul className="mt-3 space-y-2 text-sm font-medium text-nelna-dark/90">
                 <li>Sales: sales@nelna.lk</li>
                 <li>Distributor Support: distributors@nelna.lk</li>
                 <li>Quality & Safety: quality@nelna.lk</li>
@@ -324,7 +324,7 @@ function Contact() {
               <h2 className="text-base font-bold text-brand-green-900 md:text-lg">
                 Distributor and Dealer Partnership Inquiries
               </h2>
-              <p className="mt-2 text-sm font-medium leading-relaxed text-slate-700">
+              <p className="mt-2 text-sm font-medium leading-relaxed text-nelna-dark/90">
                 Tell us your location, product interest, and expected monthly volume. Our sales team will review partnership opportunities, supply planning, and onboarding support.
               </p>
             </div>

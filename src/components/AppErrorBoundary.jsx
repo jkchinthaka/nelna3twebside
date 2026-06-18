@@ -5,11 +5,11 @@ function ErrorScreen({ error, errorInfo }) {
   const isDev = import.meta.env.DEV
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-nelna-green-soft text-nelna-dark">
       <div className="mx-auto max-w-3xl px-6 py-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-red-700">Application Error</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nelna-green-dark-700">Application Error</p>
         <h1 className="mt-3 text-3xl font-bold">Something went wrong</h1>
-        <p className="mt-3 text-sm leading-relaxed text-slate-600">
+        <p className="mt-3 text-sm leading-relaxed text-nelna-dark/80">
           We could not render this screen correctly. Please refresh the page or return to the home page.
           If this keeps happening, contact support.
         </p>
@@ -20,7 +20,7 @@ function ErrorScreen({ error, errorInfo }) {
           </button>
           <a
             href="/"
-            className="inline-flex min-h-[44px] items-center justify-center rounded-pill border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-pill border border-nelna-dark/25 px-5 py-2.5 text-sm font-semibold text-nelna-dark/90"
           >
             Go to Home
           </a>
@@ -28,15 +28,15 @@ function ErrorScreen({ error, errorInfo }) {
 
         {isDev ? (
           <>
-            <div className="mt-7 rounded-xl border border-red-200 bg-red-50 p-4">
-              <div className="mb-2 text-sm font-semibold text-red-800">Error</div>
-              <pre className="whitespace-pre-wrap text-xs text-red-900">{String(error?.stack || error)}</pre>
+            <div className="mt-7 rounded-xl border border-nelna-green-dark200 bg-nelna-green-soft50 p-4">
+              <div className="mb-2 text-sm font-semibold text-nelna-green-dark800">Error</div>
+              <pre className="whitespace-pre-wrap text-xs text-nelna-green-dark900">{String(error?.stack || error)}</pre>
             </div>
 
             {errorInfo?.componentStack ? (
-              <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4">
-                <div className="mb-2 text-sm font-semibold text-slate-800">Component stack</div>
-                <pre className="whitespace-pre-wrap text-xs text-slate-700">
+              <div className="mt-4 rounded-xl border border-nelna-dark-soft bg-nelna-white p-4">
+                <div className="mb-2 text-sm font-semibold text-nelna-dark">Component stack</div>
+                <pre className="whitespace-pre-wrap text-xs text-nelna-dark/90">
                   {String(errorInfo.componentStack)}
                 </pre>
               </div>
@@ -44,7 +44,7 @@ function ErrorScreen({ error, errorInfo }) {
           </>
         ) : null}
 
-        {!isDev ? <p className="mt-6 text-xs text-slate-500">Reference: UI runtime rendering error.</p> : null}
+        {!isDev ? <p className="mt-6 text-xs text-nelna-dark/70">Reference: UI runtime rendering error.</p> : null}
       </div>
     </div>
   )

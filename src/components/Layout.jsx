@@ -118,7 +118,7 @@ function Layout() {
       : undefined
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-nelna-white">
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <SEO
         title={meta.title}

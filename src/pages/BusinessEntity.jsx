@@ -18,9 +18,9 @@ const BusinessEntity = () => {
 
   if (!entity) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="min-h-screen flex items-center justify-center bg-nelna-green-soft">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-slate-800 mb-4">Entity Not Found</h2>
+          <h2 className="text-2xl font-bold text-nelna-dark mb-4">Entity Not Found</h2>
           <button 
             onClick={() => navigate('/about')}
             className="text-brand-600 hover:text-brand-700 font-medium flex items-center gap-2 mx-auto"
@@ -34,26 +34,26 @@ const BusinessEntity = () => {
 
   // Color mapping for dynamic themes
   const colorMap = {
-    orange: { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200', gradient: 'from-orange-500 to-amber-500' },
-    green: { bg: 'bg-brand-green-50', text: 'text-brand-green', border: 'border-brand-green-200', gradient: 'from-brand-green to-brand-green' },
-    'brand-green': { bg: 'bg-brand-green-50', text: 'text-brand-green', border: 'border-brand-green-200', gradient: 'from-brand-green to-brand-yellow-500' },
-    blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200', gradient: 'from-blue-600 to-cyan-500' },
-    emerald: { bg: 'bg-brand-green-50', text: 'text-brand-green', border: 'border-brand-green-200', gradient: 'from-brand-green to-brand-yellow-500' },
+    orange: { bg: 'bg-nelna-gold-soft', text: 'text-nelna-gold', border: 'border-nelna-gold-soft', gradient: 'from-nelna-gold to-nelna-gold' },
+    green: { bg: 'bg-nelna-green-soft', text: 'text-nelna-green', border: 'border-nelna-green-soft', gradient: 'from-nelna-green to-nelna-green' },
+    'brand-green': { bg: 'bg-nelna-green-soft', text: 'text-nelna-green', border: 'border-nelna-green-soft', gradient: 'from-nelna-green to-nelna-gold' },
+    blue: { bg: 'bg-nelna-green-soft', text: 'text-nelna-green-light', border: 'border-nelna-green-soft', gradient: 'from-nelna-green to-nelna-green-light' },
+    emerald: { bg: 'bg-nelna-green-soft', text: 'text-nelna-green', border: 'border-nelna-green-soft', gradient: 'from-nelna-green to-nelna-gold' },
   };
 
   const theme = colorMap[entity.themeColor] || colorMap.orange;
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-nelna-white">
       {/* Header / Hero */}
       <div className={`relative h-[40vh] min-h-[300px] w-full bg-gradient-to-r ${theme.gradient} overflow-hidden`}>
         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-nelna-white to-transparent"></div>
         
         <div className="relative h-full max-w-5xl mx-auto px-6 pt-24 pb-12 flex flex-col justify-center">
             <Link 
               to="/about" 
-              className="inline-flex items-center gap-2 text-white hover:text-white mb-6 transition-colors w-fit"
+              className="inline-flex items-center gap-2 text-nelna-white hover:text-nelna-white mb-6 transition-colors w-fit"
             >
               <ArrowLeft size={20} /> 
               <span className="font-medium">Back to Our Structure</span>
@@ -65,12 +65,12 @@ const BusinessEntity = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-white/20 backdrop-blur-md rounded-2xl w-fit text-white">
+                <div className="p-3 bg-nelna-white/20 backdrop-blur-md rounded-2xl w-fit text-nelna-white">
                   <entity.icon size={32} />
                 </div>
-                <span className="text-white font-medium tracking-wider uppercase text-sm border border-white/30 px-3 py-1 rounded-full">{entity.id === 'nelna-impex' ? 'Sustainability' : 'Business Unit'}</span>
+                <span className="text-nelna-white font-medium tracking-wider uppercase text-sm border border-nelna-white/30 px-3 py-1 rounded-full">{entity.id === 'nelna-impex' ? 'Sustainability' : 'Business Unit'}</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 drop-shadow-sm">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-nelna-white mb-4 drop-shadow-sm">
                 {entity.name}
               </h1>
             </motion.div>
@@ -79,7 +79,7 @@ const BusinessEntity = () => {
 
       {/* Main Content */}
       <div className="max-w-5xl mx-auto px-6 pb-24 -mt-20 relative z-10">
-        <div className="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 overflow-hidden">
+        <div className="bg-nelna-white rounded-[2.5rem] shadow-xl border border-nelna-green-soft overflow-hidden">
           <div className="grid lg:grid-cols-5 gap-0">
             
             {/* Left Content Area */}
@@ -94,8 +94,8 @@ const BusinessEntity = () => {
                    <div className={`h-px flex-1 ${theme.bg.replace('bg-', 'bg-')}-200 bg-opacity-50`}></div>
                  </h2>
                  
-                 <div className="prose prose-lg text-slate-600">
-                    <p className="leading-relaxed mb-6 first-letter:text-4xl first-letter:font-bold first-letter:text-slate-800 first-letter:mr-1 first-letter:float-left">
+                 <div className="prose prose-lg text-nelna-dark/80">
+                    <p className="leading-relaxed mb-6 first-letter:text-4xl first-letter:font-bold first-letter:text-nelna-dark first-letter:mr-1 first-letter:float-left">
                        {entity.description}
                     </p>
                     <p className="leading-relaxed">
@@ -109,7 +109,7 @@ const BusinessEntity = () => {
                          href={entity.extraAction.url} 
                          target="_blank" 
                          rel="noopener noreferrer"
-                         className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl text-white font-bold shadow-lg shadow-brand-green-200 transform hover:-translate-y-1 transition-all duration-300 bg-gradient-to-r ${theme.gradient}`}
+                         className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl text-nelna-white font-bold shadow-lg shadow-brand-green-200 transform hover:-translate-y-1 transition-all duration-300 bg-gradient-to-r ${theme.gradient}`}
                        >
                          {entity.extraAction.label}
                          <ExternalLink size={20} />
@@ -120,13 +120,13 @@ const BusinessEntity = () => {
             </div>
 
             {/* Right Sidebar Area */}
-            <div className={`lg:col-span-2 ${theme.bg} p-8 md:p-12 flex flex-col justify-center border-l border-slate-100 relative overflow-hidden`}>
+            <div className={`lg:col-span-2 ${theme.bg} p-8 md:p-12 flex flex-col justify-center border-l border-nelna-green-soft relative overflow-hidden`}>
                {/* Decorative Circles */}
                <div className={`absolute top-0 right-0 w-64 h-64 ${theme.bg.replace('50', '200')} rounded-full -mr-32 -mt-32 opacity-20 blur-3xl`}></div>
                <div className={`absolute bottom-0 left-0 w-48 h-48 ${theme.bg.replace('50', '200')} rounded-full -ml-24 -mb-24 opacity-20 blur-3xl`}></div>
 
                <div className="relative z-10 space-y-8">
-                  <h3 className="font-display font-bold text-2xl text-slate-800 mb-6">Key Highlights</h3>
+                  <h3 className="font-display font-bold text-2xl text-nelna-dark mb-6">Key Highlights</h3>
                   
                   {entity.stats && entity.stats.map((stat, idx) => (
                     <motion.div 
@@ -134,15 +134,15 @@ const BusinessEntity = () => {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 + (idx * 0.1) }}
-                      className="bg-white p-5 rounded-2xl shadow-sm border border-black/5"
+                      className="bg-nelna-white p-5 rounded-2xl shadow-sm border border-black/5"
                     >
                        <p className={`text-xs font-bold uppercase tracking-wider ${theme.text} mb-1`}>{stat.label}</p>
-                       <p className="text-slate-900 font-bold text-lg md:text-xl">{stat.value}</p>
+                       <p className="text-nelna-dark font-bold text-lg md:text-xl">{stat.value}</p>
                     </motion.div>
                   ))}
 
                   <div className="pt-6 border-t border-black/5">
-                     <p className="text-sm text-slate-500 italic">
+                     <p className="text-sm text-nelna-dark/70 italic">
                         "Committed to excellence in every aspect of our operations."
                      </p>
                   </div>
@@ -153,7 +153,7 @@ const BusinessEntity = () => {
         </div>
 
         {/* Bottom Navigation */}
-        <div className="mt-12 flex justify-between items-center text-sm font-medium text-slate-400">
+        <div className="mt-12 flex justify-between items-center text-sm font-medium text-nelna-dark/60">
            <span>Nelna Group of Companies</span>
            <Link to="/contact" className="hover:text-brand-600 transition-colors">Contact Us</Link>
         </div>

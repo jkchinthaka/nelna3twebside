@@ -11,7 +11,7 @@ import logo from '../assets/nelna-logo.jpg'
 
 // Top Bar Component
 const TopBar = () => (
-  <div className="bg-brand-950 text-white py-2 px-4 hidden lg:block border-b border-brand-800">
+  <div className="bg-brand-950 text-nelna-white py-2 px-4 hidden lg:block border-b border-brand-800">
     <div className="max-w-7xl mx-auto flex justify-between items-center text-xs font-medium tracking-wide">
       <div className="flex items-center gap-6">
         <span className="flex items-center gap-2 opacity-100 transition-opacity">
@@ -31,7 +31,7 @@ const TopBar = () => (
       </div>
       <div className="flex items-center gap-4">
         <span className="opacity-100">Island-wide Delivery Available</span>
-        <div className="h-3 w-px bg-white/20"></div>
+        <div className="h-3 w-px bg-nelna-white/20"></div>
         <Link to="/news" className="hover:text-gold-400 transition-colors">News & Updates</Link>
         <Link to="/contact" className="hover:text-gold-400 transition-colors">Support</Link>
       </div>
@@ -70,14 +70,14 @@ function Navbar() {
 
   // Styles
   const navBackground = isScrolled 
-    ? 'bg-white/90 backdrop-blur-md shadow-soft border-b border-brand-100/50' 
-    : isHome ? 'bg-transparent' : 'bg-white/90 backdrop-blur-md shadow-sm';
+    ? 'bg-nelna-white/90 backdrop-blur-md shadow-soft border-b border-brand-100/50' 
+    : isHome ? 'bg-transparent' : 'bg-nelna-white/90 backdrop-blur-md shadow-sm';
     
-  const textColor = isScrolled || !isHome ? 'text-brand-950' : 'text-white';
-  const logoText = isScrolled || !isHome ? 'text-brand-900' : 'text-white';
+  const textColor = isScrolled || !isHome ? 'text-brand-950' : 'text-nelna-white';
+  const logoText = isScrolled || !isHome ? 'text-brand-900' : 'text-nelna-white';
   const hoverColor = isScrolled || !isHome ? 'hover:text-brand-600' : 'hover:text-gold-400';
-  const iconColor = isScrolled || !isHome ? 'text-brand-800' : 'text-white';
-  const borderColor = isScrolled || !isHome ? 'border-brand-100' : 'border-white/20';
+  const iconColor = isScrolled || !isHome ? 'text-brand-800' : 'text-nelna-white';
+  const borderColor = isScrolled || !isHome ? 'border-brand-100' : 'border-nelna-white/20';
 
   return (
     <>
@@ -105,7 +105,7 @@ function Navbar() {
                 <span className={`font-display text-xl font-bold tracking-tight leading-none transition-colors ${logoText}`}>
                   Nelna
                 </span>
-                <span className={`text-[0.6rem] font-bold uppercase tracking-[0.2em] transition-colors ${isScrolled || !isHome ? 'text-brand-600' : 'text-white'}`}>
+                <span className={`text-[0.6rem] font-bold uppercase tracking-[0.2em] transition-colors ${isScrolled || !isHome ? 'text-brand-600' : 'text-nelna-white'}`}>
                   Farm
                 </span>
               </div>
@@ -137,7 +137,7 @@ function Navbar() {
                       transition={{ duration: 0.2 }}
                       className="absolute left-1/2 top-full mt-2 w-[650px] -translate-x-1/2 pt-2"
                     >
-                       <div className="rounded-2xl bg-white shadow-float border border-brand-100 overflow-hidden flex">
+                       <div className="rounded-2xl bg-nelna-white shadow-float border border-brand-100 overflow-hidden flex">
                           {/* Sidebar */}
                           <div className="w-1/3 bg-brand-50 p-6 flex flex-col justify-between">
                              <div>
@@ -152,23 +152,23 @@ function Navbar() {
                           {/* Links Grid */}
                           <div className="w-2/3 p-6 grid grid-cols-2 gap-x-8 gap-y-4">
                              <div>
-                                <h4 className="text-xs font-bold uppercase text-slate-400 tracking-wider mb-3">Categories</h4>
+                                <h4 className="text-xs font-bold uppercase text-nelna-dark/60 tracking-wider mb-3">Categories</h4>
                                 <ul className="space-y-2">
-                                   <li><NavLink to="/products?cat=fruits" className="block text-sm font-medium text-slate-700 hover:text-brand-600 transition-colors">Fresh Fruits</NavLink></li>
-                                   <li><NavLink to="/products?cat=vegetables" className="block text-sm font-medium text-slate-700 hover:text-brand-600 transition-colors">Vegetables</NavLink></li>
-                                   <li><NavLink to="/products?cat=dairy" className="block text-sm font-medium text-slate-700 hover:text-brand-600 transition-colors">Dairy Products</NavLink></li>
+                                   <li><NavLink to="/products?cat=fruits" className="block text-sm font-medium text-nelna-dark/90 hover:text-brand-600 transition-colors">Fresh Fruits</NavLink></li>
+                                   <li><NavLink to="/products?cat=vegetables" className="block text-sm font-medium text-nelna-dark/90 hover:text-brand-600 transition-colors">Vegetables</NavLink></li>
+                                   <li><NavLink to="/products?cat=dairy" className="block text-sm font-medium text-nelna-dark/90 hover:text-brand-600 transition-colors">Dairy Products</NavLink></li>
                                 </ul>
                              </div>
                              <div>
-                                <h4 className="text-xs font-bold uppercase text-slate-400 tracking-wider mb-3">Highlights</h4>
+                                <h4 className="text-xs font-bold uppercase text-nelna-dark/60 tracking-wider mb-3">Highlights</h4>
                                 <div className="space-y-3">
                                    <NavLink to="/products/mangoes" className="flex items-center gap-3 group">
-                                      <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-orange-500 group-hover:bg-orange-200 transition-colors">
+                                      <div className="w-10 h-10 rounded-lg bg-nelna-gold-soft flex items-center justify-center text-nelna-gold group-hover:bg-nelna-gold-soft transition-colors">
                                         <Leaf className="w-5 h-5" />
                                       </div>
                                       <div>
-                                        <span className="block text-sm font-bold text-slate-800 group-hover:text-orange-600">Premium Mangoes</span>
-                                        <span className="text-[10px] text-slate-500">Seasonal Special</span>
+                                        <span className="block text-sm font-bold text-nelna-dark group-hover:text-nelna-gold">Premium Mangoes</span>
+                                        <span className="text-[10px] text-nelna-dark/70">Seasonal Special</span>
                                       </div>
                                    </NavLink>
                                 </div>
@@ -207,31 +207,31 @@ function Navbar() {
             {/* Actions */}
             <div className="flex items-center gap-4">
               {/* Search Trigger (Visual Only for now) */}
-              <button className={`p-2 rounded-full transition-all hover:bg-black/10 ${iconColor}`}>
+              <button className={`p-2 rounded-full transition-all hover:bg-nelna-dark/10 ${iconColor}`}>
                  <Search className="w-5 h-5" />
               </button>
               
               {user ? (
                 <div className="relative group pl-2">
                    <div className={`cursor-pointer flex items-center gap-2 pr-1 ${textColor}`}>
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold shadow-md">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-nelna-white font-bold shadow-md">
                         {user.name.charAt(0)}
                       </div>
                       <span className="text-sm font-bold hidden sm:block max-w-[80px] truncate">{user.name}</span>
                    </div>
                     {/* User Dropdown */}
                    <div className="absolute right-0 top-full mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right">
-                      <div className="overflow-hidden rounded-xl bg-white border border-slate-100 shadow-float py-1">
+                      <div className="overflow-hidden rounded-xl bg-nelna-white border border-nelna-green-soft shadow-float py-1">
                         {role === 'admin' && (
-                           <NavLink to="/admin" className="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50">
+                           <NavLink to="/admin" className="flex items-center gap-2 px-4 py-2.5 text-sm text-nelna-dark/90 hover:bg-nelna-green-soft">
                               <ShieldCheck className="w-4 h-4 text-brand-500" /> Admin Panel
                            </NavLink>
                         )}
-                        <NavLink to="/orders" className="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50">
+                        <NavLink to="/orders" className="flex items-center gap-2 px-4 py-2.5 text-sm text-nelna-dark/90 hover:bg-nelna-green-soft">
                            <ShoppingBag className="w-4 h-4 text-brand-500" /> My Orders
                         </NavLink>
-                        <div className="h-px bg-slate-100 my-1"></div>
-                        <button onClick={logout} className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50">
+                        <div className="h-px bg-nelna-green-soft my-1"></div>
+                        <button onClick={logout} className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-nelna-green-dark600 hover:bg-nelna-green-soft50">
                            <LogOut className="w-4 h-4" /> Logout
                         </button>
                       </div>
@@ -242,8 +242,8 @@ function Navbar() {
                   to="/login"
                   className={`hidden lg:flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold shadow-lg transform transition-all hover:-translate-y-0.5 hover:shadow-xl ${
                     isScrolled || !isHome 
-                      ? 'bg-brand-600 text-white hover:bg-brand-700 shadow-brand-200' 
-                      : 'bg-white text-brand-950 hover:bg-brand-50'
+                      ? 'bg-brand-600 text-nelna-white hover:bg-brand-700 shadow-brand-200' 
+                      : 'bg-nelna-white text-brand-950 hover:bg-brand-50'
                   }`}
                 >
                   <User className="w-4 h-4" />
@@ -254,7 +254,7 @@ function Navbar() {
               {/* Mobile Toggle */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`lg:hidden p-2 rounded-full transition-colors ${iconColor} hover:bg-white/10`}
+                className={`lg:hidden p-2 rounded-full transition-colors ${iconColor} hover:bg-nelna-white/10`}
               >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -271,43 +271,43 @@ function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-0 z-[60] bg-white lg:hidden"
+            className="fixed inset-0 z-[60] bg-nelna-white lg:hidden"
           >
              <div className="h-full flex flex-col">
-                <div className="flex justify-between items-center p-6 border-b border-slate-100">
+                <div className="flex justify-between items-center p-6 border-b border-nelna-green-soft">
                    <div className="flex items-center gap-2">
                       <img src={logo} alt="Nelna" className="w-8 h-8 rounded-full" />
                       <span className="font-display font-bold text-lg text-brand-900">Nelna Farm</span>
                    </div>
-                   <button onClick={() => setIsOpen(false)} className="p-2 bg-slate-100 rounded-full text-slate-600">
+                   <button onClick={() => setIsOpen(false)} className="p-2 bg-nelna-green-soft rounded-full text-nelna-dark/80">
                       <X className="w-6 h-6" />
                    </button>
                 </div>
                 
                 <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
                    <div className="flex flex-col gap-4">
-                      <NavLink to="/" onClick={() => setIsOpen(false)} className={({isActive}) => `text-2xl font-display font-bold ${isActive ? 'text-brand-600' : 'text-slate-800'}`}>{t('nav.home')}</NavLink>
-                      <NavLink to="/products" onClick={() => setIsOpen(false)} className={({isActive}) => `text-2xl font-display font-bold ${isActive ? 'text-brand-600' : 'text-slate-800'}`}>{t('nav.products')}</NavLink>
-                      <NavLink to="/about" onClick={() => setIsOpen(false)} className={({isActive}) => `text-2xl font-display font-bold ${isActive ? 'text-brand-600' : 'text-slate-800'}`}>{t('nav.about')}</NavLink>
-                      <NavLink to="/quality-safety" onClick={() => setIsOpen(false)} className={({isActive}) => `text-2xl font-display font-bold ${isActive ? 'text-brand-600' : 'text-slate-800'}`}>{t('nav.quality')}</NavLink>
-                      <NavLink to="/contact" onClick={() => setIsOpen(false)} className={({isActive}) => `text-2xl font-display font-bold ${isActive ? 'text-brand-600' : 'text-slate-800'}`}>{t('nav.contact')}</NavLink>
+                      <NavLink to="/" onClick={() => setIsOpen(false)} className={({isActive}) => `text-2xl font-display font-bold ${isActive ? 'text-brand-600' : 'text-nelna-dark'}`}>{t('nav.home')}</NavLink>
+                      <NavLink to="/products" onClick={() => setIsOpen(false)} className={({isActive}) => `text-2xl font-display font-bold ${isActive ? 'text-brand-600' : 'text-nelna-dark'}`}>{t('nav.products')}</NavLink>
+                      <NavLink to="/about" onClick={() => setIsOpen(false)} className={({isActive}) => `text-2xl font-display font-bold ${isActive ? 'text-brand-600' : 'text-nelna-dark'}`}>{t('nav.about')}</NavLink>
+                      <NavLink to="/quality-safety" onClick={() => setIsOpen(false)} className={({isActive}) => `text-2xl font-display font-bold ${isActive ? 'text-brand-600' : 'text-nelna-dark'}`}>{t('nav.quality')}</NavLink>
+                      <NavLink to="/contact" onClick={() => setIsOpen(false)} className={({isActive}) => `text-2xl font-display font-bold ${isActive ? 'text-brand-600' : 'text-nelna-dark'}`}>{t('nav.contact')}</NavLink>
                    </div>
                    
-                   <div className="h-px bg-slate-100 w-full"></div>
+                   <div className="h-px bg-nelna-green-soft w-full"></div>
                    
                    <div className="flex flex-col gap-3">
                       <Link to="/products?cat=fruits" onClick={() => setIsOpen(false)} className="flex items-center justify-between p-4 rounded-xl bg-brand-50 text-brand-900 font-medium">
                          <span>Fresh Fruits</span>
                          <ArrowRight className="w-4 h-4" />
                       </Link>
-                      <Link to="/contact" onClick={() => setIsOpen(false)} className="flex items-center justify-between p-4 rounded-xl bg-slate-50 text-slate-900 font-medium">
+                      <Link to="/contact" onClick={() => setIsOpen(false)} className="flex items-center justify-between p-4 rounded-xl bg-nelna-green-soft text-nelna-dark font-medium">
                          <span>Support Center</span>
                          <Phone className="w-4 h-4" />
                       </Link>
                    </div>
 
                    {!user && (
-                      <NavLink to="/login" onClick={() => setIsOpen(false)} className="mt-auto w-full py-4 bg-brand-600 text-white rounded-xl font-bold text-center shadow-lg active:scale-95 transition-transform">
+                      <NavLink to="/login" onClick={() => setIsOpen(false)} className="mt-auto w-full py-4 bg-brand-600 text-nelna-white rounded-xl font-bold text-center shadow-lg active:scale-95 transition-transform">
                          {t('nav.login')}
                       </NavLink>
                    )}
