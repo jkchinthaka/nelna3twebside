@@ -7,9 +7,10 @@ function PartnerStrip() {
 
   const categories = [
     "Premium Retail Chains",
-    "International QSR Networks",
+    "International QSR",
     "5-Star Hospitality",
-    "Global Export Markets"
+    "Catering & Events",
+    "Government & Defence"
   ]
 
   return (
@@ -47,7 +48,7 @@ function PartnerStrip() {
               x: ['0%', '-33.33%'],
             }}
             transition={{
-              duration: 40,
+              duration: 90,
               ease: 'linear',
               repeat: Infinity,
             }}
