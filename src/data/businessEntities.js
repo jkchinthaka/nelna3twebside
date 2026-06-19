@@ -40,8 +40,8 @@ export const entities = [
     color: "bg-nelna-green-soft", 
     themeColor: "blue",
     shortDesc: "Global import and export operations.",
-    description: `Nelna Impex (Pvt) Ltd has determined to protect the environment, thus started to give a value to many pollutant leftovers in many parts of the country. The throughways of slaughterhouses, fish markets, other poultry processors, and hotels are collected and converted the same to protein sources for Poultry Feed.`,
-    description2: `This project is a novelty but gives definite protection to the environment whilst giving an economical value to many pollutants. The product named “PPP” is being produced by Nelna Impex (Pvt) Ltd at present with the above vision but apart from that, it has created many job opportunities, Hygiene for many, prevention of endemics like Dengi and Malaria and finally supporting the economic and social development of the country. At present, the protein source for animal feed is being imported as a fish meal but with “PPP” such importation will be reduced limiting the country ‘s hard currency outflow.`,
+    description: `Nelna Impex (Pvt) Ltd is determined to protect the environment, thus started to give value to many pollutant leftovers in many parts of the country, by collecting from slaughterhouses, fish markets, other poultry processors, and hotels and then converting the same to protein sources for Poultry Feed.`,
+    description2: `This project is a novelty, but gives definite protection to the environment whilst giving an economic value to many pollutants. The product named “PPP” is being produced by Nelna Impex (Pvt) Ltd. at present. It has created many job opportunities, hygiene for many, prevention of endemics like Dengi and Malaria, and finally supporting the economic and social development of the country. At present, the protein source for animal feed is being imported as a fish meal but with “PPP” such importation will be reduced limiting the country ‘s hard currency outflow.`,
     highlight: "Eco-Friendly Innovation (PPP Project)",
      stats: [
         { label: "Focus", value: "Sustainability" },
