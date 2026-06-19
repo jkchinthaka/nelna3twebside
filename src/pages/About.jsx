@@ -91,7 +91,7 @@ function About() {
               Cultivating <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-gold-400">Trust</span>,<br />
               Delivering <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-gold-400">Excellence</span>.
             </h1>
-            <p className="text-lg text-nelna-white/90 max-w-2xl font-light leading-relaxed">
+            <p className="text-lg !text-nelna-white/90 max-w-2xl font-light leading-relaxed">
               Leading the way in ethical poultry production and premium agriculture in Sri Lanka.
             </p>
           </motion.div>
@@ -318,7 +318,7 @@ function About() {
                 Our Promise
               </span>
               <h2 className="section-heading-lg font-display text-nelna-white mb-6">Why Customers Choose Us</h2>
-              <p className="text-nelna-white/88 text-body-lg font-light max-w-read mx-auto">
+              <p className="!text-nelna-white/90 text-body-lg font-light max-w-read mx-auto">
                 We believe that true quality comes from a harmony of nature, science, and integrity. Here is how we differ from the rest.
               </p>
             </div>
@@ -341,7 +341,7 @@ function About() {
                    </div>
                    
                    <h3 className="text-2xl font-bold mb-4 font-display text-nelna-white group-hover:text-nelna-gold transition-colors">{item.title}</h3>
-                   <p className="text-nelna-white/85 leading-relaxed group-hover:text-nelna-white transition-colors">
+                   <p className="!text-nelna-white/85 leading-relaxed group-hover:!text-nelna-white transition-colors">
                      {item.desc}
                    </p>
                 </motion.div>
@@ -418,7 +418,7 @@ function About() {
              <h2 className="text-4xl md:text-5xl font-display font-bold text-nelna-white mb-6">
                Experience the Nelna Difference Today
              </h2>
-             <p className="text-xl text-nelna-white/90 mb-10 font-light">
+             <p className="text-xl !text-nelna-white/90 mb-10 font-light">
                Join thousands of satisfied families and businesses who trust us for their daily nutrition.
              </p>
              <div className="flex flex-wrap gap-4">

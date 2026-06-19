@@ -175,8 +175,8 @@ function QualitySafety() {
          <div className="absolute top-1/2 right-10 -translate-y-1/2 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl"></div>
 
          <div className="relative max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-display font-bold mb-6">Our Seals of Assurance</h2>
-            <p className="text-brand-100 mb-12 text-lg">
+            <h2 className="text-3xl font-display font-bold !text-nelna-white mb-6">Our Seals of Assurance</h2>
+            <p className="!text-nelna-white/90 mb-12 text-lg max-w-read mx-auto">
               We are proud to be certified by leading local and international bodies for safety, quality management, and Halal compliance.
             </p>
             
