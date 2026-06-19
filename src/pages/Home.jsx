@@ -22,7 +22,7 @@ import { certifications } from '../data/certifications.js'
 
 import processCardImg1 from '../assets/nelna-gallery-11.jpg'
 import processCardImg2 from '../assets/26_LE_upscale_ultra_x2_strength_75_similarity_50.jpg'
-import processCardImg3 from '../assets/nelna-gallery-13.jpg'
+import processCardImg3 from '../assets/Cold-Chain Distribution.png'
 
 function Home() {
    const processCards = [
@@ -37,8 +37,8 @@ function Home() {
          image: processCardImg2,
       },
       {
-         title: 'Reliable Cold-chain Distribution',
-         desc: 'Timely chilled distribution keeps supply fresh from processing to retail shelves.',
+         title: 'Cold-Chain Distribution',
+         desc: 'GPS-tracked refrigerated logistics to ensure freshness until delivery.',
          image: processCardImg3,
       },
    ]
