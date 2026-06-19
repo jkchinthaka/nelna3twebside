@@ -142,7 +142,7 @@ function Footer() {
             <ul className="site-footer__contact-list">
               <li>
                 <MapPin className="site-footer__contact-icon" aria-hidden="true" />
-                <span>{COMPANY_ADDRESS_FULL}</span>
+                <span className="site-footer__contact-text">{COMPANY_ADDRESS_FULL}</span>
               </li>
               <li>
                 <Phone className="site-footer__contact-icon" aria-hidden="true" />
@@ -171,7 +171,7 @@ function Footer() {
               </li>
               <li>
                 <Clock className="site-footer__contact-icon" aria-hidden="true" />
-                <span>{businessHours}</span>
+                <span className="site-footer__contact-text">{businessHours}</span>
               </li>
             </ul>
             <div className="site-footer__social">

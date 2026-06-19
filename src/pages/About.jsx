@@ -184,7 +184,7 @@ function About() {
                       </h3>
                       <div className="prose-long read-content space-y-4">
                       <p className="text-nelna-dark/80">
-                         Since the establishment of Nelna as a sole-proprietorship in 1996, its growth has been very predictable, due to the great entrepreneurial mind of <span className="text-brand-700 font-bold">Mr. W. G. E. G. Nanayakkara</span> (Managing Director).
+                         Since the establishment of Nelna as a sole-proprietorship in 1996, its growth has been very predictable, due to the great entrepreneurial mind of <span className="text-brand-700 font-bold">Mr. W. G. E. G. Nanayakkara</span> (Chairman).
                       </p>
                       <p className="text-nelna-dark/80">
                          His timely input and ability to perfectly execute his thoughts to action, has outspread the group's operations into diversified business sectors such as <span className="font-medium text-nelna-dark">ready-to-eat processed food products, chicken meat products, maize cultivation, fruit cultivation, organic fertilizer, and disease-free day-old chicks.</span>
