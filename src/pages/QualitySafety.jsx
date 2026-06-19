@@ -10,6 +10,7 @@ import {
   Truck,
   Leaf,
   ArrowRight,
+  Award,
 } from 'lucide-react'
 
 import SectionHeading from '../components/SectionHeading.jsx'
@@ -49,8 +50,13 @@ const technologies = [
   { name: 'GPS Tracking', icon: Truck },
 ]
 
+function isRenderableIcon(Icon) {
+  return typeof Icon === 'function'
+}
+
 function QualitySafety() {
   const prefersReducedMotion = useReducedMotion()
+  const certList = Array.isArray(certifications) ? certifications : []
   const motionInitial = prefersReducedMotion ? false : { opacity: 0, x: -30 }
   const motionAnimate = { opacity: 1, x: 0 }
   const cardInitial = prefersReducedMotion ? false : { opacity: 0, y: 30 }
@@ -116,7 +122,10 @@ function QualitySafety() {
           Our quality and safety standards
         </h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {standards.map((item, idx) => (
+          {standards.map((item, idx) => {
+            const Icon = isRenderableIcon(item.icon) ? item.icon : ShieldCheck
+
+            return (
             <motion.article
               key={item.title}
               initial={cardInitial}
@@ -126,12 +135,13 @@ function QualitySafety() {
               className="flex h-full flex-col rounded-3xl border border-nelna-green-soft bg-nelna-white p-8 shadow-xl transition-shadow duration-300 hover:shadow-2xl"
             >
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-nelna-green-soft text-nelna-green">
-                <item.icon className="h-7 w-7" aria-hidden="true" />
+                <Icon className="h-7 w-7" aria-hidden="true" />
               </div>
               <h3 className="mb-3 font-display text-xl font-bold text-nelna-dark">{item.title}</h3>
               <p className="flex-1 text-sm leading-relaxed text-nelna-dark/85">{item.body}</p>
             </motion.article>
-          ))}
+            )
+          })}
         </div>
       </section>
 
@@ -145,17 +155,21 @@ function QualitySafety() {
               subtitle="We invest in systems and monitoring to support consistent quality across production and distribution."
             />
             <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-              {technologies.map((tech) => (
+              {technologies.map((tech) => {
+                const TechIcon = isRenderableIcon(tech.icon) ? tech.icon : CheckCircle2
+
+                return (
                 <li
                   key={tech.name}
                   className="flex items-center gap-4 rounded-xl border border-nelna-green-soft bg-nelna-white p-4 shadow-sm"
                 >
                   <span className="rounded-lg bg-nelna-green-soft p-2 text-nelna-green">
-                    <tech.icon className="h-5 w-5" aria-hidden="true" />
+                    <TechIcon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span className="font-semibold text-nelna-dark">{tech.name}</span>
                 </li>
-              ))}
+                )
+              })}
             </ul>
           </div>
 
@@ -203,24 +217,40 @@ function QualitySafety() {
           </div>
 
           <div className="cert-trust-panel">
-            <ul className="cert-trust-panel__grid">
-              {certifications.map((cert) => (
-                <li key={cert.id} className="cert-trust-panel__item">
-                  <div className="cert-trust-panel__logo">
-                    <img
-                      src={cert.imageUrl}
-                      alt={`${cert.shortName} certification logo`}
-                      className="cert-trust-panel__logo-img"
-                      loading="lazy"
-                      decoding="async"
-                      width={72}
-                      height={72}
-                    />
-                  </div>
-                  <span className="cert-trust-panel__label">{cert.shortName}</span>
-                </li>
-              ))}
-            </ul>
+            {certList.length > 0 ? (
+              <ul className="cert-trust-panel__grid">
+                {certList.map((cert) => {
+                  const CertIcon = isRenderableIcon(cert.icon) ? cert.icon : Award
+
+                  return (
+                  <li key={cert.id ?? cert.shortName} className="cert-trust-panel__item">
+                    <div className="cert-trust-panel__logo">
+                      {cert.imageUrl ? (
+                        <img
+                          src={cert.imageUrl}
+                          alt={`${cert.shortName ?? 'Certification'} certification logo`}
+                          className="cert-trust-panel__logo-img"
+                          loading="lazy"
+                          decoding="async"
+                          width={72}
+                          height={72}
+                        />
+                      ) : (
+                        <span className="flex h-full w-full items-center justify-center text-nelna-green" aria-hidden="true">
+                          <CertIcon className="h-8 w-8" />
+                        </span>
+                      )}
+                    </div>
+                    <span className="cert-trust-panel__label">{cert.shortName ?? 'Certification'}</span>
+                  </li>
+                  )
+                })}
+              </ul>
+            ) : (
+              <p className="cert-trust-section__subtitle text-center">
+                Certification details are available on request.
+              </p>
+            )}
           </div>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

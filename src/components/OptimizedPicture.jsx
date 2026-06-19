@@ -1,3 +1,30 @@
+const FORMAT_MIME = {
+  webp: 'image/webp',
+  avif: 'image/avif',
+  jpg: 'image/jpeg',
+  jpeg: 'image/jpeg',
+  png: 'image/png',
+}
+
+function normalizePictureSources(sources) {
+  if (!sources) return []
+
+  if (Array.isArray(sources)) {
+    return sources.filter((source) => source?.src)
+  }
+
+  if (typeof sources === 'object') {
+    return Object.entries(sources)
+      .filter(([, srcSet]) => Boolean(srcSet))
+      .map(([format, srcSet]) => ({
+        src: srcSet,
+        type: FORMAT_MIME[format] ?? `image/${format}`,
+      }))
+  }
+
+  return []
+}
+
 function OptimizedPicture({
   picture,
   alt,
@@ -12,9 +39,11 @@ function OptimizedPicture({
     return null
   }
 
+  const sources = normalizePictureSources(picture.sources)
+
   return (
     <picture className={className}>
-      {picture.sources?.map((source) => (
+      {sources.map((source) => (
         <source key={`${source.type}-${source.src}`} srcSet={source.src} type={source.type} />
       ))}
       <img
