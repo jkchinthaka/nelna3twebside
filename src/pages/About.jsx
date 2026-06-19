@@ -318,7 +318,7 @@ function About() {
                 Our Promise
               </span>
               <h2 className="section-heading-lg font-display text-nelna-white mb-6">Why Customers Choose Us</h2>
-              <p className="text-brand-100 text-body-lg font-light max-w-read mx-auto">
+              <p className="text-nelna-white/88 text-body-lg font-light max-w-read mx-auto">
                 We believe that true quality comes from a harmony of nature, science, and integrity. Here is how we differ from the rest.
               </p>
             </div>
@@ -340,8 +340,8 @@ function About() {
                      <item.icon className="w-8 h-8" />
                    </div>
                    
-                   <h3 className="text-2xl font-bold mb-4 font-display text-nelna-white group-hover:text-brand-200 transition-colors">{item.title}</h3>
-                   <p className="text-brand-100 leading-relaxed group-hover:text-brand-100 transition-colors">
+                   <h3 className="text-2xl font-bold mb-4 font-display text-nelna-white group-hover:text-nelna-gold transition-colors">{item.title}</h3>
+                   <p className="text-nelna-white/85 leading-relaxed group-hover:text-nelna-white transition-colors">
                      {item.desc}
                    </p>
                 </motion.div>
