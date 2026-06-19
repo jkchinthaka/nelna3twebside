@@ -8,11 +8,9 @@ import {
   Mail,
   MapPin,
   Phone,
-  ShieldCheck,
   Twitter,
 } from 'lucide-react'
 import wordmarkLogo from '../assets/Vector Smart Object.png'
-import BrandChickenMascot from './BrandChickenMascot.jsx'
 import {
   COMPANY_ADDRESS_FULL,
   getWhatsAppHref,
@@ -36,17 +34,18 @@ const qualityLinks = [
 
 const companyLinks = [
   { to: '/about', label: 'About Nelna' },
-  { to: '/process', label: 'Our Process' },
   { to: '/news', label: 'News & Updates' },
   { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
 ]
 
-const businessHours = [
-  'Monday to Friday: 8:00 AM - 5:00 PM',
-  'Saturday: 8:00 AM - 12:00 PM',
-  'Sunday: Closed',
+const certificationLinks = [
+  { to: '/certifications', label: 'ISO 22000' },
+  { to: '/certifications', label: 'HACCP & GMP' },
+  { to: '/certifications', label: 'Halal Certified' },
 ]
+
+const businessHours = 'Mon–Fri 8:00–17:00 · Sat 8:00–12:00'
 
 const socialLinks = [
   { label: 'Facebook', Icon: Facebook, href: import.meta.env.VITE_SOCIAL_FACEBOOK || '' },
@@ -88,70 +87,94 @@ function Footer() {
   }
 
   return (
-    <footer className="surface-brand-green pt-14">
-      <div className="page-shell">
-        <section className="rounded-2xl border border-nelna-white/20 bg-nelna-dark/10 p-6 md:p-8">
-          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div>
-              <h2 className="font-display text-xl font-bold text-nelna-white md:text-2xl">
-                Stay Connected with Nelna Farm
-              </h2>
-              <p className="mt-2 text-sm text-nelna-white/90 md:text-base">
-                Receive product updates, quality announcements, and news from Sri Lanka&apos;s trusted poultry brand.
-              </p>
-            </div>
-            <form className="flex flex-col gap-3 sm:flex-row" onSubmit={handleNewsletterSubmit} noValidate>
-              <input
-                type="email"
-                className="field-base rounded-pill border-nelna-white/25 bg-nelna-white/10 text-nelna-white placeholder:text-nelna-white/60"
-                placeholder="Enter your email"
-                aria-label="Newsletter email"
-                value={newsletterEmail}
-                onChange={(event) => {
-                  setNewsletterEmail(event.target.value)
-                  if (newsletterStatus.type !== 'idle') {
-                    setNewsletterStatus({ type: 'idle', message: '' })
-                  }
-                }}
-                required
-              />
-              <button type="submit" className="btn-yellow whitespace-nowrap px-5 py-3">
-                Subscribe
-              </button>
-            </form>
-            {newsletterStatus.message ? (
-              <p
-                className={`text-xs font-medium lg:col-span-2 ${
-                  newsletterStatus.type === 'error' ? 'text-nelna-green-light' : 'text-nelna-gold'
-                }`}
-                aria-live="polite"
-              >
-                {newsletterStatus.message}
-              </p>
-            ) : null}
+    <footer className="site-footer" aria-label="Site footer">
+      <div className="site-footer__shell">
+        <div className="site-footer__newsletter">
+          <div className="site-footer__newsletter-copy">
+            <p className="site-footer__newsletter-eyebrow">Stay Connected</p>
+            <h2 className="site-footer__newsletter-title">Nelna Farm Updates</h2>
           </div>
-        </section>
-
-        <section className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-12">
-          <div className="relative space-y-4 sm:col-span-2 lg:col-span-4">
-            <BrandChickenMascot
-              size="xs"
-              className="pointer-events-none absolute -right-1 top-0 opacity-25 lg:-right-4"
+          <form className="site-footer__newsletter-form" onSubmit={handleNewsletterSubmit} noValidate>
+            <input
+              type="email"
+              className="site-footer__newsletter-input"
+              placeholder="Your email address"
+              aria-label="Newsletter email"
+              value={newsletterEmail}
+              onChange={(event) => {
+                setNewsletterEmail(event.target.value)
+                if (newsletterStatus.type !== 'idle') {
+                  setNewsletterStatus({ type: 'idle', message: '' })
+                }
+              }}
+              required
             />
-            <Link to="/" className="relative inline-flex items-center gap-3" aria-label="Nelna Farm home">
+            <button type="submit" className="btn-yellow site-footer__newsletter-btn">
+              Subscribe
+            </button>
+          </form>
+          {newsletterStatus.message ? (
+            <p
+              className={`site-footer__newsletter-status site-footer__newsletter-status--${newsletterStatus.type}`}
+              aria-live="polite"
+            >
+              {newsletterStatus.message}
+            </p>
+          ) : null}
+        </div>
+
+        <div className="site-footer__grid">
+          <div className="site-footer__brand">
+            <Link to="/" className="site-footer__logo-link" aria-label="Nelna Farm home">
               <img
                 src={wordmarkLogo}
                 alt="Nelna Farm"
                 loading="lazy"
-                width={250}
-                height={64}
-                className="h-14 w-[220px] object-cover object-center md:h-16 md:w-[250px]"
+                width={220}
+                height={56}
+                className="site-footer__logo"
               />
             </Link>
-            <p className="max-w-md text-sm leading-relaxed text-nelna-white/90">
-              Nelna Farm (Pvt) Ltd is a Sri Lankan poultry and food company delivering premium protein products with certified quality, food safety, and dependable nationwide distribution.
+            <p className="site-footer__brand-text">
+              Nelna Farm (Pvt) Ltd delivers premium poultry and food products with certified quality,
+              food safety, and dependable nationwide distribution across Sri Lanka.
             </p>
-            <div className="flex items-center gap-3">
+            <ul className="site-footer__contact-list">
+              <li>
+                <MapPin className="site-footer__contact-icon" aria-hidden="true" />
+                <span>{COMPANY_ADDRESS_FULL}</span>
+              </li>
+              <li>
+                <Phone className="site-footer__contact-icon" aria-hidden="true" />
+                <span>
+                  {TELEPHONES.map((phone, index) => (
+                    <span key={phone.tel}>
+                      {index > 0 ? ' / ' : null}
+                      <a href={`tel:${phone.tel}`} className="site-footer__link">
+                        {phone.display}
+                      </a>
+                    </span>
+                  ))}
+                </span>
+              </li>
+              <li>
+                <Phone className="site-footer__contact-icon" aria-hidden="true" />
+                <a href={`tel:${MOBILE.tel}`} className="site-footer__link">
+                  Mobile: {MOBILE.display}
+                </a>
+              </li>
+              <li>
+                <Mail className="site-footer__contact-icon" aria-hidden="true" />
+                <a href="mailto:info@nelna.lk" className="site-footer__link">
+                  info@nelna.lk
+                </a>
+              </li>
+              <li>
+                <Clock className="site-footer__contact-icon" aria-hidden="true" />
+                <span>{businessHours}</span>
+              </li>
+            </ul>
+            <div className="site-footer__social">
               {socialLinks
                 .filter(({ href }) => Boolean(href))
                 .map(({ label, Icon, href }) => (
@@ -160,7 +183,7 @@ function Footer() {
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-nelna-white/25 bg-nelna-white/10 text-nelna-white transition hover:border-nelna-gold hover:text-nelna-gold"
+                    className="site-footer__social-link"
                     aria-label={`Follow Nelna Farm on ${label}`}
                   >
                     <Icon className="h-4 w-4" aria-hidden="true" />
@@ -169,12 +192,12 @@ function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-3">
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">For Business</h3>
-            <ul className="space-y-2">
+          <div className="site-footer__column">
+            <h3 className="site-footer__heading">For Business</h3>
+            <ul className="site-footer__links">
               {businessLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-nelna-white/90 transition hover:text-nelna-gold">
+                  <Link to={item.to} className="site-footer__link">
                     {item.label}
                   </Link>
                 </li>
@@ -182,12 +205,12 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Quality & Safety</h3>
-            <ul className="space-y-2">
+          <div className="site-footer__column">
+            <h3 className="site-footer__heading">Quality &amp; Safety</h3>
+            <ul className="site-footer__links">
               {qualityLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-nelna-white/90 transition hover:text-nelna-gold">
+                  <Link to={item.to} className="site-footer__link">
                     {item.label}
                   </Link>
                 </li>
@@ -195,99 +218,53 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Certifications</h3>
-            <div className="flex flex-col gap-2">
-              {['Halal Certified', 'ISO 22000', 'HACCP & GMP', 'Farm Fresh Quality'].map((item) => (
-                <span
-                  key={item}
-                  className="inline-flex w-fit rounded-md bg-nelna-white/15 px-3 py-1 text-xs font-semibold text-nelna-white ring-1 ring-nelna-white/20"
-                >
-                  ✓ {item}
-                </span>
-              ))}
-            </div>
-            <h3 className="mb-4 mt-6 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Company</h3>
-            <ul className="space-y-2">
+          <div className="site-footer__column">
+            <h3 className="site-footer__heading">Company</h3>
+            <ul className="site-footer__links">
               {companyLinks.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-sm text-nelna-white/90 transition hover:text-nelna-gold">
+                  <Link to={item.to} className="site-footer__link">
                     {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
-        </section>
-
-        <section className="grid gap-8 border-t border-nelna-white/15 py-8 sm:grid-cols-2">
-          <div>
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Contact</h3>
-            <ul className="space-y-3 text-sm text-nelna-white/90">
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
-                <span>{COMPANY_ADDRESS_FULL}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
-                <span>
-                  <span className="font-semibold text-nelna-white">Tel: </span>
-                  {TELEPHONES.map((phone, index) => (
-                    <span key={phone.tel}>
-                      {index > 0 ? <span className="text-nelna-white/60"> / </span> : null}
-                      <a href={`tel:${phone.tel}`} className="transition hover:text-nelna-gold">
-                        {phone.display}
-                      </a>
-                    </span>
-                  ))}
-                </span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
-                <a href={`tel:${MOBILE.tel}`} className="transition hover:text-nelna-gold">
-                  Mobile: {MOBILE.display}
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
-                <a href="mailto:info@nelna.lk" className="transition hover:text-nelna-gold">info@nelna.lk</a>
-              </li>
-              <li className="flex items-center gap-2">
-                <a
-                  href={getWhatsAppHref()}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-semibold text-nelna-green transition hover:underline"
-                >
-                  WhatsApp: {MOBILE.display}
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
-                <span>ISO 22000, HACCP, GMP, Halal</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-nelna-gold">Business Hours</h3>
-            <ul className="space-y-2 text-sm text-nelna-white/90">
-              {businessHours.map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-nelna-gold" aria-hidden="true" />
-                  <span>{item}</span>
+            <h3 className="site-footer__heading site-footer__heading--spaced">Certifications</h3>
+            <ul className="site-footer__links">
+              {certificationLinks.map((item) => (
+                <li key={item.label}>
+                  <Link to={item.to} className="site-footer__link">
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
+            <p className="site-footer__whatsapp">
+              <a
+                href={getWhatsAppHref()}
+                target="_blank"
+                rel="noreferrer"
+                className="site-footer__link site-footer__link--accent"
+              >
+                WhatsApp: {MOBILE.display}
+              </a>
+            </p>
           </div>
-        </section>
+        </div>
 
-        <section className="flex flex-col gap-3 border-t border-nelna-white/15 py-5 text-xs text-nelna-white/85 sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright {currentYear} Nelna Farm (Pvt) Ltd. All rights reserved.</p>
-          <div className="flex flex-wrap items-center gap-4">
-            <Link to="/privacy" className="transition hover:text-nelna-gold">Privacy</Link>
-            <Link to="/terms" className="transition hover:text-nelna-gold">Terms</Link>
+        <div className="site-footer__bottom">
+          <p className="site-footer__copyright">
+            Copyright {currentYear} Nelna Farm (Pvt) Ltd. All rights reserved.
+          </p>
+          <div className="site-footer__legal">
+            <Link to="/privacy" className="site-footer__link">
+              Privacy
+            </Link>
+            <Link to="/terms" className="site-footer__link">
+              Terms
+            </Link>
           </div>
-        </section>
+        </div>
       </div>
     </footer>
   )

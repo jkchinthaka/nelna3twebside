@@ -1,24 +1,17 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import BrandChickenMascot from './BrandChickenMascot.jsx'
 
 function AnimatedCTASection({ title, body, primary, secondary }) {
   return (
-    <section className="section-green section-spacing relative overflow-hidden" aria-labelledby="final-cta-heading">
-      <BrandChickenMascot
-        size="md"
-        variant="float"
-        animate
-        className="pointer-events-none absolute -bottom-4 right-4 z-0 hidden opacity-90 sm:block md:right-10 lg:-bottom-2"
-      />
-      <div className="page-shell relative z-10 flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
-        <div className="max-w-2xl">
-          <h2 id="final-cta-heading" className="font-display section-heading-lg font-bold text-nelna-white">
+    <section className="site-cta-band" aria-labelledby="final-cta-heading">
+      <div className="site-cta-band__shell">
+        <div className="site-cta-band__content">
+          <h2 id="final-cta-heading" className="site-cta-band__title">
             {title}
           </h2>
-          <p className="mt-4 text-body leading-relaxed text-nelna-white/90 md:text-body-lg">{body}</p>
+          <p className="site-cta-band__body">{body}</p>
         </div>
-        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+        <div className="site-cta-band__actions">
           <Link
             to={primary?.href || '/contact'}
             className="btn-primary w-full justify-center gap-2 sm:w-auto"

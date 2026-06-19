@@ -259,28 +259,22 @@ function Home() {
          </section>
 
          {/* 7. Distributor opportunity */}
-         <section id="distributor-opportunity" className="surface-brand-green py-16">
-            <div className="page-shell">
-               <div className="grid gap-8 rounded-3xl border border-nelna-white/20 bg-nelna-white/5 p-8 md:grid-cols-[1.3fr_0.7fr] md:items-center md:p-10">
-                  <div>
-                     <p className="inline-flex rounded-pill border border-nelna-gold/40 bg-nelna-gold/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-nelna-gold">
-                        Distributor and Dealer Network
-                     </p>
-                     <h2 className="mt-4 font-display text-3xl font-bold text-nelna-white md:text-4xl">
-                        Become a Nelna Farm Distributor
-                     </h2>
-                     <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-nelna-white/90 md:text-base">
-                        Partner with Nelna Farm to access stable supply, category support, and a recognized brand trusted by customers across Sri Lanka.
-                     </p>
-                  </div>
-                  <div className="flex flex-col gap-3 md:items-end">
-                     <Link to="/contact#distributor-partnership" className="btn-yellow w-full justify-center md:w-auto md:min-w-[220px]">
-                        Become a Distributor
-                     </Link>
-                     <Link to="/contact" className="btn-secondary w-full justify-center md:w-auto md:min-w-[220px]">
-                        Contact Sales Team
-                     </Link>
-                  </div>
+         <section id="distributor-opportunity" className="site-cta-band site-cta-band--distributor">
+            <div className="site-cta-band__shell">
+               <div className="site-cta-band__content">
+                  <p className="site-cta-band__eyebrow">Distributor and Dealer Network</p>
+                  <h2 className="site-cta-band__title">Become a Nelna Farm Distributor</h2>
+                  <p className="site-cta-band__body">
+                     Partner with Nelna Farm to access stable supply, category support, and a recognized brand trusted by customers across Sri Lanka.
+                  </p>
+               </div>
+               <div className="site-cta-band__actions">
+                  <Link to="/contact#distributor-partnership" className="btn-yellow w-full justify-center sm:w-auto md:min-w-[200px]">
+                     Become a Distributor
+                  </Link>
+                  <Link to="/contact" className="btn-secondary w-full justify-center sm:w-auto md:min-w-[200px]">
+                     Contact Sales Team
+                  </Link>
                </div>
             </div>
          </section>
