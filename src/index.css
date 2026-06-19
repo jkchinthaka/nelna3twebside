@@ -405,10 +405,21 @@ textarea,
   white-space: nowrap;
 }
 
+@media (max-width: 1023px) {
+  :root {
+    --topbar-height: 2.125rem;
+    --header-height: 4.5rem;
+  }
+}
+
 .site-topbar__tagline--compact {
   width: 100%;
   text-align: center;
   letter-spacing: 0.08em;
+}
+
+.site-topbar__shell--compact {
+  justify-content: center;
 }
 
 .site-topbar__actions {
@@ -473,10 +484,11 @@ textarea,
 }
 
 .site-navbar__shell {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 0.75rem 1rem;
+  justify-content: space-between;
+  gap: 0.75rem;
   max-width: 80rem;
   width: 100%;
   min-width: 0;
@@ -488,25 +500,17 @@ textarea,
 
 @media (min-width: 640px) {
   .site-navbar__shell {
-    gap: 1rem 1.25rem;
+    gap: 1rem;
     padding-inline: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .site-navbar__shell {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem 1.25rem;
     padding-inline: 2rem;
-  }
-}
-
-@media (max-width: 1023px) {
-  .site-navbar__shell {
-    grid-template-columns: 1fr auto;
-  }
-
-  .site-navbar__nav,
-  .site-navbar__cta {
-    display: none;
   }
 }
 
@@ -595,7 +599,7 @@ textarea,
 }
 
 .site-navbar__nav {
-  display: flex;
+  display: none;
   justify-content: center;
   min-width: 0;
 }
@@ -632,6 +636,16 @@ textarea,
   .nav-cta {
     padding-inline: 1rem;
     font-size: 0.8125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-navbar__nav {
+    display: flex;
+  }
+
+  .site-navbar__cta {
+    display: flex;
   }
 }
 
@@ -727,10 +741,11 @@ textarea,
 }
 
 .site-navbar__cta {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .nav-cta {
@@ -792,17 +807,16 @@ textarea,
   outline-offset: 2px;
 }
 
+.site-navbar__mobile {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 @media (min-width: 1024px) {
   .site-navbar__mobile {
     display: none;
-  }
-}
-
-@media (max-width: 1023px) {
-  .site-navbar__mobile {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
   }
 }
 

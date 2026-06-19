@@ -23,7 +23,7 @@ import {
 
 const directLinks = [
   { to: '/', key: 'nav.home', fallback: 'Home' },
-  { to: '/about', key: 'nav.about', fallback: 'About' },
+  { to: '/about', key: 'nav.about', fallback: 'About Us' },
   { to: '/quality-safety', key: 'nav.quality', fallback: 'Quality & Safety' },
   { to: '/contact', key: 'nav.contact', fallback: 'Contact' },
 ]
@@ -61,26 +61,9 @@ function isPathActive(pathname, to) {
 function TopBar() {
   return (
     <>
-      <div className="site-topbar md:hidden" aria-label="Site notice">
-        <div className="site-topbar__shell">
+      <div className="site-topbar lg:hidden" aria-label="Site notice">
+        <div className="site-topbar__shell site-topbar__shell--compact">
           <p className="site-topbar__tagline site-topbar__tagline--compact">Trusted Since 1996</p>
-        </div>
-      </div>
-
-      <div className="site-topbar hidden md:block lg:hidden" aria-label="Contact shortcuts">
-        <div className="site-topbar__shell">
-          <p className="site-topbar__tagline hidden min-[860px]:block">Trusted Sri Lankan Poultry Since 1996</p>
-          <p className="site-topbar__tagline min-[860px]:hidden">Trusted Since 1996</p>
-          <div className="site-topbar__actions">
-            <a href={`tel:${PRIMARY_PHONE.tel}`} className="site-topbar__chip">
-              <Phone className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-              <span>{PRIMARY_PHONE.display}</span>
-            </a>
-            <a href={MAP_LINK} target="_blank" rel="noreferrer" className="site-topbar__chip">
-              <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-              <span className="max-w-[8.5rem] truncate sm:max-w-none">{COMPANY_LOCATION_SHORT}</span>
-            </a>
-          </div>
         </div>
       </div>
 
@@ -111,7 +94,7 @@ function DesktopNav({ pathname, t }) {
   const [openMenu, setOpenMenu] = useState(null)
 
   return (
-    <nav className="site-navbar__nav" aria-label="Primary navigation">
+    <nav className="site-navbar__nav hidden lg:flex" aria-label="Primary navigation">
       <div className="site-nav-pill">
         {directLinks.map((link) => (
           <NavLink key={link.to} to={link.to} className="relative">
@@ -330,7 +313,7 @@ function Navbar() {
 
       <div className={`site-navbar ${navbarStateClass}`}>
         <div className="site-navbar__shell">
-          <div className="site-navbar__brand">
+          <div className="site-navbar__brand min-w-0 shrink">
             <Link to="/" className="site-navbar__logo-link" aria-label="Nelna Farm home">
               <span className="site-navbar__logo-frame">
                 <img
@@ -342,7 +325,7 @@ function Navbar() {
                   decoding="async"
                 />
               </span>
-              <div>
+              <div className="min-w-0">
                 <p className="site-navbar__wordmark-title">NELNA</p>
                 <p className="site-navbar__wordmark-sub">Farm</p>
               </div>
@@ -351,14 +334,14 @@ function Navbar() {
 
           <DesktopNav key={pathname} pathname={pathname} t={t} />
 
-          <div className="site-navbar__cta">
+          <div className="site-navbar__cta hidden lg:flex">
             <Link to="/contact" className="nav-cta">
               Contact Sales
             </Link>
             {user ? <UserMenu user={user} role={role} logout={logout} /> : null}
           </div>
 
-          <div className="site-navbar__mobile">
+          <div className="site-navbar__mobile lg:hidden">
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
