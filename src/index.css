@@ -1818,20 +1818,6 @@ textarea,
   }
 }
 
-.hero-section__mascot {
-  position: absolute;
-  right: clamp(0.75rem, 3vw, 2rem);
-  bottom: clamp(9rem, 20vw, 11.5rem);
-  z-index: 5;
-  opacity: 0.92;
-}
-
-@media (max-width: 767px) {
-  .hero-section__mascot {
-    display: none;
-  }
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
