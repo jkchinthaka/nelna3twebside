@@ -332,13 +332,16 @@ function Navbar() {
         <div className="site-navbar__shell">
           <div className="site-navbar__brand">
             <Link to="/" className="site-navbar__logo-link" aria-label="Nelna Farm home">
-              <img
-                src={logo}
-                alt="Nelna Farm logo"
-                className="site-navbar__logo-img"
-                width={64}
-                height={64}
-              />
+              <span className="site-navbar__logo-frame">
+                <img
+                  src={logo}
+                  alt="Nelna Farm logo"
+                  className="site-navbar__logo-img"
+                  width={128}
+                  height={128}
+                  decoding="async"
+                />
+              </span>
               <div>
                 <p className="site-navbar__wordmark-title">NELNA</p>
                 <p className="site-navbar__wordmark-sub">Farm</p>
@@ -390,13 +393,16 @@ function Navbar() {
             >
               <div className="flex items-center justify-between border-b border-nelna-dark-soft px-5 py-4">
                 <div className="inline-flex items-center gap-2.5">
-                  <img
-                    src={logo}
-                    alt="Nelna Farm logo"
-                    className="site-navbar__logo-img"
-                    width={44}
-                    height={44}
-                  />
+                  <span className="site-navbar__logo-frame">
+                    <img
+                      src={logo}
+                      alt="Nelna Farm logo"
+                      className="site-navbar__logo-img"
+                      width={128}
+                      height={128}
+                      decoding="async"
+                    />
+                  </span>
                   <div>
                     <p className="text-sm font-bold tracking-[0.03em] text-nelna-green">NELNA FARM</p>
                     <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-nelna-dark-bg opacity-70">
