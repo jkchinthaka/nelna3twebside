@@ -96,7 +96,7 @@
   --header-height: 4rem;
   --topbar-height: 2.25rem;
   --header-offset: var(--header-height);
-  --hero-height: clamp(320px, 62svh, 640px);
+  --hero-height: 100svh;
   --font-heading: 'Poppins', 'Sora', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif;
   --font-body: 'Inter', 'Manrope', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif;
   --text-xs: 0.75rem;
@@ -625,6 +625,11 @@ textarea,
   border-top: 3px solid var(--nelna-green);
 }
 
+/* Override global :where(p, li) dark-green text inside the footer */
+.site-footer :where(p, li, span) {
+  color: var(--nelna-white);
+}
+
 .site-footer__shell {
   margin: 0 auto;
   max-width: 78rem;
@@ -816,6 +821,12 @@ textarea,
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
+}
+
+.site-footer__contact-text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--nelna-white);
 }
 
 .site-footer__contact-icon {
@@ -1418,21 +1429,16 @@ textarea,
 
 .hero-home {
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .hero-section {
   position: relative;
   width: 100%;
+  min-height: 100svh;
   min-height: var(--hero-height);
   overflow: hidden;
   background-color: var(--nelna-green-dark);
-}
-
-@media (min-width: 1024px) {
-  .hero-section {
-    min-height: clamp(480px, 72svh, 720px);
-  }
 }
 
 .hero-carousel {
@@ -1441,22 +1447,32 @@ textarea,
   z-index: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .hero-carousel__swiper,
-.hero-carousel__slide {
+.hero-carousel .swiper,
+.hero-carousel .swiper-wrapper {
   width: 100%;
   height: 100%;
 }
 
+.hero-carousel__slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .hero-carousel__image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   user-select: none;
   -webkit-user-drag: none;
-  transform: scale(1.02);
 }
 
 .hero-carousel__overlay {
@@ -1535,7 +1551,7 @@ textarea,
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 6.5rem;
+  bottom: clamp(7.5rem, 18vw, 9rem);
   z-index: 3;
   display: flex;
   justify-content: center;
@@ -1545,7 +1561,7 @@ textarea,
 
 @media (min-width: 768px) {
   .hero-carousel__pagination {
-    bottom: 7.25rem;
+    bottom: clamp(8rem, 14vw, 9.5rem);
   }
 }
 
@@ -1637,7 +1653,7 @@ textarea,
   position: absolute;
   left: 1rem;
   right: 1rem;
-  bottom: 1.5rem;
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
   z-index: 10;
   max-width: 68.75rem;
   margin-inline: auto;
@@ -1648,13 +1664,14 @@ textarea,
   box-shadow: 0 18px 50px rgba(37, 27, 37, 0.16);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  pointer-events: auto;
 }
 
 @media (min-width: 768px) {
   .achievement-bar {
     left: 1.5rem;
     right: 1.5rem;
-    bottom: 2.25rem;
+    bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
     padding: 1rem 1.5rem;
     border-radius: 1.5rem;
   }
@@ -1804,7 +1821,7 @@ textarea,
 .hero-section__mascot {
   position: absolute;
   right: clamp(0.75rem, 3vw, 2rem);
-  bottom: clamp(7.5rem, 14vw, 9.5rem);
+  bottom: clamp(9rem, 20vw, 11.5rem);
   z-index: 5;
   opacity: 0.92;
 }
