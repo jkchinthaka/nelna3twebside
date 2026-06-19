@@ -1,17 +1,15 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Clock, Mail, MapPin, MessageCircle, Navigation, Phone } from 'lucide-react'
 import {
   Button,
-  ErrorState,
   Input,
-  LoadingSpinner,
   SectionTitle,
   Textarea,
 } from '../components/ui/index.js'
 import { addInquiry } from '../services/inquiryService.js'
 import { hasNotificationBackend, notifyEmail, notifyWhatsApp } from '../services/notificationService.js'
-import { getContactSettings } from '../services/contactSettingsService.js'
 import BrandChickenMascot from '../components/BrandChickenMascot.jsx'
+import ContactMapEmbed from '../components/ContactMapEmbed.jsx'
 import {
   getDefaultContactSettings,
   getWhatsAppHref,
@@ -56,9 +54,7 @@ function PhoneContactLines() {
 }
 
 function Contact() {
-  const [contactSettings, setContactSettings] = useState(defaultSettings)
-  const [settingsLoading, setSettingsLoading] = useState(true)
-  const [settingsError, setSettingsError] = useState('')
+  const contactSettings = defaultSettings
 
   const [formState, setFormState] = useState({
     name: '',
@@ -70,36 +66,6 @@ function Contact() {
   const [status, setStatus] = useState(null)
   const [touched, setTouched] = useState({})
   const [submitted, setSubmitted] = useState(false)
-
-  useEffect(() => {
-    let mounted = true
-
-    const loadSettings = async () => {
-      setSettingsLoading(true)
-      setSettingsError('')
-
-      try {
-        const settings = await getContactSettings()
-        if (mounted) {
-          setContactSettings(settings)
-        }
-      } catch {
-        if (mounted) {
-          setContactSettings(defaultSettings)
-        }
-      } finally {
-        if (mounted) {
-          setSettingsLoading(false)
-        }
-      }
-    }
-
-    loadSettings()
-
-    return () => {
-      mounted = false
-    }
-  }, [])
 
   const formErrors = useMemo(() => {
     const errors = {}
@@ -246,52 +212,40 @@ function Contact() {
       </section>
 
       <section className="page-shell -mt-8 pb-12">
-        {settingsError ? (
-          <div className="mb-5">
-            <ErrorState title="Using fallback contact details" description={settingsError} onRetry={() => window.location.reload()} retryLabel="Retry" />
-          </div>
-        ) : null}
-
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="space-y-4">
-            {settingsLoading ? (
-              <div className="surface-card flex min-h-[220px] items-center justify-center p-6">
-                <LoadingSpinner label="Loading contact settings..." />
-              </div>
-            ) : (
-              detailCards.map((card) => (
-                <article key={card.title} className="surface-card p-5 md:p-6">
-                  <div className="flex items-start gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green-50 text-brand-green-700">
-                      <card.icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <h2 className="text-base font-semibold tracking-tight text-nelna-dark">{card.title}</h2>
-                      {card.isPhoneCard ? (
-                        <PhoneContactLines />
-                      ) : (
-                        <div className="mt-2 space-y-1 text-sm font-medium text-nelna-dark/90">
-                          {card.lines?.map((line) => (
-                            <p key={line}>{line}</p>
-                          ))}
-                        </div>
-                      )}
-                      {card.actionHref ? (
-                        <a
-                          href={card.actionHref}
-                          target={card.actionHref.startsWith('http') ? '_blank' : undefined}
-                          rel="noreferrer"
-                          className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-green-700"
-                        >
-                          {card.actionLabel}
-                          <Navigation className="h-4 w-4" aria-hidden="true" />
-                        </a>
-                      ) : null}
-                    </div>
+            {detailCards.map((card) => (
+              <article key={card.title} className="surface-card p-5 md:p-6">
+                <div className="flex items-start gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green-50 text-brand-green-700">
+                    <card.icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="text-base font-semibold tracking-tight text-nelna-dark">{card.title}</h2>
+                    {card.isPhoneCard ? (
+                      <PhoneContactLines />
+                    ) : (
+                      <div className="mt-2 space-y-1 text-sm font-medium text-nelna-dark/90">
+                        {card.lines?.map((line) => (
+                          <p key={line}>{line}</p>
+                        ))}
+                      </div>
+                    )}
+                    {card.actionHref ? (
+                      <a
+                        href={card.actionHref}
+                        target={card.actionHref.startsWith('http') ? '_blank' : undefined}
+                        rel="noreferrer"
+                        className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-green-700"
+                      >
+                        {card.actionLabel}
+                        <Navigation className="h-4 w-4" aria-hidden="true" />
+                      </a>
+                    ) : null}
                   </div>
-                </article>
-              ))
-            )}
+                </div>
+              </article>
+            ))}
 
             <article className="surface-card p-5 md:p-6">
               <h2 className="text-base font-semibold tracking-tight text-nelna-dark">Department Contacts</h2>
@@ -312,11 +266,9 @@ function Contact() {
             </article>
 
             <article className="surface-card overflow-hidden p-0">
-              <iframe
-                title="Nelna Farm location"
-                src={safeSettings.mapEmbedUrl}
-                loading="lazy"
-                className="h-72 w-full border-0"
+              <ContactMapEmbed
+                embedUrl={safeSettings.mapEmbedUrl}
+                mapLink={safeSettings.mapLink}
               />
             </article>
           </div>

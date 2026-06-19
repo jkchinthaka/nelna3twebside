@@ -1,19 +1,14 @@
 const ABSOLUTE_URL_PATTERN = /^(?:[a-z][a-z0-9+.-]*:)?\/\//i;
 
-function normalizeBaseUrl(value) {
-  const cleaned = String(value || '').trim().replace(/\s+/g, '');
-  return cleaned.replace(/\/+$/, '');
-}
-
 function normalizePath(value) {
   return String(value || '').trim().replace(/\s+/g, '');
 }
 
-export const API_BASE_URL = normalizeBaseUrl(
-  import.meta.env.VITE_API_BASE_URL ||
-  import.meta.env.VITE_API_BASE ||
-  (import.meta.env.DEV ? '' : 'http://localhost:5000'),
-);
+import { hasAdminApiBackend, resolveApiBaseUrl } from '../utils/apiBackend.js';
+
+export { hasAdminApiBackend, resolveApiBaseUrl };
+
+export const API_BASE_URL = resolveApiBaseUrl();
 
 function buildUrl(input) {
   const normalizedInput = normalizePath(input);

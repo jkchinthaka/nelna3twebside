@@ -1,4 +1,5 @@
 import { getDefaultContactSettings } from '../data/companyContact.js'
+import { hasAdminApiBackend } from '../utils/apiBackend.js'
 import { devLogOnce } from '../utils/devLogOnce.js'
 import { requestJson, unwrapPayload } from './httpClient.js'
 
@@ -7,7 +8,13 @@ const SETTINGS_URL = '/api/contact-settings'
 let cachedSettings = null
 let inFlightRequest = null
 
+export { hasAdminApiBackend as hasContactSettingsBackend }
+
 async function fetchContactSettings() {
+  if (!hasAdminApiBackend()) {
+    return getDefaultContactSettings()
+  }
+
   try {
     const payload = await requestJson(SETTINGS_URL, { method: 'GET' })
     const settings = unwrapPayload(payload)
