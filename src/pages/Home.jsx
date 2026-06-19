@@ -218,22 +218,42 @@ function Home() {
                   subtitleClassName="!text-nelna-dark/90"
                />
                <div className="mt-10">
-                  <TestimonialCarousel
-                     items={[
-                        {
-                           quote:
-                              "Nelna's consistency is unmatched. I can rely on them for every banquet and every service.",
-                        },
-                        {
-                           quote: 'Our customers immediately noticed the difference in tenderness when we switched to Nelna.',
-
-                        },
-                        {
-                           quote: 'As an exporter, I need guarantees on safety standards. Nelna delivers every single time.',
-                           
-                        },
-                     ]}
-                  />
+               <TestimonialCarousel
+   items={[
+      {
+         quote:
+            "Nelna's consistency is unmatched. I can rely on them for every banquet and every service.",
+      },
+      {
+         quote:
+            'Our customers immediately noticed the difference in tenderness when we switched to Nelna.',
+      },
+      {
+         quote:
+            'As an exporter, I need guarantees on safety standards. Nelna delivers every single time.',
+      },
+      {
+         quote:
+            'Nelna products give us the confidence to serve fresh and reliable meals every day.',
+      },
+      {
+         quote:
+            'The quality, hygiene, and delivery standards have made Nelna a trusted partner for our business.',
+      },
+      {
+         quote:
+            'We choose Nelna because their products are consistent, fresh, and easy to work with.',
+      },
+      {
+         quote:
+            'From packaging to taste, Nelna maintains a standard that our customers can trust.',
+      },
+      {
+         quote:
+            'Nelna has helped us maintain better food quality while keeping our operations smooth and dependable.',
+      },
+   ]}
+/>
                </div>
             </div>
          </section>
