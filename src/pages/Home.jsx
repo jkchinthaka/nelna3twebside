@@ -18,7 +18,7 @@ import BusinessSupplySection from '../components/BusinessSupplySection.jsx'
 import AnimatedCTASection from '../components/AnimatedCTASection.jsx'
 import BrandChickenMascot from '../components/BrandChickenMascot.jsx'
 import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
-import { certifications } from '../data/certifications.js'
+import CertificationTrustPanel from '../components/CertificationTrustPanel.jsx'
 
 import processCardImg1 from '../assets/nelna-gallery-11.jpg'
 import processCardImg2 from '../assets/26_LE_upscale_ultra_x2_strength_75_similarity_50.jpg'
@@ -184,22 +184,7 @@ function Home() {
                </div>
 
                <div className="cert-trust-panel">
-                  <ul className="cert-trust-panel__grid">
-                     {certifications.map((cert) => (
-                        <li key={cert.id} className="cert-trust-panel__item">
-                           <div className="cert-trust-panel__logo">
-                              <img
-                                 src={cert.imageUrl}
-                                 alt={cert.shortName}
-                                 className="cert-trust-panel__logo-img"
-                                 loading="lazy"
-                                 decoding="async"
-                              />
-                           </div>
-                           <span className="cert-trust-panel__label">{cert.shortName}</span>
-                        </li>
-                     ))}
-                  </ul>
+                  <CertificationTrustPanel />
                </div>
             </div>
          </section>

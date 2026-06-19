@@ -10,12 +10,11 @@ import {
   Truck,
   Leaf,
   ArrowRight,
-  Award,
 } from 'lucide-react'
 
 import SectionHeading from '../components/SectionHeading.jsx'
 import OptimizedPicture from '../components/OptimizedPicture.jsx'
-import { certifications } from '../data/certifications.js'
+import CertificationTrustPanel from '../components/CertificationTrustPanel.jsx'
 
 import qualityHeroPicture from '../assets/nelna-gallery-17.jpg?w=1920&format=webp;jpg&quality=78&as=picture'
 import qualityLabPicture from '../assets/nelna-gallery-18.jpg?w=1200&format=webp;jpg&quality=78&as=picture'
@@ -56,7 +55,6 @@ function isRenderableIcon(Icon) {
 
 function QualitySafety() {
   const prefersReducedMotion = useReducedMotion()
-  const certList = Array.isArray(certifications) ? certifications : []
   const motionInitial = prefersReducedMotion ? false : { opacity: 0, x: -30 }
   const motionAnimate = { opacity: 1, x: 0 }
   const cardInitial = prefersReducedMotion ? false : { opacity: 0, y: 30 }
@@ -217,40 +215,7 @@ function QualitySafety() {
           </div>
 
           <div className="cert-trust-panel">
-            {certList.length > 0 ? (
-              <ul className="cert-trust-panel__grid">
-                {certList.map((cert) => {
-                  const CertIcon = isRenderableIcon(cert.icon) ? cert.icon : Award
-
-                  return (
-                  <li key={cert.id ?? cert.shortName} className="cert-trust-panel__item">
-                    <div className="cert-trust-panel__logo">
-                      {cert.imageUrl ? (
-                        <img
-                          src={cert.imageUrl}
-                          alt={`${cert.shortName ?? 'Certification'} certification logo`}
-                          className="cert-trust-panel__logo-img"
-                          loading="lazy"
-                          decoding="async"
-                          width={72}
-                          height={72}
-                        />
-                      ) : (
-                        <span className="flex h-full w-full items-center justify-center text-nelna-green" aria-hidden="true">
-                          <CertIcon className="h-8 w-8" />
-                        </span>
-                      )}
-                    </div>
-                    <span className="cert-trust-panel__label">{cert.shortName ?? 'Certification'}</span>
-                  </li>
-                  )
-                })}
-              </ul>
-            ) : (
-              <p className="cert-trust-section__subtitle text-center">
-                Certification details are available on request.
-              </p>
-            )}
+            <CertificationTrustPanel />
           </div>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
