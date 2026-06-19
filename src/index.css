@@ -662,6 +662,70 @@ textarea,
   }
 }
 
+/* News hub — stay-connected landing panel */
+.news-hub-panel {
+  border: 1px solid var(--nelna-gold);
+  border-radius: 1.75rem;
+  background-color: var(--nelna-green-dark);
+  padding: 2rem 1.25rem 1.75rem;
+  box-shadow:
+    0 10px 28px var(--nelna-dark-soft),
+    0 0 0 1px var(--nelna-gold-soft) inset;
+}
+
+@media (min-width: 768px) {
+  .news-hub-panel {
+    padding: 2.5rem 2rem 2.25rem;
+  }
+}
+
+.news-hub-panel__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 9999px;
+  background-color: var(--nelna-gold-soft);
+  color: var(--nelna-gold);
+  box-shadow: 0 0 0 1px rgba(216, 199, 107, 0.35);
+}
+
+.news-hub-panel__topics {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news-hub-panel__topic {
+  border-radius: 1.25rem;
+  border: 1px solid var(--nelna-dark-soft);
+  background-color: var(--nelna-white);
+  padding: 1.25rem 1.125rem;
+  box-shadow: 0 4px 14px var(--nelna-dark-soft);
+}
+
+.news-hub-panel__topic-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: var(--nelna-green-soft);
+  color: var(--nelna-green);
+}
+
+.news-hub-panel__cta .btn-outline {
+  border-color: var(--nelna-gold);
+  color: var(--nelna-white);
+}
+
+.news-hub-panel__cta .btn-outline:hover {
+  background-color: var(--nelna-gold-soft);
+  color: var(--nelna-white);
+}
+
 /* Quality & Safety — premium certification cards */
 .quality-safety-section {
   position: relative;

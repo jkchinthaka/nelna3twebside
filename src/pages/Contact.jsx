@@ -330,7 +330,7 @@ function Contact() {
             </div>
             <SectionTitle
               className="mt-5"
-              title="Send an Inquiry"
+              title="Have an Inquiry?"
               subtitle="We usually respond within the same business day."
             />
             <form className="mt-6 grid gap-4 md:grid-cols-2" onSubmit={handleSubmit} noValidate>

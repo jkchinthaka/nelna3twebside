@@ -10,14 +10,12 @@ import 'swiper/css/effect-fade'
 import { ChevronRight, ChevronLeft } from 'lucide-react'
 
 import gallery01 from '../assets/nelna-gallery-01.jpg'
-import gallery02 from '../assets/nelna-gallery-02.jpg'
-import gallery03 from '../assets/nelna-gallery-03.jpg'
 import gallery04 from '../assets/nelna-gallery-04.jpg'
 import gallery05 from '../assets/nelna-gallery-05.jpg'
 import gallery06 from '../assets/nelna-gallery-06.jpg'
 import gallery07 from '../assets/nelna-gallery-07.jpg'
 
-const SLIDE_IMAGES = [gallery01, gallery02, gallery03, gallery04, gallery05, gallery06, gallery07]
+const SLIDE_IMAGES = [gallery01, gallery04, gallery05, gallery06, gallery07]
 
 function Hero() {
   const { t } = useTranslation()

@@ -8,8 +8,6 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 import gallery01 from '../assets/nelna-gallery-01.jpg'
-import gallery02 from '../assets/nelna-gallery-02.jpg'
-import gallery03 from '../assets/nelna-gallery-03.jpg'
 import gallery04 from '../assets/nelna-gallery-04.jpg'
 import gallery05 from '../assets/nelna-gallery-05.jpg'
 import gallery06 from '../assets/nelna-gallery-06.jpg'
@@ -22,8 +20,6 @@ const FADE_SPEED_MS = 1200
 
 const HERO_SLIDES = [
   { src: gallery01, alt: 'Nelna Farm premium poultry facility' },
-  { src: gallery02, alt: 'Nelna Farm fresh produce operations' },
-  { src: gallery03, alt: 'Nelna Farm quality-controlled processing' },
   { src: gallery04, alt: 'Nelna Farm distribution and logistics' },
   { src: gallery05, alt: 'Nelna Farm agricultural operations' },
   { src: gallery06, alt: 'Nelna Farm farm-to-table supply chain' },

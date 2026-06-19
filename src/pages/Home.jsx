@@ -21,7 +21,7 @@ import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
 import { certifications } from '../data/certifications.js'
 
 import processCardImg1 from '../assets/nelna-gallery-11.jpg'
-import processCardImg2 from '../assets/nelna-gallery-12.jpg'
+import processCardImg2 from '../assets/26_LE_upscale_ultra_x2_strength_75_similarity_50.jpg'
 import processCardImg3 from '../assets/nelna-gallery-13.jpg'
 
 function Home() {
@@ -93,7 +93,7 @@ function Home() {
                <div className="mx-auto mb-12 max-w-3xl text-center">
                   <SectionHeading
                      eyebrow="Our Process"
-                     title="From Farm to Kitchen with Disciplined Operations"
+                     title="From Farm to Table with Disciplined Operations"
                      subtitle="We deliver quality assurance and accountable service that protect your brand and your customers."
                      align="center"
                      center
@@ -211,7 +211,7 @@ function Home() {
             <div className="page-shell max-w-4xl text-center">
                <SectionHeading
                   title="Trusted by Culinary and Retail Professionals"
-                  subtitle="From hotel kitchens to modern supermarkets, businesses rely on Nelna Farm for consistent quality and dependable supply."
+                  subtitle="From hotel kitchens  to modern supermarkets, businesses rely on Nelna Farm for consistent quality and dependable supply. Our stringent controls on quality, our personal touch and dependability are what have made Nelna a go-to the brand in the marketplace."
                   align="center"
                   center
                   titleClassName="!text-nelna-dark"
