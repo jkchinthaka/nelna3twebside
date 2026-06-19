@@ -48,11 +48,11 @@ const values = [
 
 // Timeline Data
 const timelineData = [
-  { year: "1995", title: "Commenced Operations", description: "Commenced Buy Back arrangement and buying and Selling of live weight small scale." },
+  { year: "1995", title: "Commencement Of Operations", description: "Buying and Selling of live weight as a small scale business." },
   { year: "1997", title: "First Partnership", description: "Established a partnership to carry out chicken processing under C.N.K Holdings." },
   { year: "1998", title: "Nelna Broiler Farm", description: "Partnership dissolved. New partnership established under the name Nelna Broiler Farm." },
   { year: "1998", title: "Expansion", description: "Incorporated Nelna Distributors (Pvt.) Limited and Nelna Live Stock (Pvt.) Limited." },
-  { year: "2004", title: "Market Leader", description: "Nelna Group become one of the leading chicken processing and Distributors in Sri Lanka." },
+  { year: "2004", title: "Market Leader", description: "Nelna Group becomes one of the leading chicken processing and Distributors in Sri Lanka." },
   { year: "2004", title: "Nelna Farm (Pvt) Ltd", description: "Amalgamated Nelna Broiler Farm and Nelna Distributors under the name Nelna Farm (Pvt) Ltd." },
   { year: "BOI", title: "Nelna Breeders", description: "Incorporated Nelna Breeders (Pvt) Ltd. (Approved BOI Company Under Section 17 of BOI Act)" },
   { year: "2009", title: "Agri Developments", description: "Incorporated Nelna Agri Developments (Pvt) Ltd." },
@@ -163,7 +163,7 @@ function About() {
           <SectionHeading 
             eyebrow="Our History" 
             title="Business Background" 
-            subtitle="Nelna is a brand that has won the hearts of many due to its consistency in delivering best protein products in Sri Lanka."
+            subtitle="Nelna is a brand that has won the hearts of many due to its consistency in delivering the best protein products in Sri Lanka."
             center={true}
           />
           
@@ -266,8 +266,8 @@ function About() {
          <div className="max-w-7xl mx-auto px-6">
             <SectionHeading 
                eyebrow="Our Structure"
-               title="Business Entities in Nelna Group"
-               subtitle="Nelna Group of Companies consist of four legal entities which are independently operating in different Business disciplines."
+               title="Business Entities in the Nelna Group"
+               subtitle="The Nelna Group consists of four legal entities which independently operate in different Business disciplines."
                center={true}
             />
 

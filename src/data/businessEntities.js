@@ -25,7 +25,7 @@ export const entities = [
     themeColor: "green",
     shortDesc: "Approved BOI Company for breeding.",
     description: `The main business of the Company is the selective breeding, hatching, and sale of commercial day-old broiler chicks. The Company currently operates from four distinct locations situated in the deep southern region of the country.`,
-    description2: `Nelna Breeders (Pvt.) Ltd. has been currently producing 600,000 day-old commercial broiler chicks every month. All chicks are subjected to thorough screening before issuing to the field in order to make sure the quality and disease-free day-old chicks. Parent flocks of 7,500 birds (including 10% Males) in each batch were reared in environmentally controlled houses.`,
+    description2: `Nelna Breeders (Pvt.) Ltd. is currently producing 600,000 day-old commercial broiler chicks every month. All chicks are subjected to thorough screening before issuing to the field in order to make sure the quality and disease-free day-old chicks. Parent flocks of 7,500 birds (including 10% Males) in each batch were reared in environmentally controlled houses.`,
      stats: [
         { label: "Monthly Output", value: "600,000+" },
         { label: "Locations", value: "4 Sites" },
@@ -52,7 +52,7 @@ export const entities = [
   },
   { 
     id: "nelna-agri",
-    name: "Nelna Agri Developments", 
+    name: "Nelna Agri Development (Pvt) Ltd", 
     icon: Leaf, 
     color: "bg-brand-green",
     themeColor: "brand-green",
