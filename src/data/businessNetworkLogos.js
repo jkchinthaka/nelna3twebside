@@ -20,8 +20,7 @@ import mandaramLogo from '../assets/business-network/mandaram.png'
 import marinoLogo from '../assets/business-network/marino.png'
 import marriottLogo from '../assets/business-network/marriott.png'
 import mountLaviniaLogo from '../assets/business-network/mountlavinia.png'
-import nelnaAgriLogo from '../assets/business-network/nelna_agri.png'
-import nelnaFarmLogo from '../assets/business-network/nelna_farm.png'
+import nelnaLogo from '../assets/nelna-logo.jpg'
 import pizzaHutLogo from '../assets/business-network/pizzahut.png'
 import queensHotelLogo from '../assets/business-network/queenshotel.png'
 import radissonLogo from '../assets/business-network/radisson.png'
@@ -68,6 +67,6 @@ export const businessNetworkLogos = [
   { id: 'bn-sl-army', src: slArmyLogo, alt: 'Sri Lanka Army logo' },
   { id: 'bn-sl-navy', src: slNavyLogo, alt: 'Sri Lanka Navy logo' },
   { id: 'bn-sl-airforce', src: slAirForceLogo, alt: 'Sri Lanka Air Force logo' },
-  { id: 'bn-nelna-farm', src: nelnaFarmLogo, alt: 'Nelna Farm logo' },
-  { id: 'bn-nelna-agri', src: nelnaAgriLogo, alt: 'Nelna Agri Development logo' },
+  { id: 'bn-nelna-farm', src: nelnaLogo, alt: 'Nelna Farm logo' },
+  { id: 'bn-nelna-agri', src: nelnaLogo, alt: 'Nelna Agri Development logo' },
 ]

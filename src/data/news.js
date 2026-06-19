@@ -7,13 +7,13 @@ import kirulapanaEvent06 from '../assets/2025.12.18-kirulapana branch openning-0
 import kirulapanaEvent07 from '../assets/2025.12.18-kirulapana branch openning-07.jpeg'
 import kirulapanaEvent08 from '../assets/2025.12.18-kirulapana branch openning-08.jpeg'
 import kirulapanaEvent09 from '../assets/2025.12.18-kirulapana branch openning-09.jpeg'
-import recipeBurger from '../assets/recipe1.jpg'
-import recipeClaypot from '../assets/recipe2.jpg'
-import recipeRoastedLegs from '../assets/recipe3.jpg'
-import recipeGrilledDrumsticks from '../assets/recipe4.jpg'
-import recipeWholeRoast from '../assets/recipe5.jpg'
-import recipeMeatballs from '../assets/recipe6.jpg'
-import recipeFeast from '../assets/recipe7.jpg'
+import recipeBurger from '../assets/nelna-gallery-19.jpg'
+import recipeClaypot from '../assets/nelna-gallery-20.jpg'
+import recipeRoastedLegs from '../assets/nelna-gallery-21.jpg'
+import recipeGrilledDrumsticks from '../assets/nelna-gallery-17.jpg'
+import recipeWholeRoast from '../assets/nelna-gallery-18.jpg'
+import recipeMeatballs from '../assets/organic.jpg'
+import recipeFeast from '../assets/nelna-gallery-22.jpg'
 
 export const fallbackNews = [
   {

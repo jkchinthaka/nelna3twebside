@@ -13,9 +13,9 @@ import gallery01 from '../assets/nelna-gallery-01.jpg'
 import gallery04 from '../assets/nelna-gallery-04.jpg'
 import gallery05 from '../assets/nelna-gallery-05.jpg'
 import gallery06 from '../assets/nelna-gallery-06.jpg'
-import gallery07 from '../assets/nelna-gallery-07.jpg'
+import gallery08 from '../assets/nelna-gallery-08.jpg'
 
-const SLIDE_IMAGES = [gallery01, gallery04, gallery05, gallery06, gallery07]
+const SLIDE_IMAGES = [gallery01, gallery04, gallery05, gallery06, gallery08]
 
 function Hero() {
   const { t } = useTranslation()

@@ -1,5 +1,5 @@
 import { fallbackProducts } from '../data/products.js'
-import fallbackProductImage from '../assets/recipe2.jpg'
+import fallbackProductImage from '../assets/organic.jpg'
 import { requestJson, unwrapCollection } from './httpClient.js'
 
 const PRODUCTS_URL = '/api/products'

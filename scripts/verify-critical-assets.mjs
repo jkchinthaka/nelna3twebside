@@ -12,9 +12,6 @@ const ASSETS = join(ROOT, 'src', 'assets')
 const REQUIRED = [
   'nelna-logo.jpg',
   'Vector Smart Object.png',
-  'nelna-gallery-07.jpg',
-  'recipe1.jpg',
-  'recipe2.jpg',
 ]
 
 function assetsFromBusinessNetworkLogos() {
