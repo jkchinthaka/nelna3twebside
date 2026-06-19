@@ -17,7 +17,7 @@ const ALLOWED_HEX = new Set([
   '#46af53', '#46AF53',
   '#0d3013', '#0D3013',
   '#d8c76b', '#D8C76B',
-  '#ebe9da', '#EBE9DA',
+  '#ffffff', '#FFFFFF',
   '#251b25', '#251B25',
 ])
 
@@ -26,7 +26,7 @@ const ALLOWED_RGBA_PATTERNS = [
   /^rgba?\(\s*216\s*,\s*199\s*,\s*107\s*,/i,
   /^rgba?\(\s*37\s*,\s*27\s*,\s*37\s*,/i,
   /^rgba?\(\s*13\s*,\s*48\s*,\s*19\s*,/i,
-  /^rgba?\(\s*235\s*,\s*233\s*,\s*218\s*,/i,
+  /^rgba?\(\s*255\s*,\s*255\s*,\s*255\s*,/i,
 ]
 
 const ALLOWED_TW_PREFIXES = [

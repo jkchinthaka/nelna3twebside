@@ -4,7 +4,7 @@ export const NELNA_GREEN = '#27743A'
 export const NELNA_GREEN_LIGHT = '#46AF53'
 export const NELNA_GREEN_DARK = '#0D3013'
 export const NELNA_GOLD = '#D8C76B'
-export const NELNA_WHITE = '#EBE9DA'
+export const NELNA_WHITE = '#FFFFFF'
 export const NELNA_DARK_BG = '#251B25'
 
 export const NELNA_GREEN_RGB = '39, 116, 58'

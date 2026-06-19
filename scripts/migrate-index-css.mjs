@@ -61,7 +61,7 @@ const replacements = [
   [/#f8fafc/gi, 'var(--nelna-white)'],
   [/#1e293b/gi, 'var(--nelna-green-dark)'],
   [/#64748b/gi, 'var(--nelna-dark-bg)'],
-  [/rgba\(\s*255\s*,\s*255\s*,\s*255/gi, 'rgba(235, 233, 218'],
+  [/rgba\(\s*235\s*,\s*233\s*,\s*218/gi, 'rgba(255, 255, 255'],
   [/rgba\(\s*15\s*,\s*23\s*,\s*42/gi, 'rgba(37, 27, 37'],
 ]
 
@@ -82,7 +82,7 @@ const rootBlock = `:root {
   --nelna-green-light: #46AF53;
   --nelna-green-dark: #0D3013;
   --nelna-gold: #D8C76B;
-  --nelna-white: #EBE9DA;
+  --nelna-white: #FFFFFF;
   --nelna-dark-bg: #251B25;
   --nelna-green-soft: rgba(39, 116, 58, 0.08);
   --nelna-gold-soft: rgba(216, 199, 107, 0.18);
@@ -107,7 +107,7 @@ const rootBlock = `:root {
     rgba(13, 48, 19, 0.55) 45%,
     rgba(37, 27, 37, 0.72) 100%
   );
-  --overlay-light: rgba(235, 233, 218, 0.92);
+  --overlay-light: rgba(255, 255, 255, 0.92);
   --success: var(--nelna-green);
   --warning: var(--nelna-gold);
   --error: var(--nelna-green-dark);
