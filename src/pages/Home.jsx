@@ -203,17 +203,36 @@ function Home() {
             </div>
          </section>
 
-         {/* Certification strip */}
-         <section className="certification-strip py-14" aria-label="Certifications">
-            <div className="page-shell flex flex-wrap items-center justify-center gap-8 md:gap-14">
-               {certifications.map((cert) => (
-                  <div key={cert.id} className="flex items-center gap-3">
-                     <div className="certification-strip__logo h-12 w-12 overflow-hidden rounded-full bg-nelna-white p-1">
-                        <img src={cert.imageUrl} alt={cert.shortName} className="h-full w-full object-contain" />
-                     </div>
-                     <span className="font-display text-base font-bold text-nelna-white md:text-lg">{cert.shortName}</span>
-                  </div>
-               ))}
+         {/* Certification Trust Panel */}
+         <section className="cert-trust-section" aria-labelledby="cert-trust-heading">
+            <div className="page-shell">
+               <div className="cert-trust-section__header">
+                  <h2 id="cert-trust-heading" className="cert-trust-section__title">
+                     Certified Quality You Can Trust
+                  </h2>
+                  <p className="cert-trust-section__subtitle">
+                     Recognized food safety, quality, and compliance standards behind every Nelna product.
+                  </p>
+               </div>
+
+               <div className="cert-trust-panel">
+                  <ul className="cert-trust-panel__grid">
+                     {certifications.map((cert) => (
+                        <li key={cert.id} className="cert-trust-panel__item">
+                           <div className="cert-trust-panel__logo">
+                              <img
+                                 src={cert.imageUrl}
+                                 alt={cert.shortName}
+                                 className="cert-trust-panel__logo-img"
+                                 loading="lazy"
+                                 decoding="async"
+                              />
+                           </div>
+                           <span className="cert-trust-panel__label">{cert.shortName}</span>
+                        </li>
+                     ))}
+                  </ul>
+               </div>
             </div>
          </section>
 

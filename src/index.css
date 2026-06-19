@@ -520,16 +520,146 @@ textarea,
   color: var(--nelna-white);
 }
 
-/* Homepage certification logo strip */
-.certification-strip {
-  background-color: var(--nelna-green-dark);
-  color: var(--nelna-white);
+/* Homepage certification trust panel */
+.cert-trust-section {
+  background-color: var(--nelna-white);
+  padding: 3rem 0 3.25rem;
 }
 
-.certification-strip__logo {
+@media (min-width: 768px) {
+  .cert-trust-section {
+    padding: 3.5rem 0 3.75rem;
+  }
+}
+
+.cert-trust-section__header {
+  margin: 0 auto;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.cert-trust-section__title {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.625rem, 2.8vw, 2.125rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--nelna-dark-bg);
+}
+
+.cert-trust-section__subtitle {
+  margin-top: 0.875rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--nelna-dark-bg);
+  opacity: 0.82;
+}
+
+@media (min-width: 768px) {
+  .cert-trust-section__subtitle {
+    font-size: 1.0625rem;
+  }
+}
+
+.cert-trust-panel {
+  margin-top: 1.75rem;
+  border: 1px solid var(--nelna-gold);
+  border-radius: 1.5rem;
+  background-color: var(--nelna-green-dark);
+  padding: 1.25rem 1rem 1.375rem;
+  box-shadow:
+    0 10px 28px var(--nelna-dark-soft),
+    0 0 0 1px var(--nelna-gold-soft) inset;
+}
+
+@media (min-width: 768px) {
+  .cert-trust-panel {
+    margin-top: 2rem;
+    padding: 1.5rem 1.25rem 1.625rem;
+    border-radius: 1.75rem;
+  }
+}
+
+.cert-trust-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.125rem 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .cert-trust-panel__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cert-trust-panel__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.375rem 1.125rem;
+  }
+}
+
+.cert-trust-panel__item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  text-align: center;
+}
+
+.cert-trust-panel__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background-color: var(--nelna-white);
+  padding: 0.5rem;
   box-shadow:
     0 2px 8px rgba(39, 116, 58, 0.18),
     0 0 0 1px rgba(235, 233, 218, 0.35);
+}
+
+@media (min-width: 768px) {
+  .cert-trust-panel__logo {
+    width: 4.75rem;
+    height: 4.75rem;
+    padding: 0.5625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cert-trust-panel__logo {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.cert-trust-panel__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cert-trust-panel__label {
+  font-family: var(--font-display, inherit);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--nelna-white);
+}
+
+@media (min-width: 768px) {
+  .cert-trust-panel__label {
+    font-size: 0.875rem;
+  }
 }
 
 /* Quality & Safety — premium certification cards */
