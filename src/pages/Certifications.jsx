@@ -54,7 +54,7 @@ function Certifications() {
                 {cert.validFrom ? <span>Valid From: {cert.validFrom}</span> : null}
                 {cert.validTo ? <span>Valid Until: {cert.validTo}</span> : null}
                 {!cert.certificateNo && !cert.validFrom && !cert.validTo ? (
-                  <span>Details available on request.</span>
+                  <span>Available on request</span>
                 ) : null}
               </div>
 

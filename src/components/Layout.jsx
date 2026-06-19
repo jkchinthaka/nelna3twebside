@@ -27,8 +27,10 @@ const routeMeta = {
   },
   '/quality-safety': {
     title: 'Quality & Safety | Nelna Farm',
-    description: 'Biosecurity, certifications, and safety practices at Nelna Farm.',
-    keywords: 'poultry food safety Sri Lanka, ISO 22000 poultry, HACCP poultry, Halal poultry Sri Lanka',
+    description:
+      'Certified food safety, quality systems, cold-chain controls, and traceability at Nelna Farm. ISO, HACCP, GMP, and Halal-aligned poultry operations in Sri Lanka.',
+    keywords:
+      'poultry food safety Sri Lanka, ISO 22000 poultry, HACCP poultry, Halal poultry Sri Lanka, cold chain poultry, traceability Nelna Farm',
   },
   '/sustainability': {
     title: 'Sustainability & CSR | Nelna Farm',
