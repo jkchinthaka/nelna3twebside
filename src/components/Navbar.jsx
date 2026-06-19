@@ -252,6 +252,150 @@ function UserMenu({ user, role, logout }) {
   )
 }
 
+function MobileDrawer({ pathname, t, user, role, logout, closeMobile, mobileExpanded, setMobileExpanded }) {
+  const menuLabel = (menu) => t(menu.key, { defaultValue: menu.fallback }) || menu.fallback
+
+  return (
+    <>
+      <div className="site-mobile-drawer__header">
+        <div className="site-mobile-drawer__brand">
+          <span className="site-navbar__logo-frame">
+            <img
+              src={logo}
+              alt="Nelna Farm logo"
+              className="site-navbar__logo-img"
+              width={128}
+              height={128}
+              decoding="async"
+            />
+          </span>
+          <div className="min-w-0">
+            <p className="site-mobile-drawer__title">NELNA FARM</p>
+            <p className="site-mobile-drawer__subtitle">Navigation</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={closeMobile}
+          className="site-navbar__mobile-toggle"
+          aria-label="Close menu"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </button>
+      </div>
+
+      <div className="site-mobile-drawer__body">
+        <nav className="site-mobile-drawer__section" aria-label="Mobile primary navigation">
+          {directLinks.map((link) => (
+            <NavLink key={link.to} to={link.to} onClick={closeMobile} className="block">
+              {({ isActive }) => (
+                <span className={`site-mobile-drawer__link ${isActive ? 'site-mobile-drawer__link--active' : ''}`}>
+                  {t(link.key, { defaultValue: link.fallback })}
+                </span>
+              )}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="site-mobile-drawer__section">
+          {dropdownMenus
+            .filter((menu) => menu.items?.length > 0)
+            .map((menu) => {
+              const expanded = mobileExpanded === menu.id
+              const isGroupActive = menu.items.some((item) => isPathActive(pathname, item.to))
+              const label = menuLabel(menu)
+
+              return (
+                <div key={menu.id} className="site-mobile-drawer__accordion">
+                  <button
+                    type="button"
+                    onClick={() => setMobileExpanded((value) => (value === menu.id ? null : menu.id))}
+                    className={`site-mobile-drawer__accordion-toggle ${isGroupActive ? 'site-mobile-drawer__accordion-toggle--active' : ''}`}
+                    aria-expanded={expanded}
+                    aria-controls={`mobile-menu-${menu.id}`}
+                  >
+                    <span>{label}</span>
+                    <ChevronDown
+                      className={`site-mobile-drawer__chevron ${expanded ? 'site-mobile-drawer__chevron--open' : ''}`}
+                      aria-hidden="true"
+                    />
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {expanded ? (
+                      <motion.div
+                        id={`mobile-menu-${menu.id}`}
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.16 }}
+                        className="site-mobile-drawer__submenu-wrap"
+                      >
+                        <div className="site-mobile-drawer__submenu">
+                          {menu.items.map((item) => (
+                            <NavLink
+                              key={`${menu.id}-${item.to}`}
+                              to={item.to}
+                              onClick={closeMobile}
+                              className={({ isActive }) =>
+                                `site-mobile-drawer__link site-mobile-drawer__link--sub ${isActive ? 'site-mobile-drawer__link--active' : ''}`
+                              }
+                            >
+                              {item.label}
+                            </NavLink>
+                          ))}
+                        </div>
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
+        </div>
+
+        <div className="site-mobile-drawer__cta-group">
+          <Link to="/contact" onClick={closeMobile} className="nav-cta site-mobile-drawer__cta">
+            Contact Sales
+          </Link>
+
+          <div className="site-mobile-drawer__quick-actions">
+            <a href={`tel:${PRIMARY_PHONE.tel}`} className="site-mobile-drawer__quick-btn">
+              <Phone className="h-4 w-4 shrink-0 text-nelna-green" aria-hidden="true" />
+              <span>{PRIMARY_PHONE.display}</span>
+            </a>
+            <a href="mailto:info@nelna.lk" className="site-mobile-drawer__quick-btn">
+              <Mail className="h-4 w-4 shrink-0 text-nelna-green" aria-hidden="true" />
+              <span>Email</span>
+            </a>
+          </div>
+
+          {user ? (
+            <div className="site-mobile-drawer__account">
+              <Link
+                to={role === 'distributor' ? '/distributor' : '/admin'}
+                onClick={closeMobile}
+                className="nav-cta site-mobile-drawer__cta bg-nelna-green-light border-nelna-green-light"
+              >
+                {role === 'distributor' ? 'Open Distributor Portal' : 'Open Admin Portal'}
+              </Link>
+              <button
+                type="button"
+                onClick={async () => {
+                  closeMobile()
+                  await logout()
+                }}
+                className="nav-cta site-mobile-drawer__cta bg-nelna-green-dark border-nelna-green-dark"
+              >
+                Logout
+              </button>
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </>
+  )
+}
+
 function Navbar() {
   const { t } = useTranslation()
   const location = useLocation()
@@ -374,140 +518,16 @@ function Navbar() {
               aria-label="Mobile navigation panel"
               onClick={(event) => event.stopPropagation()}
             >
-              <div className="flex items-center justify-between border-b border-nelna-dark-soft px-5 py-4">
-                <div className="inline-flex items-center gap-2.5">
-                  <span className="site-navbar__logo-frame">
-                    <img
-                      src={logo}
-                      alt="Nelna Farm logo"
-                      className="site-navbar__logo-img"
-                      width={128}
-                      height={128}
-                      decoding="async"
-                    />
-                  </span>
-                  <div>
-                    <p className="text-sm font-bold tracking-[0.03em] text-nelna-green">NELNA FARM</p>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-nelna-dark-bg opacity-70">
-                      Navigation
-                    </p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={closeMobile}
-                  className="site-navbar__mobile-toggle"
-                  aria-label="Close menu"
-                >
-                  <X className="h-5 w-5" aria-hidden="true" />
-                </button>
-              </div>
-
-              <nav className="flex-1 overflow-y-auto px-4 py-5" aria-label="Mobile primary navigation">
-                <div className="space-y-1.5">
-                  {directLinks.map((link) => (
-                    <NavLink key={link.to} to={link.to} onClick={closeMobile} className="block">
-                      {({ isActive }) => (
-                        <span className={`site-mobile-drawer__link ${isActive ? 'site-mobile-drawer__link--active' : ''}`}>
-                          {t(link.key, { defaultValue: link.fallback })}
-                        </span>
-                      )}
-                    </NavLink>
-                  ))}
-                </div>
-
-                <div className="mt-5 border-t border-nelna-dark-soft pt-4">
-                  {dropdownMenus.map((menu) => {
-                    const expanded = mobileExpanded === menu.id
-
-                    return (
-                      <div key={menu.id} className="mb-2 overflow-hidden rounded-xl border border-nelna-dark-soft bg-nelna-white">
-                        <button
-                          type="button"
-                          onClick={() => setMobileExpanded((value) => (value === menu.id ? null : menu.id))}
-                          className="flex min-h-[44px] w-full items-center justify-between px-4 text-left text-nav font-semibold text-nelna-dark-bg"
-                          aria-expanded={expanded}
-                        >
-                          <span>{t(menu.key, { defaultValue: menu.fallback })}</span>
-                          <ChevronDown className={`h-4 w-4 shrink-0 transition ${expanded ? 'rotate-180' : ''}`} aria-hidden="true" />
-                        </button>
-
-                        <AnimatePresence initial={false}>
-                          {expanded ? (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.16 }}
-                              className="overflow-hidden border-t border-nelna-dark-soft"
-                            >
-                              <div className="space-y-1 p-2">
-                                {menu.items.map((item) => (
-                                  <NavLink
-                                    key={item.to}
-                                    to={item.to}
-                                    onClick={closeMobile}
-                                    className={({ isActive }) =>
-                                      `block site-mobile-drawer__link ${isActive ? 'site-mobile-drawer__link--active' : ''}`
-                                    }
-                                  >
-                                    {item.label}
-                                  </NavLink>
-                                ))}
-                              </div>
-                            </motion.div>
-                          ) : null}
-                        </AnimatePresence>
-                      </div>
-                    )
-                  })}
-                </div>
-              </nav>
-
-              <div className="space-y-3 border-t border-nelna-dark-soft p-4">
-                <Link to="/contact" onClick={closeMobile} className="nav-cta w-full">
-                  Contact Sales
-                </Link>
-
-                <div className="flex flex-wrap gap-2">
-                  <a
-                    href={`tel:${PRIMARY_PHONE.tel}`}
-                    className="inline-flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full border border-nelna-dark-soft bg-nelna-green-soft px-3 text-sm font-semibold text-nelna-dark-bg transition hover:bg-nelna-white"
-                  >
-                    <Phone className="h-4 w-4 shrink-0 text-nelna-green" aria-hidden="true" />
-                    <span>{PRIMARY_PHONE.display}</span>
-                  </a>
-                  <a
-                    href="mailto:info@nelna.lk"
-                    className="inline-flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full border border-nelna-dark-soft bg-nelna-green-soft px-3 text-sm font-semibold text-nelna-dark-bg transition hover:bg-nelna-white"
-                  >
-                    <Mail className="h-4 w-4 shrink-0 text-nelna-green" aria-hidden="true" />
-                    <span>Email</span>
-                  </a>
-                </div>
-
-                {user ? (
-                  <>
-                    <Link
-                      to={role === 'distributor' ? '/distributor' : '/admin'}
-                      onClick={closeMobile}
-                      className="nav-cta w-full bg-nelna-green-light border-nelna-green-light"
-                    >
-                      {role === 'distributor' ? 'Open Distributor Portal' : 'Open Admin Portal'}
-                    </Link>
-                    <button
-                      type="button"
-                      onClick={async () => {
-                        closeMobile()
-                        await logout()
-                      }}
-                      className="nav-cta w-full bg-nelna-green-dark border-nelna-green-dark"
-                    >
-                      Logout
-                    </button>
-                  </>
-                ) : null}
-              </div>
+              <MobileDrawer
+                pathname={pathname}
+                t={t}
+                user={user}
+                role={role}
+                logout={logout}
+                closeMobile={closeMobile}
+                mobileExpanded={mobileExpanded}
+                setMobileExpanded={setMobileExpanded}
+              />
             </motion.aside>
           </motion.div>
         ) : null}
