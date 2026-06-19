@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, CheckCircle2, Building, Scale, Leaf, HeartHandshake } from 'lucide-react';
+import BrandChickenMascot from '../components/BrandChickenMascot.jsx';
 import { entities } from '../data/businessEntities.js';
 
 // Import images (using placeholders or existing assets for now)
@@ -49,6 +50,12 @@ const BusinessEntity = () => {
       <div className={`relative h-[40vh] min-h-[300px] w-full bg-gradient-to-r ${theme.gradient} overflow-hidden`}>
         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-nelna-white to-transparent"></div>
+        <BrandChickenMascot
+          size="xl"
+          variant="watermark"
+          decorative
+          className="pointer-events-none absolute right-10 top-10 hidden h-[260px] opacity-70 md:block lg:h-[320px]"
+        />
         
         <div className="relative h-full max-w-5xl mx-auto px-6 pt-24 pb-12 flex flex-col justify-center">
             <Link 
