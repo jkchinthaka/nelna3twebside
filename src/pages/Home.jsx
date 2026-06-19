@@ -1,4 +1,3 @@
-import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
    ShieldCheck,
@@ -19,10 +18,6 @@ import BusinessSupplySection from '../components/BusinessSupplySection.jsx'
 import AnimatedCTASection from '../components/AnimatedCTASection.jsx'
 import BrandChickenMascot from '../components/BrandChickenMascot.jsx'
 import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
-import NewsCard from '../components/NewsCard.jsx'
-import { ErrorState, Skeleton } from '../components/ui/index.js'
-import { getNews } from '../services/newsService.js'
-import { fallbackNews } from '../data/news.js'
 import { certifications } from '../data/certifications.js'
 
 import processCardImg1 from '../assets/nelna-gallery-11.jpg'
@@ -30,33 +25,6 @@ import processCardImg2 from '../assets/nelna-gallery-12.jpg'
 import processCardImg3 from '../assets/nelna-gallery-13.jpg'
 
 function Home() {
-   const [news, setNews] = useState(fallbackNews)
-   const [newsLoading, setNewsLoading] = useState(true)
-   const [newsError, setNewsError] = useState('')
-
-   const loadNews = useCallback(async () => {
-      setNewsLoading(true)
-      setNewsError('')
-
-      try {
-         const response = await getNews()
-         if (Array.isArray(response) && response.length) {
-            setNews(response)
-         } else {
-            setNews(fallbackNews)
-         }
-      } catch {
-         setNewsError('Unable to load latest news right now. Showing recent highlights.')
-         setNews(fallbackNews)
-      } finally {
-         setNewsLoading(false)
-      }
-   }, [])
-
-   useEffect(() => {
-      loadNews()
-   }, [loadNews])
-
    const processCards = [
       {
          title: 'Bio-secure Farms',
@@ -301,41 +269,7 @@ function Home() {
             </div>
          </section>
 
-         {/* 8. Latest News */}
-         <section className="section-spacing section-nelna-cream">
-            <div className="page-shell">
-               <SectionHeading
-                  eyebrow="Community & Updates"
-                  title="Life at Nelna Farm"
-                  subtitle="Stay connected with our latest initiatives, recipes, and farm updates."
-                  align="left"
-               />
-               <div className="mt-10 grid gap-8 md:grid-cols-3">
-                  {newsLoading ? (
-                     Array.from({ length: 3 }).map((_, index) => (
-                        <Skeleton key={`news-skeleton-${index}`} className="h-[360px] rounded-3xl" />
-                     ))
-                  ) : (
-                     news.slice(0, 3).map((article) => (
-                        <NewsCard key={article.id} article={article} />
-                     ))
-                  )}
-               </div>
-
-               {!newsLoading && newsError ? (
-                  <div className="mt-6">
-                     <ErrorState
-                        title="News feed temporarily unavailable"
-                        description={newsError}
-                        retryLabel="Retry news"
-                        onRetry={loadNews}
-                     />
-                  </div>
-               ) : null}
-            </div>
-         </section>
-
-         {/* 9. Final CTA */}
+         {/* 8. Final CTA */}
          <AnimatedCTASection
             title="Ready to Work with a Trusted Food and Poultry Partner?"
             body="Talk to our team for supply inquiries, distributor opportunities, and reliable delivery support tailored to your business needs."
