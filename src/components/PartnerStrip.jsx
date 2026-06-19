@@ -25,7 +25,7 @@ function PartnerStrip() {
   const duplicatedLogos = [...businessNetworkLogos, ...businessNetworkLogos, ...businessNetworkLogos]
 
   return (
-    <section className="overflow-hidden bg-nelna-white py-12 md:py-20">
+    <section className="overflow-hidden bg-nelna-white py-12 md:py-20 w-full min-w-0">
       <div className="page-shell mb-8 text-center md:mb-12">
         <span className="mb-2 block text-sm font-bold uppercase tracking-widest text-brand-500">
           Our Business Network

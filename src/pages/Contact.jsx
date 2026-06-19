@@ -236,7 +236,9 @@ function Contact() {
           <p className="inline-flex rounded-pill border border-brand-yellow-300/65 bg-brand-yellow-500/30 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-50">
             Contact and Sales Support
           </p>
-          <h1 className="mt-5 font-display text-4xl font-extrabold text-nelna-white md:text-5xl">Find Us and Get in Touch</h1>
+          <h1 className="mt-5 font-display text-[clamp(1.75rem,6vw,3rem)] font-extrabold leading-tight text-nelna-white">
+            Find Us and Get in Touch
+          </h1>
           <p className="mt-4 max-w-3xl text-base font-medium text-nelna-white/90 md:text-lg">
             Reach Nelna Farm for product inquiries, distribution partnerships, and food-safety related questions.
           </p>
@@ -263,7 +265,7 @@ function Contact() {
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green-50 text-brand-green-700">
                       <card.icon className="h-5 w-5" aria-hidden="true" />
                     </span>
-                    <div className="flex-1">
+                    <div className="min-w-0 flex-1">
                       <h2 className="text-base font-semibold tracking-tight text-nelna-dark">{card.title}</h2>
                       {card.isPhoneCard ? (
                         <PhoneContactLines />

@@ -103,7 +103,7 @@ function QualitySafetyCards() {
           </p>
           <Link
             to="/quality-safety"
-            className="quality-safety-cta btn-primary group inline-flex gap-2 px-6"
+            className="quality-safety-cta btn-primary group inline-flex w-full gap-2 px-6 sm:w-auto"
           >
             Explore Quality &amp; Safety
             <ArrowRight

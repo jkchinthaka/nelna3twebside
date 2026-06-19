@@ -62,14 +62,14 @@ function BusinessSupplySection() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link to="/contact" className="btn-primary gap-2 px-6">
+          <Link to="/contact" className="btn-primary w-full justify-center gap-2 px-6 sm:w-auto">
             Contact Sales
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-          <Link to="/contact#distributor-partnership" className="btn-yellow gap-2 px-6">
+          <Link to="/contact#distributor-partnership" className="btn-yellow w-full justify-center gap-2 px-6 sm:w-auto">
             Become a Distributor
           </Link>
-          <Link to="/contact" className="btn-outline gap-2 px-6">
+          <Link to="/contact" className="btn-outline w-full justify-center gap-2 px-6 sm:w-auto">
             Discuss Partnership
           </Link>
         </div>

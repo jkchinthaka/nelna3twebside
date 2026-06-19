@@ -120,7 +120,7 @@ function Layout() {
       : undefined
 
   return (
-    <div className="min-h-screen bg-nelna-white">
+    <div className="min-h-screen w-full min-w-0 overflow-x-clip bg-nelna-white">
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <SEO
         title={meta.title}
@@ -134,7 +134,7 @@ function Layout() {
       <Navbar />
       <main
         id="main-content"
-        className={`pt-header-offset ${isPortalRoute ? '' : 'public-content-readability pb-28 md:pb-10'}`}
+        className={`pt-header-offset w-full min-w-0 overflow-x-clip ${isPortalRoute ? '' : 'public-content-readability pb-28 md:pb-10'}`}
         tabIndex={-1}
       >
         <Outlet />

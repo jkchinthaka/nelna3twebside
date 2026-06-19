@@ -77,7 +77,7 @@ function Home() {
    ]
 
    return (
-      <div className="bg-nelna-white">
+      <div className="bg-nelna-white w-full min-w-0 overflow-x-clip">
          {/* 1. Hero + Achievement Counter */}
          <section className="hero-home relative -mt-header-offset">
             <h1 className="sr-only">Nelna Farm — Premium Poultry and Fresh Produce in Sri Lanka</h1>
@@ -117,6 +117,9 @@ function Home() {
                               alt={item.title}
                               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                               loading="lazy"
+                              decoding="async"
+                              width={640}
+                              height={384}
                            />
                         </div>
                         <div className="p-6">
