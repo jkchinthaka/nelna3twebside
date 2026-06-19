@@ -11,7 +11,6 @@ import gallery01 from '../assets/nelna-gallery-01.jpg'
 import gallery04 from '../assets/nelna-gallery-04.jpg'
 import gallery05 from '../assets/nelna-gallery-05.jpg'
 import gallery06 from '../assets/nelna-gallery-06.jpg'
-import gallery07 from '../assets/nelna-gallery-07.jpg'
 import gallery08 from '../assets/nelna-gallery-08.jpg'
 
 const AUTOPLAY_DELAY_MS = 5500
@@ -23,7 +22,6 @@ const HERO_SLIDES = [
   { src: gallery04, alt: 'Nelna Farm distribution and logistics' },
   { src: gallery05, alt: 'Nelna Farm agricultural operations' },
   { src: gallery06, alt: 'Nelna Farm farm-to-table supply chain' },
-  { src: gallery07, alt: 'Nelna Farm certified food production' },
   { src: gallery08, alt: 'Nelna Farm premium brand showcase' },
 ]
 
