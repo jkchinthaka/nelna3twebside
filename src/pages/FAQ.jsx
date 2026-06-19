@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ChevronDown } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading.jsx'
-import { Button, EmptyState, Input } from '../components/ui/index.js'
+import { EmptyState, Input } from '../components/ui/index.js'
 import { faqs } from '../data/faqs.js'
 
 const categoryMap = {
@@ -128,21 +129,25 @@ function FAQ() {
         />
       )}
 
-      <section className="surface-card surface-brand-green">
-        <h2 className="font-display text-2xl font-bold">Need more help?</h2>
-        <p className="mt-2 text-sm text-nelna-white/90">
-          Contact our support and sales team for product guidance, distributor assistance, or quality documentation.
-        </p>
-        <div className="mt-4">
-          <Button
-            type="button"
-            variant="secondary"
-            onClick={() => {
-              window.location.href = '/contact'
-            }}
-          >
+      <section
+        className="overflow-hidden rounded-2xl border border-nelna-gold-soft bg-nelna-green-dark px-6 py-8 shadow-card md:flex md:items-center md:justify-between md:gap-8 md:px-10 md:py-10"
+        aria-labelledby="faq-help-heading"
+      >
+        <div className="max-w-2xl">
+          <p className="mb-3 inline-flex rounded-full border border-nelna-gold-soft bg-nelna-gold-soft px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-nelna-gold">
+            Support
+          </p>
+          <h2 id="faq-help-heading" className="font-display text-2xl font-bold !text-nelna-white md:text-[1.75rem]">
+            Need more help?
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed !text-nelna-white/90 md:text-base">
+            Contact our support and sales team for product guidance, distributor assistance, or quality documentation.
+          </p>
+        </div>
+        <div className="mt-6 shrink-0 md:mt-0">
+          <Link to="/contact" className="btn-secondary rounded-pill px-8">
             Contact Support
-          </Button>
+          </Link>
         </div>
       </section>
     </div>
