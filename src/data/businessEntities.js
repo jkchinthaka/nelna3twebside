@@ -57,8 +57,9 @@ export const entities = [
     color: "bg-brand-green",
     themeColor: "brand-green",
     shortDesc: "Agricultural development & cultivation.",
-    description: `Nelna Agri Development (Pvt) Ltd is the youngest member of the great Nelna Group of Companies that ventures into finding the best essence of tongue thrillers in the natural world. Our Managing director, who is always keen on introducing something new and invigorating to the nation, stumbled upon this stimulating mango variety, which gave him a new vision.`,
-    description2: `Therefore, he envisioned the space of our farms to be filled with the lush greenery of Mangoes, and air to be scented with its enchanting aroma. There onwards we gathered the necessary tools and the much-needed expertise to start off this project by covering a total cultivated land area of 720 acres in the deep South-East region of the country.`,
+    description: `Nelna Agri Development (Pvt) Ltd is the youngest member of the great Nelna Group of Companies that ventures into finding the best the natural world has to offer, to our consumers. Our Managing Director, who is always keen on introducing something new and invigorating to the nation, stumbled upon this stimulating mango variety, which gave him a new vision.`,
+    description2: `Therefore, he envisioned vacant space in our farms filled with the lush greenery and bulbs of yellow from the luscious fruit. From that day on, we gathered the necessary tools and the much-needed expertise to start off this project. Today, our total cultivation covers a land area of 720 acres in the deep South-East region of the country.`,
+
     extraAction: { label: "Visit Nelna Mango", url: "https://nelnamango.com", external: true },
      stats: [
         { label: "Cultivation", value: "720 Acres" },
