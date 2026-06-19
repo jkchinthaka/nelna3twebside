@@ -1,7 +1,7 @@
 import processImg01 from '../assets/nelna-gallery-22.jpg'
 import processImg02 from '../assets/nelna-gallery-08.jpg'
 import processImg03 from '../assets/nelna-gallery-07.jpg'
-import processImg04 from '../assets/nelna-gallery-06.jpg'
+import processImg04 from '../assets/Cold-Chain Distribution.png'
 
 export const processTimeline = [
   {
