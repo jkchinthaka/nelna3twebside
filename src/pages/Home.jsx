@@ -223,18 +223,14 @@ function Home() {
                         {
                            quote:
                               "Nelna's consistency is unmatched. I can rely on them for every banquet and every service.",
-                           name: 'Chef Anura Perera',
-                           role: 'Executive Chef, Colombo Hotel Group',
                         },
                         {
                            quote: 'Our customers immediately noticed the difference in tenderness when we switched to Nelna.',
-                           name: 'Mrs. Shalini Dias',
-                           role: 'Owner, FreshMart Supermarkets',
+
                         },
                         {
                            quote: 'As an exporter, I need guarantees on safety standards. Nelna delivers every single time.',
-                           name: 'Imran Kareem',
-                           role: 'Director, Lanka Foods Export',
+                           
                         },
                      ]}
                   />
