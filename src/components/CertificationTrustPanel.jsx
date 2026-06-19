@@ -33,6 +33,8 @@ function CertificationTrustPanel() {
                   className="cert-trust-panel__logo-img"
                   loading="lazy"
                   decoding="async"
+                  width={160}
+                  height={120}
                 />
               ) : (
                 <span className="cert-trust-panel__logo-fallback" aria-hidden="true">

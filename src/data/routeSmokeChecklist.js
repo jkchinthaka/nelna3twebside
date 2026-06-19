@@ -5,7 +5,18 @@
  */
 export const ROUTE_SMOKE_CHECKLIST = [
   { path: '/', label: 'Home' },
-  { path: '/quality-safety', label: 'Quality & Safety' },
   { path: '/about', label: 'About' },
+  { path: '/quality-safety', label: 'Quality & Safety' },
   { path: '/contact', label: 'Contact' },
+  { path: '/process', label: 'Process' },
+  { path: '/sustainability', label: 'Sustainability' },
+  { path: '/certifications', label: 'Certifications' },
+  { path: '/traceability', label: 'Traceability' },
+  { path: '/faq', label: 'FAQ' },
+  { path: '/news', label: 'News' },
+  { path: '/privacy', label: 'Privacy' },
+  { path: '/terms', label: 'Terms' },
+  { path: '/portal', label: 'Portal Login' },
+  { path: '/admin', label: 'Admin' },
+  { path: '/distributor', label: 'Distributor' },
 ]

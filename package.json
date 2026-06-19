@@ -9,6 +9,8 @@
     "postinstall": "node scripts/cloudflare-pages-build.mjs",
     "lint": "eslint .",
     "audit:colors": "node scripts/audit-colors.mjs",
+    "audit:routes": "node scripts/audit-routes.mjs",
+    "check:all": "npm run lint && npm run audit:routes && npm run audit:colors && npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -24,7 +26,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-i18next": "^16.5.3",
-    "react-router-dom": "^7.12.0",
+    "react-router-dom": "^7.18.0",
     "swiper": "^12.0.3",
     "tailwind-merge": "^3.4.0",
     "three": "^0.184.0"

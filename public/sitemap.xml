@@ -10,6 +10,7 @@
   <url><loc>https://nelna.lk/certifications</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://nelna.lk/traceability</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://nelna.lk/news</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nelna.lk/products</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://nelna.lk/faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://nelna.lk/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://nelna.lk/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>

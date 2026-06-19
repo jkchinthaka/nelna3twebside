@@ -63,7 +63,7 @@ function QualitySafety() {
   return (
     <div className="w-full bg-nelna-green-soft">
       {/* Hero */}
-      <div className="relative h-[60vh] min-h-[500px] w-full overflow-hidden bg-nelna-green-dark">
+      <div className="relative h-[50svh] min-h-[18rem] w-full overflow-hidden bg-nelna-green-dark md:h-[60vh] md:min-h-[500px]">
         <div className="absolute inset-0">
           <OptimizedPicture
             picture={qualityHeroPicture}
@@ -87,7 +87,7 @@ function QualitySafety() {
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
               <span>World-Class Standards</span>
             </div>
-            <h1 className="mb-6 font-display text-4xl font-bold leading-tight !text-nelna-white drop-shadow-xl md:text-6xl">
+            <h1 className="mb-6 font-display text-[clamp(1.75rem,6vw,3.75rem)] font-bold leading-tight !text-nelna-white drop-shadow-xl">
               Safety is not just a protocol.
               <br />
               It is our <span className="text-nelna-gold">commitment</span>.
