@@ -18,9 +18,9 @@ const REQUIRED = [
   'recipe2.jpg',
 ]
 
-function assetsFromPartnersJs() {
+function assetsFromBusinessNetworkLogos() {
   try {
-    const src = readFileSync(join(ROOT, 'src', 'data', 'partners.js'), 'utf8')
+    const src = readFileSync(join(ROOT, 'src', 'data', 'businessNetworkLogos.js'), 'utf8')
     return [...src.matchAll(/from '\.\.\/assets\/([^']+)'/g)].map((m) => m[1])
   } catch {
     return []
@@ -29,7 +29,7 @@ function assetsFromPartnersJs() {
 
 const missing = []
 
-for (const file of [...REQUIRED, ...assetsFromPartnersJs()]) {
+for (const file of [...REQUIRED, ...assetsFromBusinessNetworkLogos()]) {
   const path = join(ASSETS, file)
   if (!existsSync(path)) {
     missing.push(`src/assets/${file}`)
@@ -47,4 +47,4 @@ if (missing.length > 0) {
   process.exit(1)
 }
 
-console.log(`Asset verification passed (${REQUIRED.length + assetsFromPartnersJs().length} paths checked).`)
+console.log(`Asset verification passed (${REQUIRED.length + assetsFromBusinessNetworkLogos().length} paths checked).`)
