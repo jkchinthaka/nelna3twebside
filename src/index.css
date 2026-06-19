@@ -2040,8 +2040,18 @@ textarea,
     height: 56px;
   }
 
+  body:has(.hero-home) .whatsapp-fab {
+    bottom: max(11.5rem, calc(env(safe-area-inset-bottom, 0px) + 10.5rem));
+  }
+
   .site-footer__shell {
     padding-bottom: max(5rem, calc(env(safe-area-inset-bottom, 0px) + 4rem));
+  }
+}
+
+@media (min-width: 768px) {
+  body:has(.hero-home) .whatsapp-fab {
+    bottom: max(6.5rem, calc(env(safe-area-inset-bottom, 0px) + 1.5rem));
   }
 }
 
@@ -2298,18 +2308,38 @@ textarea,
   color: var(--nelna-green-dark);
 }
 
-.achievement-bar {
+.achievement-bar-anchor {
   position: absolute;
   left: 50%;
-  right: auto;
   bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
-  z-index: 10;
-  width: min(68.75rem, calc(100% - 1.5rem));
-  max-width: calc(100% - 1.5rem);
-  margin-inline: auto;
+  z-index: 20;
+  width: calc(100% - 1rem);
+  max-width: 73.75rem;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+@media (min-width: 480px) {
+  .achievement-bar-anchor {
+    width: calc(100% - 1.5rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .achievement-bar-anchor {
+    width: calc(100% - 2rem);
+    bottom: clamp(24px, 6vh, 72px);
+  }
+}
+
+.achievement-bar {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
   padding: 0.625rem 0.75rem;
   border-radius: 1rem;
-  transform: translateX(-50%);
   box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.92);
   background: rgba(255, 255, 255, 0.96);
@@ -2317,13 +2347,11 @@ textarea,
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   pointer-events: auto;
+  overflow: visible;
 }
 
 @media (min-width: 768px) {
   .achievement-bar {
-    width: min(68.75rem, calc(100% - 3rem));
-    max-width: calc(100% - 3rem);
-    bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
     padding: 1rem 1.5rem;
     border-radius: 1.5rem;
   }
@@ -2407,6 +2435,7 @@ textarea,
   font-weight: 800;
   line-height: 1.1;
   color: var(--brand-green);
+  overflow-wrap: anywhere;
 }
 
 .achievement-bar__number--accent {

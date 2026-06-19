@@ -49,14 +49,15 @@ function AchievementStatsBar() {
   const prefersReducedMotion = useReducedMotion()
 
   return (
-    <motion.div
-      role="region"
-      aria-labelledby="achievement-stats-heading"
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, delay: 0.15 }}
-      className="achievement-bar"
-    >
+    <div className="achievement-bar-anchor">
+      <motion.div
+        role="region"
+        aria-labelledby="achievement-stats-heading"
+        initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, delay: 0.15 }}
+        className="achievement-bar"
+      >
       <h2 id="achievement-stats-heading" className="sr-only">
         Nelna Farm achievements and credibility
       </h2>
@@ -85,9 +86,10 @@ function AchievementStatsBar() {
           )
         })}
       </dl>
-    </motion.div>
+      </motion.div>
+    </div>
   )
 }
 
 export default AchievementStatsBar
-
+
