@@ -381,7 +381,7 @@ function Contact() {
               />
 
               <div className="md:col-span-2 space-y-3 pt-1">
-                <Button type="submit" loading={status === 'loading'} variant="primary">
+                <Button type="submit" loading={status === 'loading'} variant="primary" className="w-full sm:w-auto">
                   Send Message
                 </Button>
                 {status === 'success' ? (

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Lock, ShieldCheck } from 'lucide-react'
 import useAuth from '../context/useAuth.js'
 import { Button, Input } from '../components/ui/index.js'
-import logo from '../assets/nelna-logo.jpg'
+import logo from '../assets/nelna-logo.png'
 
 function Login() {
   const { t } = useTranslation()

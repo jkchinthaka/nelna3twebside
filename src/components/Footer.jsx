@@ -146,14 +146,11 @@ function Footer() {
               </li>
               <li>
                 <Phone className="site-footer__contact-icon" aria-hidden="true" />
-                <span>
-                  {TELEPHONES.map((phone, index) => (
-                    <span key={phone.tel}>
-                      {index > 0 ? ' / ' : null}
-                      <a href={`tel:${phone.tel}`} className="site-footer__link">
-                        {phone.display}
-                      </a>
-                    </span>
+                <span className="site-footer__phones">
+                  {TELEPHONES.map((phone) => (
+                    <a key={phone.tel} href={`tel:${phone.tel}`} className="site-footer__link">
+                      {phone.display}
+                    </a>
                   ))}
                 </span>
               </li>

@@ -10,7 +10,7 @@ const ROOT = process.cwd()
 const ASSETS = join(ROOT, 'src', 'assets')
 
 const REQUIRED = [
-  'nelna-logo.jpg',
+  'nelna-logo.png',
   'Vector Smart Object.png',
 ]
 

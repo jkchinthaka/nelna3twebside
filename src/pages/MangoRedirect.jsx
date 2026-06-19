@@ -1,5 +1,5 @@
 import BrandRedirectLoader from '../components/BrandRedirectLoader.jsx'
-import nelnaLogo from '../assets/nelna-logo.jpg'
+import nelnaLogo from '../assets/nelna-logo.png'
 import mango3dLogo from '../assets/mongo3dlogo.png'
 
 const REDIRECT_URL = 'https://nelnamango.com/'

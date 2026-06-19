@@ -7,7 +7,7 @@ import {
   LogOut, Phone, Mail, MapPin, Search, ArrowRight 
 } from 'lucide-react'
 import useAuth from '../context/useAuth.js'
-import logo from '../assets/nelna-logo.jpg'
+import logo from '../assets/nelna-logo.png'
 
 // Top Bar Component
 const TopBar = () => (

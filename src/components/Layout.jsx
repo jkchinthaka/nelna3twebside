@@ -134,7 +134,7 @@ function Layout() {
       <Navbar />
       <main
         id="main-content"
-        className={`pt-header-offset ${isPortalRoute ? '' : 'public-content-readability'}`}
+        className={`pt-header-offset ${isPortalRoute ? '' : 'public-content-readability pb-28 md:pb-10'}`}
         tabIndex={-1}
       >
         <Outlet />

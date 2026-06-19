@@ -14,7 +14,7 @@ import {
   X,
 } from 'lucide-react'
 import useAuth from '../context/useAuth.js'
-import logo from '../assets/nelna-logo.jpg'
+import logo from '../assets/nelna-logo.png'
 import {
   COMPANY_LOCATION_SHORT,
   MAP_LINK,
@@ -363,7 +363,20 @@ function Navbar() {
             ) : null}
           </div>
 
-          <div className="ml-auto flex items-center gap-2 lg:hidden">
+          <div className="ml-auto flex items-center gap-1.5 sm:gap-2 lg:hidden">
+            <a
+              href={`tel:${PRIMARY_PHONE.tel}`}
+              className="inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-brand-green-200 bg-brand-green-50 text-brand-green-800 transition hover:bg-brand-green-100"
+              aria-label={`Call ${PRIMARY_PHONE.display}`}
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <Link
+              to="/contact"
+              className="inline-flex min-h-[44px] max-w-[9.5rem] items-center justify-center truncate rounded-full bg-brand-green px-3 text-xs font-bold text-nelna-white shadow-sm transition hover:brightness-95 sm:max-w-none sm:px-4 sm:text-sm"
+            >
+              Contact Sales
+            </Link>
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
@@ -383,6 +396,8 @@ function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[70] bg-nelna-dark/52 backdrop-blur-[2px] lg:hidden"
+            onClick={closeMobile}
+            role="presentation"
           >
             <motion.aside
               initial={{ x: '100%' }}
@@ -391,6 +406,7 @@ function Navbar() {
               transition={{ type: 'tween', duration: 0.2 }}
               className="ml-auto flex h-full w-full max-w-[23rem] flex-col border-l border-nelna-dark-soft bg-gradient-to-b from-nelna-white via-nelna-white to-brand-green-50/35"
               aria-label="Mobile navigation panel"
+              onClick={(event) => event.stopPropagation()}
             >
               <div className="flex items-center justify-between border-b border-nelna-dark-soft px-5 py-4">
                 <div className="inline-flex items-center gap-2.5">
@@ -466,7 +482,7 @@ function Navbar() {
                                     to={item.to}
                                     onClick={closeMobile}
                                     className={({ isActive }) =>
-                                      `block rounded-lg px-3 py-2 text-nav transition ${
+                                      `flex min-h-[44px] items-center rounded-lg px-3 text-nav transition ${
                                         isActive
                                           ? 'bg-brand-green-50 font-semibold text-brand-green-800'
                                           : 'text-nelna-dark/90 hover:bg-nelna-green-soft'
