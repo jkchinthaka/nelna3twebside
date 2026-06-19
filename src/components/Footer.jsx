@@ -109,7 +109,7 @@ function Footer() {
               }}
               required
             />
-            <button type="submit" className="btn-yellow site-footer__newsletter-btn">
+            <button type="submit" className="site-footer__newsletter-btn">
               Subscribe
             </button>
           </form>
